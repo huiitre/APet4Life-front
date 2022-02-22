@@ -45,6 +45,7 @@ module.exports = merge(common, {
   },
 
   devServer: {
+    allowedHosts: 'all', //! en gros, ça veut dire qu'on autorise l'accès à tout le monde -> https://dev.to/sanamumtaz/webpack-dev-server-external-access-fix-invalid-host-header-g81
     client: {
       overlay: true,
       logging: 'warn',
