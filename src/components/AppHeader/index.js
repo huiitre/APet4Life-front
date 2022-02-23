@@ -40,3 +40,32 @@ const AppHeader = () =>
     </header>
   );
 export default AppHeader;
+// useEffect(
+//   () => {
+//     window.addEventListener('resize', handleResize);
+//   },
+// );
+
+// console.log(state.width);
+
+//* je stocke le résultat de la var "test" dans le state
+//* ensuite, je récupère ce state et j'affiche le composant voulu selon certaines conditions
+
+  (
+    <header className="app-header">
+      {/* {state.width > 600 && (
+        <>
+          <Header />
+          <Nav />
+        </>
+      )}
+      {state.width <= 600 && (
+        <Burger />
+      )} */}
+      <Header />
+      <Nav />
+      <Burger />
+
+    </header>
+  );
+export default AppHeader;
