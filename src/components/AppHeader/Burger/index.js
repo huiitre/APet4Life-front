@@ -8,7 +8,7 @@ const Burger = () => {
 
   return (
     <div className="burger">
-      <Menu right pageWrapId="page-wrap">
+      <Menu right>
         <a onClick={showSettings} id="home" className="menu-item" href="/">Homeee</a>
         <a onClick={showSettings} id="about" className="menu-item" href="/about">About</a>
         <a onClick={showSettings} id="contact" className="menu-item" href="/contact">Contact</a>
