@@ -1,10 +1,19 @@
 @use 'src/styles/vars';
 
 .burger {
-  display : flex;
+  // display : flex;
   
   &__title {
-    
+    position : fixed;
+    left: calc(50% - 50px);
+    top: 36px;
+    width: 100%;
+    font-size: 1.5em;
+    color: vars.$color-dark-blue;
+  }
+
+  & hr {
+    width: 50%;
   }
 }
 
@@ -14,11 +23,11 @@
 
 /* Position and sizing of burger button */
 .bm-burger-button {
-  // position: fixed;
+  position: fixed;
   width: 36px;
   height: 30px;
-  // left: 36px;
-  // top: 36px;
+  left: 36px;
+  top: 36px;
 }
 
 /* Color/shape of burger icon bars */
@@ -67,14 +76,16 @@ Note: Beware of modifying this element as it can break the animations - you shou
 
 /* Wrapper for item list */
 .bm-item-list {
-  color: vars.$color-light-yellow;
-  padding: 0.8em;
+  color: vars.$color-light-gray;
+  padding: 0 0.5rem;
+  line-height: 3rem;
 }
 
 /* Individual item */
 .bm-item {
   display: inline-block;
   text-align: left;
+  font-size: 1.5rem;
 }
 
 /* Styling of overlay */

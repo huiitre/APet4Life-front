@@ -14,6 +14,7 @@ const Burger = () => {
           <a onClick={showSettings} id="about" className="burger__link" href="">Lien 2</a>
           <a onClick={showSettings} id="contact" className="burger__link" href="">Lien 3</a>
           <a onClick={showSettings} className="burger__link" href="">Lien 4</a>
+          <hr />
           <a onClick={showSettings} className="burger__link" href="">Connexion</a>
           <a onClick={showSettings} className="burger__link" href="">Inscription</a>
         </Menu>
