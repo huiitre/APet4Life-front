@@ -12,19 +12,19 @@ const Nav = () => {
     <nav className={`navbar ${showLinks ? 'show-nav' : 'hide-nav'}`}>
       <div className="navbar__logo">Logo</div>
       <ul className="navbar__links">
-        <li className="navbar__item">
+        <li className="navbar__item slideInDown-1">
           <a href="/" className="navbar__link">Accueil</a>
         </li>
-        <li className="navbar__item">
-          <a href="/" className="navbar__link">Accueil</a>
+        <li className="navbar__item slideInDown-2">
+          <a href="/" className="navbar__link">Associations</a>
         </li>
-        <li className="navbar__item">
-          <a href="/" className="navbar__link">Accueil</a>
+        <li className="navbar__item slideInDown-3">
+          <a href="/" className="navbar__link">Adoptés</a>
         </li>
-        <li className="navbar__item">
+        <li className="navbar__item slideInDown-4">
           <a href="/" className="navbar__link">Connexion</a>
         </li>
-        <li className="navbar__item">
+        <li className="navbar__item slideInDown-5">
           <a href="/" className="navbar__link">Inscription</a>
         </li>
       </ul>

@@ -1,5 +1,6 @@
 import './style.scss';
 import logo from 'src/assets/img/logo-pet.jpg';
+import Button from 'src/components/Button';
 
 const Header = () => (
   <div className="header">
@@ -8,6 +9,8 @@ const Header = () => (
     <div className="header__user">
       <button type="button" className="header__user-button">CONNEXION</button>
       <button type="button" className="header__user-button">INSCRIPTION</button>
+      <Button />
+      <Button />
     </div>
   </div>
 );

@@ -1,7 +1,7 @@
 import './style.scss';
 
-const Button = () => (
-  <button type="button" className="" />
+const Button = ({ name, className }) => (
+  <button type="button" className={className}>{name}</button>
 );
 
 export default Button;
