@@ -4,11 +4,11 @@ root = true
 
 [*]
 end_of_line = lf
-insert_final_newline = true
+insert_final_newline = false
 
 [*.html]
 indent_style = tab
-indent_size = 4
+indent_size = 2
 
 [*.js]
 indent_style = space

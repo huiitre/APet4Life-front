@@ -1,19 +1,29 @@
-@import url('https://fonts.googleapis.com/css2?family=Redressed&display=swap');
+@use "src/styles/vars";
 
 .header {
   display: none;
-
-  &__title {
-    font-family: 'Redressed', cursive;
-  }
-
-  &__logo {
-    width: 45px;
-  }
 }
 
-@media (min-width: 600px) {
+@media screen and (min-width: 768px) {
   .header {
     display: flex;
+    justify-content: space-between;
+    color: vars.$color-darker-green;
+    position: fixed;
+    top: 0;
+    // border: 1px solid;
+    min-height: 75px;
+    width: 100%;
+    font-size: 3rem;
+    padding-left: 2rem;
+    
+    &__title {
+        font-family: "Redressed", cursive;
+        padding-left: 7rem;
+    }
+  
+    &__logo {
+      width: 50px;
+    }
   }
 }
