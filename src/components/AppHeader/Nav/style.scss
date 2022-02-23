@@ -13,6 +13,14 @@
   background-color: vars.$color-dark-green;
   color: #FFF;
 
+  &__logo { 
+    width: 50px;  
+  }
+
+  &__title { 
+    font-size: 1.2rem;  
+  }
+  
   &__links { 
     display: flex;   
   }
