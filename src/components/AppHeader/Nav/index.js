@@ -1,7 +1,7 @@
 import './style.scss';
 
 const Nav = () => (
-  <nav className="head__nav">
+  <nav className="nav">
     <span>lien 1</span>
     <span>lien 2</span>
     <span>lien 3</span>
