@@ -1,1 +1,17 @@
+.header {
+  display: none;
 
+  &__title {
+    font-family: 'Redressed', cursive;
+  }
+
+  &__logo {
+    width: 45px;
+  }
+}
+
+@media (min-width: 768px) {
+  .header {
+    display: flex;
+  }
+}
