@@ -3,7 +3,7 @@ import Nav from 'src/components/AppHeader/Nav';
 import Header from 'src/components/AppHeader/Header';
 
 const AppHeader = () => (
-  <header className="head">
+  <header className="app-header">
     <Header />
     <Nav />
   </header>
