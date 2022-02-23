@@ -1,11 +1,19 @@
 import './style.scss';
+import { slide as Menu } from 'react-burger-menu';
 
-const Nav = () => (
-  <nav className="nav">
-    <span>lien 1</span>
-    <span>lien 2</span>
-    <span>lien 3</span>
-  </nav>
-);
+const Nav = () => {
+  const showSettings = (event) => {
+    event.preventDefault();
+  };
+
+  return (
+    <Menu right pageWrapId="page-wrap">
+      <a onClick={showSettings} id="home" className="menu-item" href="/">Homeee</a>
+      <a onClick={showSettings} id="about" className="menu-item" href="/about">About</a>
+      <a onClick={showSettings} id="contact" className="menu-item" href="/contact">Contact</a>
+      <a onClick={showSettings} className="menu-item--small" href="">Settings</a>
+    </Menu>
+  );
+};
 
 export default Nav;
