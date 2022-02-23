@@ -1,5 +1,5 @@
 import './style.scss';
-import { useEffect } from 'react';
+// import { useEffect } from 'react';
 import Nav from 'src/components/AppHeader/Nav';
 import Header from 'src/components/AppHeader/Header';
 import Burger from 'src/components/AppHeader/Burger';

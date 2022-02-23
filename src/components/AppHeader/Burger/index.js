@@ -8,12 +8,17 @@ const Burger = () => {
 
   return (
     <div className="burger">
-      <Menu right>
-        <a onClick={showSettings} id="home" className="menu-item" href="/">Homeee</a>
-        <a onClick={showSettings} id="about" className="menu-item" href="/about">About</a>
-        <a onClick={showSettings} id="contact" className="menu-item" href="/contact">Contact</a>
-        <a onClick={showSettings} className="menu-item--small" href="">Settings</a>
-      </Menu>
+      <div>
+        <Menu right>
+          <a onClick={showSettings} id="home" className="burger__link" href="">Lien 1</a>
+          <a onClick={showSettings} id="about" className="burger__link" href="">Lien 2</a>
+          <a onClick={showSettings} id="contact" className="burger__link" href="">Lien 3</a>
+          <a onClick={showSettings} className="burger__link" href="">Lien 4</a>
+          <a onClick={showSettings} className="burger__link" href="">Connexion</a>
+          <a onClick={showSettings} className="burger__link" href="">Inscription</a>
+        </Menu>
+      </div>
+      <h1 className="burger__title">A Pet 4 Life</h1>
     </div>
   );
 };
