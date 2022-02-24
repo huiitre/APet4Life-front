@@ -1,26 +1,31 @@
 @use 'src/styles/vars';
 
 // mon button
-/* .header__user-button {
+.header__user-button {
   border: none;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-weight: bold;
   color: #fff;
-  box-shadow: 0px 5px 9px 0px rgba(0,0,0,0.5);
-  -webkit-box-shadow: 0px 5px 9px 0px rgba(0,0,0,0.5);
-  -moz-box-shadow: 0px 5px 9px 0px rgba(0,0,0,0.5);
-  border-radius: 25px;
+  box-shadow: 2px 2px 4px 0.1px rgba(0,0,0,0.5);
+  -webkit-box-shadow: 2px 2px 4px 0.1px rgba(0,0,0,0.5);
+  -moz-box-shadow: 2px 2px 4px 0.1px rgba(0,0,0,0.5);
+  border-radius: 5px;
   letter-spacing: 0.20rem;
   font-size: 12px;
   padding: 0.5rem 1rem;
 }
+.header__user-button:active {
+  box-shadow: none;
+}
 
 .button--connexion {
-  background: linear-gradient(135deg, #c4c4c4 60%, #828283 100%);
+  background: vars.$color-darker-green;
 }
-.button--connexion:hover {
-  width: 110%;
-  height: 50%;
-} */
+.button--subscribe {
+  background: vars.$color-light-gray;
+}
+.button--disconnect {
+  background: vars.$color-light-gray;
+}
