@@ -8,6 +8,7 @@ const Header = () => (
     <h1 className="header__title">A Pet 4 Life</h1>
     <div className="header__user">
       <Button name="CONNEXION" className="header__user-button button--connexion" />
+      <Button name="INSCRIPTION" className="header__user-button button--subscribe" />
     </div>
   </div>
 );
