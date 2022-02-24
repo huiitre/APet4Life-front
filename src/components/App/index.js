@@ -15,24 +15,6 @@ const App = () => (
       <p>
         salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ?
       </p>
-      <p>
-        salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ?
-      </p>
-      <p>
-        salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ?
-      </p>
-      <p>
-        salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ?
-      </p>
-      <p>
-        salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ?
-      </p>
-      <p>
-        salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ?
-      </p>
-      <p>
-        salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? ça va bien et toi ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ?
-      </p>
     </div>
     <AppFooter />
   </div>
