@@ -7,14 +7,16 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  padding: 0.8rem 1rem;
+  padding: 1rem;
   width: 100%;
   min-height: 35px;
-  background-color: vars.$color-dark-green;
+  background: linear-gradient(vars.$color-dark-green, vars.$color-darker-green);
   color: #FFF;
+  // background: linear-gradient(#e66465, #9198e5);
 
   &__logo { 
-    width: 50px;  
+    width: 40px;
+    height: 40px;  
   }
 
   &__title { 
@@ -43,6 +45,12 @@
 @media screen and (max-width:767px) {
   .navbar {
     top: 0px;
+
+    &__title {
+      position: fixed;
+      left: calc(50% - 40px);
+    }
+
   }
   .navbar__links {
     flex-direction: column;
@@ -156,7 +164,7 @@
 @media screen and (min-width: 768px) {
   .navbar {
     justify-content: center;
-    top: 70px;
+    top: 55px;
 
     &__logo {
       display: none;
@@ -164,6 +172,10 @@
 
     &__item:nth-last-child(-n+2) {
       display: none;
+    }
+
+    &__title { 
+      display: none;  
     }
   }
 }
