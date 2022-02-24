@@ -12,7 +12,7 @@ const Nav = () => {
   return (
     <nav className={`navbar ${showLinks ? 'show-nav' : 'hide-nav'}`}>
       <img className="navbar__logo" src={logo} alt="logo" />
-      <h1 className="navbar__title" >A Pet 4 Life</h1>
+      <h1 className="navbar__title">A Pet 4 Life</h1>
       <ul className="navbar__links">
         <li className="navbar__item slideInDown-1">
           <a href="/" className="navbar__link">Accueil</a>
