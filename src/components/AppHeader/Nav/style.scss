@@ -10,8 +10,9 @@
   padding: 0.8rem 1rem;
   width: 100%;
   min-height: 35px;
-  background-color: vars.$color-dark-green;
+  background: linear-gradient(vars.$color-dark-green, vars.$color-darker-green);
   color: #FFF;
+  // background: linear-gradient(#e66465, #9198e5);
 
   &__logo { 
     width: 50px;  
@@ -43,6 +44,12 @@
 @media screen and (max-width:767px) {
   .navbar {
     top: 0px;
+
+    &__title {
+      position: fixed;
+      left: calc(50% - 50px);
+    }
+
   }
   .navbar__links {
     flex-direction: column;
@@ -164,6 +171,10 @@
 
     &__item:nth-last-child(-n+2) {
       display: none;
+    }
+
+    &__title { 
+      display: none;  
     }
   }
 }
