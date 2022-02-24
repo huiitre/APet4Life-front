@@ -1,0 +1,47 @@
+@use "src/styles/vars";
+
+// taille mobile : 
+.footer {
+  // height: 4rem;
+  background: linear-gradient(vars.$color-dark-green, vars.$color-darker-green);
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  // flex-wrap: wrap;
+
+  &__links {
+    display: flex;
+    padding: 1.8rem 1rem;
+    color: #fff;
+    text-align: center;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  &__links > a {
+    margin-left : 2rem;
+  }
+  
+  &__socials {
+    
+    padding: 0.7rem 1rem;
+    text-align: center;
+
+    &-item {
+      width: 3rem;
+      margin-left: 1.5rem;
+    }
+  }
+
+  //version desktop
+  @media screen and (min-width: 786px) {
+
+  }
+  // &__links > a::before {
+  //   content : "- ";
+  // }
+}
+
