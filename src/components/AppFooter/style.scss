@@ -1,0 +1,61 @@
+@use "src/styles/vars";
+
+// taille mobile : 
+.footer {
+  background: linear-gradient(vars.$color-dark-green, vars.$color-darker-green);
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
+  &__links {
+    display: flex;
+    padding: 1rem 1rem;
+    color: #fff;
+    text-align: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  &__links > a,
+  &__links > p {
+    margin-top: 0.5rem;
+    
+  }
+  
+  &__socials {
+    
+    padding: 0.7rem 1rem;
+    text-align: center;
+
+    &-item {
+      width: 3rem;
+      margin: 0 1rem;
+    }
+  }
+
+  //version desktop
+  @media screen and (min-width: 600px) {
+    &__links {
+      flex-direction: row;
+      align-items: center;
+    }
+    &__links > a,
+    &__links > p {
+      margin: 0 1rem;
+      // align-self: center; remplace le align-items: center; du parent (&__links)
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    & {
+      justify-content: space-between;
+      flex-direction: row;
+    }
+  }
+  // &__links > a::before {
+  //   content : "- ";
+  // }
+}
+
