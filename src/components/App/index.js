@@ -1,6 +1,7 @@
 // == Import
 import './style.scss';
 import AppHeader from 'src/components/AppHeader';
+import AppFooter from 'src/components/AppFooter';
 
 // == Composant
 const App = () => (
@@ -33,7 +34,7 @@ const App = () => (
         salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? ça va bien et toi ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ?
       </p>
     </div>
-    <footer />
+    <AppFooter />
   </div>
 );
 

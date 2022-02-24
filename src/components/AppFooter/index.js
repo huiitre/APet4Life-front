@@ -1,7 +1,13 @@
 import './style.scss';
 
 const AppFooter = () => (
-  <div className="" />
+
+  <footer className="app-footer">
+    <div className="footer">
+      Footer
+    </div>
+  </footer>
+
 );
 
 export default AppFooter;
