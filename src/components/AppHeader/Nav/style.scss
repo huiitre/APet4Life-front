@@ -7,7 +7,7 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  padding: 0.8rem 1rem;
+  padding: 1rem;
   width: 100%;
   min-height: 35px;
   background: linear-gradient(vars.$color-dark-green, vars.$color-darker-green);
@@ -15,7 +15,8 @@
   // background: linear-gradient(#e66465, #9198e5);
 
   &__logo { 
-    width: 50px;  
+    width: 40px;
+    height: 40px;  
   }
 
   &__title { 
@@ -47,7 +48,7 @@
 
     &__title {
       position: fixed;
-      left: calc(50% - 50px);
+      left: calc(50% - 40px);
     }
 
   }
@@ -163,7 +164,7 @@
 @media screen and (min-width: 768px) {
   .navbar {
     justify-content: center;
-    top: 70px;
+    top: 55px;
 
     &__logo {
       display: none;
