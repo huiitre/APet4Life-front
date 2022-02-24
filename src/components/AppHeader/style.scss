@@ -1,0 +1,9 @@
+.app-header {
+  height: 70px;
+}
+
+@media screen and (min-width: 768px) {
+  .app-header {
+    height: 125px;
+  }
+}
