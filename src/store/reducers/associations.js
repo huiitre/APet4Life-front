@@ -10,6 +10,7 @@ export const initialState = {
 
 // A noter : pour le reducer recipesReducer, seule la tranche recipes est visible !
 const reducer = (state = initialState, action = {}) => {
+  return state;
 };
 
 export default reducer;
