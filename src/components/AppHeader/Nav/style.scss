@@ -12,6 +12,7 @@
   min-height: 35px;
   background: linear-gradient(vars.$color-dark-green, vars.$color-darker-green);
   color: #FFF;
+  z-index: 1000;
   // background: linear-gradient(#e66465, #9198e5);
 
   &__logo { 

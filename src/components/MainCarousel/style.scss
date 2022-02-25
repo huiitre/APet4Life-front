@@ -1,0 +1,35 @@
+.swiper {
+  max-height: calc(100vh - 125px);
+  
+  &__img {
+    width: 100%;
+    max-height: calc(100vh - 125px);
+  }
+
+  &__content {
+    display: none;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 90%;
+    box-shadow: inset;
+    &__img {
+      max-height: 100%;
+    }
+  }
+
+  @media screen and (min-width: 1200px) {
+    &__content {
+      display: block;
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      color: #ffffffa4;
+      font-size: 2rem;
+      max-width: 60%;
+      line-height: 3rem;
+      text-shadow: 10px 10px 20px #000000;
+      font-style: italic;
+    }
+  }
+}
