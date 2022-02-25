@@ -1,5 +1,5 @@
 import './style.scss';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 import { Button as ButtonSem } from 'semantic-ui-react';
 
 const Button = ({ name, className }) => (
