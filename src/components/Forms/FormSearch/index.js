@@ -1,52 +1,36 @@
 import './style.scss';
 import Button from 'src/components/Button';
+import { useSelector } from 'react-redux';
 
 const FormSearch = () => {
-  const arrayReg = [];
-  for (let i = 1; i < 20; i++) {
-    arrayReg.push(`Régioooooooooo ooooooo oooooon ${i}`);
-  }
-
-  const arrayDept = [];
-  for (let i = 1; i < 100; i++) {
-    arrayDept.push(`Départem eeeeeeeeee eeeeeent ${i}`);
-  }
-
+  const regionsList = useSelector((state) => state.associations.regionsList);
   return (
-    <div className="form-container">
-      <div className="form-search">
+    <div className="form-search">
+      <form className="form">
+        <p>Cherchez une association :</p>
 
-        <form className="form">
+        <select className="form__select" name="pets" id="pet-select">
+          <option value="">Régions</option>
+        </select>
 
-          <p>Cherchez une association :</p>
+        <select className="form__select" name="pets" id="pet-select">
+          <option value="">Départements</option>
+        </select>
+        <p>
+          ou
+          <br />
+          Entrez votre code postal :
+        </p>
 
-          <select className="form__select" name="pets" id="pet-select">
-            <option value="">Régions</option>
-            {
-            arrayReg.map(
-              (value) => <option value={value}>{value}</option>,
-            )
-          }
-          </select>
+        <input className="form__search" type="text" placeholder="Search..." />
 
-          <select className="form__select" name="pets" id="pet-select">
-            <option value="">Départements</option>
-            {
-            arrayDept.map(
-              (value) => <option value={value}>{value}</option>,
-            )
-          }
-          </select>
-          <p>ou<br />Entrez votre code postal :</p>
-
-          <input className="form__search" type="text" placeholder="Search..." />
-
-          <Button type="submit" name="Lancer la recherche" className="form__button" />
-          {/* <input className="form__submit" type="submit" value="Lancer la recherche" /> */}
-
-        </form>
-
-      </div>
+        <Button
+          type="submit"
+          name="Lancer la recherche"
+          className="form__button"
+        />
+        {/* <input className="form__submit" type="submit" value="Lancer la recherche" /> */}
+      </form>
     </div>
   );
 };
