@@ -13,38 +13,40 @@ const FormSearch = () => {
   }
 
   return (
-    <div className="form-search">
+    <div className="form-container">
+      <div className="form-search">
 
-      <form className="form">
+        <form className="form">
 
-        <p>Cherchez une association :</p>
+          <p>Cherchez une association :</p>
 
-        <select className="form__select" name="pets" id="pet-select">
-          <option value="">Régions</option>
-          {
+          <select className="form__select" name="pets" id="pet-select">
+            <option value="">Régions</option>
+            {
             arrayReg.map(
               (value) => <option value={value}>{value}</option>,
             )
           }
-        </select>
+          </select>
 
-        <select className="form__select" name="pets" id="pet-select">
-          <option value="">Départements</option>
-          {
+          <select className="form__select" name="pets" id="pet-select">
+            <option value="">Départements</option>
+            {
             arrayDept.map(
               (value) => <option value={value}>{value}</option>,
             )
           }
-        </select>
-        <p>ou<br />Entrez votre code postal :</p>
+          </select>
+          <p>ou<br />Entrez votre code postal :</p>
 
-        <input className="form__search" type="text" placeholder="Search..." />
+          <input className="form__search" type="text" placeholder="Search..." />
 
-        <Button type="submit" name="Lancer la recherche" className="form__button" />
-        {/* <input className="form__submit" type="submit" value="Lancer la recherche" /> */}
+          <Button type="submit" name="Lancer la recherche" className="form__button" />
+          {/* <input className="form__submit" type="submit" value="Lancer la recherche" /> */}
 
-      </form>
+        </form>
 
+      </div>
     </div>
   );
 };
