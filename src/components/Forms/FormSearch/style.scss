@@ -1,0 +1,100 @@
+@use "src/styles/vars";
+
+// .form-container {
+
+
+
+// }
+
+.form-search {
+
+  border-radius: 10px;
+  text-align: center;
+  background-color: vars.$color-dark-blue;
+  box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
+  color: white;
+  line-height: 2rem;
+  padding: 1rem 0;
+  max-width: 800px;
+
+  
+  p {
+    margin: 1rem 0;
+  }
+}
+
+// .form-search::after {
+
+//   content: "";
+//   background: url("../../../assets/img/form-dogs.jpg") no-repeat center;
+//   background-size: contain;
+//   opacity: 0.5;
+//   top: 0;
+//   left: 0;
+//   bottom: 0;
+//   right: 0;
+//   position: absolute;
+//   z-index: -1; 
+  
+// }
+
+.form {
+  
+  padding-bottom: 1.2rem;
+  align-items: center;
+  // text-align: center;
+  
+  &__select, &__search {
+    // display: inline-block;
+    color: #fff;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    padding: 10px 15px;
+    background-color: vars.$color-dark-green;
+    margin: 0 1rem;
+    width: 14rem;
+    // transition: background-color 0.5 ease-in-out;
+  }
+
+  &__select:hover, &__search:hover {
+   opacity: 0.80;
+  }
+  
+  
+  &__select {
+    margin-top: 0.5rem;
+  }
+
+  &__search {
+    display: block;
+    margin: 0 auto;
+
+      // border: 0;
+      // background-color: transparent;
+      // width: 14rem;
+  //   input {
+  //     border: 0;
+  //     background-color: transparent;
+  //     width: 12rem;
+  
+  //     // &:focus {
+  //     //   outline: none;
+  //     // }
+  //   }
+    
+  //   button, i {
+  //     border: none;
+  //     background: none;
+  //     cursor: pointer;
+  //   }
+    
+  //   select {
+  //     border: none;
+  //   }
+  // }
+}
+
+// .ui.selection, .ui.action {
+//   position: static;
+//   // transform: none;
+ }
