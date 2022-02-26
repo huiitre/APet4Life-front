@@ -32,8 +32,12 @@
     }
 
     /* temporaire le temps de styliser le bouton */
-    &__user-button {
-      margin-right: 1rem;
+    &__user {
+      display: flex;
+
+      .btn {
+        margin-right: 1rem;
+      }
     }
     /* ------------------------------------------ */
   }

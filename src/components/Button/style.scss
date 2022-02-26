@@ -33,6 +33,7 @@
 .btn--signin {
   //? d'abord la clair puis la foncé
   background: linear-gradient(#469e3f,#255b20);
+  font-size: 1rem;
 }
 .btn--signin:active {
   //? d'abord la foncé puis la clair
@@ -41,10 +42,11 @@
 
 //todo Bouton s'inscrire
 .btn--signup {
-  background: linear-gradient(#991b1b,#490e0e);
+  background: linear-gradient(#5FDDFF, #53ADDF);
+  font-size: 1rem;
 }
 .btn--signup:active {
-  background: linear-gradient(#490e0e,#991b1b);
+  background: linear-gradient(#53ADDF,#5FDDFF);
   
 }
 
