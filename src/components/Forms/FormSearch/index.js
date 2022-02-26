@@ -41,7 +41,7 @@ const FormSearch = () => {
 
           <input className="form__search" type="text" placeholder="Search..." />
 
-          <Button type="submit" name="Lancer la recherche" className="form__button" />
+          <Button type="submit" name="Lancer la recherche" className="btn--search" />
           {/* <input className="form__submit" type="submit" value="Lancer la recherche" /> */}
 
         </form>

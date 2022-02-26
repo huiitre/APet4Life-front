@@ -1,55 +1,59 @@
 @use 'src/styles/vars';
 
-// mon button
-.header__user-button {
-  border: none;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-weight: bold;
+//todo style générique pour tous les boutons
+//! NE PAS TOUCHER SANS ACCORD VERBAL DU GIT MASTER (moi 😎)
+.btn {
+  display: block; //? ??
+  font-family: Helvetica;
+  border-top: none;
+  border-left: none;
+  border-right: none;
   color: #fff;
-  box-shadow: 2px 2px 4px 0.1px #00000080;
-  -webkit-box-shadow: 2px 2px 4px 0.1px #00000080;
-  -moz-box-shadow: 2px 2px 4px 0.1px #00000080;
-  border-radius: 5px;
-  letter-spacing: 0.20rem;
-  font-size: 12px;
-  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  transition: 150ms ease;
+  text-align: center;
+  line-height: 50px;
+  padding: 0 10px;
+  font-weight: bold;
+  text-decoration: none;
+  box-shadow: 0px 2px 10px grey;
 }
-.header__user-button:active {
-  box-shadow: none;
+.btn:active {
+  box-shadow: 0px 1px 5px grey;
+  border: none;
+  // color: #fff;
 }
-
-.button--connexion {
-  background: vars.$color-darker-green;
-}
-.button--subscribe {
-  background: vars.$color-light-gray;
-}
-.button--disconnect {
-  background: vars.$color-light-gray;
+.btn:hover {
+  color: #fff;
 }
 
-.form__button {
+/* ---------- Boutons custom en bas ---------- */
 
-    border: none;
-    text-decoration: none;
-    display: inline-block;
-    font-weight: bold;
-    color: #fff;
-    box-shadow: 2px 2px 4px 0.1px rgba(0,0,0,0.5);
-    -webkit-box-shadow: 2px 2px 4px 0.1px rgba(0,0,0,0.5);
-    -moz-box-shadow: 2px 2px 4px 0.1px rgba(0,0,0,0.5);
-    border-radius: 5px;
-    letter-spacing: 0.20rem;
-    font-size: 12px;
-
-    padding: 10px 15px;
-    background-color: vars.$color-dark-green;
-    margin: 1.5rem 0 0.2rem;
-    width: 14rem;
+//todo Bouton Se connecter
+.btn--signin {
+  //? d'abord la clair puis la foncé
+  background: linear-gradient(#469e3f,#255b20);
+}
+.btn--signin:active {
+  //? d'abord la foncé puis la clair
+  background: linear-gradient(#255b20,#469e3f);
 }
 
-.form__button:active {
-  box-shadow: none;
+//todo Bouton s'inscrire
+.btn--signup {
+  background: linear-gradient(#991b1b,#490e0e);
+}
+.btn--signup:active {
+  background: linear-gradient(#490e0e,#991b1b);
+  
+}
+
+//todo Bouton recherche
+.btn--search {
+  background: linear-gradient(#8b50a7, vars.$color-dark-green);
+  width: 40%;
+  margin: 2rem auto 0 auto;
+}
+.btn--search:active {
+  background: linear-gradient(vars.$color-dark-green, #8b50a7);
 }
