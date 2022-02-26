@@ -1,4 +1,6 @@
-import { INSERT_REGIONS_TO_STATE } from '../actions/location';
+/* eslint-disable spaced-comment */
+import { SET_DEPT, SET_REGION } from '../actions/associations';
+import { INSERT_DEPTS_TO_STATE, INSERT_REGIONS_TO_STATE } from '../actions/location';
 
 export const initialState = {
   assocList: [],
@@ -7,6 +9,7 @@ export const initialState = {
   formAssoc: {
     isOpen: false,
     region: '',
+    codeRegion: 0, //? pas obligatoire de stocker le code région dans le state je pense
     dept: '',
     zipCode: '',
   },
@@ -19,6 +22,32 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         regionsList: action.regionsList,
+      };
+    }
+    case INSERT_DEPTS_TO_STATE: {
+      return {
+        ...state,
+        deptsList: action.deptsList,
+      };
+    }
+    case SET_REGION: {
+      return {
+        ...state,
+        formAssoc: {
+          ...state.formAssoc,
+          region: action.region,
+          codeRegion: action.codeRegion,
+          dept: '',
+        },
+      };
+    }
+    case SET_DEPT: {
+      return {
+        ...state,
+        formAssoc: {
+          ...state.formAssoc,
+          dept: action.dept,
+        },
       };
     }
 
