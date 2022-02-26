@@ -3,17 +3,18 @@ import './style.scss';
 //* import composants
 import Page from 'src/components/Page';
 import MainCarousel from 'src/components/MainCarousel';
+import FormSearch from 'src/components/Forms/FormSearch';
 import { Input } from 'semantic-ui-react';
+import Separator from 'src/components/Separator';
 
 const Home = () => (
   <Page>
     <section className="home__carousel">
       <MainCarousel />
     </section>
-    <section>
-      <p>
-        Sun is shining bright ! Sun is shining bright ! Sun is shining bright ! Sun is shining bright ! Sun is shining bright ! Sun is shining bright ! Sun is shining bright ! Sun is shining bright ! Sun is shining bright ! Sun is shining bright ! Sun is shining bright ! Sun is shining bright ! Sun is shining bright ! Sun is shining bright ! Sun is shining bright ! Sun is shining bright ! Sun is shining bright ! Sun is shining bright !
-      </p>
+    <Separator />
+    <section className="home__search">
+      <FormSearch />
     </section>
   </Page>
 );

@@ -1,0 +1,10 @@
+@use "src/styles/vars";
+
+.separator {
+  content: '';
+  background: linear-gradient(vars.$color-dark-green, vars.$color-darker-green);
+  margin: 4rem auto;
+  height: 15px;
+  border-radius: 50%;
+  width: 50%;
+}
