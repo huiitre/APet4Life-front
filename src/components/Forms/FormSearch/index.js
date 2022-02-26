@@ -1,9 +1,12 @@
 import './style.scss';
 import Button from 'src/components/Button';
+
 import { useDispatch, useSelector } from 'react-redux';
 import Select from '../Select';
 import { loadDeptsFromApi } from '../../../store/actions/location';
 import { setDept } from '../../../store/actions/associations';
+
+import backgroundForm from 'src/assets/img/form-dogs.jpg';
 
 const FormSearch = () => {
   const dispatch = useDispatch();
@@ -19,7 +22,7 @@ const FormSearch = () => {
   };
 
   return (
-    <div className="form-search">
+    <div className="container__search">
       <form className="form">
         <p>Cherchez une association :</p>
 
@@ -47,13 +50,14 @@ const FormSearch = () => {
         <input className="form__search" type="text" placeholder="Search..." />
 
         <Button
-          type="submit"
           name="Lancer la recherche"
-          className="form__button"
+          className="btn--search"
         />
         {/* <input className="form__submit" type="submit" value="Lancer la recherche" /> */}
       </form>
+      <img className="form__background" src={backgroundForm} alt="test" />
     </div>
+
   );
 };
 export default FormSearch;
