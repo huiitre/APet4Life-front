@@ -36,7 +36,6 @@ Select.propTypes = {
   name: PropTypes.string.isRequired,
   classNames: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
-  //? non requis car certains select ne génère pas forcément d'event
 };
 
 export default Select;

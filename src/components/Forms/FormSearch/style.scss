@@ -1,12 +1,11 @@
 @use "src/styles/vars";
 
-
 .container__search {
-
   border-radius: 10px;
   text-align: center;
   // background-color: vars.$color-light-green;
-  box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
+  box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24),
+    0 17px 50px 0 rgba(0, 0, 0, 0.19);
   color: white;
   text-shadow: 1px 1px 2px black;
   line-height: 2rem;
@@ -17,28 +16,13 @@
   background-repeat: no-repeat;
   position: relative; // important pour background du form
   overflow: hidden; // important pour background du form
-  
+
   p {
     margin: 1rem 0;
   }
 }
 
-// .form-search::after {
-
-//   content: "";
-//   background: url("../../../assets/img/form-dogs.jpg") no-repeat center;
-//   opacity: 0.5;
-//   top: 0;
-//   left: 0;
-//   bottom: 0;
-//   right: 0;
-//   position: absolute;
-//   z-index: -1; 
-  
-// }
-
 .form {
-  
   padding-bottom: 1.2rem;
   align-items: center;
   // text-align: center;
@@ -55,8 +39,9 @@
     opacity: 0.3;
     margin-top: -8em;
   }
-  
-  &__select, &__search {
+
+  &__select,
+  &__search {
     // display: inline-block;
     color: #fff;
     border: 2px solid #ccc;
@@ -68,11 +53,11 @@
     // transition: background-color 0.5 ease-in-out;
   }
 
-  &__select:hover, &__search:hover {
-   opacity: 0.80;
+  &__select:hover,
+  &__search:hover {
+    opacity: 0.8;
   }
-  
-  
+
   &__select {
     margin-top: 0.5rem;
   }
@@ -80,28 +65,9 @@
   &__search {
     display: block;
     margin: 0 auto;
+  }
 
-      // border: 0;
-      // background-color: transparent;
-      // width: 14rem;
-    
-  //   button, i {
-  //     border: none;
-  //     background: none;
-  //     cursor: pointer;
-  //   }
-    
-  //   select {
-  //     border: none;
-  //   }
-  // }
+  ::placeholder {
+    color: vars.$color-light-green;
+  }
 }
-
-::placeholder {
-  color: vars.$color-light-green;
-}
-
-// .ui.selection, .ui.action {
-//   position: static;
-//   // transform: none;
- }
