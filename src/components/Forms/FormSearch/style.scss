@@ -1,22 +1,22 @@
 @use "src/styles/vars";
 
-// .form-container {
 
-
-
-// }
-
-.form-search {
+.container__search {
 
   border-radius: 10px;
   text-align: center;
-  background-color: vars.$color-dark-blue;
+  // background-color: vars.$color-light-green;
   box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
   color: white;
+  text-shadow: 1px 1px 2px black;
   line-height: 2rem;
   padding: 1rem 0;
   max-width: 800px;
-
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative; // important pour background du form
+  overflow: hidden; // important pour background du form
   
   p {
     margin: 1rem 0;
@@ -27,7 +27,6 @@
 
 //   content: "";
 //   background: url("../../../assets/img/form-dogs.jpg") no-repeat center;
-//   background-size: contain;
 //   opacity: 0.5;
 //   top: 0;
 //   left: 0;
@@ -43,6 +42,19 @@
   padding-bottom: 1.2rem;
   align-items: center;
   // text-align: center;
+  position: relative; // important pour bg du form
+  z-index: 2; // important pour bg du form
+
+  //* gestion du background img https://www.digitalocean.com/community/tutorials/how-to-change-a-css-background-images-opacity-fr
+  &__background {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: auto;
+    opacity: 0.3;
+    margin-top: -8em;
+  }
   
   &__select, &__search {
     // display: inline-block;
@@ -72,15 +84,6 @@
       // border: 0;
       // background-color: transparent;
       // width: 14rem;
-  //   input {
-  //     border: 0;
-  //     background-color: transparent;
-  //     width: 12rem;
-  
-  //     // &:focus {
-  //     //   outline: none;
-  //     // }
-  //   }
     
   //   button, i {
   //     border: none;
@@ -92,6 +95,10 @@
   //     border: none;
   //   }
   // }
+}
+
+::placeholder {
+  color: vars.$color-light-green;
 }
 
 // .ui.selection, .ui.action {

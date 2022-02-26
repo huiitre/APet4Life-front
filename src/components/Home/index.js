@@ -12,48 +12,7 @@ const Home = () => (
     </section>
     <section>
       <p>
-        salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ?
-        salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ?
-        salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ?
-        salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ?
-        salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ?
-        salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ?
-        salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ?
-        salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ?
-        salut ça va ? salut ça va ? salut ça va ? salut ça va ?
-      </p>
-      <p>
-        salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ?
-        salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ?
-        salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ?
-        salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ?
-        salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ?
-        salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ?
-        salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ?
-        salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ?
-        salut ça va ? salut ça va ? salut ça va ? salut ça va ?
-      </p>
-      <p>
-        salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ?
-        salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ?
-        salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ?
-        salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ?
-        salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ?
-        salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ?
-        salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ?
-        salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ?
-        salut ça va ? salut ça va ? salut ça va ? salut ça va ?
-      </p>
-      <p>
-        salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ?
-        salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ?
-        salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ?
-        salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ?
-        salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ?
-        salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ?
-        salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ?
-        salut ça va ? salut ça va ? salut ça va ? salut ça va ? salut ça va ?
-        salut ça va ? salut ça va ? salut ça va ? salut ça va ?
+        Sun is shining bright ! Sun is shining bright ! Sun is shining bright ! Sun is shining bright ! Sun is shining bright ! Sun is shining bright ! Sun is shining bright ! Sun is shining bright ! Sun is shining bright ! Sun is shining bright ! Sun is shining bright ! Sun is shining bright ! Sun is shining bright ! Sun is shining bright ! Sun is shining bright ! Sun is shining bright ! Sun is shining bright ! Sun is shining bright !
       </p>
     </section>
   </Page>
