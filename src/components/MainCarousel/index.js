@@ -32,7 +32,7 @@ const MainCarousel = () => (
       {/* <SwiperSlide><img src="" alt="random" /></SwiperSlide> */}
       <SwiperSlide>
         <img className="swiper__img" src={carousel1} alt="carousel1" />
-        <p className="swiper__content">Le site qui références les associations animales dans ta région</p>
+        <p className="swiper__content">Le site qui référence les associations animales dans ta région</p>
       </SwiperSlide>
       <SwiperSlide>
         <img className="swiper__img" src={carousel2} alt="carousel2" />
