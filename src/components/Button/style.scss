@@ -52,10 +52,10 @@
 
 //todo Bouton recherche
 .btn--search {
-  background: linear-gradient(#8b50a7, vars.$color-dark-green);
+  background: linear-gradient(#469e3f, vars.$color-dark-green);
   width: 40%;
   margin: 2rem auto 0 auto;
 }
 .btn--search:active {
-  background: linear-gradient(vars.$color-dark-green, #8b50a7);
+  background: linear-gradient(vars.$color-dark-green, #469e3f);
 }
