@@ -9,14 +9,12 @@ export const loadRegionsFromApi = () => ({
   type: LOAD_REGIONS_FROM_API,
 });
 
-//todo Action qui récupère la liste des départements en fonction de la région sélectionnée depuis l'api gouv
+//todo Action qui récupère la liste des départements depuis l'api
 //* ACTION TYPE LOAD_DEPTS_FROM_API
 export const LOAD_DEPTS_FROM_API = 'LOAD_DEPTS_FROM_API';
 //* ACTION CREATOR loadDeptsFromApi
-export const loadDeptsFromApi = (region, codeRegion) => ({
+export const loadDeptsFromApi = () => ({
   type: LOAD_DEPTS_FROM_API,
-  region,
-  codeRegion,
 });
 
 //todo Action qui insère la liste des régions récupérés dans le store

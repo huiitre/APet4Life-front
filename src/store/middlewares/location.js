@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { setRegion } from '../actions/associations';
 import {
   insertDeptsToState, insertRegionsToState, LOAD_DEPTS_FROM_API, LOAD_REGIONS_FROM_API,
 } from '../actions/location';
@@ -16,9 +15,8 @@ const locationMiddleware = (store) => (next) => (action) => {
       break;
 
     case LOAD_DEPTS_FROM_API:
-      store.dispatch(setRegion(action.region, action.codeRegion));
       axios
-        .get(`https://geo.api.gouv.fr/regions/${action.codeRegion}/departements`)
+        .get('https://geo.api.gouv.fr/departements')
         .then((response) => {
           store.dispatch(insertDeptsToState(response.data));
         });
