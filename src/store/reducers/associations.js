@@ -1,5 +1,5 @@
 /* eslint-disable spaced-comment */
-import { SET_DEPT, SET_REGION } from '../actions/associations';
+import { SET_DEPT, SET_REGION, SET_ZIPCODE_FIELD_VALUE } from '../actions/associations';
 import { INSERT_DEPTS_TO_STATE, INSERT_REGIONS_TO_STATE } from '../actions/location';
 
 export const initialState = {
@@ -11,7 +11,7 @@ export const initialState = {
     region: '',
     codeRegion: 0, //? pas obligatoire de stocker le code région dans le state je pense
     dept: '',
-    zipCode: '',
+    zipcode: '',
   },
 };
 
@@ -48,6 +48,15 @@ const reducer = (state = initialState, action = {}) => {
           ...state.formAssoc,
           dept: action.dept,
         },
+      };
+    }
+    case SET_ZIPCODE_FIELD_VALUE: {
+      return {
+        ...state,
+        formAssoc: {
+          ...state.formAssoc,
+          [action.name]: action.value,
+        }
       };
     }
 

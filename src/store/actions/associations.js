@@ -14,3 +14,12 @@ export const setDept = (dept) => ({
   type: SET_DEPT,
   dept,
 });
+
+//* ACTION TYPE SET_ZIPCODE_FIELD_VALUE
+export const SET_ZIPCODE_FIELD_VALUE = 'SET_ZIPCODE_FIELD_VALUE';
+//* ACTION CREATOR setZipcodeFieldValue
+export const setZipcodeFieldValue = (value, name) => ({
+  type: SET_ZIPCODE_FIELD_VALUE,
+  value,
+  name,
+});

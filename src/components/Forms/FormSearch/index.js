@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import backgroundForm from 'src/assets/img/form-dogs.jpg';
 import Select from '../Select';
 import { loadDeptsFromApi } from '../../../store/actions/location';
-import { setDept } from '../../../store/actions/associations';
+import { setDept, setZipcodeFieldValue } from '../../../store/actions/associations';
 import Field from '../Field';
 
 const FormSearch = () => {
@@ -19,6 +19,10 @@ const FormSearch = () => {
 
   const handleChangeDept = (value) => {
     dispatch(setDept(value));
+  };
+
+  const changeFieldValue = (value, name) => {
+    dispatch(setZipcodeFieldValue(value, name));
   };
 
   return (
@@ -47,7 +51,12 @@ const FormSearch = () => {
           Entrez votre code postal :
         </p>
 
-        <Field />
+        <Field
+          type="text"
+          placeholder="Code postal ..."
+          name="zipcode"
+          onChange={changeFieldValue}
+        />
 
         <Button
           name="Lancer la recherche"
