@@ -1,0 +1,21 @@
+@use "src/styles/vars";
+
+.form__search {
+  color: #fff;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  padding: 10px 15px;
+  background-color: vars.$color-dark-green;
+  margin: 0 1rem;
+  width: 14rem;
+  display: block;
+  margin: 0 auto;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &::placeholder {
+    color: vars.$color-light-green;
+  }
+}

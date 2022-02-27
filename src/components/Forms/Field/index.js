@@ -1,7 +1,7 @@
 import './style.scss';
 
 const Field = () => (
-  <div className="" />
+  <input className="form__search" type="text" placeholder="Search..." />
 );
 
 export default Field;

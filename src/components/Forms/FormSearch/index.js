@@ -2,11 +2,11 @@ import './style.scss';
 import Button from 'src/components/Button';
 
 import { useDispatch, useSelector } from 'react-redux';
+import backgroundForm from 'src/assets/img/form-dogs.jpg';
 import Select from '../Select';
 import { loadDeptsFromApi } from '../../../store/actions/location';
 import { setDept } from '../../../store/actions/associations';
-
-import backgroundForm from 'src/assets/img/form-dogs.jpg';
+import Field from '../Field';
 
 const FormSearch = () => {
   const dispatch = useDispatch();
@@ -47,7 +47,7 @@ const FormSearch = () => {
           Entrez votre code postal :
         </p>
 
-        <input className="form__search" type="text" placeholder="Search..." />
+        <Field />
 
         <Button
           name="Lancer la recherche"
