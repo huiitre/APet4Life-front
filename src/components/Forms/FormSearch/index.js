@@ -9,18 +9,24 @@ import { setDept, setZipcodeFieldValue } from '../../../store/actions/associatio
 import Field from '../Field';
 
 const FormSearch = () => {
+  //* on récupère useDispatch() de react-redux
   const dispatch = useDispatch();
+
+  //* on récupère depuis le store les régions et les depts
   const regionsList = useSelector((state) => state.associations.regionsList);
   const deptsList = useSelector((state) => state.associations.deptsList);
 
+  //* event qui va charger la liste des depts en fonction de la région sélectionné
   const handleChangeRegion = (value, codeRegion) => {
     dispatch(loadDeptsFromApi(value, codeRegion));
   };
 
+  //* event qui va envoyer dans le store le dept sélectionné
   const handleChangeDept = (value) => {
     dispatch(setDept(value));
   };
 
+  //* event envoie le zipcode tapé par l'user dans le store
   const changeFieldValue = (value, name) => {
     dispatch(setZipcodeFieldValue(value, name));
   };
