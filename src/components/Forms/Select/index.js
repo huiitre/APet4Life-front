@@ -1,41 +1,41 @@
 /* eslint-disable spaced-comment */
 import './style.scss';
 import PropTypes from 'prop-types';
+import { Input } from 'semantic-ui-react';
 
 const Select = ({
-  array, defaultOption, name, classNames, onChange,
+  array, name, classNames, onChange, placeholder,
 }) => {
   const handleChange = (evt) => {
-    const codeRegion = evt.target.selectedOptions[0].dataset.region;
-    onChange(evt.target.value, codeRegion);
+    onChange(evt.target.value);
   };
   return (
-    <select className={classNames} name={name} onChange={handleChange}>
-      <option value="">{defaultOption}</option>
-      {
-      array.map(
-        (item) => (
-          <option
-            key={item.nom}
-            value={item.nom}
-            data-region={item.code}
-            name={item.nom}
-          >
-            {item.nom}
-          </option>
-        ),
-      )
-    }
-    </select>
+    <>
+      <Input
+        className={classNames}
+        list={name}
+        placeholder={placeholder}
+        onChange={handleChange}
+      />
+      <datalist id={name}>
+        {
+          array.map(
+            (item) => (
+              <option key={item.nom} data-region={item.code} value={item.item}>{item.nom}</option>
+            ),
+          )
+        }
+      </datalist>
+    </>
   );
 };
 
 Select.propTypes = {
   array: PropTypes.array.isRequired,
-  defaultOption: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   classNames: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
+  placeholder: PropTypes.string.isRequired,
 };
 
 export default Select;

@@ -1,10 +1,9 @@
 //* ACTION TYPE SET_REGION
 export const SET_REGION = 'SET_REGION';
 //* ACTION CREATOR setRegion
-export const setRegion = (region, codeRegion) => ({
+export const setRegion = (region) => ({
   type: SET_REGION,
   region,
-  codeRegion,
 });
 
 //* ACTION TYPE SET_DEPT
@@ -15,11 +14,11 @@ export const setDept = (dept) => ({
   dept,
 });
 
-//* ACTION TYPE SET_ZIPCODE_FIELD_VALUE
-export const SET_ZIPCODE_FIELD_VALUE = 'SET_ZIPCODE_FIELD_VALUE';
-//* ACTION CREATOR setZipcodeFieldValue
-export const setZipcodeFieldValue = (value, name) => ({
-  type: SET_ZIPCODE_FIELD_VALUE,
+//* ACTION TYPE SET_ZIPCODE
+export const SET_ZIPCODE = 'SET_ZIPCODE';
+//* ACTION CREATOR setZipcode
+export const setZipcode = (value, name) => ({
+  type: SET_ZIPCODE,
   value,
   name,
 });

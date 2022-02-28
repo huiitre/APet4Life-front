@@ -5,7 +5,7 @@ import AppFooter from 'src/components/AppFooter';
 import Home from 'src/components/Home';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { loadRegionsFromApi } from '../../store/actions/location';
+import { loadDeptsFromApi, loadRegionsFromApi } from '../../store/actions/location';
 
 // == Composant
 const App = () => {
@@ -13,6 +13,7 @@ const App = () => {
   useEffect(
     () => {
       dispatch(loadRegionsFromApi());
+      dispatch(loadDeptsFromApi());
     },
     [],
   );
