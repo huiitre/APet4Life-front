@@ -3,12 +3,11 @@ import './style.scss';
 import AppHeader from 'src/components/AppHeader';
 import AppFooter from 'src/components/AppFooter';
 import Home from 'src/components/Home';
-import Button from 'src/components/Button';
+import SearchResults from 'src/components/SearchResults';
 import { Route, Routes } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { loadDeptsFromApi, loadRegionsFromApi } from '../../store/actions/location';
-import Assoc from '../Assoc';
+import { loadDepartmentsFromApi, loadRegionsFromApi } from '../../store/actions/location';
 
 // == Composant
 const App = () => {
@@ -16,7 +15,7 @@ const App = () => {
   useEffect(
     () => {
       dispatch(loadRegionsFromApi());
-      dispatch(loadDeptsFromApi());
+      dispatch(loadDepartmentsFromApi());
     },
     [],
   );
@@ -28,14 +27,13 @@ const App = () => {
         <Route
           path="/"
           element={(
-            // <Home />
-            <Assoc />
+            <Home />
           )}
         />
         <Route
           path="/search"
           element={(
-            <Button />
+            <SearchResults />
           )}
         />
         {/* <Route
