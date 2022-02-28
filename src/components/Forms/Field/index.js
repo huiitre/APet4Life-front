@@ -13,7 +13,7 @@ const Field = ({
   };
   return (
     <input
-      className={`form__search ${className}`}
+      className={`form__input ${className}`}
       type={type}
       placeholder={placeholder}
       name={name}

@@ -1,0 +1,117 @@
+@use "src/styles/vars";
+
+.form__contact--none {
+  position: absolute;
+  left: -2000px;
+  transition-duration: 1s;
+}
+
+.form__contact--assoc input,
+.form__contact--assoc textarea {
+  margin-bottom: 1rem;
+}
+
+.ui.segment.assoc {
+  display: flex;
+  flex-direction: column;
+}
+.assoc {
+  &__picture,
+  &__title,
+  &__description,
+  &__contact,
+  &__contact-coord {
+    margin-bottom: 1.5rem;
+  }
+
+  &__picture {
+    display: flex;
+    justify-content: center;
+
+    & .ui.medium.rounded.image {
+      max-width: 100%;
+    }
+  }
+  &__title {
+    font-size: 2rem;
+    text-align: center;
+  }
+  &__description {
+    text-align: justify;
+  }
+
+  &__contact {
+    display: flex;
+    flex-direction: column;
+    // align-items: center;
+    justify-content: center;
+    align-self: center;
+    max-width: 768px;
+    line-height: 2rem;
+
+    &-coord {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &-button {
+      order: 10;
+      align-self: center;
+      
+      & button {
+        margin-bottom: 1rem;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .assoc {
+    &__contact-coord {
+      &--mail,
+      &--phone,
+      &--website {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .assoc {
+    &__content {
+      display: flex;
+      flex-direction: column;
+    }
+    &__description {
+      max-width: 768px;
+      align-self: center;
+    }
+    &__contact {
+      
+    }
+  }
+}
+
+@media screen and (min-width: 1300px) {
+  .ui.segment.assoc {
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .assoc {
+    &__contact {
+      align-self: baseline;
+      &-coord {
+        align-self: baseline;
+      }
+    }
+
+    &__content {
+      margin: 3rem;
+    }
+  }
+}

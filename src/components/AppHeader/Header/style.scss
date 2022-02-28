@@ -25,8 +25,11 @@
       /* padding-left: 1.7rem;
         padding-top: 0.6rem;
         font-weight: 300; */
-      height: 55px;
-      min-width: 30%;
+      height: 60px;
+      position: absolute;
+      right: calc(50% - 120px);
+      // min-width: 30%;
+
     }
 
     &__logo {
