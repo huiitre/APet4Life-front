@@ -3,6 +3,8 @@ import './style.scss';
 import AppHeader from 'src/components/AppHeader';
 import AppFooter from 'src/components/AppFooter';
 import Home from 'src/components/Home';
+import Button from 'src/components/Button';
+import { Route, Routes } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { loadDeptsFromApi, loadRegionsFromApi } from '../../store/actions/location';
@@ -20,8 +22,30 @@ const App = () => {
   return (
     <div className="app">
       <AppHeader />
-      <Home />
+
+      <Routes>
+        <Route
+          path="/"
+          element={(
+            <Home />
+          )}
+        />
+        <Route
+          path="/search"
+          element={(
+            <Button />
+          )}
+        />
+        {/* <Route
+          path="*"
+          element={(
+            //<Error /> créer composant error
+          )}
+        /> */}
+      </Routes>
+
       <AppFooter />
+
     </div>
   );
 };
