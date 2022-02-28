@@ -6,12 +6,12 @@ export const setRegion = (region) => ({
   region,
 });
 
-//* ACTION TYPE SET_DEPT
-export const SET_DEPT = 'SET_DEPT';
-//* ACTION CREATOR setDept
-export const setDept = (dept) => ({
-  type: SET_DEPT,
-  dept,
+//* ACTION TYPE SET_DEPARTMENT
+export const SET_DEPARTMENT = 'SET_DEPARTMENT';
+//* ACTION CREATOR setDepartment
+export const setDepartment = (department) => ({
+  type: SET_DEPARTMENT,
+  department,
 });
 
 //* ACTION TYPE SET_ZIPCODE
@@ -41,11 +41,11 @@ export const sendSearchQueryByRegion = (region) => ({
   region,
 });
 
-// ACTION TYPE SEND_SEARCH_QUERY_BY_DEPT
-export const SEND_SEARCH_QUERY_BY_DEPT = 'SEND_SEARCH_QUERY_BY_DEPT';
+// ACTION TYPE SEND_SEARCH_QUERY_BY_DEPARTMENT
+export const SEND_SEARCH_QUERY_BY_DEPARTMENT = 'SEND_SEARCH_QUERY_BY_DEPARTMENT';
 
-// ACTION CREATOR sendSearchQueryByDept
-export const sendSearchQueryByDept = (dept) => ({
-  type: SEND_SEARCH_QUERY_BY_DEPT,
-  dept,
+// ACTION CREATOR sendSearchQueryByDepartment
+export const sendSearchQueryByDepartment = (department) => ({
+  type: SEND_SEARCH_QUERY_BY_DEPARTMENT,
+  department,
 });

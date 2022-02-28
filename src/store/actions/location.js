@@ -10,11 +10,11 @@ export const loadRegionsFromApi = () => ({
 });
 
 //todo Action qui récupère la liste des départements depuis l'api
-//* ACTION TYPE LOAD_DEPTS_FROM_API
-export const LOAD_DEPTS_FROM_API = 'LOAD_DEPTS_FROM_API';
-//* ACTION CREATOR loadDeptsFromApi
-export const loadDeptsFromApi = () => ({
-  type: LOAD_DEPTS_FROM_API,
+//* ACTION TYPE LOAD_DEPARTMENTS_FROM_API
+export const LOAD_DEPARTMENTS_FROM_API = 'LOAD_DEPARTMENTS_FROM_API';
+//* ACTION CREATOR loadDepartmentsFromApi
+export const loadDepartmentsFromApi = () => ({
+  type: LOAD_DEPARTMENTS_FROM_API,
 });
 
 //todo Action qui insère la liste des régions récupérés dans le store
@@ -27,10 +27,10 @@ export const insertRegionsToState = (regionsList) => ({
 });
 
 //todo Action qui insère la liste des départements récupérés dans le store
-//* ACTION TYPE INSERT_DEPTS_TO_STATE
-export const INSERT_DEPTS_TO_STATE = 'INSERT_DEPTS_TO_STATE';
-//* ACTION CREATOR insertDeptsToState
-export const insertDeptsToState = (deptsList) => ({
-  type: INSERT_DEPTS_TO_STATE,
-  deptsList,
+//* ACTION TYPE INSERT_DEPARTMENTS_TO_STATE
+export const INSERT_DEPARTMENTS_TO_STATE = 'INSERT_DEPARTMENTS_TO_STATE';
+//* ACTION CREATOR insertDepartmentsToState
+export const insertDepartmentsToState = (departmentList) => ({
+  type: INSERT_DEPARTMENTS_TO_STATE,
+  departmentList,
 });
