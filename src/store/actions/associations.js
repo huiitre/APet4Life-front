@@ -22,3 +22,30 @@ export const setZipcode = (value, name) => ({
   value,
   name,
 });
+
+// ACTION TYPE SEND_SEARCH_QUERY_BY_ZIPCODE
+export const SEND_SEARCH_QUERY_BY_ZIPCODE = 'SEND_SEARCH_QUERY_BY_ZIPCODE';
+
+// ACTION CREATOR sendSearchQueryByZipcode
+export const sendSearchQueryByZipcode = (zipcode) => ({
+  type: SEND_SEARCH_QUERY_BY_ZIPCODE,
+  zipcode,
+});
+
+// ACTION TYPE SEND_SEARCH_QUERY_BY_REGION
+export const SEND_SEARCH_QUERY_BY_REGION = 'SEND_SEARCH_QUERY_BY_REGION';
+
+// ACTION CREATOR sendSearchQueryByRegion
+export const sendSearchQueryByRegion = (region) => ({
+  type: SEND_SEARCH_QUERY_BY_REGION,
+  region,
+});
+
+// ACTION TYPE SEND_SEARCH_QUERY_BY_DEPT
+export const SEND_SEARCH_QUERY_BY_DEPT = 'SEND_SEARCH_QUERY_BY_DEPT';
+
+// ACTION CREATOR sendSearchQueryByDept
+export const sendSearchQueryByDept = (dept) => ({
+  type: SEND_SEARCH_QUERY_BY_DEPT,
+  dept,
+});
