@@ -1,12 +1,12 @@
 import './style.scss';
 import PropTypes from 'prop-types';
 
-const Button = ({ type, name, className }) =>
+const Button = ({ type, name, className, onClick }) =>
   // const preventDefault = (evt) => {
   //   evt.preventDefault();
   // };
   (
-    <button type={type} className={`btn ${className}`}><span>{name}</span></button>
+    <button onClick={onClick} type={type} className={`btn ${className}`}><span>{name}</span></button>
   );
 Button.propTypes = {
   type: PropTypes.string,

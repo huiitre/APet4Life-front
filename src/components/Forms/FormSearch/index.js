@@ -93,6 +93,7 @@ const FormSearch = () => {
           placeholder="Code postal ..."
           name="zipcode"
           onChange={changeFieldValue}
+          className="form__search"
         />
 
         <Button

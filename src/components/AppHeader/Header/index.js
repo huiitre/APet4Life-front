@@ -9,8 +9,8 @@ const Header = () => (
     {/* <h1 className="header__title">A Pet 4 Life</h1> */}
     <img className="header__title" src={title} alt="title" />
     <div className="header__user">
-      <Button type="" name="Connexion" className="btn btn--signin" />
-      <Button type="" name="Inscription" className="btn btn--signup" />
+      <Button type="" name="Connexion" className="btn--signin" />
+      <Button type="" name="Inscription" className="btn--signup" />
     </div>
   </div>
 );
