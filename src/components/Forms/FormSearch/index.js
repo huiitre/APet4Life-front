@@ -4,7 +4,14 @@ import Button from 'src/components/Button';
 import { useDispatch, useSelector } from 'react-redux';
 import backgroundForm from 'src/assets/img/form-dogs.jpg';
 import Select from '../Select';
-import { setDept, setRegion, setZipcode } from '../../../store/actions/associations';
+import {
+  setDept,
+  setRegion,
+  setZipcode,
+  sendSearchQueryByRegion,
+  sendSearchQueryByDept,
+  sendSearchQueryByZipcode,
+} from '../../../store/actions/associations';
 import Field from '../Field';
 
 const FormSearch = () => {
@@ -15,6 +22,9 @@ const FormSearch = () => {
   const regionsList = useSelector((state) => state.associations.regionsList);
   const deptsList = useSelector((state) => state.associations.deptsList);
   console.log(deptsList);
+  const region = useSelector((state) => state.associations.formAssoc.region);
+  const dept = useSelector((state) => state.associations.formAssoc.dept);
+  const zipcode = useSelector((state) => state.associations.formAssoc.zipcode);
 
   //* event qui va charger la liste des depts en fonction de la région sélectionné
   const handleChangeRegion = (value) => {
@@ -30,9 +40,28 @@ const FormSearch = () => {
     dispatch(setZipcode(value, name));
   };
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if (!zipcode) {
+      dispatch(sendSearchQueryByZipcode(zipcode));
+    }
+    else if (!dept) {
+      dispatch(sendSearchQueryByDept(dept));
+    }
+    else if (!region) {
+      dispatch(sendSearchQueryByDept(region));
+    }
+    else {
+    //! mettre un message veuillez sélectionner une localisation
+    }
+  };
+
   return (
     <div className="container__search">
-      <form className="form">
+      <form
+        className="form"
+        onSubmit={handleSubmit}
+      >
         <p>Cherchez une association :</p>
 
         <Select
@@ -64,6 +93,7 @@ const FormSearch = () => {
         />
 
         <Button
+          type="submit"
           name="Lancer la recherche"
           className="btn--search"
         />
