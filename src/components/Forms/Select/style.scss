@@ -2,7 +2,7 @@
 
 .ui.input.form__select {
   & input {
-    color: #fff;
+    color: vars.$color-text;
     border: 2px solid #ccc;
     border-radius: 10px;
     padding: 10px 15px;

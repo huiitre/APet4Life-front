@@ -8,8 +8,8 @@
   .header {
     display: flex;
     justify-content: space-between;
-    background-color: #fff;
-    color: vars.$color-darker-green;
+    background-color: vars.$color-text;
+    color: vars.$color-dark-green;
     position: fixed;
     top: 0;
     min-height: 65px;
@@ -29,6 +29,7 @@
       position: absolute;
       right: calc(50% - 120px);
       // min-width: 30%;
+
     }
 
     &__logo {

@@ -1,5 +1,6 @@
 @use "src/styles/vars";
 
+
 //todo style générique au field
 .form__input {
   border: 2px solid #ccc;
@@ -12,6 +13,11 @@
 
   &:hover {
     opacity: 0.8;
+  }
+
+
+  &::placeholder {
+    color: vars.$color-light-gray;
   }
 }
 /* Chrome, Safari, Edge, Opera */
@@ -29,7 +35,7 @@ input[type=number] {
 //todo field pour le formulaire de recherche
 .form__search {
   background-color: vars.$color-dark-green;
-  color: #fff;
+  color: vars.$color-text;
 
   &::placeholder {
     color: vars.$color-light-green;

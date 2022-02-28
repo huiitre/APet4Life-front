@@ -13,7 +13,7 @@ const SearchResult = () => (
     <section className="home__search">
       <FormSearch />
     </section>
-    <Separator />
+    <Separator className="home_separator" />
     <section className="search__list">
       {/* <Segment> */}
       <h2 className="result-number">3 associations proches de toi</h2>

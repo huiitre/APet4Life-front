@@ -2,7 +2,7 @@
 
 // taille mobile : 
 .footer {
-  background: linear-gradient(vars.$color-dark-green, vars.$color-darker-green);
+  background: linear-gradient(vars.$color-light-green, vars.$color-dark-green);
   bottom: 0;
   width: 100%;
   display: flex;
@@ -12,7 +12,7 @@
   &__links {
     display: flex;
     padding: 1rem 1rem;
-    color: #fff;
+    color: vars.$color-text;
     text-align: center;
     justify-content: center;
     flex-direction: column;

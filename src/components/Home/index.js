@@ -11,7 +11,7 @@ const Home = () => (
     <section className="home__carousel">
       <MainCarousel />
     </section>
-    <Separator className="separator home__separator" />
+    <Separator className="home__separator" />
     <section className="home__search">
       <FormSearch />
     </section>
