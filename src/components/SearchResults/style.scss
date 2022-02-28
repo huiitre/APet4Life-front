@@ -1,0 +1,15 @@
+@use "src/styles/vars";
+
+.result-number {
+  font-size: 1.4rem;
+  text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+
+  .search__list {
+    margin: 0 25%;
+  }
+}
+
+

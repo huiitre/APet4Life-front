@@ -3,7 +3,7 @@ import './style.scss';
 import AppHeader from 'src/components/AppHeader';
 import AppFooter from 'src/components/AppFooter';
 import Home from 'src/components/Home';
-import Button from 'src/components/Button';
+import SearchResults from 'src/components/SearchResults';
 import { Route, Routes } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
@@ -33,7 +33,7 @@ const App = () => {
         <Route
           path="/search"
           element={(
-            <Button />
+            <SearchResults />
           )}
         />
         {/* <Route

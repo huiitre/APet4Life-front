@@ -1,0 +1,38 @@
+.list {
+  
+  &__item {
+    margin: 1.5rem 0;
+    display: flex;
+    align-items: center;
+  }
+
+  &__item-infos {
+  }
+
+  &__item-logo {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    margin-right: 1rem;;
+  }
+  
+  &__item-title {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.4rem;
+  }
+
+  &__item-description {
+    font-size: 0.9rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  // .list {
+  //   margin: 0 25%;
+  // }
+
+  .ui.segment {
+    max-width: 60rem;
+  }
+}
