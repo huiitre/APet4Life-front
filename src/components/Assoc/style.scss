@@ -1,4 +1,16 @@
 @use "src/styles/vars";
+
+.form__contact--none {
+  position: absolute;
+  left: -2000px;
+  transition-duration: 1s;
+}
+
+.form__contact--assoc input,
+.form__contact--assoc textarea {
+  margin-bottom: 1rem;
+}
+
 .ui.segment.assoc {
   display: flex;
   flex-direction: column;
@@ -31,8 +43,11 @@
   &__contact {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    line-height: 2.5rem;
+    // align-items: center;
+    justify-content: center;
+    align-self: center;
+    max-width: 768px;
+    line-height: 2rem;
 
     &-coord {
       display: flex;
@@ -40,9 +55,12 @@
     }
 
     &-button {
-      line-height: 1rem;
       order: 10;
       align-self: center;
+      
+      & button {
+        margin-bottom: 1rem;
+      }
     }
   }
 }
@@ -71,6 +89,9 @@
       max-width: 768px;
       align-self: center;
     }
+    &__contact {
+      
+    }
   }
 }
 
@@ -83,6 +104,7 @@
   }
   .assoc {
     &__contact {
+      align-self: baseline;
       &-coord {
         align-self: baseline;
       }

@@ -4,9 +4,11 @@ import { combineReducers } from 'redux';
 
 //* on importe nos différents reducers (slices)
 import associationsReducer from './associations';
+import userReducer from './user';
 
 const rootReducer = combineReducers({
   associations: associationsReducer,
+  user: userReducer,
 });
 
 export default rootReducer;

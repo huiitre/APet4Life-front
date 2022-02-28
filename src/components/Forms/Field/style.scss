@@ -1,11 +1,10 @@
 @use "src/styles/vars";
 
-.form__search {
-  color: #fff;
+//todo style générique au field
+.form {
   border: 2px solid #ccc;
   border-radius: 10px;
   padding: 10px 15px;
-  background-color: vars.$color-dark-green;
   margin: 0 1rem;
   width: 14rem;
   display: block;
@@ -14,12 +13,7 @@
   &:hover {
     opacity: 0.8;
   }
-
-  &::placeholder {
-    color: vars.$color-light-green;
-  }
 }
-
 /* Chrome, Safari, Edge, Opera */
 input[type=number]::-webkit-outer-spin-button,
 input[type=number]::-webkit-inner-spin-button {
@@ -30,4 +24,14 @@ input[type=number]::-webkit-inner-spin-button {
 /* Firefox */
 input[type=number] {
   -moz-appearance: textfield;
+}
+
+//todo field pour le formulaire de recherche
+.form__search {
+  background-color: vars.$color-dark-green;
+  color: #fff;
+
+  &::placeholder {
+    color: vars.$color-light-green;
+  }
 }
