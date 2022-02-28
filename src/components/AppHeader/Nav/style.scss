@@ -21,7 +21,7 @@
   }
 
   &__title { 
-    font-size: 1.2rem;  
+    max-width: 50%;
   }
   
   &__links { 
@@ -48,8 +48,7 @@
     top: 0px;
 
     &__title {
-      position: fixed;
-      left: calc(50% - 40px);
+      max-width: 70%;
     }
 
   }
@@ -176,7 +175,7 @@
     }
 
     &__title { 
-      display: none;  
+      display: none;
     }
   }
 }
