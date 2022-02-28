@@ -1,6 +1,9 @@
 import axios from 'axios';
 import {
-  insertDeptsToState, insertRegionsToState, LOAD_DEPTS_FROM_API, LOAD_REGIONS_FROM_API,
+  insertDepartmentsToState,
+  insertRegionsToState,
+  LOAD_DEPARTMENTS_FROM_API,
+  LOAD_REGIONS_FROM_API,
 } from '../actions/location';
 
 const locationMiddleware = (store) => (next) => (action) => {
@@ -14,11 +17,11 @@ const locationMiddleware = (store) => (next) => (action) => {
       next(action);
       break;
 
-    case LOAD_DEPTS_FROM_API:
+    case LOAD_DEPARTMENTS_FROM_API:
       axios
         .get('https://geo.api.gouv.fr/departements')
         .then((response) => {
-          store.dispatch(insertDeptsToState(response.data));
+          store.dispatch(insertDepartmentsToState(response.data));
         });
       next(action);
       break;

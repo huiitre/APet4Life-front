@@ -5,11 +5,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import backgroundForm from 'src/assets/img/form-dogs.jpg';
 import Select from '../Select';
 import {
-  setDept,
+  setDepartment,
   setRegion,
   setZipcode,
   sendSearchQueryByRegion,
-  sendSearchQueryByDept,
+  sendSearchQueryByDepartment,
   sendSearchQueryByZipcode,
 } from '../../../store/actions/associations';
 import Field from '../Field';
@@ -18,22 +18,22 @@ const FormSearch = () => {
   //* on récupère useDispatch() de react-redux
   const dispatch = useDispatch();
 
-  //* on récupère depuis le store les régions et les depts
+  //* on récupère depuis le store les régions et les departements
   const regionsList = useSelector((state) => state.associations.regionsList);
-  const deptsList = useSelector((state) => state.associations.deptsList);
-  console.log(deptsList);
+  const departmentList = useSelector((state) => state.associations.departmentList);
+  console.log(departmentList);
   const region = useSelector((state) => state.associations.formAssoc.region);
-  const dept = useSelector((state) => state.associations.formAssoc.dept);
+  const department = useSelector((state) => state.associations.formAssoc.department);
   const zipcode = useSelector((state) => state.associations.formAssoc.zipcode);
 
-  //* event qui va charger la liste des depts en fonction de la région sélectionné
+  //* event qui va charger la liste des departements en fonction de la région sélectionné
   const handleChangeRegion = (value) => {
     dispatch(setRegion(value));
   };
 
-  //* event qui va envoyer dans le store le dept sélectionné
-  const handleChangeDept = (value) => {
-    dispatch(setDept(value));
+  //* event qui va envoyer dans le store le departement sélectionné
+  const handleChangeDepartment = (value) => {
+    dispatch(setDepartment(value));
   };
 
   const changeFieldValue = (value, name) => {
@@ -42,14 +42,17 @@ const FormSearch = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (!zipcode) {
+    if (zipcode !== '') {
       dispatch(sendSearchQueryByZipcode(zipcode));
+      console.log(`zipcode ok : ${zipcode}`);
     }
-    else if (!dept) {
-      dispatch(sendSearchQueryByDept(dept));
+    else if (department !== '') {
+      dispatch(sendSearchQueryByDepartment(department));
+      console.log(`department ok : ${department}`);
     }
-    else if (!region) {
-      dispatch(sendSearchQueryByDept(region));
+    else if (region !== '') {
+      console.log(`region ok : ${region}`);
+      dispatch(sendSearchQueryByRegion(region));
     }
     else {
     //! mettre un message veuillez sélectionner une localisation
@@ -73,8 +76,8 @@ const FormSearch = () => {
         />
 
         <Select
-          onChange={handleChangeDept}
-          array={deptsList}
+          onChange={handleChangeDepartment}
+          array={departmentList}
           placeholder="Choisis un département"
           name="departement"
           classNames="form__select"

@@ -1,15 +1,15 @@
 /* eslint-disable spaced-comment */
-import { SET_DEPT, SET_REGION, SET_ZIPCODE } from '../actions/associations';
-import { INSERT_DEPTS_TO_STATE, INSERT_REGIONS_TO_STATE } from '../actions/location';
+import { SET_DEPARTMENT, SET_REGION, SET_ZIPCODE } from '../actions/associations';
+import { INSERT_DEPARTMENTS_TO_STATE, INSERT_REGIONS_TO_STATE } from '../actions/location';
 
 export const initialState = {
   assocList: [],
   regionsList: [],
-  deptsList: [],
+  departmentList: [],
   formAssoc: {
     isOpen: false,
     region: '',
-    dept: '',
+    department: '',
     zipcode: '',
   },
 };
@@ -23,10 +23,10 @@ const reducer = (state = initialState, action = {}) => {
         regionsList: action.regionsList,
       };
     }
-    case INSERT_DEPTS_TO_STATE: {
+    case INSERT_DEPARTMENTS_TO_STATE: {
       return {
         ...state,
-        deptsList: action.deptsList,
+        departmentList: action.departmentList,
       };
     }
     case SET_REGION: {
@@ -38,12 +38,12 @@ const reducer = (state = initialState, action = {}) => {
         },
       };
     }
-    case SET_DEPT: {
+    case SET_DEPARTMENT: {
       return {
         ...state,
         formAssoc: {
           ...state.formAssoc,
-          dept: action.dept,
+          department: action.department,
         },
       };
     }

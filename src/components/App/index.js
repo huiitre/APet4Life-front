@@ -7,7 +7,7 @@ import SearchResults from 'src/components/SearchResults';
 import { Route, Routes } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { loadDeptsFromApi, loadRegionsFromApi } from '../../store/actions/location';
+import { loadDepartmentsFromApi, loadRegionsFromApi } from '../../store/actions/location';
 
 // == Composant
 const App = () => {
@@ -15,7 +15,7 @@ const App = () => {
   useEffect(
     () => {
       dispatch(loadRegionsFromApi());
-      dispatch(loadDeptsFromApi());
+      dispatch(loadDepartmentsFromApi());
     },
     [],
   );

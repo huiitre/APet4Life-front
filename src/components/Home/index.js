@@ -12,7 +12,7 @@ const Home = () => (
     <section className="home__carousel">
       <MainCarousel />
     </section>
-    <Separator />
+    <Separator className="separator home__separator" />
     <section className="home__search">
       <FormSearch />
     </section>

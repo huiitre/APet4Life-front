@@ -26,7 +26,7 @@ export default rootReducer;
     assocList: [],
     formAssoc: {
       region: '',
-      dept: '',
+      department: '',
       zipCode: '',
     },
   },
