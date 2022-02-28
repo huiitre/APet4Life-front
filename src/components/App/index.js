@@ -8,6 +8,7 @@ import { Route, Routes } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { loadDeptsFromApi, loadRegionsFromApi } from '../../store/actions/location';
+import Assoc from '../Assoc';
 
 // == Composant
 const App = () => {
@@ -27,7 +28,8 @@ const App = () => {
         <Route
           path="/"
           element={(
-            <Home />
+            // <Home />
+            <Assoc />
           )}
         />
         <Route

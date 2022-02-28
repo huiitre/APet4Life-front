@@ -59,3 +59,19 @@
 .btn--search:active {
   background: linear-gradient(vars.$color-dark-green, #469e3f);
 }
+
+//todo Bouton Nous contacter
+.btn--contact-us {
+  background: linear-gradient(#00000010, #00000083);
+}
+.btn--contact-us:active {
+  background: linear-gradient(#00000083, #00000010);
+}
+
+//todo Bouton Retour à la liste
+.btn--return {
+  background: linear-gradient(#00000010, #00000083);
+}
+.btn--return:active {
+  background: linear-gradient(#00000083, #00000010);
+}
