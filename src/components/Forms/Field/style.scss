@@ -1,7 +1,7 @@
 @use "src/styles/vars";
 
 .form__search {
-  color: #fff;
+  color: vars.$color-text;
   border: 2px solid #ccc;
   border-radius: 10px;
   padding: 10px 15px;
@@ -16,7 +16,7 @@
   }
 
   &::placeholder {
-    color: vars.$color-light-green;
+    color: vars.$color-light-gray;
   }
 }
 

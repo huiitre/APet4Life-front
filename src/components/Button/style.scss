@@ -8,7 +8,7 @@
   border-top: none;
   border-left: none;
   border-right: none;
-  color: #fff;
+  color: vars.$color-text;
   border-radius: 10px;
   transition: 150ms ease;
   text-align: center;
@@ -21,10 +21,10 @@
 .btn:active {
   box-shadow: 0px 1px 5px grey;
   border: none;
-  // color: #fff;
+  // color: vars.$color-text;
 }
 .btn:hover {
-  color: #fff;
+  color: vars.$color-hover;
 }
 
 /* ---------- Boutons custom en bas ---------- */
@@ -52,10 +52,10 @@
 
 //todo Bouton recherche
 .btn--search {
-  background: linear-gradient(#469e3f, vars.$color-dark-green);
+  background: linear-gradient(vars.$color-dark-green, vars.$color-light-green);
   width: 40%;
   margin: 2rem auto 0 auto;
 }
 .btn--search:active {
-  background: linear-gradient(vars.$color-dark-green, #469e3f);
+  background: linear-gradient(vars.$color-light-green, vars.$color-dark-green);
 }

@@ -2,7 +2,7 @@ import './style.scss';
 import PropTypes from 'prop-types';
 
 const Separator = ({ className }) => (
-  <section className={className} />
+  <section className={`separator ${className}`} />
 );
 
 Separator.propTypes = {

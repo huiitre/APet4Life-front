@@ -22,7 +22,7 @@ const AssocList = () => (
                   </div>
                 </li>
               </Link>
-              <Separator className="separator list__separator" />
+              <Separator className="list__separator" />
             </>
           ),
         )
