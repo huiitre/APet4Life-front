@@ -4,11 +4,12 @@ import {
   SET_DEPARTMENT,
   SET_REGION,
   SET_ZIPCODE,
-  INSERT_SEARCH_RESULT_TO_STATE
- } from '../actions/associations';
+  INSERT_SEARCH_RESULT_TO_STATE,
+} from '../actions/associations';
 import {
   INSERT_DEPARTMENTS_TO_STATE,
-  INSERT_REGIONS_TO_STATE } from '../actions/location';
+  INSERT_REGIONS_TO_STATE,
+} from '../actions/location';
 
 export const initialState = {
   assocList: [],

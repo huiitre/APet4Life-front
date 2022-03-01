@@ -1,4 +1,5 @@
 /* eslint-disable spaced-comment */
+// import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import {
   SEND_SEARCH_QUERY_BY_ZIPCODE,
@@ -7,7 +8,10 @@ import {
   insertSearchResultToState,
 } from '../actions/associations';
 
+// const navigate = useNavigate();
 const associationMiddleware = (store) => (next) => (action) => {
+  // const history = useHistory();
+
   switch (action.type) {
     //todo recherche assoc par code postal
     case SEND_SEARCH_QUERY_BY_ZIPCODE:
@@ -32,7 +36,6 @@ const associationMiddleware = (store) => (next) => (action) => {
             console.log('error', error);
           });
       }
-
       next(action);
       break;
 
@@ -74,7 +77,6 @@ const associationMiddleware = (store) => (next) => (action) => {
         const config = {
           geolocation: 'region',
           responseLocation: region,
-
         };
 
         axios

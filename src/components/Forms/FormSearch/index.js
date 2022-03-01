@@ -3,6 +3,7 @@ import './style.scss';
 import Button from 'src/components/Button';
 
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import backgroundForm from 'src/assets/img/form-dogs.jpg';
 import Select from '../Select';
 import {
@@ -18,6 +19,7 @@ import Field from '../Field';
 const FormSearch = () => {
   //* on récupère useDispatch() de react-redux
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   //* on récupère depuis le store les régions et les departements
   const regionsList = useSelector((state) => state.associations.regionsList);
@@ -57,6 +59,7 @@ const FormSearch = () => {
     else {
     //! mettre un message veuillez sélectionner une localisation
     }
+    navigate('/search');
   };
 
   return (
@@ -101,6 +104,7 @@ const FormSearch = () => {
           name="Lancer la recherche"
           className="btn--search"
         />
+
       </form>
       <img className="form__background" src={backgroundForm} alt="test" />
     </div>
