@@ -49,3 +49,12 @@ export const sendSearchQueryByDepartment = (department) => ({
   type: SEND_SEARCH_QUERY_BY_DEPARTMENT,
   department,
 });
+
+// ACTION TYPE INSERT_SEARCH_RESULT_TO_STATE
+export const INSERT_SEARCH_RESULT_TO_STATE = 'INSERT_SEARCH_RESULT_TO_STATE';
+
+// ACTION CREATOR insertSearchResultToState
+export const insertSearchResultToState = (assocList) => ({
+  type: INSERT_SEARCH_RESULT_TO_STATE,
+  assocList,
+});

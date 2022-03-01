@@ -1,6 +1,14 @@
 /* eslint-disable spaced-comment */
-import { SET_DEPARTMENT, SET_REGION, SET_ZIPCODE } from '../actions/associations';
-import { INSERT_DEPARTMENTS_TO_STATE, INSERT_REGIONS_TO_STATE } from '../actions/location';
+
+import {
+  SET_DEPARTMENT,
+  SET_REGION,
+  SET_ZIPCODE,
+  INSERT_SEARCH_RESULT_TO_STATE
+ } from '../actions/associations';
+import {
+  INSERT_DEPARTMENTS_TO_STATE,
+  INSERT_REGIONS_TO_STATE } from '../actions/location';
 
 export const initialState = {
   assocList: [],
@@ -54,6 +62,12 @@ const reducer = (state = initialState, action = {}) => {
           ...state.formAssoc,
           [action.name]: action.value,
         },
+      };
+    }
+    case INSERT_SEARCH_RESULT_TO_STATE: {
+      return {
+        ...state,
+        assocList: action.assocList,
       };
     }
 

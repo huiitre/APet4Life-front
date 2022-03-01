@@ -52,12 +52,12 @@
 
 //todo Bouton recherche
 .btn--search {
-  background: linear-gradient(vars.$color-dark-green, vars.$color-light-green);
+  background: linear-gradient(vars.$color-light-green, vars.$color-dark-green);
   width: 40%;
   margin: 2rem auto 0 auto;
 }
 .btn--search:active {
-  background: linear-gradient(vars.$color-light-green, vars.$color-dark-green);
+  background: linear-gradient(vars.$color-dark-green, vars.$color-light-green);
 }
 
 //todo Bouton Nous contacter

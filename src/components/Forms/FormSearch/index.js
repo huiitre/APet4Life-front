@@ -1,3 +1,4 @@
+/* eslint-disable spaced-comment */
 import './style.scss';
 import Button from 'src/components/Button';
 
@@ -21,7 +22,6 @@ const FormSearch = () => {
   //* on récupère depuis le store les régions et les departements
   const regionsList = useSelector((state) => state.associations.regionsList);
   const departmentList = useSelector((state) => state.associations.departmentList);
-  console.log(departmentList);
   const region = useSelector((state) => state.associations.formAssoc.region);
   const department = useSelector((state) => state.associations.formAssoc.department);
   const zipcode = useSelector((state) => state.associations.formAssoc.zipcode);
@@ -42,16 +42,16 @@ const FormSearch = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    //todo si zipcode n'est pas vide, on envoie la requête avec le zipcode
     if (zipcode !== '') {
       dispatch(sendSearchQueryByZipcode(zipcode));
-      console.log(`zipcode ok : ${zipcode}`);
     }
+    //todo si departement n'est pas vide
     else if (department !== '') {
       dispatch(sendSearchQueryByDepartment(department));
-      console.log(`department ok : ${department}`);
     }
+    //todo si region n'est pas vide
     else if (region !== '') {
-      console.log(`region ok : ${region}`);
       dispatch(sendSearchQueryByRegion(region));
     }
     else {
@@ -101,7 +101,6 @@ const FormSearch = () => {
           name="Lancer la recherche"
           className="btn--search"
         />
-        {/* <input className="form__submit" type="submit" value="Lancer la recherche" /> */}
       </form>
       <img className="form__background" src={backgroundForm} alt="test" />
     </div>
