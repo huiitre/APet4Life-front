@@ -1,6 +1,5 @@
 import './style.scss';
 // import React from 'react';
-import { Segment } from 'semantic-ui-react';
 
 //* import composants
 import Page from 'src/components/Page';
@@ -15,9 +14,7 @@ const SearchResult = () => (
     </section>
     <Separator className="home_separator" />
     <section className="search__list">
-      {/* <Segment> */}
       <h2 className="result-number">3 associations proches de toi</h2>
-      {/* </Segment> */}
       <AssocList />
     </section>
   </Page>

@@ -1,5 +1,4 @@
 import './style.scss';
-import logo from 'src/assets/img/logo-pet.jpg';
 import title from 'src/assets/img/title.png';
 import { useState } from 'react';
 

@@ -1,11 +1,11 @@
 import './style.scss';
-import logo from 'src/assets/img/logo-pet.jpg';
+// import logo from 'src/assets/img/logo-pet.jpg';
 import Button from 'src/components/Button';
 import title from 'src/assets/img/title.png';
 
 const Header = () => (
   <div className="header">
-    <img className="header__logo" src={logo} alt="logo" />
+    {/* <img className="header__logo" src={logo} alt="logo" /> */}
     {/* <h1 className="header__title">A Pet 4 Life</h1> */}
     <img className="header__title" src={title} alt="title" />
     <div className="header__user">
