@@ -44,19 +44,31 @@ const associationMiddleware = (store) => (next) => (action) => {
       break;
 
     case SEND_SEARCH_QUERY_BY_REGION:
-      { const state = store.getState();
-        const { associations: { formAssoc: { region } } } = state;
+      {
+        const state = store.getState();
+        const {
+          associations: {
+            formAssoc: { region },
+          },
+        } = state;
         console.log(`on est dans le middleware region: ${region}`);
+        const objetest = {
+          geolocation: 'region',
+          responseLocation: region,
+        };
+        console.log(objetest);
 
-        axios.get('http://localhost:3000/api/user/search', {
-          region,
-        })
+        axios
+          .get('http://localhost:3000/api/user/search',
+            objetest)
+
           .then((response) => {
             console.log('success', response);
           })
           .catch((error) => {
             console.log('error', error);
-          }); }
+          });
+      }
 
       next(action);
       break;
