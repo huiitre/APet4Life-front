@@ -2,15 +2,15 @@ import './style.scss';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Segment } from 'semantic-ui-react';
-import dummyassoclist from 'src/data/dummyassoclist';
+// import dummyassoclist from 'src/data/dummyassoclist';
 import Separator from 'src/components/Separator';
 
-const AssocList = () => (
+const AssocList = ({ assocList }) => (
 
   <Segment>
     <ul className="list">
       {
-        dummyassoclist.map(
+        assocList.map(
           (item) => (
             <>
               <Link to={`/association/${item.slug}`}>

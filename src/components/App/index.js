@@ -4,8 +4,6 @@ import AppHeader from 'src/components/AppHeader';
 import AppFooter from 'src/components/AppFooter';
 import Home from 'src/components/Home';
 import SearchResult from 'src/components/SearchResults';
-import Assoc from 'src/components/Assoc';
-import Button from 'src/components/Button';
 import { Route, Routes } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
@@ -14,6 +12,7 @@ import { loadDepartmentsFromApi, loadRegionsFromApi } from '../../store/actions/
 // == Composant
 const App = () => {
   const dispatch = useDispatch();
+
   useEffect(
     () => {
       dispatch(loadRegionsFromApi());
@@ -26,12 +25,14 @@ const App = () => {
       <AppHeader />
 
       <Routes>
+
         <Route
           path="/"
           element={(
             <Home />
           )}
         />
+
         <Route
           path="/search"
           element={(
