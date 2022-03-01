@@ -69,16 +69,9 @@ const associationMiddleware = (store) => (next) => (action) => {
           associations: {
             formAssoc: { region },
           },
-<<<<<<< HEAD
-        } = state;
-        console.log(`on est dans le middleware region: ${region}`);
-        const objetest = {
-
-=======
         } = store.getState();
 
         const config = {
->>>>>>> 9a736ec89e57b5d481b96cd178b19e0e6d9bf68d
           geolocation: 'region',
           responseLocation: region,
 
@@ -87,14 +80,10 @@ const associationMiddleware = (store) => (next) => (action) => {
         axios
           .post('http://localhost:3000/api/user/search', config)
           .then((response) => {
-<<<<<<< HEAD
-            console.log('success', response);
-=======
             store.dispatch(insertSearchResultToState(response.data));
           })
           .catch((error) => {
             console.log('error', error);
->>>>>>> 9a736ec89e57b5d481b96cd178b19e0e6d9bf68d
           });
       }
       next(action);
