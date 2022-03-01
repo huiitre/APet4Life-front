@@ -11,7 +11,7 @@ const associationMiddleware = (store) => (next) => (action) => {
       // const state = store.getState();
       // const { zipcode } = state.associations;
       // console.log(zipcode);
-      axios.get('http://localhost:3000/api/user/search', {
+      axios.post('http://localhost:3000/api/user/search', {
         zipcode,
       })
         .then((response) => {
@@ -30,7 +30,7 @@ const associationMiddleware = (store) => (next) => (action) => {
         const { associations: { formAssoc: { department } } } = state;
         console.log(`on est dans le middleware region: ${region}`);
 
-        axios.get('http://localhost:3000/api/user/search', {
+        axios.post('http://localhost:3000/api/user/search', {
           department,
         })
           .then((response) => {
@@ -48,8 +48,9 @@ const associationMiddleware = (store) => (next) => (action) => {
         const { associations: { formAssoc: { region } } } = state;
         console.log(`on est dans le middleware region: ${region}`);
 
-        axios.get('http://localhost:3000/api/user/search', {
-          region,
+        axios.post('http://localhost:3000/api/user/search', {
+          geolocation: 'region',
+          responseLocation: region,
         })
           .then((response) => {
             console.log('success', response);
