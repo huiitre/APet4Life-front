@@ -53,8 +53,10 @@ const associationMiddleware = (store) => (next) => (action) => {
         } = state;
         console.log(`on est dans le middleware region: ${region}`);
         const objetest = {
+
           geolocation: 'region',
           responseLocation: region,
+
         };
         console.log(objetest);
 
@@ -64,9 +66,6 @@ const associationMiddleware = (store) => (next) => (action) => {
 
           .then((response) => {
             console.log('success', response);
-          })
-          .catch((error) => {
-            console.log('error', error);
           });
       }
 
