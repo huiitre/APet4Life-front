@@ -21,6 +21,10 @@
       margin-top: 0.5rem;
     }
 
+    a {
+      transition-duration: 350ms;
+    }
+
     a:hover {
       color: vars.$color-hover;
       cursor: pointer;

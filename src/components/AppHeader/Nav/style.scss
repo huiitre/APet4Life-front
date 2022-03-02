@@ -38,6 +38,10 @@
     color: vars.$color-hover;
   }
 
+  &__item {
+    transition-duration: 350ms;
+  }
+
   &__item:hover {
     transform: scale(1.2);
     transition-duration: 350ms;
