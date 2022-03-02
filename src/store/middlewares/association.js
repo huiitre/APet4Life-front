@@ -12,6 +12,11 @@ import {
 const associationMiddleware = (store) => (next) => (action) => {
   // const history = useHistory();
 
+  const devURL = 'http://localhost:3000';
+  const prodURL = 'http://morgane-rabiller-server.eddi.cloud';
+  //* venir changer ici, si url de dev ou url de prod
+  const finalURL = devURL;
+
   switch (action.type) {
     //todo recherche assoc par code postal
     case SEND_SEARCH_QUERY_BY_ZIPCODE:
@@ -28,7 +33,7 @@ const associationMiddleware = (store) => (next) => (action) => {
         };
 
         axios
-          .post('http://localhost:3000/api/user/search', config)
+          .post(`${finalURL}/api/user/search`, config)
           .then((response) => {
             store.dispatch(insertSearchResultToState(response.data));
           })
@@ -54,7 +59,7 @@ const associationMiddleware = (store) => (next) => (action) => {
         };
 
         axios
-          .post('http://localhost:3000/api/user/search', config)
+          .post(`${finalURL}/api/user/search`, config)
           .then((response) => {
             store.dispatch(insertSearchResultToState(response.data));
           })
@@ -80,7 +85,7 @@ const associationMiddleware = (store) => (next) => (action) => {
         };
 
         axios
-          .post('http://localhost:3000/api/user/search', config)
+          .post(`${finalURL}/api/user/search`, config)
           .then((response) => {
             store.dispatch(insertSearchResultToState(response.data));
           })
