@@ -1,4 +1,6 @@
+//* on importe la feuille de style, comme dans tous les composants
 import './style.scss';
+//* on importe les logo des réseaux sociaux
 import logoFb from 'src/assets/img/facebook.png';
 import logoInsta from 'src/assets/img/insta.png';
 import logoTwitter from 'src/assets/img/twitter.png';

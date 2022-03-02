@@ -1,6 +1,7 @@
 import './style.scss';
 import PropTypes from 'prop-types';
 
+//* composant button réutilisable, en lui passant diverses informations en props
 const Button = ({
   type, name, className, onClick,
 }) =>
