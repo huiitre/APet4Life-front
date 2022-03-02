@@ -1,5 +1,5 @@
 import './style.scss';
-import title from 'src/assets/img/title.png';
+import logo from 'src/assets/img/logo.png';
 import { useState } from 'react';
 
 const Nav = () => {
@@ -11,7 +11,7 @@ const Nav = () => {
 
   return (
     <nav className={`navbar ${showLinks ? 'show-nav' : 'hide-nav'}`}>
-      <img className="navbar__title" src={title} alt="title" />
+      <img className="navbar__title" src={logo} alt="title" />
       <ul className="navbar__links">
         <li className="navbar__item slideInDown-1">
           <a href="/" className="navbar__link">Accueil</a>
