@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 // == Import
 import './style.scss';
 import AppHeader from 'src/components/AppHeader';
@@ -11,10 +12,13 @@ import { loadDepartmentsFromApi, loadRegionsFromApi } from '../../store/actions/
 
 // == Composant
 const App = () => {
+  //* on récupère useDispatch() de react-redux
   const dispatch = useDispatch();
 
+  //* au tout premier rendu de la page, on charge les api des régions et des départements
   useEffect(
     () => {
+      //* on effectue l'action grâce à la méthode associée (load...()) qui est dans le dossier store/actions/...
       dispatch(loadRegionsFromApi());
       dispatch(loadDepartmentsFromApi());
     },
@@ -22,17 +26,18 @@ const App = () => {
   );
   return (
     <div className="app">
+      {/* //* on affiche en premier le composant Appheader */}
       <AppHeader />
-
+      {/* //* on déclare nos routes */}
       <Routes>
-
+        {/* //* route accueil (url: /) */}
         <Route
           path="/"
           element={(
             <Home />
           )}
         />
-
+        {/* //* route résultat de recherches (url: /search) */}
         <Route
           path="/search"
           element={(
@@ -46,7 +51,7 @@ const App = () => {
           )}
         /> */}
       </Routes>
-
+      {/* //* on affiche le composant AppFooter à la toute fin */}
       <AppFooter />
 
     </div>
