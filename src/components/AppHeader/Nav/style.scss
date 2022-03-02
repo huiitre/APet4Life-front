@@ -7,10 +7,11 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem;
+  padding: 0.5rem 1rem;
   width: 100%;
   min-height: 35px;
   background: linear-gradient(vars.$color-light-green, vars.$color-dark-green);
+  border-bottom: 2px solid vars.$color-dark-green;
   color: vars.$color-text;
   z-index: 1000;
   // background: linear-gradient(#e66465, #9198e5);
@@ -21,7 +22,7 @@
   }
 
   &__title { 
-    max-width: 50%;
+    
   }
   
   &__links { 
@@ -50,10 +51,10 @@
 @media screen and (max-width:767px) {
   .navbar {
     top: 0px;
+    background: vars.$color-light-yellow;
 
     &__title {
-      max-width: 70%;
-      max-height: 40px;
+      max-height: 60px;
     }
 
   }
@@ -123,6 +124,16 @@
     content: "";  
     position: absolute;
     left: 0;
+  }
+  .hide-nav .burger-bar,
+  .hide-nav .burger-bar::after,
+  .hide-nav .burger-bar::before {
+    background: vars.$color-dark-green;
+  }
+  .show-nav .burger-bar,
+  .show-nav .burger-bar::after,
+  .show-nav .burger-bar::before {
+    background: #FFF;
   }
   .burger-bar::before {
     transform: translateY(-12px)
