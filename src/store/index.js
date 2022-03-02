@@ -1,5 +1,9 @@
 import { createStore, compose, applyMiddleware } from 'redux';
+
+//* import du reducer
 import reducer from 'src/store/reducers';
+
+//* import des middleware
 import locationMiddleware from './middlewares/location';
 import associationMiddleware from './middlewares/association';
 
@@ -14,6 +18,7 @@ const enhancers = composeEnhancers(
   applyMiddleware(...middlewares),
 );
 
+//* création du store
 const store = createStore(reducer, enhancers);
 
 export default store;

@@ -6,12 +6,22 @@ import Page from 'src/components/Page';
 import FormSearch from 'src/components/Forms/FormSearch';
 import Separator from 'src/components/Separator';
 import AssocList from 'src/components/AssocList';
+
+//* import gérant les hooks de react
 import { useSelector } from 'react-redux';
 
+//* composant SearchResult : page des résultats
+//* incluant le formulaire de recherche et la liste de résultats
 const SearchResult = () => {
+  //* on récupère la liste des associations depuis le state
   const assocList = useSelector((state) => state.associations.assocList);
+
+  //* on compte le nombre de résultats
   const count = assocList.length;
+
+  //* on génère le message de résultat
   const countMessage = `${count} association${count >= 2 ? 's' : ''} proche${count >= 2 ? 's' : ''} de chez toi`;
+
   return (
     <Page>
       <section className="home__search">
@@ -20,6 +30,10 @@ const SearchResult = () => {
       <Separator className="home_separator" />
       <section className="search__list">
         <h2 className="result-number">{countMessage}</h2>
+
+        {/* si il y a 1 résultat ou +, on affiche le composant assocList (liste des résultats) */}
+        {/* opérateur && servant ici à l'affichage conditionnel */}
+        {/* s'affiche si la condition count > 0 est true */}
         {count > 0 && <AssocList assocList={assocList} />}
       </section>
     </Page>

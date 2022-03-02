@@ -12,24 +12,3 @@ const rootReducer = combineReducers({
 });
 
 export default rootReducer;
-
-/* const stateTest = {
-
-  user: {
-    userInfo: [],
-    token: '',
-    formSignIn: {
-      mail: '',
-      password: '',
-    },
-  },
-
-  associations: {
-    assocList: [],
-    formAssoc: {
-      region: '',
-      department: '',
-      zipCode: '',
-    },
-  },
-}; */

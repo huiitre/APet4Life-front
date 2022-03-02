@@ -1,5 +1,6 @@
 /* eslint-disable spaced-comment */
 
+//* import des actions
 import {
   SET_DEPARTMENT,
   SET_REGION,
@@ -11,6 +12,7 @@ import {
   INSERT_REGIONS_TO_STATE,
 } from '../actions/location';
 
+//* state initial
 export const initialState = {
   assocList: [],
   regionsList: [],
@@ -23,9 +25,14 @@ export const initialState = {
   },
 };
 
-// A noter : pour le reducer recipesReducer, seule la tranche recipes est visible !
+//* SLICE ASSOCIATIONS du reducer gérant :
+//*   l'insertion des régions et départements dans le state
+//*   l'insertion du zipcode OU département OU région choisi par l'utilisateur
+//*   l'insertion de la liste des associations (résultat retour API)
+
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
+    //*   l'insertion des régions et départements dans le state
     case INSERT_REGIONS_TO_STATE: {
       return {
         ...state,
@@ -38,6 +45,8 @@ const reducer = (state = initialState, action = {}) => {
         departmentList: action.departmentList,
       };
     }
+
+    //*   l'insertion du zipcode OU département OU région choisi par l'utilisateur
     case SET_REGION: {
       return {
         ...state,
@@ -65,6 +74,8 @@ const reducer = (state = initialState, action = {}) => {
         },
       };
     }
+
+    //*   l'insertion de la liste des associations (résultat retour API)
     case INSERT_SEARCH_RESULT_TO_STATE: {
       return {
         ...state,

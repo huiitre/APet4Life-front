@@ -4,8 +4,10 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const Nav = () => {
+  //* hook d'état gérant l'ouverture et fermeture du burger menu
   const [showLinks, setShowLinks] = useState(false);
 
+  //* fonction inversant l'état d'ouverture du burger menu
   const handleShowLinks = () => {
     setShowLinks(!showLinks);
   };

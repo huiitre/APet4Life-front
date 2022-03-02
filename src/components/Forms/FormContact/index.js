@@ -3,6 +3,9 @@ import Field from 'src/components/Forms/Field';
 import TextArea from 'src/components/Forms/TextArea';
 import Button from 'src/components/Button';
 
+//! faire les propTypes du formContact
+
+//* composant Field: élément HTML *form* réutilisable via les props className et la méthode onSubmit
 const FormContact = ({ className, onSubmit }) => (
   <form onSubmit={onSubmit} className={`form-contact ${className}`}>
     <Field

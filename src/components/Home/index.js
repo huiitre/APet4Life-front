@@ -6,6 +6,7 @@ import MainCarousel from 'src/components/MainCarousel';
 import FormSearch from 'src/components/Forms/FormSearch';
 import Separator from 'src/components/Separator';
 
+//* composant Home : page d'accueil recevant le composant Page (container)
 const Home = () => (
   <Page>
     <section className="home__carousel">

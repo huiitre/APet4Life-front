@@ -1,10 +1,17 @@
 import axios from 'axios';
+
+//* import des actions
 import {
   insertDepartmentsToState,
   insertRegionsToState,
   LOAD_DEPARTMENTS_FROM_API,
   LOAD_REGIONS_FROM_API,
 } from '../actions/location';
+
+//* MIDDLEWARE LOCATION
+//* gérant la récupération de la liste des régions et départements
+//* depuis une api publique du gouvernement
+//* depuis envoi des listes dans le state
 
 const locationMiddleware = (store) => (next) => (action) => {
   switch (action.type) {

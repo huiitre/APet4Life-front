@@ -13,6 +13,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import { Pagination, Navigation, EffectFade } from 'swiper';
 
+//* composant MainCarousel : carousel principal de la page d'accueil
 const MainCarousel = () => (
   <div className="swiper">
     <Swiper
