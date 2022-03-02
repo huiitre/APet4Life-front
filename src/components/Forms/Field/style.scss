@@ -34,10 +34,10 @@ input[type=number] {
 
 //todo field pour le formulaire de recherche
 .form__search {
-  background-color: vars.$color-dark-green;
+  background-color: vars.$color-dark-main;
   color: vars.$color-text;
 
   &::placeholder {
-    color: vars.$color-light-green;
+    color: vars.$color-light-main;
   }
 }
