@@ -21,7 +21,6 @@ const SearchResult = () => {
 
   //* on génère le message de résultat
   const countMessage = `${count} association${count >= 2 ? 's' : ''} proche${count >= 2 ? 's' : ''} de chez toi`;
-  console.log(assocList);
 
   return (
     <Page>

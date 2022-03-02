@@ -8,9 +8,10 @@ import test2 from 'src/assets/img/test2.png';
 import test3 from 'src/assets/img/test3.png';
 import { useDispatch, useSelector } from 'react-redux';
 import classNames from 'classnames';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import FormContact from '../Forms/FormContact';
 import { formContactIsOpen } from '../../store/actions/user';
+import { findAssoc } from '../../store/selectors/associations';
 
 const Assoc = () => {
   const dispatch = useDispatch();
@@ -33,20 +34,43 @@ const Assoc = () => {
   //* ici on donne la class "form__contact--assoc" dans tous les cas
   //* MAIS SI isOpen vaut false, on lui donne en plus la class "form__contact--none" qui va le faire disparaître
   const formContactClassNames = classNames('form__contact--assoc', { 'form__contact--none': !isOpen });
+
+  //* on fait appel à la fonction useParams() de la dépendance react-router-dom pour récupérer les paramètres d'url
+  //* on avait déclaré la route /association/:slug, on vient donc destructurer "slug" pour récupérer ce qu'il contient
+  const { slug } = useParams();
+
+  //* ici on fait deux choses en une :
+  //*   1. on récupère le résultat de la recherche des assoc dans le state
+  //*   2. on insère ce résultat avec en plus le slug (param d'url) dans la fonction findAssoc
+  //*      qui va chercher avec un find() l'assoc qui correspond bien au slug de l'url
+  const assoc = useSelector((state) => findAssoc(state.associations.assocList, slug));
+  /* city: "Bonneau-sur-Mer"
+​
+department: "Haute-Garonne"
+​
+description: "Voluptatem tempore dolorem deserunt officiis quibusdam accusantium maxime. Dolor architecto qui reprehenderit quis libero mollitia fugiat."
+​
+picture: "https://loremflickr.com/640/480/kitten"
+​
+region: "Bretagne"
+​
+speciesName: "Chat"
+​
+type: "Association"
+​
+userName: "Arist' O'Chats" */
   return (
     <Page>
       {/* //* on fait appel au composant "segment" de semantic-ui */}
       <Segment className="assoc">
         <div className="assoc__picture">
-          <Image src={test3} size="medium" rounded />
+          <Image src={assoc.picture} size="medium" rounded />
         </div>
         <div className="assoc__content">
-          <div className="assoc__title">Nom de l'association</div>
+          <div className="assoc__title">{assoc.userName}</div>
           <div className="assoc__description">
             <p>
-              descr iption lorem10 descr iption lorem10 descr iption lorem10 descr
-              iption lorem10 descr iption lorem10 descr iption lorem10 descr
-              iption lorem10 descr iption lorem10 descr iption lorem10
+              {assoc.description}
             </p>
           </div>
           <div className="assoc__contact">
@@ -72,7 +96,7 @@ const Assoc = () => {
           <Button onClick={handleIsOpen} name="Nous contacter" className="btn--contact-us" />
           <FormContact className={formContactClassNames} onSubmit={handleSubmitContact} />
           <Link
-            to="/"
+            to="/search"
           >
             <Button name="Retour à la liste" className="btn--return" />
           </Link>

@@ -3,6 +3,7 @@
 import './style.scss';
 import AppHeader from 'src/components/AppHeader';
 import AppFooter from 'src/components/AppFooter';
+import Assoc from 'src/components/Assoc';
 import Home from 'src/components/Home';
 import SearchResult from 'src/components/SearchResults';
 import { Route, Routes } from 'react-router-dom';
@@ -42,6 +43,12 @@ const App = () => {
           path="/search"
           element={(
             <SearchResult />
+          )}
+        />
+        <Route
+          path="/association/:slug"
+          element={(
+            <Assoc />
           )}
         />
         {/* <Route
