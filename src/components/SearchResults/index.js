@@ -21,7 +21,7 @@ const SearchResult = () => {
       <Separator className="home_separator" />
       <section className="search__list">
         <h2 className="result-number">{countMessage}</h2>
-        <AssocList assocList={assocList} />
+        {count > 0 && <AssocList assocList={assocList} />}
       </section>
     </Page>
   );
