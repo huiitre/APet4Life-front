@@ -1,6 +1,7 @@
 import './style.scss';
 import logo from 'src/assets/img/logo.png';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Nav = () => {
   const [showLinks, setShowLinks] = useState(false);
@@ -14,7 +15,12 @@ const Nav = () => {
       <img className="navbar__title" src={logo} alt="title" />
       <ul className="navbar__links">
         <li className="navbar__item slideInDown-1">
-          <a href="/" className="navbar__link">Accueil</a>
+          <Link
+            to="/"
+            className="navbar__link"
+          >
+            Accueil
+          </Link>
         </li>
         <li className="navbar__item slideInDown-2">
           <a href="/" className="navbar__link">Associations</a>

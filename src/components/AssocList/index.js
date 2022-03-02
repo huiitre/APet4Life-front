@@ -17,7 +17,7 @@ const AssocList = ({ assocList }) => (
               //* c'est en gros un lien < href=""> qui communique avec les Routes que nous avons déclarés dans le composant App
               //* dans l'attribut "to", on peut l'url sur laquelle on veut atterir
               //* elle doit correspondre à une route */}
-              <Link to={`/association/${item.slug}`}>
+              <Link to={`/association/${item.userName}`}>
                 <li className="list__item">
                   <img className="list__item-logo" src={item.picture} alt="" />
                   <div className="list__item-infos">
