@@ -72,7 +72,7 @@ const Assoc = () => {
           <Button onClick={handleIsOpen} name="Nous contacter" className="btn--contact-us" />
           <FormContact className={formContactClassNames} onSubmit={handleSubmitContact} />
           <Link
-            to="/"
+            to="/search"
           >
             <Button name="Retour à la liste" className="btn--return" />
           </Link>
