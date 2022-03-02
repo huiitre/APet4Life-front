@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import { Segment } from 'semantic-ui-react';
 import Separator from 'src/components/Separator';
 
+//! faire propType d'assocList
+
 const AssocList = ({ assocList }) => (
 
   <Segment>

@@ -1,5 +1,7 @@
 import './style.scss';
 
+//* composant TextArea : élément HTML *textarea* réutilisable via les props
+// todo
 const TextArea = ({
   className, placeholder, name, onChange,
 }) => (

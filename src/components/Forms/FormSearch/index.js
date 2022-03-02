@@ -1,11 +1,18 @@
 /* eslint-disable spaced-comment */
 import './style.scss';
-import Button from 'src/components/Button';
 
+//* appel des dépendances react pouvant gérer des hooks
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+
 import backgroundForm from 'src/assets/img/form-dogs.jpg';
+
+//* import des composants de formulaire réutilisables
+import Button from 'src/components/Button';
 import Select from '../Select';
+import Field from '../Field';
+
+//* import des actions
 import {
   setDepartment,
   setRegion,
@@ -14,48 +21,58 @@ import {
   sendSearchQueryByDepartment,
   sendSearchQueryByZipcode,
 } from '../../../store/actions/associations';
-import Field from '../Field';
+
+//* composant FormSearch : formulaire de recherche réutilisable (home page & search result page)
 
 const FormSearch = () => {
   //* on récupère useDispatch() de react-redux
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  //* on récupère depuis le store les régions et les departements
+  //* on récupère depuis le store les régions et les départements
   const regionsList = useSelector((state) => state.associations.regionsList);
   const departmentList = useSelector((state) => state.associations.departmentList);
+
+  //* on récupère depuis le store les éléments que l'utilisateur a entré dans le formulaire
   const region = useSelector((state) => state.associations.formAssoc.region);
   const department = useSelector((state) => state.associations.formAssoc.department);
   const zipcode = useSelector((state) => state.associations.formAssoc.zipcode);
 
-  //* event qui va charger la liste des departements en fonction de la région sélectionné
+  //* event qui va charger la liste des départements en fonction de la région sélectionnée
   const handleChangeRegion = (value) => {
     dispatch(setRegion(value));
   };
 
-  //* event qui va envoyer dans le store le departement sélectionné
+  //* event qui va envoyer dans le store le département sélectionné
   const handleChangeDepartment = (value) => {
     dispatch(setDepartment(value));
   };
 
+  //* event qui va envoyer dans le state le zipcode écrit par l'utilisateur
   const changeFieldValue = (value, name) => {
     dispatch(setZipcode(value, name));
   };
 
+  //* au submit on envoie/dispatch la requête (zipcode OU département OU region)
+  //* puis on redirige/navigate vers la route /search
   const handleSubmit = (event) => {
     event.preventDefault();
+
     //todo si zipcode n'est pas vide, on envoie la requête avec le zipcode
     if (zipcode !== '') {
       dispatch(sendSearchQueryByZipcode(zipcode));
     }
+
     //todo si departement n'est pas vide
     else if (department !== '') {
       dispatch(sendSearchQueryByDepartment(department));
     }
+
     //todo si region n'est pas vide
     else if (region !== '') {
       dispatch(sendSearchQueryByRegion(region));
     }
+
     else {
     //! mettre un message veuillez sélectionner une localisation
     }

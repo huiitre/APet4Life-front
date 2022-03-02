@@ -3,8 +3,10 @@ import logo from 'src/assets/img/logo.png';
 import { useState } from 'react';
 
 const Nav = () => {
+  //* hook d'état gérant l'ouverture et fermeture du burger menu
   const [showLinks, setShowLinks] = useState(false);
 
+  //* fonction inversant l'état d'ouverture du burger menu
   const handleShowLinks = () => {
     setShowLinks(!showLinks);
   };

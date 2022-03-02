@@ -31,7 +31,7 @@ const Assoc = () => {
 
   //* dépendance classNames permet de mieux passer d'une class à une autre en fonction d'un état du state
   //* ici on donne la class "form__contact--assoc" dans tous les cas
-  //* MAIS SI isOpen vaut false, on lui donne en plus la class "form__contact--none" qui va le faire disparaitre
+  //* MAIS SI isOpen vaut false, on lui donne en plus la class "form__contact--none" qui va le faire disparaître
   const formContactClassNames = classNames('form__contact--assoc', { 'form__contact--none': !isOpen });
   return (
     <Page>
