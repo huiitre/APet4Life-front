@@ -12,7 +12,6 @@ const SearchResult = () => {
   const assocList = useSelector((state) => state.associations.assocList);
   const count = assocList.length;
   const countMessage = `${count} association${count >= 2 ? 's' : ''} proche${count >= 2 ? 's' : ''} de chez toi`;
-  console.log(assocList);
   return (
     <Page>
       <section className="home__search">
