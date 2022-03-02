@@ -11,25 +11,31 @@ const AppFooter = () => (
     <div className="footer">
       <div className="footer__links">
         <p>A Pet 4 Life 2022</p>
-        <a>Mentions légales et CGU</a>
-        <a>Nous contacter</a>
+        <a href="">Mentions légales et CGU</a>
+        <a href="">Nous contacter</a>
       </div>
       <div className="footer__socials">
-        <img
-          className="footer__socials-item"
-          src={logoFb}
-          alt="logo facebook"
-        />
-        <img
-          className="footer__socials-item"
-          src={logoInsta}
-          alt="logo instagram"
-        />
-        <img
-          className="footer__socials-item"
-          src={logoTwitter}
-          alt="logo twitter"
-        />
+        <a href="">
+          <img
+            className="footer__socials-item"
+            src={logoFb}
+            alt="logo facebook"
+          />
+        </a>
+        <a href="">
+          <img
+            className="footer__socials-item"
+            src={logoInsta}
+            alt="logo instagram"
+          />
+        </a>
+        <a href="">
+          <img
+            className="footer__socials-item"
+            src={logoTwitter}
+            alt="logo twitter"
+          />
+        </a>
       </div>
     </div>
   </footer>

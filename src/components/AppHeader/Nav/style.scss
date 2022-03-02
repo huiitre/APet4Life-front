@@ -26,17 +26,26 @@
   }
   
   &__links { 
-    display: flex;   
+    display: flex;  
   }
-
+  
   &__link {
-    padding: 0 0.3rem;
+    padding: 0 2rem;
     color:inherit;
     text-decoration: none;
   }
 
   &__link:hover {
-    color: vars.$color-light-gray;
+    color: vars.$color-hover;
+  }
+
+  &__item {
+    transition-duration: 350ms;
+  }
+
+  &__item:hover {
+    transform: scale(1.2);
+    transition-duration: 350ms;
   }
 
   &__burger {
