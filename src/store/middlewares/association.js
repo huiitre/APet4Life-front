@@ -14,7 +14,8 @@ const associationMiddleware = (store) => (next) => (action) => {
 
   const devURL = 'http://localhost:3000';
   const prodURL = 'http://morgane-rabiller-server.eddi.cloud';
-  const finalURL = prodURL;
+  //* venir changer ici, si url de dev ou url de prod
+  const finalURL = devURL;
 
   switch (action.type) {
     //todo recherche assoc par code postal
