@@ -1,6 +1,7 @@
 import './style.scss';
 import PropTypes from 'prop-types';
 
+//* composant Field : élément HTML *input* réutilisable via les props
 const Field = ({
   className,
   type,
