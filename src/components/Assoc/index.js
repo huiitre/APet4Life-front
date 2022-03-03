@@ -44,21 +44,7 @@ const Assoc = () => {
   //*   2. on insère ce résultat avec en plus le slug (param d'url) dans la fonction findAssoc
   //*      qui va chercher avec un find() l'assoc qui correspond bien au slug de l'url
   const assoc = useSelector((state) => findAssoc(state.associations.assocList, slug));
-  /* city: "Bonneau-sur-Mer"
-​
-department: "Haute-Garonne"
-​
-description: "Voluptatem tempore dolorem deserunt officiis quibusdam accusantium maxime. Dolor architecto qui reprehenderit quis libero mollitia fugiat."
-​
-picture: "https://loremflickr.com/640/480/kitten"
-​
-region: "Bretagne"
-​
-speciesName: "Chat"
-​
-type: "Association"
-​
-userName: "Arist' O'Chats" */
+
   return (
     <Page>
       {/* //* on fait appel au composant "segment" de semantic-ui */}

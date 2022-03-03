@@ -6,6 +6,7 @@ import {
   SET_REGION,
   SET_ZIPCODE,
   INSERT_SEARCH_RESULT_TO_STATE,
+  EMPTY_STATE_LAST_SEARCH,
 } from '../actions/associations';
 import {
   INSERT_DEPARTMENTS_TO_STATE,
@@ -80,6 +81,20 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         assocList: action.assocList,
+      };
+    }
+
+    //* action qui vide la liste des associations enregistrés dans le state, et la dernière recherche effectuée
+    case EMPTY_STATE_LAST_SEARCH: {
+      return {
+        ...state,
+        assocList: [],
+        formAssoc: {
+          ...state.formAssoc,
+          region: '',
+          department: '',
+          zipcode: '',
+        }
       };
     }
 

@@ -20,6 +20,7 @@ import {
   sendSearchQueryByRegion,
   sendSearchQueryByDepartment,
   sendSearchQueryByZipcode,
+  emptyStateLastSearch,
 } from '../../../store/actions/associations';
 
 //* composant FormSearch : formulaire de recherche réutilisable (home page & search result page)
@@ -40,16 +41,28 @@ const FormSearch = () => {
 
   //* event qui va charger la liste des départements en fonction de la région sélectionnée
   const handleChangeRegion = (value) => {
+    //? avant d'effectuer une action dans le middleware, on vide le state.assocList
+    //? car si l'user n'entre rien dans le form et fait envoyer,
+    //? il va se retrouver avec l'ancienne recherche
+    dispatch(emptyStateLastSearch())
     dispatch(setRegion(value));
   };
 
   //* event qui va envoyer dans le store le département sélectionné
   const handleChangeDepartment = (value) => {
+    //? avant d'effectuer une action dans le middleware, on vide le state.assocList
+    //? car si l'user n'entre rien dans le form et fait envoyer,
+    //? il va se retrouver avec l'ancienne recherche
+    dispatch(emptyStateLastSearch())
     dispatch(setDepartment(value));
   };
 
   //* event qui va envoyer dans le state le zipcode écrit par l'utilisateur
   const changeFieldValue = (value, name) => {
+    //? avant d'effectuer une action dans le middleware, on vide le state.assocList
+    //? car si l'user n'entre rien dans le form et fait envoyer,
+    //? il va se retrouver avec l'ancienne recherche
+    dispatch(emptyStateLastSearch())
     dispatch(setZipcode(value, name));
   };
 
