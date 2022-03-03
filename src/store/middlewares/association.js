@@ -30,14 +30,16 @@ const associationMiddleware = (store) => (next) => (action) => {
 
         //* objet envoyé à l'API
         const config = {
-          geolocation: 'zipcode',
-          responseLocation: zipcode,
+          params: {
+            geolocation: 'zipcode',
+            responselocation: zipcode,
+          },
         };
 
         //* route en POST pouvant envoyer un body (config)
         //* puis envoi des données récupérées dans le state
         axios
-          .post(`${finalURL}/api/user/search`, config)
+          .get(`${finalURL}/api/user/search`, config)
           .then((response) => {
             store.dispatch(insertSearchResultToState(response.data));
           })
@@ -60,14 +62,16 @@ const associationMiddleware = (store) => (next) => (action) => {
 
         //* objet envoyé à l'API
         const config = {
-          geolocation: 'department',
-          responseLocation: department,
+          params: {
+            geolocation: 'department',
+            responselocation: department,
+          },
         };
 
         //* route en POST pouvant envoyer un body (config)
         //* puis envoi des données récupérées dans le state
         axios
-          .post(`${finalURL}/api/user/search`, config)
+          .get(`${finalURL}/api/user/search`, config)
           .then((response) => {
             store.dispatch(insertSearchResultToState(response.data));
           })
@@ -90,14 +94,16 @@ const associationMiddleware = (store) => (next) => (action) => {
 
         //* objet envoyé à l'API
         const config = {
-          geolocation: 'region',
-          responseLocation: region,
+          params: {
+            geolocation: 'region',
+            responselocation: region,
+          },
         };
 
         //* route en POST pouvant envoyer un body (config)
         //* puis envoi des données récupérées dans le state
         axios
-          .post(`${finalURL}/api/user/search`, config)
+          .get(`${finalURL}/api/user/search`, config)
           .then((response) => {
             store.dispatch(insertSearchResultToState(response.data));
           })

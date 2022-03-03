@@ -6,7 +6,11 @@ import Button from 'src/components/Button';
 //! faire les propTypes du formContact
 
 //* composant Field: élément HTML *form* réutilisable via les props className et la méthode onSubmit
-const FormContact = ({ className, onSubmit }) => (
+const FormContact = ({ className, onSubmit }) => {
+  const handleClickButton = () => {
+    console.log('click button formContact temporaire');
+  };
+  return (
   <form onSubmit={onSubmit} className={`form-contact ${className}`}>
     <Field
       type="text"
@@ -27,8 +31,9 @@ const FormContact = ({ className, onSubmit }) => (
     <Button
       type="submit"
       name="Envoyer"
+      onClick={handleClickButton}
     />
   </form>
-);
+)};
 
 export default FormContact;
