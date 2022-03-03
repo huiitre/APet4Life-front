@@ -8,6 +8,7 @@ const Field = ({
   placeholder,
   name,
   onChange,
+  value,
 }) => {
   const handleChange = (evt) => {
     onChange(evt.target.value, name);
@@ -19,6 +20,7 @@ const Field = ({
       placeholder={placeholder}
       name={name}
       onChange={handleChange}
+      value={value}
     />
   );
 };

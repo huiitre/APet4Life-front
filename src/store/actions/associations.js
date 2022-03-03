@@ -54,10 +54,3 @@ export const insertSearchResultToState = (assocList) => ({
   type: INSERT_SEARCH_RESULT_TO_STATE,
   assocList,
 });
-
-//* ACTION TYPE EMPTY_STATE_LAST_SEARCH
-export const EMPTY_STATE_LAST_SEARCH = 'EMPTY_STATE_LAST_SEARCH';
-//* ACTION CREATOR emptyStateAssocList
-export const emptyStateLastSearch = () => ({
-  type: emptyStateLastSearch,
-});

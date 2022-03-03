@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import { Segment } from "semantic-ui-react";
 import Separator from "src/components/Separator";
 import { useDispatch } from "react-redux";
-import { setAssocBySlugOnApi } from "../../store/actions/associations";
 
 //! faire propType d'assocList
 

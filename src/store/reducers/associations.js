@@ -6,7 +6,6 @@ import {
   SET_REGION,
   SET_ZIPCODE,
   INSERT_SEARCH_RESULT_TO_STATE,
-  EMPTY_STATE_LAST_SEARCH,
 } from '../actions/associations';
 import {
   INSERT_DEPARTMENTS_TO_STATE,
@@ -15,14 +14,22 @@ import {
 
 //* state initial
 export const initialState = {
+  //? loading pour le spinner
   loading: false,
+  //? résultat de recherche des assocs
   assocList: [],
+  //? liste des régions depuis api.gouv
   regionsList: [],
+  //? list des départements depuis api.gouv
   departmentList: [],
   formAssoc: {
+    //? formulaire contact assoc
     isOpen: false,
+    //? input recherche par region
     region: '',
+    //? input recherche par departement
     department: '',
+    //? input recherche par zipcode
     zipcode: '',
   },
 };
@@ -48,7 +55,7 @@ const reducer = (state = initialState, action = {}) => {
       };
     }
 
-    //*   l'insertion du zipcode OU département OU région choisi par l'utilisateur
+    //* l'insertion du zipcode OU département OU région choisi par l'utilisateur
     case SET_REGION: {
       return {
         ...state,
@@ -77,27 +84,20 @@ const reducer = (state = initialState, action = {}) => {
       };
     }
 
-    //*   l'insertion de la liste des associations (résultat retour API)
+    //* l'insertion de la liste des associations (résultat retour API)
     case INSERT_SEARCH_RESULT_TO_STATE: {
       return {
         ...state,
         assocList: action.assocList,
-      };
-    }
-
-    //* action qui vide la liste des associations enregistrés dans le state, et la dernière recherche effectuée
-    case EMPTY_STATE_LAST_SEARCH: {
-      return {
-        ...state,
-        assocList: [],
         formAssoc: {
-          ...state.formAssoc,
+          ...state,
+          //* à chaque insertion d'un résultat dans le state, on vide les champs de recherche
           region: '',
           department: '',
           zipcode: '',
         }
       };
-    }
+    };
 
     default:
       return state;

@@ -7,8 +7,6 @@ import {
   SEND_SEARCH_QUERY_BY_DEPARTMENT,
   SEND_SEARCH_QUERY_BY_REGION,
   insertSearchResultToState,
-  SET_ASSOC_BY_SLUG_ON_API,
-  insertAssocBySlugOnState,
 } from '../actions/associations';
 
 //* MIDDLEWARE gérant l'envoi de la requête de recherche (par zipcode OU département OU region)
