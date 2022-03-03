@@ -7,6 +7,7 @@ import {
   SET_ZIPCODE,
   INSERT_SEARCH_RESULT_TO_STATE,
   EMPTY_STATE_LAST_SEARCH,
+  INSERT_ASSOC_BY_SLUG_ON_STATE,
 } from '../actions/associations';
 import {
   INSERT_DEPARTMENTS_TO_STATE,
@@ -16,11 +17,12 @@ import {
 //* state initial
 export const initialState = {
   assocList: [],
+  currentAssocBySlug: [],
   regionsList: [],
   departmentList: [],
   formAssoc: {
     isOpen: false,
-    region: '',
+    region: 'Bretagne',
     department: '',
     zipcode: '',
   },
@@ -95,6 +97,13 @@ const reducer = (state = initialState, action = {}) => {
           department: '',
           zipcode: '',
         }
+      };
+    }
+
+    case INSERT_ASSOC_BY_SLUG_ON_STATE: {
+      return {
+        ...state,
+        currentAssocBySlug: action.currentAssocBySlug,
       };
     }
 

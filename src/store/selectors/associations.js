@@ -4,7 +4,7 @@
 export function findAssoc(assocList, slug) {
   const assoc = assocList.find((item) => {
     //! bien remplacer le userName par le slug, quand on l'aura à dispo dans l'api
-    return item.userName === slug;
+    return item.slug === slug;
   });
   return assoc;
 };

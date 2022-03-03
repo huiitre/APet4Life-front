@@ -7,6 +7,8 @@ import {
   SEND_SEARCH_QUERY_BY_DEPARTMENT,
   SEND_SEARCH_QUERY_BY_REGION,
   insertSearchResultToState,
+  SET_ASSOC_BY_SLUG_ON_API,
+  insertAssocBySlugOnState,
 } from '../actions/associations';
 
 //* MIDDLEWARE gérant l'envoi de la requête de recherche (par zipcode OU département OU region)
@@ -107,6 +109,15 @@ const associationMiddleware = (store) => (next) => (action) => {
       }
       next(action);
       break;
+
+      case SET_ASSOC_BY_SLUG_ON_API:
+        console.log(action.slug);
+        axios
+          .get(`${finalURL}/api/user/association/${action.slug}`)
+          .then((response) => {
+            console.log('middleware', response.data);
+            store.dispatch(insertAssocBySlugOnState(response.data));
+          });
 
     default:
       next(action);
