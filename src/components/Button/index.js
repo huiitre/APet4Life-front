@@ -14,12 +14,14 @@ const Button = ({
 Button.propTypes = {
   type: PropTypes.string,
   name: PropTypes.string.isRequired,
-  className: PropTypes.string.isRequired,
-  onClick: PropTypes.func.isRequired,
+  className: PropTypes.string,
+  onClick: PropTypes.func,
 };
 
 Button.defaultProps = {
   type: '',
+  className: '',
+  onClick: null,
 };
 
 export default Button;

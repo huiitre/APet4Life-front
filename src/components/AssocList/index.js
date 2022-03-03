@@ -11,8 +11,8 @@ import { setAssocBySlugOnApi } from "../../store/actions/associations";
 const AssocList = ({ assocList }) => {
   const dispatch = useDispatch();
   const handleClick = (evt) => {
-    console.log(evt.currentTarget.slug);
-    // dispatch(setAssocBySlugOnApi())
+    console.log(evt.currentTarget.id);
+    dispatch(setAssocBySlugOnApi(evt.currentTarget.id));
   };
   return (
     <Segment>
@@ -20,18 +20,27 @@ const AssocList = ({ assocList }) => {
         {
           //* on "boucle" sur le tableau assocList pour générer des éléments JSX pour chaque item parcouru
           assocList.map((item) => (
-            <>
+            <div key={item.id}>
               {/* //* composant Link vient de la dépendance react-router-dom
               //* c'est en gros un lien < href=""> qui communique avec les Routes que nous avons déclarés dans le composant App
               //* dans l'attribut "to", on peut l'url sur laquelle on veut atterir
               //* elle doit correspondre à une route */}
-              <Link slug={item.slug} onClick={handleClick} to={`/association/${item.slug}`}>
+              <Link to={`/association/${item.slug}`}>
                 <li className="list__item">
                   <img className="list__item-logo" src={item.picture} alt="" />
                   <div className="list__item-infos">
                     <div className="list__item-header">
-                      <h3 className="list__item-title">{item.userName}</h3>
-                      <p className="list__item-species">{item.speciesName}</p>
+                      <h3 className="list__item-title">{item.name}</h3>
+                        {/* //* map du sous objet assoSpecies pour récupérer la liste des espèces que propose une association */}
+                        {
+                          item.assoSpecies.map(
+                            (specie) => (
+                              <p className="list__item-species">
+                                {specie.species.name}
+                              </p>
+                            )
+                          )
+                        }
                     </div>
                     <p className="list__item-description">{item.description}</p>
                     <div className="list__item-localisation">
@@ -42,7 +51,7 @@ const AssocList = ({ assocList }) => {
                 </li>
               </Link>
               <Separator className="list__separator" />
-            </>
+            </div>
           ))
         }
       </ul>

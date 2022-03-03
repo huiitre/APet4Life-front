@@ -44,7 +44,7 @@ const FormSearch = () => {
     //? avant d'effectuer une action dans le middleware, on vide le state.assocList
     //? car si l'user n'entre rien dans le form et fait envoyer,
     //? il va se retrouver avec l'ancienne recherche
-    dispatch(emptyStateLastSearch())
+    dispatch(emptyStateLastSearch());
     dispatch(setRegion(value));
   };
 
@@ -53,7 +53,7 @@ const FormSearch = () => {
     //? avant d'effectuer une action dans le middleware, on vide le state.assocList
     //? car si l'user n'entre rien dans le form et fait envoyer,
     //? il va se retrouver avec l'ancienne recherche
-    dispatch(emptyStateLastSearch())
+    dispatch(emptyStateLastSearch());
     dispatch(setDepartment(value));
   };
 
@@ -62,7 +62,7 @@ const FormSearch = () => {
     //? avant d'effectuer une action dans le middleware, on vide le state.assocList
     //? car si l'user n'entre rien dans le form et fait envoyer,
     //? il va se retrouver avec l'ancienne recherche
-    dispatch(emptyStateLastSearch())
+    dispatch(emptyStateLastSearch());
     dispatch(setZipcode(value, name));
   };
 

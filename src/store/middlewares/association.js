@@ -32,14 +32,16 @@ const associationMiddleware = (store) => (next) => (action) => {
 
         //* objet envoyé à l'API
         const config = {
-          geolocation: 'zipcode',
-          responseLocation: zipcode,
+          params: {
+            geolocation: 'zipcode',
+            responselocation: zipcode,
+          },
         };
 
         //* route en POST pouvant envoyer un body (config)
         //* puis envoi des données récupérées dans le state
         axios
-          .post(`${finalURL}/api/user/search`, config)
+          .get(`${finalURL}/api/user/search`, config)
           .then((response) => {
             store.dispatch(insertSearchResultToState(response.data));
           })
@@ -62,14 +64,16 @@ const associationMiddleware = (store) => (next) => (action) => {
 
         //* objet envoyé à l'API
         const config = {
-          geolocation: 'department',
-          responseLocation: department,
+          params: {
+            geolocation: 'department',
+            responselocation: department,
+          },
         };
 
         //* route en POST pouvant envoyer un body (config)
         //* puis envoi des données récupérées dans le state
         axios
-          .post(`${finalURL}/api/user/search`, config)
+          .get(`${finalURL}/api/user/search`, config)
           .then((response) => {
             store.dispatch(insertSearchResultToState(response.data));
           })
@@ -92,14 +96,16 @@ const associationMiddleware = (store) => (next) => (action) => {
 
         //* objet envoyé à l'API
         const config = {
-          geolocation: 'region',
-          responseLocation: region,
+          params: {
+            geolocation: 'region',
+            responselocation: region,
+          },
         };
 
         //* route en POST pouvant envoyer un body (config)
         //* puis envoi des données récupérées dans le state
         axios
-          .post(`${finalURL}/api/user/search`, config)
+          .get(`${finalURL}/api/user/search`, config)
           .then((response) => {
             store.dispatch(insertSearchResultToState(response.data));
           })
@@ -109,15 +115,6 @@ const associationMiddleware = (store) => (next) => (action) => {
       }
       next(action);
       break;
-
-      case SET_ASSOC_BY_SLUG_ON_API:
-        console.log(action.slug);
-        axios
-          .get(`${finalURL}/api/user/association/${action.slug}`)
-          .then((response) => {
-            console.log('middleware', response.data);
-            store.dispatch(insertAssocBySlugOnState(response.data));
-          });
 
     default:
       next(action);

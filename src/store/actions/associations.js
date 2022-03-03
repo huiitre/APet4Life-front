@@ -61,19 +61,3 @@ export const EMPTY_STATE_LAST_SEARCH = 'EMPTY_STATE_LAST_SEARCH';
 export const emptyStateLastSearch = () => ({
   type: emptyStateLastSearch,
 });
-
-//* ACTION TYPE SET_ASSOC_BY_SLUG_ON_API
-export const SET_ASSOC_BY_SLUG_ON_API = 'SET_ASSOC_BY_SLUG_ON_API';
-//* ACTION CREATOR setAssocBySlugOnApi
-export const setAssocBySlugOnApi = (slug) => ({
-  type: SET_ASSOC_BY_SLUG_ON_API,
-  slug,
-});
-
-//* ACTION TYPE INSERT_ASSOC_BY_SLUG_ON_STATE
-export const INSERT_ASSOC_BY_SLUG_ON_STATE = 'INSERT_ASSOC_BY_SLUG_ON_STATE';
-//* ACTION CREATOR insertAssocBySlugOnState
-export const insertAssocBySlugOnState = (currentAssocBySlug) => ({
-  type: INSERT_ASSOC_BY_SLUG_ON_STATE,
-  currentAssocBySlug,
-});
