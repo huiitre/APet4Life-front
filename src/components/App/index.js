@@ -5,6 +5,7 @@ import AppHeader from 'src/components/AppHeader';
 import AppFooter from 'src/components/AppFooter';
 import Assoc from 'src/components/Assoc';
 import Home from 'src/components/Home';
+import Spinner from 'src/components/Spinner';
 import SearchResult from 'src/components/SearchResults';
 import { Route, Routes } from 'react-router-dom';
 import { useEffect } from 'react';
@@ -35,7 +36,8 @@ const App = () => {
         <Route
           path="/"
           element={(
-            <Home />
+            // <Home />
+            <Spinner />
           )}
         />
         {/* //* route résultat de recherches (url: /search) */}

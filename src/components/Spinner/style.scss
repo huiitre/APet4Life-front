@@ -11,7 +11,7 @@
   width: 100%;
   max-width: 20em;
   overflow: hidden;
-  background-color: #e6dcdc; //? même couleur que le fond de l'image en background url plus bas
+  background-color: #eee; //? même couleur que le fond de l'image en background url plus bas
 
   &::before {
     content: '';
@@ -19,7 +19,7 @@
     padding-bottom: 100%;
   }
 
-  &:hover > * { animation-play-state: paused; }
+  // &:hover > * { animation-play-state: paused; } //? hover qui stop l'animation quand on passe la souris dessus
   &:active > * { animation-play-state: running; }
 }
 
@@ -34,7 +34,8 @@
     height: 50%;
     background-size: 200%;
     background-repeat: no-repeat;
-    background-image: url('https://images.weserv.nl/?url=i.imgur.com/M1raXX3.png&il');
+    // background-image: url('https://images.weserv.nl/?url=i.imgur.com/M1raXX3.png&il');
+    background-image: url('/src/assets/img/spinner.png');
   }
 }
 
