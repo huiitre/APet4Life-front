@@ -1,12 +1,26 @@
-import './style.scss';
+import classNames from "classnames";
+import "./style.scss";
 
 const Spinner = () => (
-    <div className="cat">
-      <div className="cat__body"></div>
-      <div className="cat__body"></div>
-      <div className="cat__tail"></div>
-      <div className="cat__head"></div>
+  <div className="container">
+    <div className="loader">
+      <div className="track">
+        <div className="mouse"></div>
+      </div>
+      <div className="face">
+        <div className="ears-container"></div>
+        <div className="eyes-container">
+          <div className="eye"></div>
+          <div className="eye"></div>
+        </div>
+        <div className="phiz">
+          <div className="nose"></div>
+          <div className="lip"></div>
+          <div className="mouth"></div>
+        </div>
+      </div>
     </div>
+  </div>
 );
 
 export default Spinner;

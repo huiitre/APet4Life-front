@@ -7,10 +7,10 @@ import {
   SEND_SEARCH_QUERY_BY_DEPARTMENT,
   SEND_SEARCH_QUERY_BY_REGION,
   insertSearchResultToState,
+  setLoadingSpinner,
 } from '../actions/associations';
 
 //* MIDDLEWARE gérant l'envoi de la requête de recherche (par zipcode OU département OU region)
-
 const associationMiddleware = (store) => (next) => (action) => {
   const devURL = 'http://localhost:3000';
   const prodURL = 'http://morgane-rabiller-server.eddi.cloud';
@@ -85,6 +85,9 @@ const associationMiddleware = (store) => (next) => (action) => {
     //todo recherche assoc par région
     case SEND_SEARCH_QUERY_BY_REGION:
       {
+        //* on lance le loading
+        store.dispatch(setLoadingSpinner());
+
         //* récupération du region depuis le state
         const {
           associations: {
