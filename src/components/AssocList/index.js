@@ -35,7 +35,7 @@ const AssocList = ({ assocList }) => {
                         {
                           item.species.map(
                             (specie) => (
-                              <p className="list__item-species">
+                              <p key={specie.id} className="list__item-species">
                                 {specie.name}
                               </p>
                             )

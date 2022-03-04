@@ -54,3 +54,10 @@ export const insertSearchResultToState = (assocList) => ({
   type: INSERT_SEARCH_RESULT_TO_STATE,
   assocList,
 });
+
+//* ACTION TYPE SET_LOADING_SPINNER
+export const SET_LOADING_SPINNER = 'SET_LOADING_SPINNER';
+//* ACTION CREATOR setLoadingSpinner
+export const setLoadingSpinner = () => ({
+  type: SET_LOADING_SPINNER,
+});

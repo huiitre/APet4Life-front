@@ -36,8 +36,7 @@ const App = () => {
         <Route
           path="/"
           element={(
-            // <Home />
-            <Spinner />
+            <Home />
           )}
         />
         {/* //* route résultat de recherches (url: /search) */}

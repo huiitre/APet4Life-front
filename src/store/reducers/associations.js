@@ -6,6 +6,7 @@ import {
   SET_REGION,
   SET_ZIPCODE,
   INSERT_SEARCH_RESULT_TO_STATE,
+  SET_LOADING_SPINNER,
 } from '../actions/associations';
 import {
   INSERT_DEPARTMENTS_TO_STATE,
@@ -95,9 +96,18 @@ const reducer = (state = initialState, action = {}) => {
           region: '',
           department: '',
           zipcode: '',
-        }
+        },
+        //* on cache le spinner
+        loading: false,
       };
     };
+
+    case SET_LOADING_SPINNER: {
+      return {
+        ...state,
+        loading: !state.loading,
+      };
+    }
 
     default:
       return state;
