@@ -13,6 +13,7 @@ const AssocList = ({ assocList }) => {
     console.log(evt.currentTarget.id);
     dispatch(setAssocBySlugOnApi(evt.currentTarget.id));
   };
+  console.log(assocList);
   return (
     <Segment>
       <ul className="list">
@@ -32,10 +33,10 @@ const AssocList = ({ assocList }) => {
                       <h3 className="list__item-title">{item.name}</h3>
                         {/* //* map du sous objet assoSpecies pour récupérer la liste des espèces que propose une association */}
                         {
-                          item.assoSpecies.map(
+                          item.species.map(
                             (specie) => (
                               <p className="list__item-species">
-                                {specie.species.name}
+                                {specie.name}
                               </p>
                             )
                           )
