@@ -77,3 +77,14 @@
 .btn--return:active {
   background: linear-gradient(#00000083, #00000010);
 }
+
+//todo Bouton valider le formulaire login
+.form__login-button {
+  // width: 3rem;
+  // height: rem;
+  font-size: 1rem;
+  line-height: 12px;
+  padding: 0.5rem 1rem;
+  color: vars.$color-dark-main;
+  margin-top: 0.5rem;;
+}

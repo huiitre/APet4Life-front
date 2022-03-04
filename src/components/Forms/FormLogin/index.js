@@ -26,7 +26,7 @@ const FormLogin = () => {
         />
         <Button
           type="submit"
-          name="Envoyer"
+          name="Go"
           className="form__login-button"
         />
       </form>

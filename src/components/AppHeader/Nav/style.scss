@@ -13,7 +13,7 @@
   background: linear-gradient(vars.$color-light-main, vars.$color-dark-main);
   border-bottom: 2px solid vars.$color-dark-main;
   color: vars.$color-text;
-  z-index: 1000;
+  z-index: 9;
   // background: linear-gradient(#e66465, #9198e5);
 
   &__logo { 

@@ -1,0 +1,28 @@
+@use "src/styles/vars";
+
+@media screen and (min-width: 768px) {
+
+  .form__login {
+    // display: none;
+    position:absolute;
+    border: solid 2px vars.$color-dark-main;
+    top: 1.3em;
+    right: 5em;
+    padding: 1rem;
+    background-color: vars.$color-light-main;
+    z-index: 100;
+    border-radius: 10px;
+  }
+
+  .form__login-container {
+
+    input {
+      margin-bottom: 0.2rem;
+    }
+
+    button {
+      
+    }
+}
+
+}
