@@ -70,6 +70,9 @@
 .btn--contact-us:active {
   background: linear-gradient(#00000083, #00000010);
 }
+.btn--contact-us:hover {
+  color: #fff;
+}
 
 //todo Bouton Retour à la liste
 .btn--return {
@@ -78,4 +81,7 @@
 }
 .btn--return:active {
   background: linear-gradient(#00000083, #00000010);
+}
+.btn--return:hover {
+  color: #fff;
 }
