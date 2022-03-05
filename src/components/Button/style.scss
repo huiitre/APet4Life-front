@@ -32,22 +32,24 @@
 //todo Bouton Se connecter
 .btn--signin {
   //? d'abord la clair puis la foncé
-  background: linear-gradient(#469e3f,#255b20);
+  background: linear-gradient(#469e3f, #255b20);
   font-size: 1rem;
 }
 .btn--signin:active {
   //? d'abord la foncé puis la clair
-  background: linear-gradient(#255b20,#469e3f);
+  background: linear-gradient(#255b20, #469e3f);
 }
 
 //todo Bouton s'inscrire
 .btn--signup {
-  background: linear-gradient(#5FDDFF, #53ADDF);
+  background: linear-gradient(vars.$color-light-main, vars.$color-dark-main);
   font-size: 1rem;
 }
 .btn--signup:active {
-  background: linear-gradient(#53ADDF,#5FDDFF);
-  
+  background: linear-gradient(vars.$color-dark-main, vars.$color-light-main);
+}
+.btn--signup:hover {
+  color: #fff;
 }
 
 //todo Bouton recherche
@@ -68,6 +70,9 @@
 .btn--contact-us:active {
   background: linear-gradient(#00000083, #00000010);
 }
+.btn--contact-us:hover {
+  color: #fff;
+}
 
 //todo Bouton Retour à la liste
 .btn--return {
@@ -76,4 +81,7 @@
 }
 .btn--return:active {
   background: linear-gradient(#00000083, #00000010);
+}
+.btn--return:hover {
+  color: #fff;
 }
