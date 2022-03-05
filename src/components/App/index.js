@@ -5,7 +5,7 @@ import AppHeader from 'src/components/AppHeader';
 import AppFooter from 'src/components/AppFooter';
 import Assoc from 'src/components/Assoc';
 import Home from 'src/components/Home';
-import Spinner from 'src/components/Spinner';
+import Subscribe from 'src/components/Subscribe';
 import SearchResult from 'src/components/SearchResults';
 import { Route, Routes } from 'react-router-dom';
 import { useEffect } from 'react';
@@ -46,10 +46,18 @@ const App = () => {
             <SearchResult />
           )}
         />
+        //* route vers la page de l'association (par son slug)
         <Route
           path="/association/:slug"
           element={(
             <Assoc />
+          )}
+        />
+        {/* //* route vers le formulaire d'inscription */}
+        <Route
+          path=""
+          element={(
+            <Subscribe />
           )}
         />
         {/* <Route
