@@ -3,18 +3,13 @@ import "./style.scss";
 import Page from "src/components/Page";
 import Button from "src/components/Button";
 import { Icon, Image, Segment } from "semantic-ui-react";
-import test1 from "src/assets/img/test1.png";
-import test2 from "src/assets/img/test2.png";
-import test3 from "src/assets/img/test3.png";
 import { useDispatch, useSelector } from "react-redux";
 import classNames from "classnames";
-import { Link, useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import FormContact from "../Forms/FormContact";
 import { formContactIsOpen } from "../../store/actions/user";
 import { findAssoc } from "../../store/selectors/associations";
-import { useEffect } from "react";
-import { setAssocBySlugOnApi } from "../../store/actions/associations";
-import Spinner from "src/components/Spinner";
+import AssocCarrousel from "../AssocCarrousel";
 
 const Assoc = () => {
   const navigate = useNavigate();
@@ -104,7 +99,7 @@ const Assoc = () => {
           />
         </div>
       </Segment>
-      <section className="assoc-carousel">CAROUSEL</section>
+      <AssocCarrousel array={assoc.animals} />
     </Page>
   );
 };
