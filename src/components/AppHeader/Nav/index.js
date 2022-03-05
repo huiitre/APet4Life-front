@@ -20,6 +20,7 @@ const Nav = () => {
           <Link
             to="/"
             className="navbar__link"
+            onClick={handleShowLinks}
           >
             Accueil
           </Link>
@@ -34,7 +35,13 @@ const Nav = () => {
           <a href="/" className="navbar__link">Connexion</a>
         </li>
         <li className="navbar__item slideInDown-5">
-          <a href="/" className="navbar__link">Inscription</a>
+          <Link
+            to='/inscription'
+            className='navbar__link'
+            onClick={handleShowLinks}
+          >
+            Inscription
+          </Link>
         </li>
       </ul>
       <button type="button" className="navbar__burger" onClick={handleShowLinks}>
