@@ -1,10 +1,10 @@
 import './style.scss';
 import Page from 'src/components/Page';
 
-const Subscribe = () => (
+const Signup = () => (
   <Page>
     salut salut
   </Page>
 );
 
-export default Subscribe;
+export default Signup;

@@ -5,12 +5,12 @@ import AppHeader from 'src/components/AppHeader';
 import AppFooter from 'src/components/AppFooter';
 import Assoc from 'src/components/Assoc';
 import Home from 'src/components/Home';
-import Subscribe from 'src/components/Subscribe';
 import SearchResult from 'src/components/SearchResults';
 import { Route, Routes } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { loadDepartmentsFromApi, loadRegionsFromApi } from '../../store/actions/location';
+import Signup from '../Signup';
 
 // == Composant
 const App = () => {
@@ -55,9 +55,9 @@ const App = () => {
         />
         {/* //* route vers le formulaire d'inscription */}
         <Route
-          path=""
+          path="/inscription"
           element={(
-            <Subscribe />
+            <Signup />
           )}
         />
         {/* <Route
