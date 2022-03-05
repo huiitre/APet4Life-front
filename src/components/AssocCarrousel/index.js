@@ -8,7 +8,6 @@ import { FreeMode, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 const AssocCarrousel = ({ array }) => {
-  console.log(array);
   return (
     <div className="assoc-carrousel">
       <Swiper
@@ -21,13 +20,14 @@ const AssocCarrousel = ({ array }) => {
         modules={[FreeMode, Pagination]}
         className="assoc-carrousel__mySwiper"
       >
-        {array.map((item) => {
-          console.log(item),
+        {array.map((item) => (
           <SwiperSlide>
-            <img className="swiper__img" src={item.picture} alt={item.name} />
-            <p>test</p>
-          </SwiperSlide>;
-        })}
+            <img
+              src={item.picture}
+              alt={item.name}
+            />
+          </SwiperSlide>
+        ))}
       </Swiper>
     </div>
   );

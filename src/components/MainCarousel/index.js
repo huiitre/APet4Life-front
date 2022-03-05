@@ -11,7 +11,7 @@ import 'swiper/css';
 import 'swiper/css/bundle';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-import { Pagination, Navigation, EffectFade } from 'swiper';
+import { Pagination, Navigation, EffectFade, Autoplay } from 'swiper';
 
 //* composant MainCarousel : carousel principal de la page d'accueil
 const MainCarousel = () => (
@@ -23,12 +23,16 @@ const MainCarousel = () => (
       loop
       navigation
       effect="fade"
+      autoplay={{
+        delay: 3000,
+        disableOnInteraction: false,
+      }}
       // onSlideChange={() => console.log('slide change')}
       // onSwiper={(swiper) => console.log(swiper)}
       pagination={{
         clickable: true,
       }}
-      modules={[EffectFade, Pagination, Navigation]}
+      modules={[EffectFade, Pagination, Navigation, Autoplay]}
     >
       {/* <SwiperSlide><img src="" alt="random" /></SwiperSlide> */}
       <SwiperSlide>
