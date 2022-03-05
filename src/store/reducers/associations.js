@@ -27,7 +27,7 @@ export const initialState = {
     //? formulaire contact assoc
     isOpen: false,
     //? input recherche par region
-    region: '',
+    region: 'La Réunion',
     //? input recherche par departement
     department: '',
     //? input recherche par zipcode
