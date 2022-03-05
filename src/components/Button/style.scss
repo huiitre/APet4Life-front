@@ -85,3 +85,15 @@
 .btn--return:hover {
   color: #fff;
 }
+
+//todo Bouton suivant formulaire d'inscription
+.btn--next-form {
+  background: linear-gradient(vars.$color-light-main, vars.$color-dark-main);
+  width: 100%;
+}
+.btn--next-form:active {
+  background: linear-gradient(vars.$color-dark-main, vars.$color-light-main);
+}
+.btn--next-form:hover {
+  color: #fff;
+}

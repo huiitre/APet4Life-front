@@ -11,6 +11,9 @@ const Nav = () => {
   const handleShowLinks = () => {
     setShowLinks(!showLinks);
   };
+  const closeBurger = () => {
+    setShowLinks(false);
+  };
 
   return (
     <nav className={`navbar ${showLinks ? 'show-nav' : 'hide-nav'}`}>
@@ -20,7 +23,7 @@ const Nav = () => {
           <Link
             to="/"
             className="navbar__link"
-            onClick={handleShowLinks}
+            onClick={closeBurger}
           >
             Accueil
           </Link>
@@ -38,7 +41,7 @@ const Nav = () => {
           <Link
             to='/inscription'
             className='navbar__link'
-            onClick={handleShowLinks}
+            onClick={closeBurger}
           >
             Inscription
           </Link>
