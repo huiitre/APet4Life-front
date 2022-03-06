@@ -81,6 +81,9 @@ label {
   box-shadow: 0px 3px 10px -2px #a1aaa680;
   position: relative;
   margin-bottom: 3rem; //? espacement entre les deux radios
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 input[type="radio"]:checked + label {
   // background: #20df80; //! ancienne couleur

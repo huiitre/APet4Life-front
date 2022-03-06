@@ -9,7 +9,7 @@ const RadioType = () => (
         name="select"
         value="1"
       />
-      <label for="control_01"><p>Un particulier</p></label>
+      <label htmlFor="control_01"><p>Un particulier</p></label>
     </div>
     <div>
       <input
@@ -18,7 +18,7 @@ const RadioType = () => (
         name="select"
         value="1"
       />
-      <label for="control_02"><p>Une association</p></label>
+      <label htmlFor="control_02"><p>Une association</p></label>
     </div>
   </div>
 );
