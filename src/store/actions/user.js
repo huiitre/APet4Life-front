@@ -22,38 +22,6 @@ export const changeFormSignupStatus = (status) => ({
 });
 
 //todo action pour le formulaire d'inscription
-/* //* ACTION TYPE SET_MAIL_SIGNUP_FORM
-export const SET_MAIL_SIGNUP_FORM = 'SET_MAIL_SIGNUP_FORM';
-//* ACTION CREATOR setMailSignupForm
-export const setMailSignupForm = (mail) => ({
-  type: SET_MAIL_SIGNUP_FORM,
-  mail,
-});
-
-//* ACTION TYPE SET_PASSWORD_SIGNUP_FORM
-export const SET_PASSWORD_SIGNUP_FORM = 'SET_PASSWORD_SIGNUP_FORM';
-//* ACTION CREATOR setPasswordSignupForm
-export const setPasswordSignupForm = (password) => ({
-  type: SET_PASSWORD_SIGNUP_FORM,
-  password,
-});
-
-//* ACTION TYPE SET_PASSWORD_CONFIRM_SIGNUP_FORM
-export const SET_PASSWORD_CONFIRM_SIGNUP_FORM = 'SET_PASSWORD_CONFIRM_SIGNUP_FORM';
-//* ACTION CREATOR setPasswordConfirmSignupForm
-export const setPasswordConfirmSignupForm = (passwordConfirm) => ({
-  type: SET_PASSWORD_CONFIRM_SIGNUP_FORM,
-  passwordConfirm,
-});
-
-//* ACTION TYPE SET_REGION_SIGNUP_FORM
-export const SET_REGION_SIGNUP_FORM = 'SET_REGION_SIGNUP_FORM';
-//* ACTION CREATOR setRegionSignupForm
-export const setRegionSignupForm = (region) => ({
-  type: SET_REGION_SIGNUP_FORM,
-  region,
-}); */
-
 //* ACTION TYPE SET_FIELD_VALUE_SIGNUP_FORM
 export const SET_FIELD_VALUE_SIGNUP_FORM = "SET_FIELD_VALUE_SIGNUP_FORM";
 //* ACTION CREATOR setFieldValueSignupForm
@@ -64,3 +32,10 @@ export const setFieldValueSignupForm = (value, name) => {
     name,
   };
 };
+
+//* ACTION TYPE SEND_SIGN_UP
+export const SEND_SIGN_UP = 'SEND_SIGN_UP';
+//* ACTION CREATOR sendSignUp
+export const sendSignUp = () => ({
+  type: SEND_SIGN_UP,
+});

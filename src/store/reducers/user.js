@@ -8,10 +8,11 @@ export const initialState = {
     isOpen: false,
   },
   signup: {
-    status: 2,
+    loading: false,
+    status: 1,
     regionList: [],
     departmentList: [],
-    userType: 'Association',
+    userType: '',
     mail: '',
     password: '',
     passwordConfirm: '',

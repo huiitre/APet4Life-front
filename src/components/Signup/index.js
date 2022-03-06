@@ -5,6 +5,7 @@ import Button from "src/components/Button";
 import { useDispatch, useSelector } from "react-redux";
 import {
   changeFormSignupStatus,
+  sendSignUp,
   setFieldValueSignupForm,
   setTypeSignupForm,
 } from "../../store/actions/user";
@@ -44,6 +45,9 @@ const Signup = () => {
   );
   const region = useSelector((state) => state.user.signup.region);
   const department = useSelector((state) => state.user.signup.department);
+  const name = useSelector((state) => state.user.signup.name);
+  const firstname = useSelector((state) => state.user.signup.firstname);
+  const lastname = useSelector((state) => state.user.signup.lastname);
 
   //* fonction qui vérifie si un type est choisi et qui redirige vers un autre formulaire
   const handleShowNextForm = (evt) => {
@@ -79,12 +83,58 @@ const Signup = () => {
   //* fonction qui fait un retour en arrière vers le premier formulaire
   const handleShowPreviousForm = () => {
     dispatch(changeFormSignupStatus(1));
+    //* on met l'erreur à false si l'user revient en arrière
+    setIsError(false);
   };
 
   //* fonction qui submit le formulaire
   const handleSubmit = (evt) => {
     evt.preventDefault();
     //* on fait nos vérifications
+    if (userType === "Association") {
+      if (
+        mail === "" ||
+        password === "" ||
+        passwordConfirm === "" ||
+        region === "" ||
+        department === "" ||
+        name === ""
+      ) {
+        setIsError(true);
+        console.log('error');
+      } else if (password.length < 5) {
+        setIsError(true);
+        console.log('error');
+      } else if (password !== passwordConfirm) {
+        setIsError(true);
+        console.log('error');
+      } else {
+        setIsError(false);
+        dispatch(sendSignUp());
+      }
+    } else if (userType === 'Particular') {
+      if (
+        mail === "" ||
+        password === "" ||
+        passwordConfirm === "" ||
+        region === "" ||
+        department === "" ||
+        firstname === "" ||
+        lastname === ""
+      ) {
+        setIsError(true);
+        console.log('error');
+      } else if (password.length < 5) {
+        setIsError(true);
+        console.log('error');
+      } else if (password !== passwordConfirm) {
+        setIsError(true);
+        console.log('error');
+      } else {
+        setIsError(false);
+        dispatch(sendSignUp());
+      }
+    }
   };
 
   const classNamesError = classNames("signup__error", { none: !isError });
@@ -146,6 +196,7 @@ const Signup = () => {
                   name="password"
                   onChange={handleChangeField}
                   className="signup__field form__password-field"
+                  value={password}
                 />
               </div>
               <div className="form__container form__password_confirm">
@@ -158,6 +209,7 @@ const Signup = () => {
                   name="passwordConfirm"
                   onChange={handleChangeField}
                   className="signup__field form__password_confirm-field"
+                  value={passwordConfirm}
                 />
               </div>
               {/* //* si c'est un particulier ... */}
@@ -173,6 +225,7 @@ const Signup = () => {
                       name="firstname"
                       onChange={handleChangeField}
                       className="signup__field form__firstname-field"
+                      value={firstname}
                     />
                   </div>
                   <div className="form__container form__lastname">
@@ -185,6 +238,7 @@ const Signup = () => {
                       name="lastname"
                       onChange={handleChangeField}
                       className="signup__field form__lastname-field"
+                      value={lastname}
                     />
                   </div>
                 </>
@@ -201,6 +255,7 @@ const Signup = () => {
                     name="name"
                     onChange={handleChangeField}
                     className="signup__field form__name-field"
+                    value={name}
                   />
                 </div>
               )}
