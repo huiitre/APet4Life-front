@@ -17,6 +17,10 @@ export const initialState = {
     passwordConfirm: '',
     region: '',
     department: '',
+    name: '',
+    firstname: '',
+    lastname: '',
+    picture: 'https://placekitten.com/500/600',
   }
 };
 
