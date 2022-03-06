@@ -10,6 +10,7 @@ const Select = ({
 }) => {
   const handleChange = (evt) => {
     onChange(evt.target.value);
+    console.log(evt.target);
   };
   return (
     <>

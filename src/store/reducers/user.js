@@ -1,5 +1,6 @@
 //* import des actions
-import { CHANGE_FORM_SIGNUP_STATUS, FORM_CONTACT_IS_OPEN, SET_TYPE_SIGNUP_FORM } from '../actions/user';
+import { INSERT_DEPARTMENTS_TO_STATE, INSERT_REGIONS_TO_STATE } from '../actions/location';
+import { CHANGE_FORM_SIGNUP_STATUS, FORM_CONTACT_IS_OPEN, SET_FIELD_VALUE_SIGNUP_FORM, SET_TYPE_SIGNUP_FORM } from '../actions/user';
 
 //* state initial
 export const initialState = {
@@ -11,6 +12,11 @@ export const initialState = {
     regionList: [],
     departmentList: [],
     userType: 'Association',
+    mail: '',
+    password: '',
+    passwordConfirm: '',
+    region: '',
+    department: '',
   }
 };
 
@@ -43,6 +49,33 @@ const reducer = (state = initialState, action = {}) => {
           ...state.signup,
           status: action.status,
         },
+      };
+    }
+    case INSERT_REGIONS_TO_STATE: {
+      return {
+        ...state,
+        signup: {
+          ...state.signup,
+          regionList: action.regionsList,
+        }
+      };
+    }
+    case INSERT_DEPARTMENTS_TO_STATE: {
+      return {
+        ...state,
+        signup: {
+          ...state.signup,
+          departmentList: action.departmentList,
+        }
+      };
+    }
+    case SET_FIELD_VALUE_SIGNUP_FORM: {
+      return {
+        ...state,
+        signup: {
+          ...state.signup,
+          [action.name]: action.value,
+        }
       };
     }
 

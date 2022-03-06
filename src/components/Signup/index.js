@@ -3,22 +3,39 @@ import Page from "src/components/Page";
 import RadioType from "./radioType";
 import Button from "src/components/Button";
 import { useDispatch, useSelector } from "react-redux";
-import { changeFormSignupStatus, setTypeSignupForm } from "../../store/actions/user";
-import { useState } from "react";
+import { changeFormSignupStatus, setFieldValueSignupForm, setTypeSignupForm } from "../../store/actions/user";
+import { useEffect, useState } from "react";
 import classNames from "classnames";
 import Field from "src/components/Forms/Field";
 import Select from "../Forms/Select";
+import { loadDepartmentsFromApi, loadRegionsFromApi } from "../../store/actions/location";
 
 const Signup = () => {
+  //* hook custom qui gère l'affichage d'erreur si un ou plusieurs champs ne sopnt pas rempli
   const [isError, setIsError] = useState(false);
 
+  //* useEffect qui va charger la liste des régions et des depts depuis une api public
+  useEffect(
+    () => {
+      dispatch(loadRegionsFromApi());
+      dispatch(loadDepartmentsFromApi());
+    },
+    [],
+  );
+
+  //* on récupère useDispatch()
   const dispatch = useDispatch();
 
+  //* on récupère ce qu'on a besoin comme infos depuis le state
   const statusForm = useSelector((state) => state.user.signup.status);
-  const userType = useSelector((state) => state.user.signup.userType);
   const regionList = useSelector((state) => state.associations.regionsList);
-  console.log(userType);
+  const departmentList = useSelector((state) => state.user.signup.departmentList);
+  const userType = useSelector((state) => state.user.signup.userType);
+  const mail = useSelector((state) => state.user.signup.mail);
+  const region = useSelector((state) => state.user.signup.region);
+  const department = useSelector((state) => state.user.signup.department);
 
+  //* fonction qui vérifie si un type est choisi et qui redirige vers un autre formulaire
   const handleShowNextForm = (evt) => {
     evt.preventDefault();
     if (userType !== '') {
@@ -29,9 +46,25 @@ const Signup = () => {
     }
   };
 
-  const handleChange = (evt) => {
+  //* fonction qui insère le type dans le state
+  const handleChangeType = (evt) => {
     dispatch(setTypeSignupForm(evt.target.value));
   };
+
+  //* fonction qui insère la value du field dans le state
+  const handleChangeField = (value, name) => {
+    dispatch(setFieldValueSignupForm(value, name));
+  };
+
+  //* fonction qui insère la région sélectionnée dans le state
+  const handleChangeRegion = (value) => {
+    dispatch(setFieldValueSignupForm(value, 'region'));
+  }
+
+  //* fonction qui insère le département sélectionnée dans le state
+  const handleChangeDepartment = (value) => {
+    dispatch(setFieldValueSignupForm(value, 'department'));
+  }
 
   const handleSignup = (evt) => {
     evt.preventDefault();
@@ -50,7 +83,7 @@ const Signup = () => {
             </div>
             <form onSubmit={handleShowNextForm}>
               <div className="signup__radio">
-                <RadioType onChange={handleChange} />
+                <RadioType onChange={handleChangeType} />
               </div>
               <div className="signup__button">
                 <Button
@@ -78,8 +111,9 @@ const Signup = () => {
                   type="text"
                   placeholder="Adresse Email"
                   name="mail"
-                  onChange=""
+                  onChange={handleChangeField}
                   className="signup__field form__mail-field"
+                  value={mail}
                 />
               </div>
               <div className="form__container form__password">
@@ -88,7 +122,7 @@ const Signup = () => {
                   type="password"
                   placeholder="Mot de passe"
                   name="password"
-                  onChange=""
+                  onChange={handleChangeField}
                   className="signup__field form__password-field"
                 />
               </div>
@@ -97,8 +131,8 @@ const Signup = () => {
                 <Field
                   type="password"
                   placeholder="Confirmer votre mot de passe"
-                  name="password_confirm"
-                  onChange=""
+                  name="passwordConfirm"
+                  onChange={handleChangeField}
                   className="signup__field form__password_confirm-field"
                 />
               </div>
@@ -108,9 +142,28 @@ const Signup = () => {
                   array={regionList}
                   name="region"
                   classNames="signup__field form__region-field"
-                  onChange=""
+                  onChange={handleChangeRegion}
                   placeholder="Votre région"
-                  value=""
+                  value={region}
+                />
+              </div>
+              <div className="form__container form__department">
+                <label className="signup__label form__department-label">Département</label>
+                <Select
+                  array={departmentList}
+                  name="department"
+                  classNames="signup__field form__department-field"
+                  onChange={handleChangeDepartment}
+                  placeholder="Votre département"
+                  value={department}
+                />
+              </div>
+              <div className="signup__button">
+                <Button
+                  type="submit"
+                  name="Suivant"
+                  className="btn--next-form"
+                  onClick={handleShowNextForm}
                 />
               </div>
             </form>
