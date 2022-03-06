@@ -2,10 +2,15 @@
 import "./style.scss";
 import Button from "src/components/Button";
 import logo from "src/assets/img/logo.png";
+import { useNavigate } from "react-router";
 
 const Header = () => {
+  const navigate = useNavigate();
   const handleClick = () => {
     console.log('click temporaire boutons header');
+  };
+  const handleNavigateToSignupPage = () => {
+    navigate('/inscription');
   };
   return (
     <div className="header">
@@ -19,7 +24,7 @@ const Header = () => {
           className="btn--signin"
         />
         <Button
-          onClick={handleClick}
+          onClick={handleNavigateToSignupPage}
           type=""
           name="Inscription"
           className="btn--signup"

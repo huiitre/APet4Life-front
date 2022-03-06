@@ -85,3 +85,39 @@
 .btn--return:hover {
   color: #fff;
 }
+
+//todo Bouton suivant formulaire d'inscription
+.btn--next-form {
+  background: linear-gradient(vars.$color-light-main, vars.$color-dark-main);
+  width: 100%;
+}
+.btn--next-form:active {
+  background: linear-gradient(vars.$color-dark-main, vars.$color-light-main);
+}
+.btn--next-form:hover {
+  color: #fff;
+}
+
+//todo Bouton retour second formulaire d'inscription
+.btn--return-form {
+  background: linear-gradient(vars.$color-light-main, vars.$color-dark-main);
+  width: 100%;
+}
+.btn--return-form:active {
+  background: linear-gradient(vars.$color-dark-main, vars.$color-light-main);
+}
+.btn--return-form:hover {
+  color: #fff;
+}
+
+//todo Bouton submit formulaire d'inscription
+.btn--submit-signup {
+  background: linear-gradient(#469e3f, #255b20);
+  width: 100%;
+}
+.btn--submit-signup:active {
+  background: linear-gradient(#255b20, #469e3f);
+}
+.btn--submit-signup:hover {
+  color: #fff;
+}

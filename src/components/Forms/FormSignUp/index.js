@@ -1,9 +1,14 @@
+import { Form } from 'semantic-ui-react';
 import './style.scss';
 
 //* composant FormSignUp: élément HTML *form* pour gérer l'inscription des utilisateurs
-// todo
-const FormSignUp = () => (
-  <div className="" />
-);
+const FormSignUp = () => {
+  
+  return (
+    <Form>
+      
+    </Form>
+  )
+};
 
 export default FormSignUp;
