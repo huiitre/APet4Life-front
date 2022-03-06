@@ -7,8 +7,10 @@ export const initialState = {
     isOpen: false,
   },
   signup: {
-    status: 1,
-    userType: '',
+    status: 2,
+    regionList: [],
+    departmentList: [],
+    userType: 'Association',
   }
 };
 

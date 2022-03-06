@@ -6,6 +6,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { changeFormSignupStatus, setTypeSignupForm } from "../../store/actions/user";
 import { useState } from "react";
 import classNames from "classnames";
+import Field from "src/components/Forms/Field";
+import Select from "../Forms/Select";
 
 const Signup = () => {
   const [isError, setIsError] = useState(false);
@@ -14,6 +16,7 @@ const Signup = () => {
 
   const statusForm = useSelector((state) => state.user.signup.status);
   const userType = useSelector((state) => state.user.signup.userType);
+  const regionList = useSelector((state) => state.associations.regionsList);
   console.log(userType);
 
   const handleShowNextForm = (evt) => {
@@ -65,8 +68,51 @@ const Signup = () => {
         )}
         {statusForm === 2 && (
           <>
-            <form onSubmit={handleSignup}>
-
+            <div className="signup__title">
+              {userType === 'Particular' ? 'Vous êtes un particulier' : 'Vous êtes une association'}
+            </div>
+            <form className="signup__form" onSubmit={handleSignup}>
+              <div className="form__container form__mail">
+                <label className="signup__label form__mail-label">Adresse mail</label>
+                <Field
+                  type="text"
+                  placeholder="Adresse Email"
+                  name="mail"
+                  onChange=""
+                  className="signup__field form__mail-field"
+                />
+              </div>
+              <div className="form__container form__password">
+                <label className="signup__label form__password-label">Mot de passe</label>
+                <Field
+                  type="password"
+                  placeholder="Mot de passe"
+                  name="password"
+                  onChange=""
+                  className="signup__field form__password-field"
+                />
+              </div>
+              <div className="form__container form__password_confirm">
+                <label className="signup__label form__password_confirm-label">Confirmer votre mot de passe</label>
+                <Field
+                  type="password"
+                  placeholder="Confirmer votre mot de passe"
+                  name="password_confirm"
+                  onChange=""
+                  className="signup__field form__password_confirm-field"
+                />
+              </div>
+              <div className="form__container form__region">
+                <label className="signup__label form__region-label">Région</label>
+                <Select
+                  array={regionList}
+                  name="region"
+                  classNames="signup__field form__region-field"
+                  onChange=""
+                  placeholder="Votre région"
+                  value=""
+                />
+              </div>
             </form>
           </>
         )}

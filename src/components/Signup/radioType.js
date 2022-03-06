@@ -5,13 +5,13 @@ const RadioType = ({ onChange }) => {
     <div className="radio-type" onClick={onChange}>
       <div>
         <input type="radio" id="control_01" name="select" value="Particular" />
-        <label htmlFor="control_01">
+        <label className="radio-type__label" htmlFor="control_01">
           Un particulier
         </label>
       </div>
       <div>
         <input type="radio" id="control_02" name="select" value="Association" />
-        <label htmlFor="control_02">
+        <label className="radio-type__label" htmlFor="control_02">
           <p>Une association</p>
         </label>
       </div>
