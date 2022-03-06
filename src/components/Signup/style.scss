@@ -1,5 +1,9 @@
 @use 'src/styles/vars';
 
+.none {
+  display: none;
+}
+
 .signup {
   display: flex;
   flex-direction: column;
@@ -12,6 +16,16 @@
     background-color: vars.$color-dark-main;
     border-radius: 0.5rem;
     padding: 1rem;
+  }
+
+  &__error {
+    color: red;
+    border: 2px solid red;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    max-width: 201px;
+    margin-top: 2rem;
+    text-align: center;
   }
 
   &__button {
@@ -31,6 +45,9 @@
     &__button {
       width: 465px;
       margin-top: 4rem;
+    }
+    &__error {
+      min-width: 465px;
     }
   }
 
@@ -69,7 +86,7 @@ input[type="radio"] {
 }
 
 label {
-  height: 100%;
+  height: 100px;
   display: block;
   background: white;
   border: 2px solid vars.$color-dark-main; //? bordure de la radio
@@ -116,7 +133,7 @@ input[type="radio"]#control_05:checked + label {
   background: red;
   border-color: red;
 }
-p {
+label {
   font-weight: 900;
   padding: 1rem; //? padding du paragraphe à l'intérieur
 }
