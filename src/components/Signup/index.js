@@ -66,7 +66,11 @@ const Signup = () => {
     dispatch(setFieldValueSignupForm(value, 'department'));
   }
 
-  const handleSignup = (evt) => {
+  const handleShowPreviousForm = () => {
+    dispatch(changeFormSignupStatus(1));
+  };
+
+  const handleSubmit = (evt) => {
     evt.preventDefault();
     console.log('signup');
   };
@@ -104,7 +108,7 @@ const Signup = () => {
             <div className="signup__title">
               {userType === 'Particular' ? 'Vous êtes un particulier' : 'Vous êtes une association'}
             </div>
-            <form className="signup__form" onSubmit={handleSignup}>
+            <form className="signup__form" onSubmit={handleSubmit}>
               <div className="form__container form__mail">
                 <label className="signup__label form__mail-label">Adresse mail</label>
                 <Field
@@ -158,12 +162,19 @@ const Signup = () => {
                   value={department}
                 />
               </div>
-              <div className="signup__button">
+              <div className="signup__button button-return">
                 <Button
                   type="submit"
-                  name="Suivant"
-                  className="btn--next-form"
-                  onClick={handleShowNextForm}
+                  name="Retour"
+                  className="btn--return-form"
+                  onClick={handleShowPreviousForm}
+                />
+              </div>
+              <div className="signup__button button-submit">
+                <Button
+                  type="submit"
+                  name="Envoyer"
+                  className="btn--submit-signup"
                 />
               </div>
             </form>
