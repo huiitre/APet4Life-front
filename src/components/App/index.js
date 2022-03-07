@@ -12,6 +12,9 @@ import { useDispatch } from 'react-redux';
 import { loadDepartmentsFromApi, loadRegionsFromApi } from '../../store/actions/location';
 import Signup from '../Signup';
 
+//* test
+import ModalSuccess from '../Signup/modalSuccess';
+
 // == Composant
 const App = () => {
   //* on récupère useDispatch() de react-redux
@@ -58,6 +61,7 @@ const App = () => {
           path="/inscription"
           element={(
             <Signup />
+            // <ModalSuccess />
           )}
         />
         {/* <Route
