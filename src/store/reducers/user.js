@@ -10,7 +10,9 @@ import {
   SET_FIELD_VALUE_SIGNUP_FORM,
   SET_FIELD_VALUE_LOGIN_FORM,
   SET_TYPE_SIGNUP_FORM,
-  CHANGE_LOGIN_FORM_DISPLAY
+  CHANGE_LOGIN_FORM_DISPLAY,
+  INSERT_TOKEN_TO_STATE,
+  LOGOUT,
 } from '../actions/user';
 
 
@@ -40,6 +42,11 @@ export const initialState = {
     mail: '',
     password: '',
   },
+  userLogged: false,
+  currentUser: { 
+    JWTtoken:'',
+    name:'Audrey',
+  }
 };
 
 //* SLICE USER du reducer gérant :
@@ -118,6 +125,32 @@ const reducer = (state = initialState, action = {}) => {
         }
       }
     }
+    case INSERT_TOKEN_TO_STATE: {
+      return {
+        ...state,
+        currentUser: {
+          ...state.currentUser,
+          JWTtoken: action.JWTtoken,
+        },
+        loginForm: {
+          ...state.loginForm,
+          isOpen: false,
+        },
+        userLogged: true,
+      }
+    }
+    case LOGOUT: {
+      return {
+        ...state,
+        currentUser: {
+          ...state.currentUser,
+          JWTtoken:'',
+          name:'',
+        },
+        userLogged: false,
+      }
+    }
+
     default:
       return state;
   }

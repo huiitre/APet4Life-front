@@ -24,7 +24,7 @@ const FormLogin = () => {
   const mail = useSelector((state) => state.user.loginForm.mail);
   const password = useSelector((state) => state.user.loginForm.password);
 
-  // todo on Submit ?
+  //* submit
   const onSubmit = (event) => {
     event.preventDefault();
     console.log('submit');

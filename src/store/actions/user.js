@@ -57,13 +57,30 @@ export const setFieldValueLoginForm = (value, name) => ({
   name,
 });
 
-// ACTION TYPE LOGIN
+//* ACTION TYPE LOGIN
 export const LOGIN = 'LOGIN';
-
-// ACTION CREATOR login
+//* ACTION CREATOR login
 export const login = () => ({
   type: LOGIN,
 });
+
+//* ACTION TYPE INSERT_TOKEN_TO_STATE
+export const INSERT_TOKEN_TO_STATE = 'INSERT_TOKEN_TO_STATE';
+//* ACTION CREATOR insertTokenToState
+export const insertTokenToState = (JWTtoken) => ({
+  type: INSERT_TOKEN_TO_STATE,
+  JWTtoken,
+});
+
+//! LOGOUT !//
+//* ACTION TYPE LOGOUT
+export const LOGOUT = 'LOGOUT';
+//* ACTION CREATOR logout
+export const logout = () => ({
+  type: LOGOUT,
+});
+
+
 
 
 

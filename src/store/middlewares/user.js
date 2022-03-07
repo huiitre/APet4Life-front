@@ -4,6 +4,7 @@ import axios from 'axios';
 import {
   SEND_SIGN_UP,
   LOGIN,
+  insertTokenToState,
 } from '../actions/user';
 
 const userMiddleware = (store) => (next) => (action) => {
@@ -47,16 +48,28 @@ const userMiddleware = (store) => (next) => (action) => {
       next(action);
       break;
   
-    case LOGIN:
+    //* envoi des infos de login et récupération + sauvegarde du token
+    case LOGIN: {
         console.log('login dans middleware');
         const { user: {loginForm : {
           mail : loginMail,
           password : loginPassword,
         }} } = store.getState();
+        
         console.log(loginMail, loginPassword)
-
-        //! gérer axios
-
+        
+        axios.post(`${finalURL}/api/login_check`, {
+          "username": loginMail,
+          "password": loginPassword,
+        })
+          .then((response) => {
+            console.log('success', response.data.token)
+            store.dispatch(insertTokenToState(response.data.token));
+          })
+          .catch((error) => {
+            console.log('error', error)
+          });
+        }
         next(action);
         break;
 
