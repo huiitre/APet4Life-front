@@ -132,3 +132,48 @@
   color: vars.$color-dark-main;
   margin-top: 0.5rem;
 }
+
+//todo Bouton edition profil (page profil)
+.btn--update-profile {
+  //? d'abord la clair puis la foncé
+  background: linear-gradient(#ffca1d, #FFB72B);
+  font-size: 1rem;
+  min-width: 230px;
+}
+.btn--update-profile:active {
+  //? d'abord la foncé puis la clair
+  background: linear-gradient(#FFB72B, #ffca1d);
+}
+.btn--update-profile-signup:hover {
+  color: #fff;
+}
+
+//todo Bouton appliquer les modifications (page profil)
+.btn--send_update {
+  //? d'abord la clair puis la foncé
+  background: linear-gradient(#469e3f, #255b20);
+  font-size: 1rem;
+  min-width: 230px;
+}
+.btn--send_update:active {
+  //? d'abord la foncé puis la clair
+  background: linear-gradient(#255b20, #469e3f);
+}
+.btn--send_update-signup:hover {
+  color: #fff;
+}
+
+//todo Bouton suppression profil (page profil)
+.btn--delete-profile {
+  //? d'abord la clair puis la foncé
+  background: linear-gradient(#E83A14, #890F0D);
+  font-size: 1rem;
+  min-width: 230px;
+}
+.btn--delete-profile:active {
+  //? d'abord la foncé puis la clair
+  background: linear-gradient(#890F0D, #E83A14);
+}
+.btn--delete-profile-signup:hover {
+  color: #fff;
+}

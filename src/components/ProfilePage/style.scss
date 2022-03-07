@@ -1,0 +1,131 @@
+@use "src/styles/vars";
+
+.ui.segment.profile {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
+.none {
+  display: none;
+}
+.profile {
+
+  &__picture,
+  &__title,
+  &__description,
+  &__contact,
+  &__contact-coord {
+    margin-bottom: 1.5rem;
+  }
+
+  &__picture {
+    display: flex;
+    justify-content: center;
+
+    & .ui.medium.rounded.image {
+      max-width: 100%;
+    }
+  }
+  &__title {
+    font-size: 2rem;
+    text-align: center;
+  }
+  &__description {
+    text-align: justify;
+  }
+
+  &__contact {
+    display: flex;
+    flex-direction: column;
+    // align-items: center;
+    justify-content: center;
+    align-self: center;
+    max-width: 768px;
+    line-height: 2rem;
+
+    &-coord {
+      display: flex;
+      flex-direction: column;
+
+      &-item {
+        display: flex;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .profile {
+    &__contact-coord {
+      &--mail,
+      &--phone,
+      &--website {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .profile {
+    &__content {
+      display: flex;
+      flex-direction: column;
+    }
+    &__description {
+      max-width: 768px;
+      align-self: center;
+    }
+    &__contact {
+      
+    }
+    &__buttons {
+      display: flex;
+      width: 100%;
+      justify-content: center;
+    }
+    .btn__edit {
+      margin: 1rem;
+    }
+  }
+}
+
+@media screen and (min-width: 1300px) {
+  .ui.segment.profile {
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .profile {
+    position: relative;
+    &__contact {
+      align-self: baseline;
+      &-coord {
+        align-self: baseline;
+      }
+    }
+
+    &__buttons {
+      // position: absolute;
+      display: flex;
+      width: 100%;
+      justify-content: center;
+    }
+
+    .btn__edit {
+      margin: 1rem;
+    }
+
+    &__picture {
+      position: absolute;
+    }
+
+    &__content {
+      margin: 3rem;
+      margin-left: 20rem;
+    }
+  }
+}

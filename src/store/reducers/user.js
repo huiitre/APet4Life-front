@@ -9,12 +9,14 @@ import {
   FORM_CONTACT_IS_OPEN,
   SET_FIELD_VALUE_SIGNUP_FORM,
   SET_FIELD_VALUE_LOGIN_FORM,
+  SET_FIELD_VALUE_PROFILE_FORM,
   SET_TYPE_SIGNUP_FORM,
   CHANGE_LOGIN_FORM_DISPLAY,
   INSERT_TOKEN_TO_STATE,
   LOGOUT,
   SET_MODAL_SUCCESS,
   CLEAR_SIGNUP_FORM,
+  CHANGE_EDITION_MODE,
 } from '../actions/user';
 
 import { SET_LOADING_SPINNER } from '../actions/associations';
@@ -49,7 +51,24 @@ export const initialState = {
   userLogged: false,
   currentUser: { 
     JWTtoken:'',
-    name:'Audrey',
+    userType: 'Association',
+    name:'Carapatte',
+    firstname: '',
+    lastname: '',
+    siret: '452 798 739 00192',
+    mail: 'carapatte@exemple.com',
+    address: 'rue Jacquet',
+    zipcode: '93278',
+    city: 'Olivier',
+    department: 'La Réunion',
+    region: 'Centre-Val de Loire',
+    phone_number: '+33 (0)2 69 56 28 43',
+    description: 'Et dolores occaecati aut sunt. Ipsa perferendis autem officia natus ut sit impedit. Libero facilis neque delectus delectus beatae. Quia dignissimos laboriosam rerum odio qui doloremque fuga.',
+    picture: 'https://placekitten.com/500/542',
+    website: 'https://fake-carapatte.com',
+  },
+  profile: {
+    editionMode: false,
   }
 };
 
@@ -116,6 +135,15 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         loginForm: {
           ...state.loginForm,
+          [action.name]: action.value,
+        }
+      };
+    }
+    case SET_FIELD_VALUE_PROFILE_FORM: {
+      return {
+        ...state,
+        currentUser: {
+          ...state.currentUser,
           [action.name]: action.value,
         }
       };
@@ -189,6 +217,15 @@ const reducer = (state = initialState, action = {}) => {
           lastname: '',
         }
       };
+    }
+    case CHANGE_EDITION_MODE: {
+      return {
+        ...state,
+        profile: {
+          ...state.profile,
+          editionMode: !state.profile.editionMode,
+        }
+      }
     }
     default:
       return state;

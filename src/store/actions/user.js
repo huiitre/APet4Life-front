@@ -94,3 +94,21 @@ export const CLEAR_SIGNUP_FORM = 'CLEAR_SIGNUP_FORM';
 export const clearSignupForm = () => ({
   type: CLEAR_SIGNUP_FORM,
 });
+
+//* ACTION TYPE CHANGE_EDITION_MODE
+export const CHANGE_EDITION_MODE = 'CHANGE_EDITION_MODE';
+//* ACTION CREATOR changeEditionMode
+export const changeEditionMode = () => ({
+  type: CHANGE_EDITION_MODE,
+});
+
+// ACTION TYPE SET_FIELD_VALUE_PROFILE_FORM
+export const SET_FIELD_VALUE_PROFILE_FORM = 'SET_FIELD_VALUE_PROFILE_FORM';
+
+// ACTION CREATOR setFieldValueProfileForm
+export const setFieldValueProfileForm = (value, name) => ({
+  type: SET_FIELD_VALUE_PROFILE_FORM,
+  value,
+  name,
+});
+
