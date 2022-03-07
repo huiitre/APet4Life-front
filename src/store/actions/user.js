@@ -46,3 +46,18 @@ export const CHANGE_LOGIN_FORM_DISPLAY = 'CHANGE_LOGIN_FORM_DISPLAY';
 export const changeLoginFormDisplay = () => ({
   type: CHANGE_LOGIN_FORM_DISPLAY,
 });
+
+//* ACTION TYPE SET_MODAL_SUCCESS
+export const SET_MODAL_SUCCESS = 'SET_MODAL_SUCCESS';
+//* ACTION CREATOR setModalSuccess
+export const setModalSuccess = (bool) => ({
+  type: SET_MODAL_SUCCESS,
+  bool,
+});
+
+//* ACTION TYPE CLEAR_SIGNUP_FORM
+export const CLEAR_SIGNUP_FORM = 'CLEAR_SIGNUP_FORM';
+//* ACTION CREATOR clearSignupForm
+export const clearSignupForm = () => ({
+  type: CLEAR_SIGNUP_FORM,
+});

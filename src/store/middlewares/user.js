@@ -1,17 +1,17 @@
 import axios from 'axios';
+import { setLoadingSpinner } from '../actions/associations';
 
 //* import des actions
-import { SEND_SIGN_UP } from '../actions/user';
+import { clearSignupForm, SEND_SIGN_UP, setModalSuccess } from '../actions/user';
 
 const userMiddleware = (store) => (next) => (action) => {
   const devURL = 'http://localhost:3000';
   const prodURL = 'http://morgane-rabiller-server.eddi.cloud';
   //* venir changer ici, si url de dev ou url de prod
   const finalURL = devURL;
-  console.log(action);
   switch (action.type) {
     case SEND_SIGN_UP:
-      console.log('heree');
+      store.dispatch(setLoadingSpinner());
       const { user: { signup: {
         userType,
         mail,
@@ -39,7 +39,11 @@ const userMiddleware = (store) => (next) => (action) => {
       axios
         .post(`${finalURL}/api/user/create`, newUser) 
         .then((response) => {
-          console.log(response);
+          store.dispatch(setLoadingSpinner());
+          //* on lance le modal
+          store.dispatch(setModalSuccess(true));
+          //* on clear le formulaire de signup
+          store.dispatch(clearSignupForm());
         });
       next(action);
       break;
