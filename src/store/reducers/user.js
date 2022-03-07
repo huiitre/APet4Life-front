@@ -1,6 +1,7 @@
 //* import des actions
 import { INSERT_DEPARTMENTS_TO_STATE, INSERT_REGIONS_TO_STATE } from '../actions/location';
-import { CHANGE_FORM_SIGNUP_STATUS, FORM_CONTACT_IS_OPEN, SET_FIELD_VALUE_SIGNUP_FORM, SET_TYPE_SIGNUP_FORM } from '../actions/user';
+import { CHANGE_FORM_SIGNUP_STATUS, FORM_CONTACT_IS_OPEN, SET_FIELD_VALUE_SIGNUP_FORM, SET_TYPE_SIGNUP_FORM, CHANGE_LOGIN_FORM_DISPLAY } from '../actions/user';
+
 
 //* state initial
 export const initialState = {
@@ -22,7 +23,12 @@ export const initialState = {
     firstname: '',
     lastname: '',
     picture: 'https://placekitten.com/500/600',
-  }
+  },
+  loginForm: {
+    isOpen: false,
+    login: '',
+    password: '',
+  },
 };
 
 //* SLICE USER du reducer gérant :
@@ -83,7 +89,15 @@ const reducer = (state = initialState, action = {}) => {
         }
       };
     }
-
+    case CHANGE_LOGIN_FORM_DISPLAY: {
+      return {
+        ...state,
+        loginForm: {
+          ...state.loginForm,
+          isOpen: !state.loginForm.isOpen,
+        }
+      }
+    }
     default:
       return state;
   }

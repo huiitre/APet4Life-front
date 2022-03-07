@@ -12,9 +12,9 @@
   background: linear-gradient(vars.$color-light-main, vars.$color-dark-main);
   border-bottom: 2px solid vars.$color-dark-main;
   color: vars.$color-text;
-  // background: linear-gradient(#e66465, #9198e5);
+  z-index: 9;
 
-  &__logo { 
+  &__logo {
     width: 40px;
     height: 40px;
   }

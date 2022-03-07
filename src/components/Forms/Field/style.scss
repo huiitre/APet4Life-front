@@ -36,8 +36,14 @@ input[type=number] {
 .form__search {
   background-color: vars.$color-dark-main;
   color: vars.$color-text;
-
+  
   &::placeholder {
     color: vars.$color-light-main;
   }
+}
+
+//todo field pour le formulaire de login
+.form__login-field {
+  height: 2rem;
+  font-size: 1rem;
 }

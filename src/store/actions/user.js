@@ -39,3 +39,10 @@ export const SEND_SIGN_UP = 'SEND_SIGN_UP';
 export const sendSignUp = () => ({
   type: SEND_SIGN_UP,
 });
+
+//* ACTION TYPE CHANGE_LOGIN_FORM_DISPLAY
+export const CHANGE_LOGIN_FORM_DISPLAY = 'CHANGE_LOGIN_FORM_DISPLAY';
+//* ACTION CREATOR changeLoginFormDisplay
+export const changeLoginFormDisplay = () => ({
+  type: CHANGE_LOGIN_FORM_DISPLAY,
+});
