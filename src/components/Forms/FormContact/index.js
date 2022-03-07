@@ -13,7 +13,7 @@ const FormContact = ({ className, onSubmit }) => {
   return (
   <form onSubmit={onSubmit} className={`form-contact ${className}`}>
     <Field
-      type="text"
+      type="email"
       placeholder="Email"
       name="mail"
       className=""

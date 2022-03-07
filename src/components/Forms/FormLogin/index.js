@@ -13,7 +13,7 @@ const FormLogin = () => {
     <div className="form__login">
       <form onSubmit={onSubmit} className="form__login-container">
         <Field
-          type="text"
+          type="email"
           placeholder="Email"
           name="mail"
           className="form__login-field"

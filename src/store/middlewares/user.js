@@ -28,7 +28,7 @@ const userMiddleware = (store) => (next) => (action) => {
         type: userType,
         mail,
         password,
-        name:
+        name,
         firstname,
         lastname,
         region,

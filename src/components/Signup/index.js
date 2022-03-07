@@ -178,7 +178,7 @@ const Signup = () => {
                   Adresse mail
                 </label>
                 <Field
-                  type="text"
+                  type="email"
                   placeholder="Adresse Email"
                   name="mail"
                   onChange={handleChangeField}
