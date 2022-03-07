@@ -202,19 +202,24 @@ const ProfilePage = () => {
         </div>
       </div>
       <div className="profile__buttons">
+        
+        {!editionMode &&
         <Button
           type="button"
           name="Modifier"
           className="btn__edit btn--update-profile"
           onClick={handleEditionMode}
         />
-        {/* //* à afficher en remplacement du bouton jaune "Modifier" */}
+        }
+        
+        {editionMode && 
         <Button
           type="button"
           name="Appliquer les modifications"
           className="btn__edit btn--send_update"
-          onClick=""
+          onClick={handleEditionMode}
         />
+        }
         <Button
           type="button"
           name="Supprimer le compte"
