@@ -1,18 +1,12 @@
 import "./style.scss";
 import { Button, Modal } from 'semantic-ui-react';
 
-const ModalSuccess = () => {
-  const handleClick = () => {
-    console.log('click');
-  };
+const ModalSuccess = ({closeModal, modalSuccess}) => {
   return (
     <div className="">
       <Modal
         centered={false}
-        open={open}
-        onClose={() => console.log('test1')}
-        onOpen={() => console.log('test2')}
-        trigger={<Button>Show Modal</Button>}
+        open={modalSuccess}
       >
         <Modal.Header>Merci !</Modal.Header>
         <Modal.Content>
@@ -21,7 +15,7 @@ const ModalSuccess = () => {
           </Modal.Description>
         </Modal.Content>
         <Modal.Actions>
-          <Button onClick={handleClick}>OK</Button>
+          <Button onClick={closeModal}>OK</Button>
         </Modal.Actions>
       </Modal>
     </div>

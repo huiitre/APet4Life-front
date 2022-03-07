@@ -1,12 +1,14 @@
 import "./style.scss";
 import Page from "src/components/Page";
 import RadioType from "./radioType";
+import Spinner from "src/components/Spinner";
 import Button from "src/components/Button";
 import { useDispatch, useSelector } from "react-redux";
 import {
   changeFormSignupStatus,
   sendSignUp,
   setFieldValueSignupForm,
+  setModalSuccess,
   setTypeSignupForm,
 } from "../../store/actions/user";
 import { useEffect, useState } from "react";
@@ -17,6 +19,8 @@ import {
   loadDepartmentsFromApi,
   loadRegionsFromApi,
 } from "../../store/actions/location";
+import ModalSuccess from "./modalSuccess";
+import { useNavigate } from "react-router";
 
 const Signup = () => {
   //* hook custom qui gère l'affichage d'erreur si un ou plusieurs champs ne sopnt pas rempli
@@ -31,7 +35,11 @@ const Signup = () => {
   //* on récupère useDispatch()
   const dispatch = useDispatch();
 
+  const navigate = useNavigate();
+
   //* on récupère ce qu'on a besoin comme infos depuis le state
+  const loading = useSelector((state) => state.user.signup.loading);
+  const modalSuccess = useSelector((state) => state.user.signup.modalSuccess);
   const statusForm = useSelector((state) => state.user.signup.status);
   const regionList = useSelector((state) => state.associations.regionsList);
   const departmentList = useSelector(
@@ -101,18 +109,18 @@ const Signup = () => {
         name === ""
       ) {
         setIsError(true);
-        console.log('error');
+        console.log("error");
       } else if (password.length < 5) {
         setIsError(true);
-        console.log('error');
+        console.log("error");
       } else if (password !== passwordConfirm) {
         setIsError(true);
-        console.log('error');
+        console.log("error");
       } else {
         setIsError(false);
         dispatch(sendSignUp());
       }
-    } else if (userType === 'Particular') {
+    } else if (userType === "Particular") {
       if (
         mail === "" ||
         password === "" ||
@@ -123,13 +131,13 @@ const Signup = () => {
         lastname === ""
       ) {
         setIsError(true);
-        console.log('error');
+        console.log("error");
       } else if (password.length < 5) {
         setIsError(true);
-        console.log('error');
+        console.log("error");
       } else if (password !== passwordConfirm) {
         setIsError(true);
-        console.log('error');
+        console.log("error");
       } else {
         setIsError(false);
         dispatch(sendSignUp());
@@ -137,173 +145,183 @@ const Signup = () => {
     }
   };
 
+  const handleCloseModal = () => {
+    console.log('here');
+    dispatch(setModalSuccess(false));
+    navigate('/');
+  };
+
   const classNamesError = classNames("signup__error", { none: !isError });
 
   return (
     <Page>
-      <section className="signup">
-        {statusForm === 1 && (
-          <>
-            <div className="signup__title">
-              <h1>Vous êtes :</h1>
-            </div>
-            <form onSubmit={handleShowNextForm}>
-              <div className="signup__radio">
-                <RadioType onChange={handleChangeType} />
+      <ModalSuccess closeModal={handleCloseModal} modalSuccess={modalSuccess} />
+      {loading && <Spinner />}
+      {!loading && (
+        <section className="signup">
+          {statusForm === 1 && (
+            <>
+              <div className="signup__title">
+                <h1>Vous êtes :</h1>
               </div>
-              <div className="signup__button">
-                <Button
-                  type="submit"
-                  name="Suivant"
-                  className="btn--next-form"
-                  onClick={handleShowNextForm}
-                />
-              </div>
-              <div className={classNamesError}>
-                Veuillez remplir tous les champs !
-              </div>
-            </form>
-          </>
-        )}
-        {statusForm === 2 && (
-          <>
-            <div className="signup__title">
-              {userType === "Particular"
-                ? "Vous êtes un particulier"
-                : "Vous êtes une association"}
-            </div>
-            <form className="signup__form" onSubmit={handleSubmit}>
-              <div className="form__container form__mail">
-                <label className="signup__label form__mail-label">
-                  Adresse mail
-                </label>
-                <Field
-                  type="email"
-                  placeholder="Adresse Email"
-                  name="mail"
-                  onChange={handleChangeField}
-                  className="signup__field form__mail-field"
-                  value={mail}
-                />
-              </div>
-              <div className="form__container form__password">
-                <label className="signup__label form__password-label">
-                  Mot de passe
-                </label>
-                <Field
-                  type="password"
-                  placeholder="Mot de passe"
-                  name="password"
-                  onChange={handleChangeField}
-                  className="signup__field form__password-field"
-                  value={password}
-                />
-              </div>
-              <div className="form__container form__password_confirm">
-                <label className="signup__label form__password_confirm-label">
-                  Confirmer votre mot de passe
-                </label>
-                <Field
-                  type="password"
-                  placeholder="Confirmer votre mot de passe"
-                  name="passwordConfirm"
-                  onChange={handleChangeField}
-                  className="signup__field form__password_confirm-field"
-                  value={passwordConfirm}
-                />
-              </div>
-              {/* //* si c'est un particulier ... */}
-              {userType === "Particular" && (
-                <>
-                  <div className="form__container form__firstname">
-                    <label className="signup__label form__firstname-label">
-                      Votre prénom
-                    </label>
-                    <Field
-                      type="text"
-                      placeholder="Votre prénom"
-                      name="firstname"
-                      onChange={handleChangeField}
-                      className="signup__field form__firstname-field"
-                      value={firstname}
-                    />
-                  </div>
-                  <div className="form__container form__lastname">
-                    <label className="signup__label form__lastname-label">
-                      Votre nom
-                    </label>
-                    <Field
-                      type="text"
-                      placeholder="Votre nom"
-                      name="lastname"
-                      onChange={handleChangeField}
-                      className="signup__field form__lastname-field"
-                      value={lastname}
-                    />
-                  </div>
-                </>
-              )}
-              {/* //* si c'est une association ... */}
-              {userType === "Association" && (
-                <div className="form__container form__name">
-                  <label className="signup__label form__name-label">
-                    Nom de l'association
-                  </label>
-                  <Field
-                    type="text"
-                    placeholder="Nom de l'association"
-                    name="name"
-                    onChange={handleChangeField}
-                    className="signup__field form__name-field"
-                    value={name}
+              <form onSubmit={handleShowNextForm}>
+                <div className="signup__radio">
+                  <RadioType onChange={handleChangeType} />
+                </div>
+                <div className="signup__button">
+                  <Button
+                    type="submit"
+                    name="Suivant"
+                    className="btn--next-form"
+                    onClick={handleShowNextForm}
                   />
                 </div>
-              )}
-              <div className="form__container form__region">
-                <label className="signup__label form__region-label">
-                  Région
-                </label>
-                <Select
-                  array={regionList}
-                  name="region"
-                  classNames="signup__field form__region-field"
-                  onChange={handleChangeRegion}
-                  placeholder="Votre région"
-                  value={region}
-                />
+                <div className={classNamesError}>
+                  Veuillez remplir tous les champs !
+                </div>
+              </form>
+            </>
+          )}
+          {statusForm === 2 && (
+            <>
+              <div className="signup__title">
+                {userType === "Particular"
+                  ? "Vous êtes un particulier"
+                  : "Vous êtes une association"}
               </div>
-              <div className="form__container form__department">
-                <label className="signup__label form__department-label">
-                  Département
-                </label>
-                <Select
-                  array={departmentList}
-                  name="department"
-                  classNames="signup__field form__department-field"
-                  onChange={handleChangeDepartment}
-                  placeholder="Votre département"
-                  value={department}
-                />
-              </div>
-              <div className="signup__button button-return">
-                <Button
-                  type="submit"
-                  name="Retour"
-                  className="btn--return-form"
-                  onClick={handleShowPreviousForm}
-                />
-              </div>
-              <div className="signup__button button-submit">
-                <Button
-                  type="submit"
-                  name="Envoyer"
-                  className="btn--submit-signup"
-                />
-              </div>
-            </form>
-          </>
-        )}
-      </section>
+              <form className="signup__form" onSubmit={handleSubmit}>
+                <div className="form__container form__mail">
+                  <label className="signup__label form__mail-label">
+                    Adresse mail
+                  </label>
+                  <Field
+                    type="email"
+                    placeholder="Adresse Email"
+                    name="mail"
+                    onChange={handleChangeField}
+                    className="signup__field form__mail-field"
+                    value={mail}
+                  />
+                </div>
+                <div className="form__container form__password">
+                  <label className="signup__label form__password-label">
+                    Mot de passe
+                  </label>
+                  <Field
+                    type="password"
+                    placeholder="Mot de passe"
+                    name="password"
+                    onChange={handleChangeField}
+                    className="signup__field form__password-field"
+                    value={password}
+                  />
+                </div>
+                <div className="form__container form__password_confirm">
+                  <label className="signup__label form__password_confirm-label">
+                    Confirmer votre mot de passe
+                  </label>
+                  <Field
+                    type="password"
+                    placeholder="Confirmer votre mot de passe"
+                    name="passwordConfirm"
+                    onChange={handleChangeField}
+                    className="signup__field form__password_confirm-field"
+                    value={passwordConfirm}
+                  />
+                </div>
+                {/* //* si c'est un particulier ... */}
+                {userType === "Particular" && (
+                  <>
+                    <div className="form__container form__firstname">
+                      <label className="signup__label form__firstname-label">
+                        Votre prénom
+                      </label>
+                      <Field
+                        type="text"
+                        placeholder="Votre prénom"
+                        name="firstname"
+                        onChange={handleChangeField}
+                        className="signup__field form__firstname-field"
+                        value={firstname}
+                      />
+                    </div>
+                    <div className="form__container form__lastname">
+                      <label className="signup__label form__lastname-label">
+                        Votre nom
+                      </label>
+                      <Field
+                        type="text"
+                        placeholder="Votre nom"
+                        name="lastname"
+                        onChange={handleChangeField}
+                        className="signup__field form__lastname-field"
+                        value={lastname}
+                      />
+                    </div>
+                  </>
+                )}
+                {/* //* si c'est une association ... */}
+                {userType === "Association" && (
+                  <div className="form__container form__name">
+                    <label className="signup__label form__name-label">
+                      Nom de l'association
+                    </label>
+                    <Field
+                      type="text"
+                      placeholder="Nom de l'association"
+                      name="name"
+                      onChange={handleChangeField}
+                      className="signup__field form__name-field"
+                      value={name}
+                    />
+                  </div>
+                )}
+                <div className="form__container form__region">
+                  <label className="signup__label form__region-label">
+                    Région
+                  </label>
+                  <Select
+                    array={regionList}
+                    name="region"
+                    classNames="signup__field form__region-field"
+                    onChange={handleChangeRegion}
+                    placeholder="Votre région"
+                    value={region}
+                  />
+                </div>
+                <div className="form__container form__department">
+                  <label className="signup__label form__department-label">
+                    Département
+                  </label>
+                  <Select
+                    array={departmentList}
+                    name="department"
+                    classNames="signup__field form__department-field"
+                    onChange={handleChangeDepartment}
+                    placeholder="Votre département"
+                    value={department}
+                  />
+                </div>
+                <div className="signup__button button-return">
+                  <Button
+                    type="submit"
+                    name="Retour"
+                    className="btn--return-form"
+                    onClick={handleShowPreviousForm}
+                  />
+                </div>
+                <div className="signup__button button-submit">
+                  <Button
+                    type="submit"
+                    name="Envoyer"
+                    className="btn--submit-signup"
+                  />
+                </div>
+              </form>
+            </>
+          )}
+        </section>
+      )}
     </Page>
   );
 };

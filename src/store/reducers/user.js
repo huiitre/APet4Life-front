@@ -1,6 +1,7 @@
 //* import des actions
+import { SET_LOADING_SPINNER } from '../actions/associations';
 import { INSERT_DEPARTMENTS_TO_STATE, INSERT_REGIONS_TO_STATE } from '../actions/location';
-import { CHANGE_FORM_SIGNUP_STATUS, FORM_CONTACT_IS_OPEN, SET_FIELD_VALUE_SIGNUP_FORM, SET_TYPE_SIGNUP_FORM, CHANGE_LOGIN_FORM_DISPLAY } from '../actions/user';
+import { CHANGE_FORM_SIGNUP_STATUS, FORM_CONTACT_IS_OPEN, SET_FIELD_VALUE_SIGNUP_FORM, SET_TYPE_SIGNUP_FORM, CHANGE_LOGIN_FORM_DISPLAY, SET_MODAL_SUCCESS, CLEAR_SIGNUP_FORM } from '../actions/user';
 
 
 //* state initial
@@ -10,6 +11,7 @@ export const initialState = {
   },
   signup: {
     loading: false,
+    modalSuccess: false,
     status: 1,
     regionList: [],
     departmentList: [],
@@ -97,6 +99,42 @@ const reducer = (state = initialState, action = {}) => {
           isOpen: !state.loginForm.isOpen,
         }
       }
+    }
+    case SET_LOADING_SPINNER: {
+      return {
+        ...state,
+        signup: {
+          ...state.signup,
+          loading: !state.signup.loading,
+        }
+      };
+    }
+    case SET_MODAL_SUCCESS: {
+      return {
+        ...state,
+        signup: {
+          ...state.signup,
+          modalSuccess: action.bool,
+        }
+      };
+    }
+    case CLEAR_SIGNUP_FORM: {
+      return {
+        ...state,
+        signup: {
+          ...state.signup,
+          status: 1,
+          userType: '',
+          mail: '',
+          password: '',
+          passwordConfirm: '',
+          region: '',
+          department: '',
+          name: '',
+          firstname: '',
+          lastname: '',
+        }
+      };
     }
     default:
       return state;
