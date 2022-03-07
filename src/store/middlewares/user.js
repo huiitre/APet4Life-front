@@ -1,7 +1,10 @@
 import axios from 'axios';
 
 //* import des actions
-import { SEND_SIGN_UP } from '../actions/user';
+import {
+  SEND_SIGN_UP,
+  LOGIN,
+} from '../actions/user';
 
 const userMiddleware = (store) => (next) => (action) => {
   const devURL = 'http://localhost:3000';
@@ -44,6 +47,19 @@ const userMiddleware = (store) => (next) => (action) => {
       next(action);
       break;
   
+    case LOGIN:
+        console.log('login dans middleware');
+        const { user: {loginForm : {
+          mail : loginMail,
+          password : loginPassword,
+        }} } = store.getState();
+        console.log(loginMail, loginPassword)
+
+        //! gérer axios
+
+        next(action);
+        break;
+
     default:
       next(action);
   }

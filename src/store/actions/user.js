@@ -57,3 +57,13 @@ export const setFieldValueLoginForm = (value, name) => ({
   name,
 });
 
+// ACTION TYPE LOGIN
+export const LOGIN = 'LOGIN';
+
+// ACTION CREATOR login
+export const login = () => ({
+  type: LOGIN,
+});
+
+
+

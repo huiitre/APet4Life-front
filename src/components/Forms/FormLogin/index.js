@@ -10,6 +10,7 @@ import { useDispatch, useSelector } from 'react-redux';
 //* import action
 import {
   setFieldValueLoginForm,
+  login,
 } from "../../../store/actions/user";
 
 
@@ -27,6 +28,7 @@ const FormLogin = () => {
   const onSubmit = (event) => {
     event.preventDefault();
     console.log('submit');
+    dispatch(login());
   };
 
   //* champs contrôlé qui envoie l'email et le password dans le state
