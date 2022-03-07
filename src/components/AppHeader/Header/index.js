@@ -1,4 +1,5 @@
 /* eslint-disable max-len */
+/* 🤗 */
 import "./style.scss";
 import logo from "src/assets/img/logo.png";
 
@@ -11,17 +12,21 @@ import { changeLoginFormDisplay } from "../../../store/actions/user";
 
 //* import gestion des hooks react
 import { useDispatch, useSelector } from "react-redux";
+import { useState } from 'react';
 
 
 const Header = () => {
 
+  //* version avec hook d'état :
+  // const [isOpen, setIsOpen] = useState(false);
+  // setIsOpen(!isOpen);
+
   const dispatch = useDispatch();
   const isOpen = useSelector((state) => state.user.loginForm.isOpen);
-  console.log(isOpen);
 
+  //* afficher et masquer le popup de connexion
   const handleConnexionClick = () => {
-    console.log('on va gérer la connexion');
-    dispatch(changeLoginFormDisplay);
+    dispatch(changeLoginFormDisplay());
   }
 
   const handleClick = () => {
@@ -29,9 +34,10 @@ const Header = () => {
   };
 
   return (
+
     <div className="header">
       <img className="header__title" src={logo} alt="title" />
-      <FormLogin />
+      { isOpen && <FormLogin /> }
       <div className="header__user">
         {/* //* on importe le composant Button en lui passant en props (paramètres) des informations pour rendre le bouton "unique" par rapport aux autres */}
         <Button
@@ -47,7 +53,8 @@ const Header = () => {
           className="btn--signup"
         />
       </div>
-    </div>
+    </div>   
+    
   );
 };
 
