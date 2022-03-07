@@ -21,6 +21,9 @@ const associationMiddleware = (store) => (next) => (action) => {
     //todo recherche assoc par code postal
     case SEND_SEARCH_QUERY_BY_ZIPCODE:
       {
+        //* on lance le loading
+        store.dispatch(setLoadingSpinner());
+        
         //* récupération du zipcode depuis le state
         const {
           associations: {
@@ -53,6 +56,9 @@ const associationMiddleware = (store) => (next) => (action) => {
     //todo recherche assoc par département
     case SEND_SEARCH_QUERY_BY_DEPARTMENT:
       {
+        //* on lance le loading
+        store.dispatch(setLoadingSpinner());
+
         //* récupération du département depuis le state
         const {
           associations: {
