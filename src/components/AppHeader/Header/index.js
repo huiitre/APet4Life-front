@@ -46,12 +46,21 @@ const Header = () => {
         {/* //* on importe le composant Button en lui passant en props (paramètres) des informations pour rendre le bouton "unique" par rapport aux autres */}
         
         {!userLogged &&
-        <Button
-          onClick={handleConnexionClick}
-          type=""
-          name="Connexion"
-          className="btn--signin"
-        /> }
+          <>
+            <Button
+              onClick={handleConnexionClick}
+              type=""
+              name="Connexion"
+              className="btn--signin"
+            /> 
+            <Button
+              onClick={handleNavigateToSignupPage}
+              type=""
+              name="Inscription"
+              className="btn--signup"
+            />
+          </>
+        }
 
         {userLogged &&
         <Button
@@ -61,12 +70,6 @@ const Header = () => {
           className="btn--signin"
         /> }
 
-        <Button
-          onClick={handleNavigateToSignupPage}
-          type=""
-          name="Inscription"
-          className="btn--signup"
-        />
       </div>
     </div>
   );
