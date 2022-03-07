@@ -7,7 +7,6 @@ import {
   LOGIN,
   insertTokenToState,
   clearSignupForm,
-  SEND_SIGN_UP,
   setModalSuccess
 } from '../actions/user';
 
