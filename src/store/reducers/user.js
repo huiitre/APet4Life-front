@@ -1,8 +1,23 @@
 //* import des actions
-import { SET_LOADING_SPINNER } from '../actions/associations';
-import { INSERT_DEPARTMENTS_TO_STATE, INSERT_REGIONS_TO_STATE } from '../actions/location';
-import { CHANGE_FORM_SIGNUP_STATUS, FORM_CONTACT_IS_OPEN, SET_FIELD_VALUE_SIGNUP_FORM, SET_TYPE_SIGNUP_FORM, CHANGE_LOGIN_FORM_DISPLAY, SET_MODAL_SUCCESS, CLEAR_SIGNUP_FORM } from '../actions/user';
+import {
+  INSERT_DEPARTMENTS_TO_STATE,
+  INSERT_REGIONS_TO_STATE
+} from '../actions/location';
 
+import {
+  CHANGE_FORM_SIGNUP_STATUS,
+  FORM_CONTACT_IS_OPEN,
+  SET_FIELD_VALUE_SIGNUP_FORM,
+  SET_FIELD_VALUE_LOGIN_FORM,
+  SET_TYPE_SIGNUP_FORM,
+  CHANGE_LOGIN_FORM_DISPLAY,
+  INSERT_TOKEN_TO_STATE,
+  LOGOUT,
+  SET_MODAL_SUCCESS,
+  CLEAR_SIGNUP_FORM,
+} from '../actions/user';
+
+import { SET_LOADING_SPINNER } from '../actions/associations';
 
 //* state initial
 export const initialState = {
@@ -28,9 +43,14 @@ export const initialState = {
   },
   loginForm: {
     isOpen: false,
-    login: '',
+    mail: '',
     password: '',
   },
+  userLogged: false,
+  currentUser: { 
+    JWTtoken:'',
+    name:'Audrey',
+  }
 };
 
 //* SLICE USER du reducer gérant :
@@ -91,6 +111,15 @@ const reducer = (state = initialState, action = {}) => {
         }
       };
     }
+    case SET_FIELD_VALUE_LOGIN_FORM: {
+      return {
+        ...state,
+        loginForm: {
+          ...state.loginForm,
+          [action.name]: action.value,
+        }
+      };
+    }
     case CHANGE_LOGIN_FORM_DISPLAY: {
       return {
         ...state,
@@ -98,6 +127,31 @@ const reducer = (state = initialState, action = {}) => {
           ...state.loginForm,
           isOpen: !state.loginForm.isOpen,
         }
+      }
+    }
+    case INSERT_TOKEN_TO_STATE: {
+      return {
+        ...state,
+        currentUser: {
+          ...state.currentUser,
+          JWTtoken: action.JWTtoken,
+        },
+        loginForm: {
+          ...state.loginForm,
+          isOpen: false,
+        },
+        userLogged: true,
+      }
+    }
+    case LOGOUT: {
+      return {
+        ...state,
+        currentUser: {
+          ...state.currentUser,
+          JWTtoken:'',
+          name:'',
+        },
+        userLogged: false,
       }
     }
     case SET_LOADING_SPINNER: {

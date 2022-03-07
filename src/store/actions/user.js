@@ -40,11 +40,44 @@ export const sendSignUp = () => ({
   type: SEND_SIGN_UP,
 });
 
+//! LOGIN !//
 //* ACTION TYPE CHANGE_LOGIN_FORM_DISPLAY
 export const CHANGE_LOGIN_FORM_DISPLAY = 'CHANGE_LOGIN_FORM_DISPLAY';
 //* ACTION CREATOR changeLoginFormDisplay
 export const changeLoginFormDisplay = () => ({
   type: CHANGE_LOGIN_FORM_DISPLAY,
+});
+
+//* ACTION TYPE SET_FIELD_VALUE_LOGIN_FORM
+export const SET_FIELD_VALUE_LOGIN_FORM = 'SET_FIELD_VALUE_LOGIN_FORM';
+//* ACTION CREATOR setFieldValueLoginForm
+export const setFieldValueLoginForm = (value, name) => ({
+  type: SET_FIELD_VALUE_LOGIN_FORM,
+  value,
+  name,
+});
+
+//* ACTION TYPE LOGIN
+export const LOGIN = 'LOGIN';
+//* ACTION CREATOR login
+export const login = () => ({
+  type: LOGIN,
+});
+
+//* ACTION TYPE INSERT_TOKEN_TO_STATE
+export const INSERT_TOKEN_TO_STATE = 'INSERT_TOKEN_TO_STATE';
+//* ACTION CREATOR insertTokenToState
+export const insertTokenToState = (JWTtoken) => ({
+  type: INSERT_TOKEN_TO_STATE,
+  JWTtoken,
+});
+
+//! LOGOUT !//
+//* ACTION TYPE LOGOUT
+export const LOGOUT = 'LOGOUT';
+//* ACTION CREATOR logout
+export const logout = () => ({
+  type: LOGOUT,
 });
 
 //* ACTION TYPE SET_MODAL_SUCCESS

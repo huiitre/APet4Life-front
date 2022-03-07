@@ -2,7 +2,14 @@ import axios from 'axios';
 import { setLoadingSpinner } from '../actions/associations';
 
 //* import des actions
-import { clearSignupForm, SEND_SIGN_UP, setModalSuccess } from '../actions/user';
+import {
+  SEND_SIGN_UP,
+  LOGIN,
+  insertTokenToState,
+  clearSignupForm,
+  SEND_SIGN_UP,
+  setModalSuccess
+} from '../actions/user';
 
 const userMiddleware = (store) => (next) => (action) => {
   const devURL = 'http://localhost:3000';
@@ -48,6 +55,31 @@ const userMiddleware = (store) => (next) => (action) => {
       next(action);
       break;
   
+    //* envoi des infos de login et récupération + sauvegarde du token
+    case LOGIN: {
+        console.log('login dans middleware');
+        const { user: {loginForm : {
+          mail : loginMail,
+          password : loginPassword,
+        }} } = store.getState();
+        
+        console.log(loginMail, loginPassword)
+        
+        axios.post(`${finalURL}/api/login_check`, {
+          "username": loginMail,
+          "password": loginPassword,
+        })
+          .then((response) => {
+            console.log('success', response.data.token)
+            store.dispatch(insertTokenToState(response.data.token));
+          })
+          .catch((error) => {
+            console.log('error', error)
+          });
+        }
+        next(action);
+        break;
+
     default:
       next(action);
   }
