@@ -13,8 +13,11 @@ import {
   CHANGE_LOGIN_FORM_DISPLAY,
   INSERT_TOKEN_TO_STATE,
   LOGOUT,
+  SET_MODAL_SUCCESS,
+  CLEAR_SIGNUP_FORM,
 } from '../actions/user';
 
+import { SET_LOADING_SPINNER } from '../actions/associations';
 
 //* state initial
 export const initialState = {
@@ -23,6 +26,7 @@ export const initialState = {
   },
   signup: {
     loading: false,
+    modalSuccess: false,
     status: 1,
     regionList: [],
     departmentList: [],
@@ -150,7 +154,42 @@ const reducer = (state = initialState, action = {}) => {
         userLogged: false,
       }
     }
-
+    case SET_LOADING_SPINNER: {
+      return {
+        ...state,
+        signup: {
+          ...state.signup,
+          loading: !state.signup.loading,
+        }
+      };
+    }
+    case SET_MODAL_SUCCESS: {
+      return {
+        ...state,
+        signup: {
+          ...state.signup,
+          modalSuccess: action.bool,
+        }
+      };
+    }
+    case CLEAR_SIGNUP_FORM: {
+      return {
+        ...state,
+        signup: {
+          ...state.signup,
+          status: 1,
+          userType: '',
+          mail: '',
+          password: '',
+          passwordConfirm: '',
+          region: '',
+          department: '',
+          name: '',
+          firstname: '',
+          lastname: '',
+        }
+      };
+    }
     default:
       return state;
   }
