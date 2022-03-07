@@ -29,7 +29,7 @@ const Header = () => {
   const isOpen = useSelector((state) => state.user.loginForm.isOpen);
 
   const handleConnexionClick = () => {
-    dispatch(changeLoginFormDisplay);
+    dispatch(changeLoginFormDisplay());
   }
 
   return (
