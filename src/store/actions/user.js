@@ -129,4 +129,12 @@ export const setCurrentUser = (name, value) => ({
   value,
 });
 
+//* ACTION TYPE UPDATE_USER_INFOS
+export const UPDATE_USER_INFOS = 'UPDATE_USER_INFOS';
+//* ACTION CREATOR updateUserInfos
+export const updateUserInfos = () => ({
+  type: UPDATE_USER_INFOS,
+});
+
+
 

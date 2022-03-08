@@ -12,6 +12,7 @@ import TextArea from 'src/components/Forms/TextArea';
 import {
   changeEditionMode,
   setFieldValueProfileForm,
+  updateUserInfos,
 } from "../../store/actions/user";
 
 
@@ -40,13 +41,17 @@ const ProfilePage = () => {
 
   const { editionMode } = useSelector((state) => state.user.profile);
   
-  const handleEditionMode = () => {
-    dispatch(changeEditionMode());
-    console.log(username);
-  }
-
   const handleChangeField = (value, name) => {
     dispatch(setFieldValueProfileForm(value, name));
+  }
+
+  const handleEditionMode = () => {
+    dispatch(changeEditionMode());
+  }
+
+  const handleUpdateInfos = () => {
+    dispatch(changeEditionMode());
+    dispatch(updateUserInfos());
   }
 
   return (
@@ -218,7 +223,7 @@ const ProfilePage = () => {
           type="button"
           name="Appliquer les modifications"
           className="btn__edit btn--send_update"
-          onClick={handleEditionMode}
+          onClick={handleUpdateInfos}
         />
         }
         <Button
