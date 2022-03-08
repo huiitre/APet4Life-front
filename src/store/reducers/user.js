@@ -19,6 +19,7 @@ import {
   CLEAR_SIGNUP_FORM,
   CHANGE_EDITION_MODE,
   SET_CURRENT_USER,
+  SET_LOADING_SPINNER_USER,
 } from '../actions/user';
 
 import { SET_LOADING_SPINNER } from '../actions/associations';
@@ -189,7 +190,7 @@ const reducer = (state = initialState, action = {}) => {
         userLogged: false,
       }
     }
-    case SET_LOADING_SPINNER: {
+    case SET_LOADING_SPINNER_USER: {
       return {
         ...state,
         signup: {
@@ -234,7 +235,8 @@ const reducer = (state = initialState, action = {}) => {
           name: '',
           firstname: '',
           lastname: '',
-        }
+        },
+        loading: false,
       };
     }
     case CHANGE_EDITION_MODE: {

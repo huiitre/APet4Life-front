@@ -21,14 +21,14 @@ const Associations = () => {
   const countMessage = `${count} association${count >= 2 ? "s" : ""} au total`;
   
   //! possiblement inutile car le dispatch est déjà fait dans App
-  const dispatch = useDispatch();
+  /* const dispatch = useDispatch();
   useState(
     () => {
       console.log('appel de toute les associations');
       dispatch(setAllAssociationsFromApi());
     },
     [],
-  );
+  ); */
 
   const loading = useSelector((state) => state.associations.loading);
   return (

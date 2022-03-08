@@ -13,6 +13,7 @@ import {
   clearSignupForm,
   setModalSuccess,
   clearState,
+  setLoadingSpinnerUser,
 } from '../actions/user';
 
 const userMiddleware = (store) => (next) => (action) => {
@@ -23,7 +24,7 @@ const userMiddleware = (store) => (next) => (action) => {
   const finalURL = devURL;
   switch (action.type) {
     case SEND_SIGN_UP:
-      store.dispatch(setLoadingSpinner());
+      store.dispatch(setLoadingSpinnerUser());
       const { user: { signup: {
         userType,
         mail,
@@ -51,7 +52,6 @@ const userMiddleware = (store) => (next) => (action) => {
       axios
         .post(`${finalURL}/api/user/create`, newUser) 
         .then((response) => {
-          store.dispatch(setLoadingSpinner());
           //* on lance le modal
           store.dispatch(setModalSuccess(true));
           //* on clear le formulaire de signup

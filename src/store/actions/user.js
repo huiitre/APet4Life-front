@@ -151,7 +151,9 @@ export const openModal = (bool) => ({
   bool,
 });
 
-
-
-
-
+//* ACTION TYPE SET_LOADING_SPINNER_USER
+export const SET_LOADING_SPINNER_USER = 'SET_LOADING_SPINNER_USER';
+//* ACTION CREATOR setLoadingSpinnerUser
+export const setLoadingSpinnerUser = () => ({
+  type: SET_LOADING_SPINNER_USER,
+});
