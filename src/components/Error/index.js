@@ -8,8 +8,9 @@ const Error = () => {
 
   return (
     <Page>
-    <div>
-      <p>404</p>
+    <div className="error">
+      <h1>404 Not found</h1>
+      <p>Tu t'es perdu ? Reste pas là, de drôles de personnes rodent dans les feuillages ...</p>
     </div>
     </Page>
   );
