@@ -13,10 +13,11 @@ import {
   SET_TYPE_SIGNUP_FORM,
   CHANGE_LOGIN_FORM_DISPLAY,
   INSERT_TOKEN_TO_STATE,
-  LOGOUT,
+  CLEAR_STATE,
   SET_MODAL_SUCCESS,
   CLEAR_SIGNUP_FORM,
   CHANGE_EDITION_MODE,
+  SET_CURRENT_USER,
 } from '../actions/user';
 
 import { SET_LOADING_SPINNER } from '../actions/associations';
@@ -137,6 +138,19 @@ const reducer = (state = initialState, action = {}) => {
         }
       };
     }
+    case SET_CURRENT_USER: {
+      return {
+        ...state,
+        userLogged: {
+          ...state.userLogged,
+          userLogged: true,
+        },
+        currentUser: {
+          ...state.currentUser,
+        [action.name]: action.value, 
+        }
+      };
+    }
     case CHANGE_LOGIN_FORM_DISPLAY: {
       return {
         ...state,
@@ -161,7 +175,7 @@ const reducer = (state = initialState, action = {}) => {
         userLogged: true,
       }
     }
-    case LOGOUT: {
+    case CLEAR_STATE: {
       return {
         ...state,
         currentUser: {
