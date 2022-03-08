@@ -8,6 +8,7 @@ import {
   LOGIN,
   LOGOUT,
   UPDATE_USER_INFOS,
+  DELETE_USER_INFOS,
   insertTokenToState,
   clearSignupForm,
   setModalSuccess,
@@ -118,6 +119,29 @@ const userMiddleware = (store) => (next) => (action) => {
           //* on met l'user modifié en localstorage
           const userData = JSON.stringify(data)
           localStorage.setItem('userData', userData);
+        })
+        .catch((error) => {
+          console.log('error', error)
+        });
+    }
+      next(action);
+      break;
+
+    case DELETE_USER_INFOS: {
+
+      //* on récupère l'ID du current user du state
+      const { user : { currentUser : { data : { id } } } } = store.getState();
+
+      //* on fait la requête DELETE API
+      axios
+        .delete(`${finalURL}/api/secure/user/delete/${id}`) 
+        .then((response) => {
+          console.log('response', response)
+          
+          //* on vide le state et le localstorage
+          store.dispatch(clearState());
+          localStorage.clear();
+
         })
         .catch((error) => {
           console.log('error', error)

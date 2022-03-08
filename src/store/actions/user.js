@@ -136,5 +136,13 @@ export const updateUserInfos = () => ({
   type: UPDATE_USER_INFOS,
 });
 
+//* ACTION TYPE DELETE_USER_INFOS
+export const DELETE_USER_INFOS = 'DELETE_USER_INFOS';
+//* ACTION CREATOR deleteUserInfos
+export const deleteUserInfos = () => ({
+  type: DELETE_USER_INFOS,
+});
+
+
 
 

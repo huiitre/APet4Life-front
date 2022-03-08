@@ -5,6 +5,7 @@ import Page from 'src/components/Page';
 import { Segment, Icon, Image } from 'semantic-ui-react';
 import Button from 'src/components/Button';
 import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router";
 import Field from 'src/components/Forms/Field';
 import TextArea from 'src/components/Forms/TextArea';
 
@@ -13,6 +14,7 @@ import {
   changeEditionMode,
   setFieldValueProfileForm,
   updateUserInfos,
+  deleteUserInfos,
 } from "../../store/actions/user";
 
 
@@ -20,6 +22,7 @@ import {
 const ProfilePage = () => {
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const {
     type,    // Association/Particular
@@ -52,6 +55,11 @@ const ProfilePage = () => {
   const handleUpdateInfos = () => {
     dispatch(changeEditionMode());
     dispatch(updateUserInfos());
+  }
+
+  const handleDeleteInfos = () => {
+    dispatch(deleteUserInfos());
+    navigate('/');
   }
 
   return (
@@ -230,7 +238,7 @@ const ProfilePage = () => {
           type="button"
           name="Supprimer le compte"
           className="btn__edit btn--delete-profile"
-          onClick=""
+          onClick={handleDeleteInfos}
         />
       </div>
     </Segment>
