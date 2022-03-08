@@ -10,10 +10,13 @@ import Spinner from "src/components/Spinner";
 
 //* import gérant les hooks de react
 import { useSelector } from "react-redux";
+import { useLocation } from "react-router";
 
 //* composant SearchResult : page des résultats
 //* incluant le formulaire de recherche et la liste de résultats
 const SearchResult = () => {
+  const location = useLocation();
+
   //* on récupère la liste des associations depuis le state
   const assocList = useSelector((state) => state.associations.assocList);
 
@@ -40,7 +43,7 @@ const SearchResult = () => {
             {/* si il y a 1 résultat ou +, on affiche le composant assocList (liste des résultats) */}
             {/* opérateur && servant ici à l'affichage conditionnel */}
             {/* s'affiche si la condition count > 0 est true */}
-            {count > 0 && <AssocList assocList={assocList} />}
+            {count > 0 && <AssocList assocList={assocList} location={location.pathname} />}
           </section>
         </>
       )}
