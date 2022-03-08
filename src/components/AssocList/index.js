@@ -8,11 +8,6 @@ import { useDispatch } from "react-redux";
 //! faire propType d'assocList
 
 const AssocList = ({ assocList }) => {
-  const dispatch = useDispatch();
-  const handleClick = (evt) => {
-    console.log(evt.currentTarget.id);
-    dispatch(setAssocBySlugOnApi(evt.currentTarget.id));
-  };
   console.log(assocList);
   return (
     <Segment>

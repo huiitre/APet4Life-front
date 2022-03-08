@@ -14,6 +14,8 @@ import Signup from '../Signup';
 
 //* test
 import ModalSuccess from '../Signup/modalSuccess';
+import Associations from '../associations';
+import { setAllAssociationsFromApi } from '../../store/actions/associations';
 
 // == Composant
 const App = () => {
@@ -26,6 +28,7 @@ const App = () => {
       //* on effectue l'action grâce à la méthode associée (load...()) qui est dans le dossier store/actions/...
       dispatch(loadRegionsFromApi());
       dispatch(loadDepartmentsFromApi());
+      dispatch(setAllAssociationsFromApi());
     },
     [],
   );
@@ -62,6 +65,12 @@ const App = () => {
           element={(
             <Signup />
             // <ModalSuccess />
+          )}
+        />
+        <Route
+          path="/associations"
+          element={(
+            <Associations />
           )}
         />
         {/* <Route

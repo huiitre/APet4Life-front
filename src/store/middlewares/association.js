@@ -8,6 +8,8 @@ import {
   SEND_SEARCH_QUERY_BY_REGION,
   insertSearchResultToState,
   setLoadingSpinner,
+  SET_ALL_ASSOCIATIONS_FROM_API,
+  insertAllAssociationsOnState,
 } from '../actions/associations';
 
 //* MIDDLEWARE gérant l'envoi de la requête de recherche (par zipcode OU département OU region)
@@ -122,6 +124,15 @@ const associationMiddleware = (store) => (next) => (action) => {
       }
       next(action);
       break;
+
+      case SET_ALL_ASSOCIATIONS_FROM_API:
+        axios
+          .get(`${finalURL}/api/user/associations`)
+          .then((response) => {
+            store.dispatch(insertAllAssociationsOnState(response.data));
+          });
+        next(action);
+        break;
 
     default:
       next(action);

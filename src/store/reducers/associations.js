@@ -7,6 +7,7 @@ import {
   SET_ZIPCODE,
   INSERT_SEARCH_RESULT_TO_STATE,
   SET_LOADING_SPINNER,
+  INSERT_ALL_ASSOCIATIONS_ON_STATE,
 } from '../actions/associations';
 import {
   INSERT_DEPARTMENTS_TO_STATE,
@@ -17,6 +18,8 @@ import {
 export const initialState = {
   //? loading pour le spinner
   loading: false,
+  //? liste de toute les associations du site (page /associations)
+  allAssociations: [],
   //? résultat de recherche des assocs
   assocList: [],
   //? liste des régions depuis api.gouv
@@ -107,6 +110,13 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         loading: !state.loading,
       };
+    }
+
+    case INSERT_ALL_ASSOCIATIONS_ON_STATE: {
+      return {
+        ...state,
+        allAssociations: action.assocList,
+      }
     }
 
     default:
