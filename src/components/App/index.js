@@ -7,7 +7,7 @@ import Assoc from 'src/components/Assoc';
 import Home from 'src/components/Home';
 import SearchResult from 'src/components/SearchResults';
 import { Route, Routes } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { loadDepartmentsFromApi, loadRegionsFromApi } from '../../store/actions/location';
 import Signup from '../Signup';
@@ -21,9 +21,6 @@ import { setAllAssociationsFromApi, setLoadingSpinner } from '../../store/action
 const App = () => {
   //* on récupère useDispatch() de react-redux
   const dispatch = useDispatch();
-
-  const allAssociations = useSelector((state) => state.associations.allAssociations);
-  const resultAssociations = useSelector((state) => state.associations.assocList);
 
   //* au tout premier rendu de la page, on charge les api des régions et des départements
   useEffect(

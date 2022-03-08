@@ -126,6 +126,7 @@ const associationMiddleware = (store) => (next) => (action) => {
       break;
 
       case SET_ALL_ASSOCIATIONS_FROM_API:
+        store.dispatch(setLoadingSpinner());
         axios
           .get(`${finalURL}/api/user/associations`)
           .then((response) => {

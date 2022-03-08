@@ -3,12 +3,13 @@ import "./style.scss";
 import { Link } from "react-router-dom";
 import { Segment } from "semantic-ui-react";
 import Separator from "src/components/Separator";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 //! faire propType d'assocList
 
-const AssocList = ({ assocList }) => {
+const AssocList = ({ assocList, location }) => {
   console.log('assocList', assocList);
+  console.log('location preview', location);
   return (
     <Segment>
       <ul className="list">
@@ -20,7 +21,10 @@ const AssocList = ({ assocList }) => {
               //* c'est en gros un lien < href=""> qui communique avec les Routes que nous avons déclarés dans le composant App
               //* dans l'attribut "to", on peut l'url sur laquelle on veut atterir
               //* elle doit correspondre à une route */}
-              <Link to={`/association/${item.slug}`}>
+              <Link
+                to={`/association/${item.slug}`}
+                state={{prevPath: location}}
+              >
                 <li className="list__item">
                   <img className="list__item-logo" src={item.picture} alt="" />
                   <div className="list__item-infos">

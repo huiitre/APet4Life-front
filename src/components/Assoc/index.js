@@ -5,18 +5,19 @@ import Button from "src/components/Button";
 import { Icon, Image, Segment } from "semantic-ui-react";
 import { useDispatch, useSelector } from "react-redux";
 import classNames from "classnames";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, useLocation } from "react-router-dom";
 import FormContact from "../Forms/FormContact";
 import { formContactIsOpen } from "../../store/actions/user";
 import { findAssoc } from "../../store/selectors/associations";
 
 const Assoc = () => {
+  const location = useLocation();
   const navigate = useNavigate();
-  const dispatch = useDispatch();
-
-  const handleClickNavigateToHome = () => {
-    navigate("/search");
+  const handleClickNavigateToPreviousPage = () => {
+    navigate(location.state.prevPath);
   };
+
+  const dispatch = useDispatch();
 
   //* on récupère la propriété "isOpen" venant du state
   const isOpen = useSelector((state) => state.user.contactAssoc.isOpen);
@@ -90,7 +91,7 @@ const Assoc = () => {
             onSubmit={handleSubmitContact}
           />
           <Button
-            onClick={handleClickNavigateToHome}
+            onClick={handleClickNavigateToPreviousPage}
             name="Retour à la liste"
             className="btn--return"
           />
