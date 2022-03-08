@@ -10,20 +10,26 @@ import Home from 'src/components/Home';
 import ProfilePage from 'src/components/ProfilePage';
 import SearchResult from 'src/components/SearchResults';
 import Error from 'src/components/Error';
-import Signup from '../Signup';
+import Signup from 'src/components/Signup';
+import Associations from 'src/components/Associations';
 
 //* import react reduc
 import { Route, Routes } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { loadDepartmentsFromApi, loadRegionsFromApi } from '../../store/actions/location';
-import Signup from '../Signup';
+
+//* import actions
+import {
+  loadDepartmentsFromApi,
+  loadRegionsFromApi
+} from '../../store/actions/location';
 import {
   setCurrentUser,
 } from '../../store/actions/user';
-
-import Associations from '../Associations';
-import { setAllAssociationsFromApi, setLoadingSpinner } from '../../store/actions/associations';
+import {
+  setAllAssociationsFromApi,
+  setLoadingSpinner
+} from '../../store/actions/associations';
 
 
 // == Composant
