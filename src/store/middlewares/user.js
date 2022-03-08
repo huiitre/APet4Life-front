@@ -1,16 +1,20 @@
 import axios from 'axios';
+// import { useDispatch } from 'react-redux';
 import { setLoadingSpinner } from '../actions/associations';
 
 //* import des actions
 import {
   SEND_SIGN_UP,
   LOGIN,
+  LOGOUT,
   insertTokenToState,
   clearSignupForm,
-  setModalSuccess
+  setModalSuccess,
+  clearState,
 } from '../actions/user';
 
 const userMiddleware = (store) => (next) => (action) => {
+
   const devURL = 'http://localhost:3000';
   const prodURL = 'http://morgane-rabiller-server.eddi.cloud';
   //* venir changer ici, si url de dev ou url de prod
@@ -69,8 +73,16 @@ const userMiddleware = (store) => (next) => (action) => {
           "password": loginPassword,
         })
           .then((response) => {
-            console.log('success', response.data.token)
-            store.dispatch(insertTokenToState(response.data.token));
+            console.log('success', response.data)
+            
+            //* on stocke le token et les data utilisateur dans le localstorage
+            localStorage.setItem('TOKEN', response.data.token);
+            const userData = JSON.stringify(response.data.data)
+            localStorage.setItem('userData', userData);
+
+            //* on les stocke également dans le state
+            store.dispatch(insertTokenToState(response.data.token, response.data.data));
+
           })
           .catch((error) => {
             console.log('error', error)
@@ -78,6 +90,13 @@ const userMiddleware = (store) => (next) => (action) => {
         }
         next(action);
         break;
+    
+    case LOGOUT : {
+
+      //* on vide le state et le localstorage
+      store.dispatch(clearState());
+      localStorage.clear();
+    }
 
     default:
       next(action);

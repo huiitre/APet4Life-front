@@ -67,9 +67,10 @@ export const login = () => ({
 //* ACTION TYPE INSERT_TOKEN_TO_STATE
 export const INSERT_TOKEN_TO_STATE = 'INSERT_TOKEN_TO_STATE';
 //* ACTION CREATOR insertTokenToState
-export const insertTokenToState = (JWTtoken) => ({
+export const insertTokenToState = (token, data) => ({
   type: INSERT_TOKEN_TO_STATE,
-  JWTtoken,
+  token,
+  data,
 });
 
 //! LOGOUT !//
@@ -79,6 +80,14 @@ export const LOGOUT = 'LOGOUT';
 export const logout = () => ({
   type: LOGOUT,
 });
+
+//* ACTION TYPE CLEAR_STATE
+export const CLEAR_STATE = 'CLEAR_STATE';
+//* ACTION CREATOR clearState
+export const clearState = () => ({
+  type: CLEAR_STATE,
+});
+
 
 //* ACTION TYPE SET_MODAL_SUCCESS
 export const SET_MODAL_SUCCESS = 'SET_MODAL_SUCCESS';
@@ -94,3 +103,30 @@ export const CLEAR_SIGNUP_FORM = 'CLEAR_SIGNUP_FORM';
 export const clearSignupForm = () => ({
   type: CLEAR_SIGNUP_FORM,
 });
+
+//* ACTION TYPE CHANGE_EDITION_MODE
+export const CHANGE_EDITION_MODE = 'CHANGE_EDITION_MODE';
+//* ACTION CREATOR changeEditionMode
+export const changeEditionMode = () => ({
+  type: CHANGE_EDITION_MODE,
+});
+
+//* ACTION TYPE SET_FIELD_VALUE_PROFILE_FORM
+export const SET_FIELD_VALUE_PROFILE_FORM = 'SET_FIELD_VALUE_PROFILE_FORM';
+//* ACTION CREATOR setFieldValueProfileForm
+export const setFieldValueProfileForm = (value, name) => ({
+  type: SET_FIELD_VALUE_PROFILE_FORM,
+  value,
+  name,
+});
+
+//* ACTION TYPE SET_CURRENT_USER
+export const SET_CURRENT_USER = 'SET_CURRENT_USER';
+//* ACTION CREATOR setCurrentUser
+export const setCurrentUser = (name, value) => ({
+  type: SET_CURRENT_USER,
+  name,
+  value,
+});
+
+

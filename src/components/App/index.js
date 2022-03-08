@@ -1,16 +1,25 @@
 /* eslint-disable max-len */
 // == Import
 import './style.scss';
+
+//* import components
 import AppHeader from 'src/components/AppHeader';
 import AppFooter from 'src/components/AppFooter';
 import Assoc from 'src/components/Assoc';
 import Home from 'src/components/Home';
+import ProfilePage from 'src/components/ProfilePage';
 import SearchResult from 'src/components/SearchResults';
+import Signup from '../Signup';
+
+//* import react reduc
 import { Route, Routes } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { loadDepartmentsFromApi, loadRegionsFromApi } from '../../store/actions/location';
 import Signup from '../Signup';
+import {
+  setCurrentUser,
+} from '../../store/actions/user';
 
 //* test
 import ModalSuccess from '../Signup/modalSuccess';
@@ -29,6 +38,21 @@ const App = () => {
       dispatch(loadRegionsFromApi());
       dispatch(loadDepartmentsFromApi());
       dispatch(setAllAssociationsFromApi());
+
+      // const { data: stateData, token: stateToken } = useSelector((state) => state.user.currentUser);
+
+      const userData = localStorage.getItem('userData');
+      if (userData) {
+        const JSuserData = JSON.parse(userData)
+        dispatch(setCurrentUser('data', JSuserData));
+        console.log(JSuserData);
+      }
+      
+      const TOKEN = localStorage.getItem('TOKEN');
+      if (TOKEN) {
+        dispatch(setCurrentUser('token', TOKEN));
+        console.log(TOKEN);
+      }
     },
     [],
   );
@@ -79,6 +103,13 @@ const App = () => {
             //<Error /> créer composant error
           )}
         /> */}
+
+        <Route
+          path="/profil"
+          element={(
+            <ProfilePage />
+          )}
+        />
       </Routes>
       {/* //* on affiche le composant AppFooter à la toute fin */}
       <AppFooter />

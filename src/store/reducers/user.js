@@ -9,12 +9,15 @@ import {
   FORM_CONTACT_IS_OPEN,
   SET_FIELD_VALUE_SIGNUP_FORM,
   SET_FIELD_VALUE_LOGIN_FORM,
+  SET_FIELD_VALUE_PROFILE_FORM,
   SET_TYPE_SIGNUP_FORM,
   CHANGE_LOGIN_FORM_DISPLAY,
   INSERT_TOKEN_TO_STATE,
-  LOGOUT,
+  CLEAR_STATE,
   SET_MODAL_SUCCESS,
   CLEAR_SIGNUP_FORM,
+  CHANGE_EDITION_MODE,
+  SET_CURRENT_USER,
 } from '../actions/user';
 
 import { SET_LOADING_SPINNER } from '../actions/associations';
@@ -48,8 +51,11 @@ export const initialState = {
   },
   userLogged: false,
   currentUser: { 
-    JWTtoken:'',
-    name:'Audrey',
+    data: {},
+    token: '',
+  },
+  profile: {
+    editionMode: false,
   }
 };
 
@@ -120,6 +126,31 @@ const reducer = (state = initialState, action = {}) => {
         }
       };
     }
+    case SET_FIELD_VALUE_PROFILE_FORM: {
+      return {
+        ...state,
+        currentUser: {
+          ...state.currentUser,
+          data: {
+            ...state.currentUser.data,
+            [action.name]: action.value,
+          }
+        }
+      };
+    }
+    case SET_CURRENT_USER: {
+      return {
+        ...state,
+        userLogged: {
+          ...state.userLogged,
+          userLogged: true,
+        },
+        currentUser: {
+          ...state.currentUser,
+        [action.name]: action.value, 
+        }
+      };
+    }
     case CHANGE_LOGIN_FORM_DISPLAY: {
       return {
         ...state,
@@ -134,7 +165,8 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         currentUser: {
           ...state.currentUser,
-          JWTtoken: action.JWTtoken,
+          token: action.token,
+          data: action.data,
         },
         loginForm: {
           ...state.loginForm,
@@ -143,13 +175,13 @@ const reducer = (state = initialState, action = {}) => {
         userLogged: true,
       }
     }
-    case LOGOUT: {
+    case CLEAR_STATE: {
       return {
         ...state,
         currentUser: {
           ...state.currentUser,
-          JWTtoken:'',
-          name:'',
+          token: "",
+          data: {},
         },
         userLogged: false,
       }
@@ -189,6 +221,15 @@ const reducer = (state = initialState, action = {}) => {
           lastname: '',
         }
       };
+    }
+    case CHANGE_EDITION_MODE: {
+      return {
+        ...state,
+        profile: {
+          ...state.profile,
+          editionMode: !state.profile.editionMode,
+        }
+      }
     }
     default:
       return state;

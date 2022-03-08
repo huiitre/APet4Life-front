@@ -20,13 +20,14 @@ const Header = () => {
   // const [isOpen, setIsOpen] = useState(false);
   // setIsOpen(!isOpen);
 
-  const navigate = useNavigate();
+  const navigate = useNavigate(); 
+  const dispatch = useDispatch();
+
+  const isOpen = useSelector((state) => state.user.loginForm.isOpen);
+  
   const handleNavigateToSignupPage = () => {
     navigate('/inscription');
   };
-
-  const dispatch = useDispatch();
-  const isOpen = useSelector((state) => state.user.loginForm.isOpen);
 
   const handleConnexionClick = () => {
     dispatch(changeLoginFormDisplay());
@@ -34,6 +35,11 @@ const Header = () => {
 
   const handleLogoutClick = () => {
     dispatch(logout());
+    navigate('/');
+  }
+
+  const handleNavigateToProfilePage =() => {
+    navigate('/profil');
   }
 
   const userLogged = useSelector((state) => state.user.userLogged);
@@ -63,12 +69,21 @@ const Header = () => {
         }
 
         {userLogged &&
-        <Button
-          onClick={handleLogoutClick}
-          type=""
-          name="Déconnexion"
-          className="btn--signin"
-        /> }
+          <>
+            <Button
+              onClick={handleLogoutClick}
+              type=""
+              name="Déconnexion"
+              className="btn--signin"
+            />
+            <Button
+                  onClick={handleNavigateToProfilePage}
+                  type=""
+                  name="Profile"
+                  className="btn--signup"
+            />
+          </>
+        }
 
       </div>
     </div>
