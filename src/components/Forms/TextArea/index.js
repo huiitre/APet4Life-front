@@ -4,16 +4,22 @@ import './style.scss';
 // todo
 const TextArea = ({
   className, placeholder, name, onChange, value,
-}) => (
-  <textarea
-    name={name}
-    className={`textarea ${className}`}
-    placeholder={placeholder}
-    onChange={onChange}
-  >
-    {value}
-  </textarea>
-);
+}) => {
+
+  const handleChange = (evt) => {
+    onChange(evt.target.value, name);
+  };
+
+  return (
+    <textarea
+      name={name}
+      className={`textarea ${className}`}
+      placeholder={placeholder}
+      onChange={handleChange}
+      value={value}
+    />
+  )
+};
 
 export
 default TextArea;

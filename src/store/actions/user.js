@@ -67,9 +67,10 @@ export const login = () => ({
 //* ACTION TYPE INSERT_TOKEN_TO_STATE
 export const INSERT_TOKEN_TO_STATE = 'INSERT_TOKEN_TO_STATE';
 //* ACTION CREATOR insertTokenToState
-export const insertTokenToState = (JWTtoken) => ({
+export const insertTokenToState = (token, data) => ({
   type: INSERT_TOKEN_TO_STATE,
-  JWTtoken,
+  token,
+  data,
 });
 
 //! LOGOUT !//

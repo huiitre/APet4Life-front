@@ -21,13 +21,13 @@ const ProfilePage = () => {
   const dispatch = useDispatch();
 
   const {
-    userType,
+    type,    // Association/Particular
     name,
     firstname,
     lastname,
     siret,
-    mail,
-    address,
+    username,    //email
+    adress,
     zipcode,
     city,
     department,
@@ -36,12 +36,13 @@ const ProfilePage = () => {
     description,
     picture,
     website,
-  } = useSelector((state) => state.user.currentUser);
+  } = useSelector((state) => state.user.currentUser.data);
 
   const { editionMode } = useSelector((state) => state.user.profile);
   
   const handleEditionMode = () => {
     dispatch(changeEditionMode());
+    console.log(username);
   }
 
   const handleChangeField = (value, name) => {
@@ -84,13 +85,13 @@ const ProfilePage = () => {
             
             <span className="profile__contact-coord-item">
               <Icon name="mail outline" size="large" />
-              <a className={editionMode ? 'none' : ''} href={`mailto:${mail}`}>{mail}</a>
+              <a className={editionMode ? 'none' : ''} href={`mailto:${username}`}>{username}</a>
               <Field
                 className={editionMode ? '' : 'none'}
                 type="email"
                 placeholder="nom"
-                name="name"
-                value={mail}
+                name="username"
+                value={username}
                 onChange={handleChangeField}
               />
             </span>
@@ -102,7 +103,7 @@ const ProfilePage = () => {
                 className={editionMode ? '' : 'none'}
                 type="text"
                 placeholder="numéro de téléphone"
-                name="phone"
+                name="phone_number"
                 value={phone_number}
                 onChange={handleChangeField}
               />
@@ -123,13 +124,13 @@ const ProfilePage = () => {
 
             <span className="profile__contact-coord-item">
               <Icon name="home" size="large" />
-              <p className={editionMode ? 'none' : ''}>{address}</p> 
+              <p className={editionMode ? 'none' : ''}>{adress}</p> 
               <Field
                 className={editionMode ? '' : 'none'}
                 type="text"
                 placeholder="adresse"
-                name="address"
-                value={address}
+                name="adress"
+                value={adress}
                 onChange={handleChangeField}
               />         
             </span>

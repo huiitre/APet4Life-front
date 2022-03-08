@@ -69,8 +69,8 @@ const userMiddleware = (store) => (next) => (action) => {
           "password": loginPassword,
         })
           .then((response) => {
-            console.log('success', response.data.token)
-            store.dispatch(insertTokenToState(response.data.token));
+            console.log('success', response.data.data)
+            store.dispatch(insertTokenToState(response.data.token, response.data.data));
           })
           .catch((error) => {
             console.log('error', error)

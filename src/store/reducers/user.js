@@ -50,22 +50,8 @@ export const initialState = {
   },
   userLogged: false,
   currentUser: { 
-    JWTtoken:'',
-    userType: 'Association',
-    name:'Carapatte',
-    firstname: '',
-    lastname: '',
-    siret: '452 798 739 00192',
-    mail: 'carapatte@exemple.com',
-    address: 'rue Jacquet',
-    zipcode: '93278',
-    city: 'Olivier',
-    department: 'La Réunion',
-    region: 'Centre-Val de Loire',
-    phone_number: '+33 (0)2 69 56 28 43',
-    description: 'Et dolores occaecati aut sunt. Ipsa perferendis autem officia natus ut sit impedit. Libero facilis neque delectus delectus beatae. Quia dignissimos laboriosam rerum odio qui doloremque fuga.',
-    picture: 'https://placekitten.com/500/542',
-    website: 'https://fake-carapatte.com',
+    data: {},
+    token: '',
   },
   profile: {
     editionMode: false,
@@ -144,7 +130,10 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         currentUser: {
           ...state.currentUser,
-          [action.name]: action.value,
+          data: {
+            ...state.currentUser.data,
+            [action.name]: action.value,
+          }
         }
       };
     }
@@ -162,7 +151,8 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         currentUser: {
           ...state.currentUser,
-          JWTtoken: action.JWTtoken,
+          token: action.token,
+          data: action.data,
         },
         loginForm: {
           ...state.loginForm,
@@ -176,8 +166,8 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         currentUser: {
           ...state.currentUser,
-          JWTtoken:'',
-          name:'',
+          token: "",
+          data: {},
         },
         userLogged: false,
       }
