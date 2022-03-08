@@ -5,19 +5,19 @@ import Button from "src/components/Button";
 import { Icon, Image, Segment } from "semantic-ui-react";
 import { useDispatch, useSelector } from "react-redux";
 import classNames from "classnames";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, useLocation } from "react-router-dom";
 import FormContact from "../Forms/FormContact";
 import { formContactIsOpen } from "../../store/actions/user";
 import { findAssoc } from "../../store/selectors/associations";
-import AssocCarrousel from "../AssocCarrousel";
 
 const Assoc = () => {
+  const location = useLocation();
   const navigate = useNavigate();
-  const dispatch = useDispatch();
-
-  const handleClickNavigateToHome = () => {
-    navigate("/search");
+  const handleClickNavigateToPreviousPage = () => {
+    navigate(location.state.prevPath);
   };
+
+  const dispatch = useDispatch();
 
   //* on récupère la propriété "isOpen" venant du state
   const isOpen = useSelector((state) => state.user.contactAssoc.isOpen);
@@ -49,7 +49,7 @@ const Assoc = () => {
   //*   2. on insère ce résultat avec en plus le slug (param d'url) dans la fonction findAssoc
   //*      qui va chercher avec un find() l'assoc qui correspond bien au slug de l'url
   const assoc = useSelector((state) =>
-    findAssoc(state.associations.assocList, slug)
+    findAssoc(state.associations.allAssociations, slug)
   );
 
   return (
@@ -67,9 +67,7 @@ const Assoc = () => {
             <div className="assoc__contact-coord">
               <span className="assoc__contact-coord--mail">
                 <Icon name="mail outline" size="large" />
-                <a href={`mailto:${assoc.mail}`}>
-                  {assoc.mail}
-                </a>
+                <a href={`mailto:${assoc.mail}`}>{assoc.mail}</a>
               </span>
               <span className="assoc__contact-coord--phone">
                 <Icon name="phone" size="large" />
@@ -93,13 +91,12 @@ const Assoc = () => {
             onSubmit={handleSubmitContact}
           />
           <Button
-            onClick={handleClickNavigateToHome}
+            onClick={handleClickNavigateToPreviousPage}
             name="Retour à la liste"
             className="btn--return"
           />
         </div>
       </Segment>
-      <AssocCarrousel array={assoc.animals} />
     </Page>
   );
 };

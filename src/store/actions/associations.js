@@ -61,3 +61,18 @@ export const SET_LOADING_SPINNER = 'SET_LOADING_SPINNER';
 export const setLoadingSpinner = () => ({
   type: SET_LOADING_SPINNER,
 });
+
+//* ACTION TYPE SET_ALL_ASSOCIATIONS_FROM_API
+export const SET_ALL_ASSOCIATIONS_FROM_API = 'SET_ALL_ASSOCIATIONS_FROM_API';
+//* ACTION CREATOR setAllAssociationsFromApi
+export const setAllAssociationsFromApi = () => ({
+  type: SET_ALL_ASSOCIATIONS_FROM_API,
+});
+
+//* ACTION TYPE INSERT_ALL_ASSOCIATIONS_ON_STATE
+export const INSERT_ALL_ASSOCIATIONS_ON_STATE = 'INSERT_ALL_ASSOCIATIONS_ON_STATE';
+//* ACTION CREATOR insertAllAssociationsOnState
+export const insertAllAssociationsOnState = (assocList) => ({
+  type: INSERT_ALL_ASSOCIATIONS_ON_STATE,
+  assocList,
+});

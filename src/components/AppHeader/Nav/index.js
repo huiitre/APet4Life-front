@@ -29,7 +29,13 @@ const Nav = () => {
           </Link>
         </li>
         <li className="navbar__item slideInDown-2">
-          <a href="/" className="navbar__link">Associations</a>
+          <Link
+            to="/associations"
+            className="navbar__link"
+            onClick={closeBurger}
+          >
+            Associations
+          </Link>
         </li>
         <li className="navbar__item slideInDown-3">
           <a href="/" className="navbar__link">Adoptés</a>

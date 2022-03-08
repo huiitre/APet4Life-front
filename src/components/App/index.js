@@ -13,21 +13,18 @@ import Signup from '../Signup';
 
 //* import react reduc
 import { Route, Routes } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
-//* import actions
-import {
-  loadDepartmentsFromApi,
-  loadRegionsFromApi
-} from '../../store/actions/location';
-
+import { loadDepartmentsFromApi, loadRegionsFromApi } from '../../store/actions/location';
+import Signup from '../Signup';
 import {
   setCurrentUser,
 } from '../../store/actions/user';
 
 //* test
 import ModalSuccess from '../Signup/modalSuccess';
+import Associations from '../Associations';
+import { setAllAssociationsFromApi, setLoadingSpinner } from '../../store/actions/associations';
 
 // == Composant
 const App = () => {
@@ -40,6 +37,7 @@ const App = () => {
       //* on effectue l'action grâce à la méthode associée (load...()) qui est dans le dossier store/actions/...
       dispatch(loadRegionsFromApi());
       dispatch(loadDepartmentsFromApi());
+      dispatch(setAllAssociationsFromApi());
 
       // const { data: stateData, token: stateToken } = useSelector((state) => state.user.currentUser);
 
@@ -93,7 +91,12 @@ const App = () => {
             // <ModalSuccess />
           )}
         />
-
+        <Route
+          path="/associations"
+          element={(
+            <Associations />
+          )}
+        />
         {/* <Route
           path="*"
           element={(
