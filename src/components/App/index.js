@@ -28,7 +28,7 @@ import {
 } from '../../store/actions/user';
 
 //* test
-import ModalSuccess from '../Signup/modalSuccess';
+// import ModalSuccess from 'src/components/Modal';
 
 // == Composant
 const App = () => {

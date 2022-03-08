@@ -141,6 +141,7 @@ const userMiddleware = (store) => (next) => (action) => {
           //* on vide le state et le localstorage
           store.dispatch(clearState());
           localStorage.clear();
+          // store.dispatch(setModalSuccess(true));
 
         })
         .catch((error) => {

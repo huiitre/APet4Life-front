@@ -143,6 +143,15 @@ export const deleteUserInfos = () => ({
   type: DELETE_USER_INFOS,
 });
 
+//* ACTION TYPE OPEN_MODAL
+export const OPEN_MODAL = 'OPEN_MODAL';
+//* ACTION CREATOR openModal
+export const openModal = (bool) => ({
+  type: OPEN_MODAL,
+  bool,
+});
+
+
 
 
 
