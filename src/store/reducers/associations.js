@@ -116,6 +116,7 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         allAssociations: action.assocList,
+        loading: false,
       }
     }
 

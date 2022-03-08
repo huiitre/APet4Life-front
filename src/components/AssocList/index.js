@@ -8,7 +8,7 @@ import { useDispatch } from "react-redux";
 //! faire propType d'assocList
 
 const AssocList = ({ assocList }) => {
-  console.log(assocList);
+  console.log('assocList', assocList);
   return (
     <Segment>
       <ul className="list">
