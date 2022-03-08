@@ -71,16 +71,16 @@ const Header = () => {
         {userLogged &&
           <>
             <Button
+              onClick={handleNavigateToProfilePage}
+              type=""
+              name="Profile"
+              className="btn--signup"
+            />
+            <Button
               onClick={handleLogoutClick}
               type=""
               name="Déconnexion"
               className="btn--signin"
-            />
-            <Button
-                  onClick={handleNavigateToProfilePage}
-                  type=""
-                  name="Profile"
-                  className="btn--signup"
             />
           </>
         }

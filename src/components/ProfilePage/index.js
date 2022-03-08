@@ -5,13 +5,21 @@ import Page from 'src/components/Page';
 import { Segment, Icon, Image } from 'semantic-ui-react';
 import Button from 'src/components/Button';
 import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router";
+
 import Field from 'src/components/Forms/Field';
 import TextArea from 'src/components/Forms/TextArea';
+import ModalDelete from "./modalDelete";
+// import ModalSuccess from 'src/components/ModalSuccess';
 
 //* import actions
 import {
   changeEditionMode,
   setFieldValueProfileForm,
+  updateUserInfos,
+  deleteUserInfos,
+  openModal,
+  setModalSuccess,
 } from "../../store/actions/user";
 
 
@@ -19,6 +27,7 @@ import {
 const ProfilePage = () => {
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const {
     type,    // Association/Particular
@@ -40,17 +49,47 @@ const ProfilePage = () => {
 
   const { editionMode } = useSelector((state) => state.user.profile);
   
-  const handleEditionMode = () => {
-    dispatch(changeEditionMode());
-    console.log(username);
-  }
-
   const handleChangeField = (value, name) => {
     dispatch(setFieldValueProfileForm(value, name));
   }
 
+  const handleEditionMode = () => {
+    dispatch(changeEditionMode());
+  }
+  
+  const handleUpdateInfos = () => {
+    dispatch(changeEditionMode());
+    dispatch(updateUserInfos());
+  }
+  
+  const handleDeleteInfos = () => {
+    dispatch(deleteUserInfos());
+    navigate('/');
+  }
+
+  const closeModalElement = () => {
+    dispatch(openModal(false));
+  }
+
+  const openModalElement = () => {
+    dispatch(openModal(true));
+  }
+
+  // const handleCloseModal = () => {
+  //   dispatch(setModalSuccess(false));
+  //   navigate('/');
+  // };
+
+  // const modalText = `Ton compte a bien été supprimé`;
+
   return (
   <Page>
+    <ModalDelete
+      handleModalYES={handleDeleteInfos}
+      handleModalNO={closeModalElement}
+    />
+    {/* <ModalSuccess closeModal={handleCloseModal} modalText={modalText} /> */}
+
     <Segment className="profile">
       <div className="profile__picture">
         <Image src="https://placekitten.com/500/600" size="medium" rounded />
@@ -218,14 +257,14 @@ const ProfilePage = () => {
           type="button"
           name="Appliquer les modifications"
           className="btn__edit btn--send_update"
-          onClick={handleEditionMode}
+          onClick={handleUpdateInfos}
         />
         }
         <Button
           type="button"
           name="Supprimer le compte"
           className="btn__edit btn--delete-profile"
-          onClick=""
+          onClick={openModalElement}
         />
       </div>
     </Segment>

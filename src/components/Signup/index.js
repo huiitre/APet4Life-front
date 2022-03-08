@@ -1,9 +1,21 @@
 import "./style.scss";
+
+//* import composants
 import Page from "src/components/Page";
-import RadioType from "./radioType";
 import Spinner from "src/components/Spinner";
 import Button from "src/components/Button";
+import Field from "src/components/Forms/Field";
+import Select from "../Forms/Select";
+import RadioType from "./radioType";
+import ModalSuccess from "src/components/ModalSuccess";
+
+//* import react redux
 import { useDispatch, useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+import classNames from "classnames";
+import { useNavigate } from "react-router";
+
+//* import actions
 import {
   changeFormSignupStatus,
   sendSignUp,
@@ -11,16 +23,11 @@ import {
   setModalSuccess,
   setTypeSignupForm,
 } from "../../store/actions/user";
-import { useEffect, useState } from "react";
-import classNames from "classnames";
-import Field from "src/components/Forms/Field";
-import Select from "../Forms/Select";
 import {
   loadDepartmentsFromApi,
   loadRegionsFromApi,
 } from "../../store/actions/location";
-import ModalSuccess from "./modalSuccess";
-import { useNavigate } from "react-router";
+
 
 const Signup = () => {
   //* hook custom qui gère l'affichage d'erreur si un ou plusieurs champs ne sopnt pas rempli
@@ -39,7 +46,7 @@ const Signup = () => {
 
   //* on récupère ce qu'on a besoin comme infos depuis le state
   const loading = useSelector((state) => state.user.signup.loading);
-  const modalSuccess = useSelector((state) => state.user.signup.modalSuccess);
+  // const modalSuccess = useSelector((state) => state.user.signup.modalSuccess);
   const statusForm = useSelector((state) => state.user.signup.status);
   const regionList = useSelector((state) => state.associations.regionsList);
   const departmentList = useSelector(
@@ -151,11 +158,13 @@ const Signup = () => {
     navigate('/');
   };
 
+  const modalText = `Ton inscription a bien été confirmée. En cliquant sur le bouton en bas, tu seras redirigé vers la page d'accueil, il te suffira ensuite de te connecter via le bouton "connexion" en haut à droite du site 😉.`
+
   const classNamesError = classNames("signup__error", { none: !isError });
 
   return (
     <Page>
-      <ModalSuccess closeModal={handleCloseModal} modalSuccess={modalSuccess} />
+      <ModalSuccess closeModal={handleCloseModal} modalText={modalText} />
       {loading && <Spinner />}
       {!loading && (
         <section className="signup">

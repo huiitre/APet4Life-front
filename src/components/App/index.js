@@ -9,6 +9,7 @@ import Assoc from 'src/components/Assoc';
 import Home from 'src/components/Home';
 import ProfilePage from 'src/components/ProfilePage';
 import SearchResult from 'src/components/SearchResults';
+import Error from 'src/components/Error';
 import Signup from '../Signup';
 
 //* import react reduc
@@ -21,10 +22,9 @@ import {
   setCurrentUser,
 } from '../../store/actions/user';
 
-//* test
-import ModalSuccess from '../Signup/modalSuccess';
 import Associations from '../Associations';
 import { setAllAssociationsFromApi, setLoadingSpinner } from '../../store/actions/associations';
+
 
 // == Composant
 const App = () => {
@@ -56,6 +56,8 @@ const App = () => {
     },
     [],
   );
+
+  const { userLogged } = useSelector((state) => state.user)
   return (
     <div className="app">
       {/* //* on affiche en premier le composant Appheader */}
@@ -91,25 +93,30 @@ const App = () => {
             // <ModalSuccess />
           )}
         />
+
+        { userLogged && 
+          <Route
+            path="/profil"
+            element={(
+              <ProfilePage />
+            )}
+          />
+        }
+
         <Route
           path="/associations"
           element={(
             <Associations />
           )}
         />
-        {/* <Route
-          path="*"
-          element={(
-            //<Error /> créer composant error
-          )}
-        /> */}
 
         <Route
-          path="/profil"
+          path="*"
           element={(
-            <ProfilePage />
+            <Error />
           )}
         />
+
       </Routes>
       {/* //* on affiche le composant AppFooter à la toute fin */}
       <AppFooter />

@@ -7,6 +7,8 @@ import {
   SEND_SIGN_UP,
   LOGIN,
   LOGOUT,
+  UPDATE_USER_INFOS,
+  DELETE_USER_INFOS,
   insertTokenToState,
   clearSignupForm,
   setModalSuccess,
@@ -54,6 +56,9 @@ const userMiddleware = (store) => (next) => (action) => {
           store.dispatch(setModalSuccess(true));
           //* on clear le formulaire de signup
           store.dispatch(clearSignupForm());
+        })
+        .catch((error) => {
+          console.log('error', error)
         });
       next(action);
       break;
@@ -87,16 +92,64 @@ const userMiddleware = (store) => (next) => (action) => {
           .catch((error) => {
             console.log('error', error)
           });
-        }
-        next(action);
-        break;
+    }
+      next(action);
+      break;
     
-    case LOGOUT : {
+    case LOGOUT: {
 
       //* on vide le state et le localstorage
       store.dispatch(clearState());
       localStorage.clear();
     }
+      next(action);
+      break;
+
+    case UPDATE_USER_INFOS: {
+
+      //* on récupère le current user du state
+      const { user : { currentUser : { data } } } = store.getState();
+
+      //* on fait la requête PATCH API
+      axios
+        .patch(`${finalURL}/api/secure/user/update/${data.id}`, data) 
+        .then((response) => {
+          console.log('response', response)
+
+          //* on met l'user modifié en localstorage
+          const userData = JSON.stringify(data)
+          localStorage.setItem('userData', userData);
+        })
+        .catch((error) => {
+          console.log('error', error)
+        });
+    }
+      next(action);
+      break;
+
+    case DELETE_USER_INFOS: {
+
+      //* on récupère l'ID du current user du state
+      const { user : { currentUser : { data : { id } } } } = store.getState();
+
+      //* on fait la requête DELETE API
+      axios
+        .delete(`${finalURL}/api/secure/user/delete/${id}`) 
+        .then((response) => {
+          console.log('response', response)
+          
+          //* on vide le state et le localstorage
+          store.dispatch(clearState());
+          localStorage.clear();
+          // store.dispatch(setModalSuccess(true));
+
+        })
+        .catch((error) => {
+          console.log('error', error)
+        });
+    }
+      next(action);
+      break;
 
     default:
       next(action);

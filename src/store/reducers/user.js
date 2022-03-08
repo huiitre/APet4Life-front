@@ -15,6 +15,7 @@ import {
   INSERT_TOKEN_TO_STATE,
   CLEAR_STATE,
   SET_MODAL_SUCCESS,
+  OPEN_MODAL,
   CLEAR_SIGNUP_FORM,
   CHANGE_EDITION_MODE,
   SET_CURRENT_USER,
@@ -29,7 +30,7 @@ export const initialState = {
   },
   signup: {
     loading: false,
-    modalSuccess: false,
+    // modalSuccess: false,
     status: 1,
     regionList: [],
     departmentList: [],
@@ -56,7 +57,9 @@ export const initialState = {
   },
   profile: {
     editionMode: false,
-  }
+  },
+  modalSuccess: false,
+  modalDeleteOpen: false,
 };
 
 //* SLICE USER du reducer gérant :
@@ -195,13 +198,25 @@ const reducer = (state = initialState, action = {}) => {
         }
       };
     }
+    // case SET_MODAL_SUCCESS: {
+    //   return {
+    //     ...state,
+    //     signup: {
+    //       ...state.signup,
+    //       modalSuccess: action.bool,
+    //     }
+    //   };
+    // }
     case SET_MODAL_SUCCESS: {
       return {
         ...state,
-        signup: {
-          ...state.signup,
-          modalSuccess: action.bool,
-        }
+        modalSuccess: action.bool,
+      };
+    }
+    case OPEN_MODAL: {
+      return {
+        ...state,
+        modalDeleteOpen: action.bool,
       };
     }
     case CLEAR_SIGNUP_FORM: {

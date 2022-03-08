@@ -129,4 +129,29 @@ export const setCurrentUser = (name, value) => ({
   value,
 });
 
+//* ACTION TYPE UPDATE_USER_INFOS
+export const UPDATE_USER_INFOS = 'UPDATE_USER_INFOS';
+//* ACTION CREATOR updateUserInfos
+export const updateUserInfos = () => ({
+  type: UPDATE_USER_INFOS,
+});
+
+//* ACTION TYPE DELETE_USER_INFOS
+export const DELETE_USER_INFOS = 'DELETE_USER_INFOS';
+//* ACTION CREATOR deleteUserInfos
+export const deleteUserInfos = () => ({
+  type: DELETE_USER_INFOS,
+});
+
+//* ACTION TYPE OPEN_MODAL
+export const OPEN_MODAL = 'OPEN_MODAL';
+//* ACTION CREATOR openModal
+export const openModal = (bool) => ({
+  type: OPEN_MODAL,
+  bool,
+});
+
+
+
+
 
