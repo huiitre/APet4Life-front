@@ -73,7 +73,7 @@ const Header = () => {
             <Button
               onClick={handleNavigateToProfilePage}
               type=""
-              name="Profile"
+              name="Profil"
               className="btn--signup"
             />
             <Button

@@ -37,6 +37,17 @@
     text-align: justify;
   }
 
+  &__buttons {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn__edit {
+    margin: 1rem;
+  }
+
   &__contact {
     display: flex;
     flex-direction: column;
@@ -45,16 +56,86 @@
     align-self: center;
     max-width: 768px;
     line-height: 2rem;
+    width: 100%;
 
     &-coord {
       display: flex;
-      flex-direction: column;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      width: 100%;
+      // flex-direction: column;
+      color: white;
+      
+      &-infos {
+        background: linear-gradient(vars.$color-light-main, vars.$color-dark-main);
+        display: inline-block;
+        height: 13rem;
+        margin-top: 55px;
+        padding: 1rem;
+        position: relative;
+        width: 17.8rem;
+        box-shadow: 10px 5px 5px black;
+      }
 
+      &-infos:before {
+        border-bottom: 44px solid vars.$color-light-main;
+        border-left: 142px solid transparent;
+        border-right: 142px solid transparent;
+        content: "";
+        left: 0;
+        position: absolute;
+        top: -44px;
+      }
+      
+      &-location {
+        background:linear-gradient(vars.$color-light-main, vars.$color-dark-main);
+        display: inline-block;
+        height: 13rem;
+        margin-top: 55px;
+        padding: 1rem;
+        position: relative;
+        width: 17.8rem;
+        box-shadow: 10px 5px 5px black;
+
+      }
+
+      &-location:before {
+        border-bottom: 44px solid vars.$color-light-main;
+        border-left: 142px solid transparent;
+        border-right: 142px solid transparent;
+        content: "";
+        // height: 0;
+        left: 0;
+        position: absolute;
+        top: -44px;
+        // width: 0;
+      }
+      
       &-item {
         display: flex;
+
+        &-siret {
+          margin-right: 0.3rem;
+        }
       }
     }
   }
+}
+
+.field {
+  height: 1.8rem;
+  margin-bottom: 0.2rem;
+  max-width: 10rem;
+}
+
+.description-field {
+  height: 8rem;
+  max-width: 20rem;
+}
+
+.title-field {
+  height: 3rem;
+  max-width: 50rem;
 }
 
 @media screen and (max-width: 400px) {
@@ -82,16 +163,23 @@
       align-self: center;
     }
     &__contact {
+      display: flex;
+      &-coord {
+        align-self: center;
+        &-infos {
+          margin-right: 2rem;
+        }
+      }
       
     }
-    &__buttons {
-      display: flex;
-      width: 100%;
-      justify-content: center;
-    }
-    .btn__edit {
-      margin: 1rem;
-    }
+  }
+
+  .description-field {
+    width: 20rem;
+  }
+  
+  .title-field {
+    width: 20rem;
   }
 }
 
@@ -124,6 +212,7 @@
 
     &__picture {
       position: absolute;
+      margin-top: 5rem;
     }
 
     &__content {
