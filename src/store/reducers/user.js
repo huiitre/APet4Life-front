@@ -236,7 +236,6 @@ const reducer = (state = initialState, action = {}) => {
           firstname: '',
           lastname: '',
         },
-        loading: false,
       };
     }
     case CHANGE_EDITION_MODE: {

@@ -66,6 +66,7 @@ div.box {
   }
 }
 
+
 //todo BUISSONS DES PROFS
 @media screen and (max-height: 750px) {
   .anim {
@@ -143,6 +144,7 @@ div.box {
     transform: translateY(-65px);
   }
 }
+
 
 //todo SPINNER CHAT ORANGE
 @mixin fill-full($dir: "full", $type: absolute) {

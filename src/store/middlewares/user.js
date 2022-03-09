@@ -52,6 +52,7 @@ const userMiddleware = (store) => (next) => (action) => {
       axios
         .post(`${finalURL}/api/user/create`, newUser) 
         .then((response) => {
+          store.dispatch(setLoadingSpinnerUser());
           //* on lance le modal
           store.dispatch(setModalSuccess(true));
           //* on clear le formulaire de signup
