@@ -73,6 +73,14 @@ export const insertTokenToState = (token, data) => ({
   data,
 });
 
+//* ACTION TYPE CLEAR_LOGIN_FORM
+export const CLEAR_LOGIN_FORM = 'CLEAR_LOGIN_FORM';
+//* ACTION CREATOR clearLoginForm
+export const clearLoginForm = () => ({
+  type: CLEAR_LOGIN_FORM,
+});
+
+
 //! LOGOUT !//
 //* ACTION TYPE LOGOUT
 export const LOGOUT = 'LOGOUT';
@@ -157,13 +165,3 @@ export const SET_LOADING_SPINNER_USER = 'SET_LOADING_SPINNER_USER';
 export const setLoadingSpinnerUser = () => ({
   type: SET_LOADING_SPINNER_USER,
 });
-
-// ACTION TYPE SET_LOGIN_SPINNER
-export const SET_LOGIN_SPINNER = 'SET_LOGIN_SPINNER';
-
-// ACTION CREATOR setLoginSpinner
-export const setLoginSpinner = (bool) => ({
-  type: SET_LOGIN_SPINNER,
-  bool,
-});
-

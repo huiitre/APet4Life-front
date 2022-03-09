@@ -17,6 +17,7 @@ import {
   SET_MODAL_SUCCESS,
   OPEN_MODAL,
   CLEAR_SIGNUP_FORM,
+  CLEAR_LOGIN_FORM,
   CHANGE_EDITION_MODE,
   SET_CURRENT_USER,
   SET_LOADING_SPINNER_USER,
@@ -146,10 +147,7 @@ const reducer = (state = initialState, action = {}) => {
     case SET_CURRENT_USER: {
       return {
         ...state,
-        userLogged: {
-          ...state.userLogged,
-          userLogged: true,
-        },
+        userLogged: true,
         currentUser: {
           ...state.currentUser,
         [action.name]: action.value, 
@@ -236,6 +234,16 @@ const reducer = (state = initialState, action = {}) => {
           name: '',
           firstname: '',
           lastname: '',
+        },
+      };
+    }
+    case CLEAR_LOGIN_FORM: {
+      return {
+        ...state,
+        loginForm: {
+          ...state.loginForm,
+          mail: '',
+          password: '',
         },
       };
     }
