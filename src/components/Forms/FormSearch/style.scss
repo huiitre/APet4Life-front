@@ -43,3 +43,12 @@
     min-width: 14rem;
   }
 }
+
+@media screen and (max-width: 767px) {
+  .form__background {
+    display: none;
+  }
+  .home__search {
+    background-color: vars.$color-lighter-gray;
+  }
+}
