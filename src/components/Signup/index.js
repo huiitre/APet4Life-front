@@ -46,26 +46,28 @@ const Signup = () => {
 
   const navigate = useNavigate();
 
-  //* on récupère ce qu'on a besoin comme infos depuis le state
-  const loading = useSelector((state) => state.user.signup.loading);
-  // const modalSuccess = useSelector((state) => state.user.signup.modalSuccess);
-  const statusForm = useSelector((state) => state.user.signup.status);
-  const regionList = useSelector((state) => state.associations.regionsList);
-  const departmentList = useSelector(
-    (state) => state.user.signup.departmentList
-  );
-  const userType = useSelector((state) => state.user.signup.userType);
-  const mail = useSelector((state) => state.user.signup.mail);
-  const password = useSelector((state) => state.user.signup.password);
-  const passwordConfirm = useSelector(
-    (state) => state.user.signup.passwordConfirm
-  );
-  const region = useSelector((state) => state.user.signup.region);
-  const department = useSelector((state) => state.user.signup.department);
-  const name = useSelector((state) => state.user.signup.name);
-  const firstname = useSelector((state) => state.user.signup.firstname);
-  const lastname = useSelector((state) => state.user.signup.lastname);
-  const errorMessage = useSelector((state) => state.user.signup.errorMessage);
+  //todo on récupère ce qu'on a besoin comme infos depuis le state
+  //* infos depuis le state user
+  const {
+    loading,
+    status,
+    userType,
+    mail,
+    password,
+    passwordConfirm,
+    region,
+    department,
+    name,
+    firstname,
+    lastname,
+    errorMessage
+  } = useSelector((state) => state.user.signup);
+  
+  //* infos depuis le state associations
+  const {
+    regionsList,
+    departmentList
+  } = useSelector((state) => state.associations);
 
   //* fonction qui vérifie si un type est choisi et qui redirige vers un autre formulaire
   const handleShowNextForm = (evt) => {
@@ -174,7 +176,7 @@ const Signup = () => {
       {loading && <Spinner />}
       {!loading && (
         <section className="signup">
-          {statusForm === 1 && (
+          {status === 1 && (
             <>
               <div className="signup__title">
                 <h1>Vous êtes :</h1>
@@ -201,7 +203,7 @@ const Signup = () => {
               </form>
             </>
           )}
-          {statusForm === 2 && (
+          {status === 2 && (
             <>
               <div className="signup__title">
                 {userType === "Particular"
@@ -300,7 +302,7 @@ const Signup = () => {
                     Région
                   </label>
                   <Select
-                    array={regionList}
+                    array={regionsList}
                     name="region"
                     classNames="signup__field form__region-field"
                     onChange={handleChangeRegion}
