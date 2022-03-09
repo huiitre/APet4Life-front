@@ -65,10 +65,10 @@
 //todo Bouton Nous contacter
 .btn--contact-us {
   width: 14rem;
-  background: linear-gradient(#00000010, #00000083);
+  background: linear-gradient(vars.$color-light-main, vars.$color-dark-main);
 }
 .btn--contact-us:active {
-  background: linear-gradient(#00000083, #00000010);
+  background: linear-gradient(vars.$color-dark-main, vars.$color-light-main);
 }
 .btn--contact-us:hover {
   color: #fff;
@@ -77,12 +77,24 @@
 //todo Bouton Retour à la liste
 .btn--return {
   width: 14rem;
-  background: linear-gradient(#00000010, #00000083);
+  background: linear-gradient(vars.$color-light-main, vars.$color-dark-main);
 }
 .btn--return:active {
-  background: linear-gradient(#00000083, #00000010);
+  background: linear-gradient(vars.$color-dark-main, vars.$color-light-main);
 }
 .btn--return:hover {
+  color: #fff;
+}
+
+//todo Bouton envoyer formulaire de contact (page assoc)
+.btn--submit-contact-assoc {
+  width: 14rem;
+  background: linear-gradient(#469e3f, #255b20);
+}
+.btn--submit-contact-assoc {
+  background: linear-gradient(#255b20, #469e3f);
+}
+.btn--submit-contact-assoc:hover {
   color: #fff;
 }
 
