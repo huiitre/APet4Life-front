@@ -8,6 +8,7 @@ import Field from "src/components/Forms/Field";
 import Select from "../Forms/Select";
 import RadioType from "./radioType";
 import ModalSuccess from "src/components/ModalSuccess";
+import { Message } from "semantic-ui-react";
 
 //* import react redux
 import { useDispatch, useSelector } from "react-redux";
@@ -20,6 +21,7 @@ import {
   changeFormSignupStatus,
   clearSignupForm,
   sendSignUp,
+  setErrorMessageOnSignupForm,
   setFieldValueSignupForm,
   setModalSuccess,
   setTypeSignupForm,
@@ -28,7 +30,6 @@ import {
   loadDepartmentsFromApi,
   loadRegionsFromApi,
 } from "../../store/actions/location";
-
 
 const Signup = () => {
   //* hook custom qui gère l'affichage d'erreur si un ou plusieurs champs ne sopnt pas rempli
@@ -64,14 +65,16 @@ const Signup = () => {
   const name = useSelector((state) => state.user.signup.name);
   const firstname = useSelector((state) => state.user.signup.firstname);
   const lastname = useSelector((state) => state.user.signup.lastname);
+  const errorMessage = useSelector((state) => state.user.signup.errorMessage);
 
   //* fonction qui vérifie si un type est choisi et qui redirige vers un autre formulaire
   const handleShowNextForm = (evt) => {
     evt.preventDefault();
-    if (userType !== "") {
+    if (userType === "Particular" || userType === "Association") {
       dispatch(changeFormSignupStatus(2));
       setIsError(false);
     } else {
+      dispatch(setErrorMessageOnSignupForm('Pour continuer, merci de choisir une catégorie'));
       setIsError(true);
     }
   };
@@ -119,13 +122,13 @@ const Signup = () => {
         name === ""
       ) {
         setIsError(true);
-        console.log("error");
+        dispatch(setErrorMessageOnSignupForm('Veuillez remplir tous les champs afin de finaliser votre inscription'));
       } else if (password.length < 5) {
         setIsError(true);
-        console.log("error");
+        dispatch(setErrorMessageOnSignupForm('Votre mot de passe doit contenir au minimum 6 caractères'));
       } else if (password !== passwordConfirm) {
         setIsError(true);
-        console.log("error");
+        dispatch(setErrorMessageOnSignupForm('Les deux mot de passe doivent correspondre !'));
       } else {
         setIsError(false);
         dispatch(sendSignUp());
@@ -141,13 +144,13 @@ const Signup = () => {
         lastname === ""
       ) {
         setIsError(true);
-        console.log("error");
+        dispatch(setErrorMessageOnSignupForm('Veuillez remplir tous les champs afin de finaliser votre inscription'));
       } else if (password.length < 5) {
         setIsError(true);
-        console.log("error");
+        dispatch(setErrorMessageOnSignupForm('Votre mot de passe doit contenir au minimum 6 caractères'));
       } else if (password !== passwordConfirm) {
         setIsError(true);
-        console.log("error");
+        dispatch(setErrorMessageOnSignupForm('Les deux mot de passe doivent correspondre !'));
       } else {
         setIsError(false);
         dispatch(sendSignUp());
@@ -156,12 +159,12 @@ const Signup = () => {
   };
 
   const handleCloseModal = () => {
-    console.log('here');
     dispatch(setModalSuccess(false));
-    navigate('/');
+    navigate("/");
   };
 
-  const modalText = `Ton inscription a bien été confirmée. En cliquant sur le bouton en bas, tu seras redirigé vers la page d'accueil, il te suffira ensuite de te connecter via le bouton "connexion" en haut à droite du site 😉.`
+  const modalText = `Ton inscription a bien été confirmée 😉.
+  Nous t'invitons grandement à compléter ton profil une fois que tu te sera connecté !`;
 
   const classNamesError = classNames("signup__error", { none: !isError });
 
@@ -189,7 +192,11 @@ const Signup = () => {
                   />
                 </div>
                 <div className={classNamesError}>
-                  Veuillez remplir tous les champs !
+                  <Message
+                    error
+                    header={errorMessage}
+                    content=""
+                  />
                 </div>
               </form>
             </>
@@ -314,6 +321,13 @@ const Signup = () => {
                     value={department}
                   />
                 </div>
+                <div className="signup__button button-submit">
+                  <Button
+                    type="submit"
+                    name="Envoyer"
+                    className="btn--submit-signup"
+                  />
+                </div>
                 <div className="signup__button button-return">
                   <Button
                     type="submit"
@@ -322,11 +336,11 @@ const Signup = () => {
                     onClick={handleShowPreviousForm}
                   />
                 </div>
-                <div className="signup__button button-submit">
-                  <Button
-                    type="submit"
-                    name="Envoyer"
-                    className="btn--submit-signup"
+                <div className={classNamesError}>
+                  <Message
+                    error
+                    header={errorMessage}
+                    content=""
                   />
                 </div>
               </form>

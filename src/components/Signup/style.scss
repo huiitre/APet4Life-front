@@ -4,6 +4,26 @@
   display: none;
 }
 
+.ui.attached.error.message,
+.ui.error.message {
+  min-width: 100%;
+}
+.ui.message p {
+  text-align: center;
+}
+.ui.message .header {
+  text-align: center;
+  margin-bottom: -1rem;
+}
+.ui.error.message .header {
+  background-color: #00000000;
+}
+.ui.error.message .content {
+  // background: red;
+  display: flex;
+  flex-direction: column;
+}
+
 .signup {
   display: flex;
   flex-direction: column;
@@ -21,12 +41,8 @@
   }
 
   &__error {
-    color: red;
-    border: 2px solid red;
-    border-radius: 0.5rem;
-    padding: 1rem;
     margin-top: 2rem;
-    text-align: center;
+    max-width: 465px;
   }
 
   &__button {
