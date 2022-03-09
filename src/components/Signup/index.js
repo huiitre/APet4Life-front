@@ -18,6 +18,7 @@ import { useNavigate } from "react-router";
 //* import actions
 import {
   changeFormSignupStatus,
+  clearSignupForm,
   sendSignUp,
   setFieldValueSignupForm,
   setModalSuccess,
@@ -98,6 +99,8 @@ const Signup = () => {
   //* fonction qui fait un retour en arrière vers le premier formulaire
   const handleShowPreviousForm = () => {
     dispatch(changeFormSignupStatus(1));
+    //* on clean le formulaire
+    dispatch(clearSignupForm());
     //* on met l'erreur à false si l'user revient en arrière
     setIsError(false);
   };
