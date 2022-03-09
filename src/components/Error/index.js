@@ -8,21 +8,21 @@ const Error = () => {
 
   return (
     <Page className="page__error">
-      <div class="anim anim__jb">
-        <div class="buisson"></div>
-        <div class="prof jb"></div>
+      <div className="anim anim__jb">
+        <div className="buisson"></div>
+        <div className="prof jb"></div>
       </div>
-      <div class="anim anim__steph">
-        <div class="buisson"></div>
-        <div class="prof steph"></div>
+      <div className="anim anim__steph">
+        <div className="buisson"></div>
+        <div className="prof steph"></div>
       </div>
-      <div class="anim anim__baptiste">
-        <div class="buisson"></div>
-        <div class="prof baptiste"></div>
+      <div className="anim anim__baptiste">
+        <div className="buisson"></div>
+        <div className="prof baptiste"></div>
       </div>
-      <div class="anim anim__pauline">
-        <div class="buisson"></div>
-        <div class="prof pauline"></div>
+      <div className="anim anim__pauline">
+        <div className="buisson"></div>
+        <div className="prof pauline"></div>
       </div>
       <div className="error">
         <h1 className="error__title">
