@@ -17,6 +17,8 @@ const Assoc = () => {
     navigate(location.state.prevPath);
   };
 
+  const array = location.state.array;
+
   const dispatch = useDispatch();
 
   //* on récupère la propriété "isOpen" venant du state
@@ -48,9 +50,7 @@ const Assoc = () => {
   //*   1. on récupère le résultat de la recherche des assoc dans le state
   //*   2. on insère ce résultat avec en plus le slug (param d'url) dans la fonction findAssoc
   //*      qui va chercher avec un find() l'assoc qui correspond bien au slug de l'url
-  const assoc = useSelector((state) =>
-    findAssoc(state.associations.allAssociations, slug)
-  );
+  const assoc = findAssoc(array, slug);
 
   return (
     <Page>

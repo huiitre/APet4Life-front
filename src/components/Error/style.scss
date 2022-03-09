@@ -1,1 +1,268 @@
-@use 'src/styles/vars';
+@use "src/styles/vars";
+
+.anim {
+  display: none;
+}
+
+div.box {
+  display: none;
+}
+
+.page__error {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  margin-top: 8rem;
+}
+
+.error {
+  margin: 0 auto;
+  width: 100%;
+
+  &__title {
+    font-size: 4rem;
+    font-weight: bold;
+    color: #eaa762;
+    text-shadow: -4px -1px 9px rgba(0, 0, 0, 0.24);
+    text-align: center;
+  }
+  &__subtitle {
+    font-size: 1.2rem;
+    font-style: italic;
+    text-align: center;
+    margin-top: 2rem;
+    color: vars.$color-dark-blue;
+    font-weight: bold;
+  }
+
+  &__link {
+    color: #eaa762;
+  }
+  &__link:hover {
+    color: #eaa762;
+  }
+}
+
+@media screen and (min-width: 850px) {
+  div.box {
+    display: block;
+    max-width: 10rem;
+  }
+  .error__title {
+    font-size: 4rem;
+    font-size: 12rem;
+    display: flex;
+    justify-content: center;
+  }
+  .error {
+    width: 100%;
+    max-width: 50%;
+  }
+  .title__0 {
+    display: none;
+  }
+  .anim {
+    display: block;
+  }
+}
+
+//todo BUISSONS DES PROFS
+@media screen and (max-height: 750px) {
+  .anim {
+    display: none;
+  }
+}
+
+//! classes obligatoires
+.anim {
+  width: 240px; //! obligatoire pour le composant
+  height: 120px; //! obligatoire pour le composant
+  margin: 20rem auto;
+  position: absolute; //! obligatoire pour le composant
+}
+.buisson {
+  background-image: url(src/assets/img/bush_1.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 100%;
+  z-index: 2;
+  position: relative;
+}
+.prof {
+  /* background-image: url(jb-head.png); */ //! obligatoire pour le composant
+  width: 30%; //! obligatoire pour le composant
+  height: 60%; //! obligatoire pour le composant
+  position: absolute; //! obligatoire pour le composant
+  top: 20px; //! obligatoire pour le composant
+  right: calc(50% - 36px); //! obligatoire pour le composant
+  background-size: contain; //! obligatoire pour le composant
+  background-repeat: no-repeat;
+}
+
+//! on ajoute les profs
+.jb {
+  background-image: url(src/assets/img/jb-head.png);
+  animation: 2s linear 2.5s infinite alternate upAndDown;
+}
+.steph {
+  background-image: url(src/assets/img/steph-head.png);
+  animation: 2s linear 1s infinite alternate upAndDown;
+}
+.baptiste {
+  background-image: url(src/assets/img/baptiste-head.png);
+  animation: 2s linear 2s infinite alternate upAndDown;
+}
+.pauline {
+  background-image: url(src/assets/img/pauline-head2.png);
+  animation: 2s linear 3s infinite alternate upAndDown;
+}
+
+//! GESTION DES POSITIONS
+.anim__jb {
+  left: 55px;
+  top: 125px;
+}
+.anim__steph {
+  left: 25px;
+  top: -230px;
+}
+.anim__baptiste {
+  right: 50px;
+  top: 100px;
+}
+.anim__pauline {
+  top: 0px;
+  right: 0px;
+}
+
+@keyframes upAndDown {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-65px);
+  }
+}
+
+//todo SPINNER CHAT ORANGE
+@mixin fill-full($dir: "full", $type: absolute) {
+  position: $type;
+  @if $dir != "bottom" {
+    top: 0;
+  }
+  @if $dir != "right" {
+    left: 0;
+  }
+  @if $dir != "left" {
+    right: 0;
+  }
+  @if $dir != "top" {
+    bottom: 0;
+  }
+}
+
+.cat {
+  position: relative;
+  width: 100%;
+  max-width: 20em;
+  overflow: hidden;
+  // background-color: #e6dcdc;
+
+  &::before {
+    content: "";
+    display: block;
+    padding-bottom: 100%;
+  }
+
+  /* &:hover > * {
+    animation-play-state: paused;
+  }
+  &:active > * {
+    animation-play-state: running;
+  } */
+}
+
+%cat-img {
+  @include fill-full;
+  animation: rotating 2.79s cubic-bezier(0.65, 0.54, 0.12, 0.93) infinite;
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 50%; //50
+    height: 50%; //50
+    background-size: 200%; //200
+    background-repeat: no-repeat;
+    background-image: url("src/assets/img/spinner.png");
+  }
+}
+
+.cat__head {
+  @extend %cat-img;
+
+  &::before {
+    top: 0;
+    right: 0;
+    background-position: 100% 0%;
+    transform-origin: 0% 100%;
+    transform: rotate(90deg);
+  }
+}
+
+.cat__tail {
+  @extend %cat-img;
+  animation-delay: 0.2s;
+
+  &::before {
+    left: 0;
+    bottom: 0;
+    background-position: 0% 100%;
+    transform-origin: 100% 0%;
+    transform: rotate(-30deg);
+  }
+}
+
+.cat__body {
+  @extend %cat-img;
+  animation-delay: 0.1s;
+
+  &:nth-of-type(2) {
+    animation-delay: 0.2s;
+  }
+
+  &::before {
+    right: 0;
+    bottom: 0;
+    background-position: 100% 100%;
+    transform-origin: 0% 0%;
+  }
+}
+
+@keyframes rotating {
+  from {
+    transform: rotate(720deg);
+  }
+  to {
+    transform: none;
+  }
+}
+
+.box {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: flex-start;
+  justify-content: center;
+  align-items: center;
+  // background-color: #e6dcdc;
+}
+
+// reset
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
