@@ -145,6 +145,19 @@
   margin-top: 0.5rem;
 }
 
+//todo Bouton valider le formulaire login mobile
+.form__login-page-button {
+  // width: 3rem;
+  // height: rem;
+  font-size: 1rem;
+  line-height: 17px;
+  padding: 10px 15px;
+  color: vars.$color-dark-main;
+  margin-top: 0.5rem;
+  margin: 0 auto;
+  width: 14rem;
+}
+
 //todo Bouton edition profil (page profil)
 .btn--update-profile {
   //? d'abord la clair puis la foncé
@@ -189,3 +202,8 @@
 .btn--delete-profile-signup:hover {
   color: #fff;
 }
+
+
+// .btn-mobile {
+//   text-align: center;
+// }

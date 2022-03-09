@@ -1,5 +1,6 @@
 @use "src/styles/vars";
 
+
 @media screen and (min-width: 768px) {
 
   .form__login {
@@ -12,6 +13,7 @@
     background-color: vars.$color-light-main;
     z-index: 100;
     border-radius: 10px;
+
   }
 
   .form__login-container {

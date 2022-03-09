@@ -41,7 +41,13 @@ const Nav = () => {
           <a href="/" className="navbar__link">Adoptés</a>
         </li>
         <li className="navbar__item slideInDown-4">
-          <a href="/" className="navbar__link">Connexion</a>
+        <Link
+            to='/connexion'
+            className='navbar__link'
+            onClick={closeBurger}
+          >
+            Connexion
+          </Link>
         </li>
         <li className="navbar__item slideInDown-5">
           <Link
