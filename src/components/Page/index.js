@@ -10,6 +10,11 @@ const Page = ({ children, className }) => (
 
 Page.propTypes = {
   children: PropTypes.node.isRequired,
+  className: PropTypes.string,
 };
+
+Page.defaultProps = {
+  className: '',
+}
 
 export default Page;
