@@ -73,6 +73,14 @@ export const insertTokenToState = (token, data) => ({
   data,
 });
 
+//* ACTION TYPE CLEAR_LOGIN_FORM
+export const CLEAR_LOGIN_FORM = 'CLEAR_LOGIN_FORM';
+//* ACTION CREATOR clearLoginForm
+export const clearLoginForm = () => ({
+  type: CLEAR_LOGIN_FORM,
+});
+
+
 //! LOGOUT !//
 //* ACTION TYPE LOGOUT
 export const LOGOUT = 'LOGOUT';

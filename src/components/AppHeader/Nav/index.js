@@ -1,9 +1,17 @@
 import './style.scss';
 import logo from 'src/assets/img/logo.png';
+
+//*imports react
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { logout } from '../../../store/actions/user';
 
 const Nav = () => {
+  
+  const dispatch = useDispatch();
+  const { userLogged } = useSelector((state) => state.user);
+
   //* hook d'état gérant l'ouverture et fermeture du burger menu
   const [showLinks, setShowLinks] = useState(false);
 
@@ -14,6 +22,11 @@ const Nav = () => {
   const closeBurger = () => {
     setShowLinks(false);
   };
+
+  const closeBurgerLogout = () => {
+    closeBurger();
+    dispatch(logout());
+  }
 
   return (
     <nav className={`navbar ${showLinks ? 'show-nav' : 'hide-nav'}`}>
@@ -40,18 +53,51 @@ const Nav = () => {
         <li className="navbar__item slideInDown-3">
           <a href="/" className="navbar__link">Adoptés</a>
         </li>
-        <li className="navbar__item slideInDown-4">
-          <a href="/" className="navbar__link">Connexion</a>
-        </li>
-        <li className="navbar__item slideInDown-5">
-          <Link
-            to='/inscription'
-            className='navbar__link'
-            onClick={closeBurger}
-          >
-            Inscription
-          </Link>
-        </li>
+
+        {!userLogged ?
+        <>
+          <li className="navbar__item slideInDown-4">
+            <Link
+              to='/connexion'
+              className='navbar__link'
+              onClick={closeBurger}
+            >
+              Connexion
+            </Link>
+          </li>
+          <li className="navbar__item slideInDown-5">
+            <Link
+              to='/inscription'
+              className='navbar__link'
+              onClick={closeBurger}
+            >
+              Inscription
+            </Link>
+          </li>
+        </>
+        :
+        <>
+          <li className="navbar__item slideInDown-4">
+            <Link
+              to='/'
+              className='navbar__link'
+              onClick={closeBurgerLogout}
+            >
+              Déconnexion
+            </Link>
+          </li>
+          <li className="navbar__item slideInDown-5">
+            <Link
+              to='/profil'
+              className='navbar__link'
+              onClick={closeBurger}
+            >
+              Mon profil
+            </Link>
+          </li>
+        </>
+        }
+      
       </ul>
       <button type="button" className="navbar__burger" onClick={handleShowLinks}>
         <span className="burger-bar" />

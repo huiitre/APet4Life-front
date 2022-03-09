@@ -11,6 +11,7 @@ import {
   DELETE_USER_INFOS,
   insertTokenToState,
   clearSignupForm,
+  clearLoginForm,
   setModalSuccess,
   clearState,
   setLoadingSpinnerUser,
@@ -89,6 +90,11 @@ const userMiddleware = (store) => (next) => (action) => {
             //* on les stocke également dans le state
             store.dispatch(insertTokenToState(response.data.token, response.data.data));
 
+            // on affiche le modal success
+            store.dispatch(setModalSuccess(true));
+
+            //* on clear le formulaire de signup
+          store.dispatch(clearLoginForm());
           })
           .catch((error) => {
             console.log('error', error)

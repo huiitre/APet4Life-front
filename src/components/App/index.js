@@ -11,6 +11,7 @@ import ProfilePage from 'src/components/ProfilePage';
 import SearchResult from 'src/components/SearchResults';
 import Error from 'src/components/Error';
 import Signup from 'src/components/Signup';
+import Signin from 'src/components/Signin';
 import Associations from 'src/components/Associations';
 
 //* import react reduc
@@ -96,6 +97,14 @@ const App = () => {
           path="/inscription"
           element={(
             <Signup />
+            // <ModalSuccess />
+          )}
+        />
+        {/* //* route vers la page de connexion (mobile only) */}
+        <Route
+          path="/connexion"
+          element={(
+            <Signin />
             // <ModalSuccess />
           )}
         />

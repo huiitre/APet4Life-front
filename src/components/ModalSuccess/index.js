@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import { Button, Modal } from 'semantic-ui-react';
 
 
-const ModalSuccess = ({ closeModal, modalText }) => {
+const ModalSuccess = ({ closeModal, modalText, modalHeader }) => {
   const modalSuccess = useSelector((state) => state.user.modalSuccess);
   
   return (
@@ -14,7 +14,7 @@ const ModalSuccess = ({ closeModal, modalText }) => {
         centered={false}
         open={modalSuccess}
       >
-        <Modal.Header>Merci !</Modal.Header>
+        <Modal.Header>{modalHeader}</Modal.Header>
         <Modal.Content>
           <Modal.Description>{modalText}</Modal.Description>
         </Modal.Content>
