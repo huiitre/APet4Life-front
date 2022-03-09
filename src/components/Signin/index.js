@@ -59,7 +59,7 @@ const Signin = () => {
             />
             <Button
               type="submit"
-              name="Go"
+              name="GO"
               className="form__login-page-button"
             />
           </form>
