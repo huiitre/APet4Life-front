@@ -52,6 +52,7 @@ export const initialState = {
     password: '',
   },
   userLogged: false,
+  spinner: false,
   currentUser: { 
     data: {},
     token: '',

@@ -89,6 +89,8 @@ const userMiddleware = (store) => (next) => (action) => {
             //* on les stocke également dans le state
             store.dispatch(insertTokenToState(response.data.token, response.data.data));
 
+            // on affiche le modal success
+            store.dispatch(setModalSuccess(true));
           })
           .catch((error) => {
             console.log('error', error)

@@ -6,9 +6,14 @@ import { useNavigate } from "react-router";
 //* import composants
 import FormLogin from 'src/components/Forms/FormLogin';
 import Button from "src/components/Button";
+import ModalSuccess from "src/components/ModalSuccess";
 
 //* import action
-import { changeLoginFormDisplay, logout } from "../../../store/actions/user";
+import {
+  changeLoginFormDisplay,
+  logout,
+  setModalSuccess,
+} from "../../../store/actions/user";
 
 //* import gestion des hooks react
 import { useDispatch, useSelector } from "react-redux";
@@ -44,8 +49,16 @@ const Header = () => {
 
   const userLogged = useSelector((state) => state.user.userLogged);
 
+  const handleCloseModal = () => {
+    dispatch(setModalSuccess(false));
+    navigate('/');
+  };
+
+  const modalText = `Tu es connecté !`;
+
   return (
     <div className="header">
+    <ModalSuccess closeModal={handleCloseModal} modalText={modalText} modalHeader="Hi !"/>
       <img className="header__title" src={logo} alt="title" />
       {isOpen && <FormLogin />}
       <div className="header__user">

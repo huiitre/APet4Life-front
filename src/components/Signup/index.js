@@ -167,7 +167,7 @@ const Signup = () => {
 
   return (
     <Page>
-      <ModalSuccess closeModal={handleCloseModal} modalText={modalText} />
+      <ModalSuccess closeModal={handleCloseModal} modalText={modalText} modalHeader="Merci !"/>
       {loading && <Spinner />}
       {!loading && (
         <section className="signup">

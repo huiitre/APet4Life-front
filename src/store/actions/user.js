@@ -157,3 +157,13 @@ export const SET_LOADING_SPINNER_USER = 'SET_LOADING_SPINNER_USER';
 export const setLoadingSpinnerUser = () => ({
   type: SET_LOADING_SPINNER_USER,
 });
+
+// ACTION TYPE SET_LOGIN_SPINNER
+export const SET_LOGIN_SPINNER = 'SET_LOGIN_SPINNER';
+
+// ACTION CREATOR setLoginSpinner
+export const setLoginSpinner = (bool) => ({
+  type: SET_LOGIN_SPINNER,
+  bool,
+});
+
