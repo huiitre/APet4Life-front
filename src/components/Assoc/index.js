@@ -49,7 +49,6 @@ const Assoc = () => {
 
   //* on récupère le tableau depuis les props, et on l'insère dans la fonction findAssoc (avec le slug qui provient de useParams() -> paramètres d'url)
   const assoc = findAssoc(array, slug);
-  console.log(assoc);
 
   return (
     <Page className="assoc-page">
