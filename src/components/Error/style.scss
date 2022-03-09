@@ -1,5 +1,9 @@
 @use "src/styles/vars";
 
+.anim {
+  display: none;
+}
+
 div.box {
   display: none;
 }
@@ -56,6 +60,87 @@ div.box {
   }
   .title__0 {
     display: none;
+  }
+  .anim {
+    display: block;
+  }
+}
+
+//todo BUISSONS DES PROFS
+@media screen and (max-height: 750px) {
+  .anim {
+    display: none;
+  }
+}
+
+//! classes obligatoires
+.anim {
+  width: 240px; //! obligatoire pour le composant
+  height: 120px; //! obligatoire pour le composant
+  margin: 20rem auto;
+  position: absolute; //! obligatoire pour le composant
+}
+.buisson {
+  background-image: url(src/assets/img/bush_1.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 100%;
+  z-index: 2;
+  position: relative;
+}
+.prof {
+  /* background-image: url(jb-head.png); */ //! obligatoire pour le composant
+  width: 30%; //! obligatoire pour le composant
+  height: 60%; //! obligatoire pour le composant
+  position: absolute; //! obligatoire pour le composant
+  top: 20px; //! obligatoire pour le composant
+  right: calc(50% - 36px); //! obligatoire pour le composant
+  background-size: contain; //! obligatoire pour le composant
+  background-repeat: no-repeat;
+}
+
+//! on ajoute les profs
+.jb {
+  background-image: url(src/assets/img/jb-head.png);
+  animation: 2s linear 2.5s infinite alternate upAndDown;
+}
+.steph {
+  background-image: url(src/assets/img/steph-head.png);
+  animation: 2s linear 1s infinite alternate upAndDown;
+}
+.baptiste {
+  background-image: url(src/assets/img/baptiste-head.png);
+  animation: 2s linear 2s infinite alternate upAndDown;
+}
+.pauline {
+  background-image: url(src/assets/img/pauline-head2.png);
+  animation: 2s linear 3s infinite alternate upAndDown;
+}
+
+//! GESTION DES POSITIONS
+.anim__jb {
+  left: 55px;
+  top: 125px;
+}
+.anim__steph {
+  left: 25px;
+  top: -230px;
+}
+.anim__baptiste {
+  right: 50px;
+  top: 100px;
+}
+.anim__pauline {
+  top: 0px;
+  right: 0px;
+}
+
+@keyframes upAndDown {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-65px);
   }
 }
 
