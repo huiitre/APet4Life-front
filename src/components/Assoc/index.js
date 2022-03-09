@@ -55,7 +55,12 @@ const Assoc = () => {
     <Page className="assoc-page">
       <Segment className="assoc">
         <div className="assoc__picture">
-          <div className="assoc__type">{assoc.type === 'Particular' ? 'Particulier' : assoc.type}</div>
+        <div className="assoc__species">
+          {assoc.species !== [] && assoc.species.map(
+            (item) => <div className="assoc__specie">{item.name}</div>
+          )}
+          
+        </div>
           <Image src={assoc.picture} size="medium" rounded />
         </div>
         <div className="assoc__content">

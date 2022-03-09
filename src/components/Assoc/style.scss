@@ -48,13 +48,17 @@
       max-width: 100%;
     }
   }
-  &__type {
+  &__species {
+    display: flex;
+  }
+  &__specie {
     margin-bottom: 1rem;
     border-radius: 6px;
     background-color: vars.$color-hover;
     padding: 0.5rem;
     color: #fff;
     font-weight: bold;
+    margin: 0 0.2rem 1rem 0.2rem;
   }
   &__title {
     font-size: 2rem;
