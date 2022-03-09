@@ -17,6 +17,7 @@ const Assoc = () => {
     navigate(location.state.prevPath);
   };
 
+  //* on récupère l'object qui a été stocké dans le "state" de l'url
   const array = location.state.array;
 
   const dispatch = useDispatch();
@@ -46,38 +47,57 @@ const Assoc = () => {
   //* on avait déclaré la route /association/:slug, on vient donc destructurer "slug" pour récupérer ce qu'il contient
   const { slug } = useParams();
 
-  //* ici on fait deux choses en une :
-  //*   1. on récupère le résultat de la recherche des assoc dans le state
-  //*   2. on insère ce résultat avec en plus le slug (param d'url) dans la fonction findAssoc
-  //*      qui va chercher avec un find() l'assoc qui correspond bien au slug de l'url
+  //* on récupère le tableau depuis les props, et on l'insère dans la fonction findAssoc (avec le slug qui provient de useParams() -> paramètres d'url)
   const assoc = findAssoc(array, slug);
+  console.log(assoc);
 
   return (
-    <Page>
+    <Page className="assoc-page">
       <Segment className="assoc">
         <div className="assoc__picture">
+        <div className="assoc__species">
+          {assoc.species !== [] && assoc.species.map(
+            (item) => <div className="assoc__specie">{item.name}</div>
+          )}
+          
+        </div>
           <Image src={assoc.picture} size="medium" rounded />
         </div>
         <div className="assoc__content">
           <div className="assoc__title">{assoc.name}</div>
+          <div className="assoc_species">
+
+          </div>
           <div className="assoc__description">
             <p>{assoc.description}</p>
           </div>
           <div className="assoc__contact">
-            <div className="assoc__contact-coord">
-              <span className="assoc__contact-coord--mail">
-                <Icon name="mail outline" size="large" />
-                <a href={`mailto:${assoc.mail}`}>{assoc.mail}</a>
-              </span>
-              <span className="assoc__contact-coord--phone">
-                <Icon name="phone" size="large" />
-                <a href={`tel:${assoc.phone_number}`}>{assoc.phone_number}</a>
-              </span>
-              <span className="assoc__contact-coord--website">
-                <Icon name="at" size="large" />
-                <a href={assoc.website}>{assoc.website}</a>
-              </span>
-            </div>
+            {/* <div className="assoc__contact-coord"> */}
+            <span className="coord assoc__contact-coord--mail">
+              <Icon name="mail outline" size="large" />
+              <a href={`mailto:${assoc.mail}`}>{assoc.mail}</a>
+            </span>
+            <span className="coord assoc__contact-coord--phone">
+              <Icon name="phone" size="large" />
+              <a href={`tel:${assoc.phone_number}`}>{assoc.phone_number}</a>
+            </span>
+            <span className="coord assoc__contact-coord--website">
+              <Icon name="at" size="large" />
+              <a href={assoc.website}>{assoc.website}</a>
+            </span>
+            <span className="coord assoc__contact-coord--address">
+              <Icon name="home" size="large" />
+              {assoc.adress}
+            </span>
+            <span className="coord assoc__contact-coord--city">
+              <Icon name="home" size="large" />
+              {assoc.zipcode} {assoc.city} | {assoc.department}
+            </span>
+            <span className="coord assoc__contact-coord--region">
+              <Icon name="home" size="large" />
+              {assoc.region}
+            </span>
+            {/* </div> */}
           </div>
         </div>
         <div className="assoc__contact-button">

@@ -32,6 +32,7 @@ const FormContact = ({ className, onSubmit }) => {
       type="submit"
       name="Envoyer"
       onClick={handleClickButton}
+      className="btn--submit-contact-assoc"
     />
   </form>
 )};
