@@ -157,3 +157,11 @@ export const SET_LOADING_SPINNER_USER = 'SET_LOADING_SPINNER_USER';
 export const setLoadingSpinnerUser = () => ({
   type: SET_LOADING_SPINNER_USER,
 });
+
+//* ACTION TYPE SET_ERROR_MESSAGE_ON_SIGNUP_FORM
+export const SET_ERROR_MESSAGE_ON_SIGNUP_FORM = 'SET_ERROR_MESSAGE_ON_SIGNUP_FORM';
+//* ACTION CREATOR setErrorMessageOnSignupForm
+export const setErrorMessageOnSignupForm = (message) => ({
+  type: SET_ERROR_MESSAGE_ON_SIGNUP_FORM,
+  message,
+});

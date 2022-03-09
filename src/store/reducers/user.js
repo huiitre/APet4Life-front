@@ -20,6 +20,7 @@ import {
   CHANGE_EDITION_MODE,
   SET_CURRENT_USER,
   SET_LOADING_SPINNER_USER,
+  SET_ERROR_MESSAGE_ON_SIGNUP_FORM,
 } from '../actions/user';
 
 import { SET_LOADING_SPINNER } from '../actions/associations';
@@ -31,7 +32,7 @@ export const initialState = {
   },
   signup: {
     loading: false,
-    // modalSuccess: false,
+    errorMessage: null,
     status: 1,
     regionList: [],
     departmentList: [],
@@ -246,6 +247,15 @@ const reducer = (state = initialState, action = {}) => {
           editionMode: !state.profile.editionMode,
         }
       }
+    }
+    case SET_ERROR_MESSAGE_ON_SIGNUP_FORM: {
+      return {
+        ...state,
+        signup: {
+          ...state.signup,
+          errorMessage: action.message,
+        }
+      };
     }
     default:
       return state;
