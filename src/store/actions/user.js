@@ -105,6 +105,15 @@ export const setModalSuccess = (bool) => ({
   bool,
 });
 
+//* ACTION TYPE SET_MODAL_ERROR
+export const SET_MODAL_ERROR = 'SET_MODAL_ERROR';
+//* ACTION CREATOR setModalError
+export const setModalError = (bool) => ({
+  type: SET_MODAL_ERROR,
+  bool,
+});
+
+
 //* ACTION TYPE CLEAR_SIGNUP_FORM
 export const CLEAR_SIGNUP_FORM = 'CLEAR_SIGNUP_FORM';
 //* ACTION CREATOR clearSignupForm
