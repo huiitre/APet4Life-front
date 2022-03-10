@@ -17,15 +17,16 @@
     justify-content: center;
     flex-direction: column;
 
-    a, p {
+    a, p, li {
       margin-top: 0.5rem;
     }
 
-    a {
+    a, li {
       transition-duration: 350ms;
     }
 
-    a:hover {
+    a:hover,
+    li:hover {
       color: vars.$color-hover;
       cursor: pointer;
       transform: scale(1.1);
