@@ -66,7 +66,6 @@ div.box {
   }
 }
 
-
 //todo BUISSONS DES PROFS
 @media screen and (max-height: 750px) {
   .anim {
@@ -117,6 +116,10 @@ div.box {
   background-image: url(src/assets/img/pauline-head2.png);
   animation: 2s linear 3s infinite alternate upAndDown;
 }
+.benji {
+  background-image: url(src/assets/img/benji-head.png);
+  animation: 2s linear 3s infinite alternate upAndDown;
+}
 
 //! GESTION DES POSITIONS
 .anim__jb {
@@ -135,6 +138,10 @@ div.box {
   right: 38%;
   top: -265px;
 }
+.anim__benji {
+  right: 5%;
+  top: -27%;
+}
 
 @keyframes upAndDown {
   0% {
@@ -144,7 +151,6 @@ div.box {
     transform: translateY(-65px);
   }
 }
-
 
 //todo SPINNER CHAT ORANGE
 @mixin fill-full($dir: "full", $type: absolute) {
