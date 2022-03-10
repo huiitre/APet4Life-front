@@ -154,7 +154,10 @@ const ProfilePage = () => {
             <div className="profile__contact-coord-infos">
             
               <span className="profile__contact-coord-item">
-                <Icon name="mail outline" size="large" />
+                <span className="profile__contact-coord-item-title">
+                  <Icon name="mail outline" size="large" />
+                  <span>E-mail</span>
+                </span>
                 <a className={editionMode ? 'none' : ''} href={`mailto:${username}`}>{username}</a>
                 <Field
                   className={editionMode ? 'field' : 'field none'}
@@ -167,7 +170,10 @@ const ProfilePage = () => {
               </span>
               
               <span className="profile__contact-coord-item">
-                <Icon name="phone" size="large" />
+                <span className="profile__contact-coord-item-title">  
+                  <Icon name="phone" size="large" />
+                  <span>Téléphone</span>
+                </span>
                 <a className={editionMode ? 'none' : ''} href={`tel:${phone_number}`}>{phone_number}</a>
                 <Field
                   className={editionMode ? 'field' : 'field none'}
@@ -182,7 +188,10 @@ const ProfilePage = () => {
               { type === "Association" && (<>
                 {/* website et siret pour associations uniquement */}
               <span className="profile__contact-coord-item">
-                <Icon name="at" size="large" />
+                <span className="profile__contact-coord-item-title"> 
+                  <Icon name="at" size="large" />
+                  <span>Site web</span>
+                </span>
                 <a className={editionMode ? 'none' : ''} href={website}>{website}</a>
                 <Field
                   className={editionMode ? 'field' : 'field none'}
@@ -195,8 +204,10 @@ const ProfilePage = () => {
               </span>
 
               <span className="profile__contact-coord-item">
-                <Icon name="file outline" size="large" />
-                <span className="profile__contact-coord-item-siret">Siret:</span>
+                <span className="profile__contact-coord-item-title">
+                  <Icon name="file outline" size="large" />
+                  <span>Siret</span>
+                </span>
                 <span className={editionMode ? 'none' : ''}>{siret}</span>
                 <Field
                   className={editionMode ? 'field' : 'field none'}
@@ -213,7 +224,10 @@ const ProfilePage = () => {
             <div className="profile__contact-coord-location">
 
               <span className="profile__contact-coord-item">
-                <Icon name="home" size="large" />
+                <span className="profile__contact-coord-item-title">
+                  <Icon name="home" size="large" />
+                  <span>Adresse</span>
+                </span>
                 <p className={editionMode ? 'none' : ''}>{adress}</p> 
                 <Field
                   className={editionMode ? 'field' : 'field none'}
@@ -226,7 +240,10 @@ const ProfilePage = () => {
               </span>
 
               <span className="profile__contact-coord-item">
-                <Icon name="home" size="large" />
+                <span className="profile__contact-coord-item-title">
+                  {/* <Icon name="home" size="large" /> */}
+                  <span>Code postal</span>
+                </span>
                 <p className={editionMode ? 'none' : ''}>{zipcode}</p> 
                 <Field
                   className={editionMode ? 'field' : 'field none'}
@@ -239,7 +256,10 @@ const ProfilePage = () => {
               </span>
 
               <span className="profile__contact-coord-item">
-                <Icon name="home" size="large" />
+                <span className="profile__contact-coord-item-title">
+                {/* <Icon name="home" size="large" /> */}
+                <span>Ville</span>
+                </span>
                 <p className={editionMode ? 'none' : ''}>{city}</p>
                 <Field
                   className={editionMode ? 'field' : 'field none'}
@@ -252,7 +272,10 @@ const ProfilePage = () => {
               </span>
 
               <span className="profile__contact-coord-item">
-                <Icon name="home" size="large" />
+                <span className="profile__contact-coord-item-title">
+                  {/* <Icon name="home" size="large" /> */}
+                  <span>Département</span>
+                </span>
                 <p className={editionMode ? 'none' : ''}>{department}</p>
                 <Field
                   className={editionMode ? 'field' : 'field none'}
@@ -265,7 +288,10 @@ const ProfilePage = () => {
               </span>
 
               <span className="profile__contact-coord-item">
-                <Icon name="home" size="large" />
+                <span className="profile__contact-coord-item-title">
+                  {/* <Icon name="home" size="large" /> */}
+                  <span>Région</span>
+                </span>
                 <p className={editionMode ? 'none' : ''}>{region}</p>
                 <Field
                   className={editionMode ? 'field' : 'field none'} type="text"

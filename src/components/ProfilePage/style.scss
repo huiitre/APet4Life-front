@@ -32,6 +32,10 @@
   &__title {
     font-size: 2rem;
     text-align: center;
+
+    span:first-child {
+      margin-right: 0.5rem;
+    }
   }
   &__description {
     text-align: justify;
@@ -69,7 +73,7 @@
       &-infos {
         background: linear-gradient(vars.$color-light-main, vars.$color-dark-main);
         display: inline-block;
-        height: 13rem;
+        height: 24rem;
         margin-top: 55px;
         padding: 1rem;
         position: relative;
@@ -90,7 +94,7 @@
       &-location {
         background:linear-gradient(vars.$color-light-main, vars.$color-dark-main);
         display: inline-block;
-        height: 13rem;
+        height: 24rem;
         margin-top: 55px;
         padding: 1rem;
         position: relative;
@@ -113,9 +117,17 @@
       
       &-item {
         display: flex;
+        flex-direction: column;
 
-        &-siret {
+        &-title {
           margin-right: 0.3rem;
+          margin-top: 0.4rem;
+
+          span {
+            text-decoration: underline vars.$color-dark-blue;
+            text-decoration-thickness: 0.2rem;
+            background-color: vars.$color-dark-main;
+          }
         }
       }
     }
@@ -125,7 +137,7 @@
 .field {
   height: 1.8rem;
   margin-bottom: 0.2rem;
-  max-width: 10rem;
+  max-width: 12rem;
 }
 
 .description-field {
