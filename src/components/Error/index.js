@@ -24,6 +24,10 @@ const Error = () => {
         <div className="buisson"></div>
         <div className="prof pauline"></div>
       </div>
+      <div className="anim anim__benji">
+        <div className="buisson"></div>
+        <div className="prof benji"></div>
+      </div>
       <div className="error">
         <h1 className="error__title">
           <span className="title__4">4</span>
