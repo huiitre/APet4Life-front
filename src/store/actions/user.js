@@ -175,3 +175,11 @@ export const setErrorMessageOnSignupForm = (message) => ({
   type: SET_ERROR_MESSAGE_ON_SIGNUP_FORM,
   message,
 });
+
+//* ACTION TYPE SET_IS_ERROR
+export const SET_IS_ERROR = 'SET_IS_ERROR';
+//* ACTION CREATOR setIsError
+export const setIsError = (bool) => ({
+  type: SET_IS_ERROR,
+  bool,
+});
