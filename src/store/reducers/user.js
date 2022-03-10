@@ -15,6 +15,7 @@ import {
   INSERT_TOKEN_TO_STATE,
   CLEAR_STATE,
   SET_MODAL_SUCCESS,
+  SET_MODAL_ERROR,
   OPEN_MODAL,
   CLEAR_SIGNUP_FORM,
   CLEAR_LOGIN_FORM,
@@ -63,6 +64,7 @@ export const initialState = {
     editionMode: false,
   },
   modalSuccess: false,
+  modalError: false,
   modalDeleteOpen: false,
 };
 
@@ -212,6 +214,12 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         modalSuccess: action.bool,
+      };
+    }
+    case SET_MODAL_ERROR: {
+      return {
+        ...state,
+        modalError: action.bool,
       };
     }
     case OPEN_MODAL: {

@@ -13,6 +13,7 @@ import {
   clearSignupForm,
   clearLoginForm,
   setModalSuccess,
+  setModalError,
   clearState,
   setLoadingSpinnerUser,
 } from '../actions/user';
@@ -94,10 +95,13 @@ const userMiddleware = (store) => (next) => (action) => {
             store.dispatch(setModalSuccess(true));
 
             //* on clear le formulaire de signup
-          store.dispatch(clearLoginForm());
+            store.dispatch(clearLoginForm());
           })
           .catch((error) => {
             console.log('error', error)
+
+            // on affiche le modal error
+            store.dispatch(setModalError(true));
           });
     }
       next(action);

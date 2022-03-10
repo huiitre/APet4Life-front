@@ -7,12 +7,14 @@ import { useNavigate } from "react-router";
 import FormLogin from 'src/components/Forms/FormLogin';
 import Button from "src/components/Button";
 import ModalSuccess from "src/components/ModalSuccess";
+import ModalError from "src/components/ModalError";
 
 //* import action
 import {
   changeLoginFormDisplay,
   logout,
   setModalSuccess,
+  setModalError,
 } from "../../../store/actions/user";
 
 //* import gestion des hooks react
@@ -49,16 +51,30 @@ const Header = () => {
 
   const userLogged = useSelector((state) => state.user.userLogged);
 
-  const handleCloseModal = () => {
+  const handleCloseModalSuccess = () => {
     dispatch(setModalSuccess(false));
     navigate('/');
   };
 
-  const modalText = `Tu es connecté !`;
+  const handleCloseModalError = () => {
+    dispatch(setModalError(false));
+  };
+
+  const modalTextSuccess = `Tu es connecté !`;
+  const modalTextError = `Erreur de mail ou de mot de passe`;
 
   return (
     <div className="header">
-    <ModalSuccess closeModal={handleCloseModal} modalText={modalText} modalHeader="Hi !"/>
+    <ModalSuccess
+      closeModal={handleCloseModalSuccess}
+      modalText={modalTextSuccess}
+      modalHeader="Hi !"
+    />
+    <ModalError
+      closeModal={handleCloseModalError}
+      modalText={modalTextError}
+      modalHeader="Echec"
+    />
       <img className="header__title" src={logo} alt="title" />
       {isOpen && <FormLogin />}
       <div className="header__user">
