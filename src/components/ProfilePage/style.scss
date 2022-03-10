@@ -11,6 +11,10 @@
 .none {
   display: none;
 }
+//? cible l'input DANS le composant semantic-ui
+.ui.input.select-none input {
+  display: none;
+}
 .profile {
 
   &__picture,
@@ -27,6 +31,7 @@
 
     & .ui.medium.rounded.image {
       max-width: 100%;
+      margin-top: 6rem;;
     }
   }
   &__title {
@@ -119,6 +124,10 @@
         display: flex;
         flex-direction: column;
 
+        a:hover {
+          color: #D4E3EB;
+        }
+
         &-title {
           margin-right: 0.3rem;
           margin-top: 0.4rem;
@@ -128,6 +137,7 @@
             text-decoration-thickness: 0.2rem;
             background-color: vars.$color-dark-main;
           }
+
         }
       }
     }
@@ -138,6 +148,22 @@
   height: 1.8rem;
   margin-bottom: 0.2rem;
   max-width: 12rem;
+}
+
+//? cible le composant semantic-ui utilisé pour les select
+.ui.input.field {
+  margin: 0 auto;
+
+  input {
+    border-radius: 10px;
+    border: solid 2px lightgray
+  }
+
+  input:hover {
+    background-color: #D4E3EB;
+  }
+
+
 }
 
 .description-field {
