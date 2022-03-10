@@ -31,6 +31,7 @@ import {
   setAllAssociationsFromApi,
   setLoadingSpinner
 } from '../../store/actions/associations';
+import Adopted from '../Adopted';
 
 
 // == Composant
@@ -122,6 +123,13 @@ const App = () => {
           path="/associations"
           element={(
             <Associations />
+          )}
+        />
+
+        <Route
+          path="/adoptes"
+          element={(
+            <Adopted />
           )}
         />
 
