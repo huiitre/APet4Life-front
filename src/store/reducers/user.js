@@ -22,6 +22,7 @@ import {
   SET_CURRENT_USER,
   SET_LOADING_SPINNER_USER,
   SET_ERROR_MESSAGE_ON_SIGNUP_FORM,
+  SET_IS_ERROR,
 } from '../actions/user';
 
 import { SET_LOADING_SPINNER } from '../actions/associations';
@@ -33,6 +34,7 @@ export const initialState = {
   },
   signup: {
     loading: false,
+    isError: false,
     errorMessage: null,
     status: 1,
     regionList: [],
@@ -265,6 +267,15 @@ const reducer = (state = initialState, action = {}) => {
           errorMessage: action.message,
         }
       };
+    }
+    case SET_IS_ERROR: {
+      return {
+        ...state,
+        signup: {
+          ...state.signup,
+          isError: action.bool,
+        }
+      }
     }
     default:
       return state;

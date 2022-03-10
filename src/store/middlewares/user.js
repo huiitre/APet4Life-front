@@ -15,6 +15,8 @@ import {
   setModalSuccess,
   clearState,
   setLoadingSpinnerUser,
+  setErrorMessageOnSignupForm,
+  setIsError,
 } from '../actions/user';
 
 const userMiddleware = (store) => (next) => (action) => {
@@ -25,6 +27,7 @@ const userMiddleware = (store) => (next) => (action) => {
   const finalURL = devURL;
   switch (action.type) {
     case SEND_SIGN_UP:
+      //* on lance le spinner
       store.dispatch(setLoadingSpinnerUser());
       const { user: { signup: {
         userType,
@@ -53,6 +56,7 @@ const userMiddleware = (store) => (next) => (action) => {
       axios
         .post(`${finalURL}/api/user/create`, newUser) 
         .then((response) => {
+          //* on coupe le spinner
           store.dispatch(setLoadingSpinnerUser());
           //* on lance le modal
           store.dispatch(setModalSuccess(true));
@@ -60,7 +64,10 @@ const userMiddleware = (store) => (next) => (action) => {
           store.dispatch(clearSignupForm());
         })
         .catch((error) => {
-          console.log('error', error)
+          //* on coupe le spinner
+          store.dispatch(setLoadingSpinnerUser());
+          store.dispatch(setErrorMessageOnSignupForm('Cet adresse mail est déjà utilisé !'));
+          store.dispatch(setIsError(true));
         });
       next(action);
       break;
