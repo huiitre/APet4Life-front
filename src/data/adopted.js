@@ -161,7 +161,6 @@ const adopted = [
     picture: 'Zanzibar_Anne-Cécile.jpg',
     owner: 'Anne-Cécile',
   },
-  
 ];
 
 export default adopted;
