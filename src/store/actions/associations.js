@@ -76,3 +76,27 @@ export const insertAllAssociationsOnState = (assocList) => ({
   type: INSERT_ALL_ASSOCIATIONS_ON_STATE,
   assocList,
 });
+
+//* ACTION TYPE LOAD_ASSOC_BY_SLUG
+export const LOAD_ASSOC_BY_SLUG = 'LOAD_ASSOC_BY_SLUG';
+//* ACTION CREATOR loadAssocBySlug
+export const loadAssocBySlug = (slug) => ({
+  type: LOAD_ASSOC_BY_SLUG,
+  slug,
+});
+
+//* ACTION TYPE INSERT_ASSOC_BY_SLUG_ON_STATE
+export const INSERT_ASSOC_BY_SLUG_ON_STATE = 'INSERT_ASSOC_BY_SLUG_ON_STATE';
+//* ACTION CREATOR insertAssocBySlugOnState
+export const insertAssocBySlugOnState = (currentAssoc) => ({
+  type: INSERT_ASSOC_BY_SLUG_ON_STATE,
+  currentAssoc,
+});
+
+//* ACTION TYPE SET_LOADING_SLUG
+export const SET_LOADING_SLUG = 'SET_LOADING_SLUG';
+//* ACTION CREATOR setLoadingSlug
+export const setLoadingSlug = (bool) => ({
+  type: SET_LOADING_SLUG,
+  bool,
+});

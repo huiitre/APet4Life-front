@@ -10,6 +10,9 @@ import {
   setLoadingSpinner,
   SET_ALL_ASSOCIATIONS_FROM_API,
   insertAllAssociationsOnState,
+  LOAD_ASSOC_BY_SLUG,
+  insertAssocBySlugOnState,
+  setLoadingSlug,
 } from '../actions/associations';
 
 //* MIDDLEWARE gérant l'envoi de la requête de recherche (par zipcode OU département OU region)
@@ -131,6 +134,16 @@ const associationMiddleware = (store) => (next) => (action) => {
           .get(`${finalURL}/api/user/associations`)
           .then((response) => {
             store.dispatch(insertAllAssociationsOnState(response.data));
+          });
+        next(action);
+        break;
+
+      case LOAD_ASSOC_BY_SLUG:
+        store.dispatch(setLoadingSlug(true));
+        axios
+          .get(`${finalURL}/api/user/association/${action.slug}`)
+          .then((response) => {
+            store.dispatch(insertAssocBySlugOnState(response.data[0]));
           });
         next(action);
         break;
