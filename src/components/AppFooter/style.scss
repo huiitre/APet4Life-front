@@ -8,6 +8,7 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
+  z-index: 3;
 
   &__links {
     display: flex;
@@ -26,7 +27,7 @@
     }
 
     a:hover,
-    li:hover {
+    li:nth-child(n+2):hover {
       color: vars.$color-hover;
       cursor: pointer;
       transform: scale(1.1);
