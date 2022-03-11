@@ -17,22 +17,22 @@ const ContactUs = () => {
           <div className="contact__team">
             <div className="contact__team-item">
               <div className="contact__team-item-name">YANIS</div>
-              <div>Développeur Frontend</div>
+              <div className="contact__team-item-title">Développeur Frontend</div>
               <div className="contact__team-picture picture1"></div>
             </div>
             <div className="contact__team-item">
               <div className="contact__team-item-name">SAMANTHA</div>
-              <div>Développeuse Backend</div>
+              <div className="contact__team-item-title">Développeuse Backend</div>
               <div className="contact__team-picture picture2"></div>
             </div>
             <div className="contact__team-item">
               <div className="contact__team-item-name">MORGANE</div>
-              <div>Développeuse Backend</div>
+              <div className="contact__team-item-title">Développeuse Backend</div>
               <div className="contact__team-picture picture3"></div>
             </div>
             <div className="contact__team-item">
               <div className="contact__team-item-name">AUDREY</div>
-              <div>Développeuse Frontend</div>
+              <div className="contact__team-item-title">Développeuse Frontend</div>
               <div className="contact__team-picture picture4"></div>
             </div>
           </div>
