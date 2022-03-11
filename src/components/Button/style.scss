@@ -32,12 +32,12 @@
 //todo Bouton Se connecter
 .btn--signin {
   //? d'abord la clair puis la foncé
-  background: linear-gradient(#469e3f, #255b20);
+  background: linear-gradient(#398AB9, #233E8B);
   font-size: 1rem;
 }
 .btn--signin:active {
   //? d'abord la foncé puis la clair
-  background: linear-gradient(#255b20, #469e3f);
+  background: linear-gradient(#233E8B, #398AB9);
 }
 
 //todo Bouton s'inscrire
