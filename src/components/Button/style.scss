@@ -207,7 +207,22 @@
   color: #fff;
 }
 
+//todo Bouton envoi formulaire contact (page contact)
+.btn--submit-contact-team {
+  text-align: center;
+  width: 12rem;
+  color: vars.$color-dark-main;
+  border: none;
+  background-color: transparent;
+}
 
-// .btn-mobile {
-//   text-align: center;
-// }
+.btn--submit-contact-team:hover {
+  color: white;
+  background-color: rgba(28, 101, 140, 0.5);;
+}
+
+@media screen and (min-width: 1200px) {
+  .btn--submit-contact-team {
+    width: 15rem;
+  }
+}

@@ -13,6 +13,7 @@ import Error from 'src/components/Error';
 import Signup from 'src/components/Signup';
 import Signin from 'src/components/Signin';
 import Associations from 'src/components/Associations';
+import ContactUs from 'src/components/ContactUs';
 
 //* import react reduc
 import { Route, Routes } from 'react-router-dom';
@@ -122,6 +123,13 @@ const App = () => {
           path="/associations"
           element={(
             <Associations />
+          )}
+        />
+
+        <Route
+          path="/contact"
+          element={(
+            <ContactUs />
           )}
         />
 
