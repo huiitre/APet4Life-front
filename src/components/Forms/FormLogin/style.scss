@@ -6,24 +6,20 @@
   .form__login {
     // display: none;
     position:absolute;
-    border: solid 2px vars.$color-dark-main;
+    // border: solid 2px vars.$color-dark-main;
     top: 1.3em;
     right: 5em;
     padding: 1rem;
-    background-color: vars.$color-light-main;
+    background-color: #a5bfce;
     z-index: 100;
-    border-radius: 10px;
-
+    border-radius: 5px;
+    box-shadow: 4px 4px;
   }
 
   .form__login-container {
 
     input {
       margin-bottom: 0.2rem;
-    }
-
-    button {
-      
     }
 }
 

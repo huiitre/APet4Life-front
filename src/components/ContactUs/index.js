@@ -14,6 +14,7 @@ const ContactUs = () => {
     evt.preventDefault();
   };
   
+  //*click button pas encore géré
   const handleClickButton = () => {
     console.log('handleClickButton')
   }

@@ -2,6 +2,7 @@
 import "./style.scss";
 import logo from "src/assets/img/logo.png";
 import { useNavigate } from "react-router";
+import { Link } from 'react-router-dom';
 
 //* import composants
 import FormLogin from 'src/components/Forms/FormLogin';
@@ -60,7 +61,7 @@ const Header = () => {
     dispatch(setModalError(false));
   };
 
-  const modalTextSuccess = `Tu es connecté !`;
+  const modalTextSuccess = `Vous êtes bien connecté`;
   const modalTextError = `Erreur de mail ou de mot de passe`;
 
   return (
@@ -68,14 +69,19 @@ const Header = () => {
     <ModalSuccess
       closeModal={handleCloseModalSuccess}
       modalText={modalTextSuccess}
-      modalHeader="Hi !"
+      modalHeader="Bonjour !"
     />
     <ModalError
       closeModal={handleCloseModalError}
       modalText={modalTextError}
       modalHeader="Echec"
     />
-      <img className="header__title" src={logo} alt="title" />
+      <Link
+        to="/"
+      >
+        <img className="header__title" src={logo} alt="title" />
+      </Link>
+          
       {isOpen && <FormLogin />}
       <div className="header__user">
         {/* //* on importe le composant Button en lui passant en props (paramètres) des informations pour rendre le bouton "unique" par rapport aux autres */}
