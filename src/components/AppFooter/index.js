@@ -1,5 +1,8 @@
 //* on importe la feuille de style, comme dans tous les composants
 import "./style.scss";
+
+import { Link } from 'react-router-dom';
+
 //* on importe les logo des réseaux sociaux
 import logoFb from "src/assets/img/facebook.png";
 import logoInsta from "src/assets/img/insta.png";
@@ -7,10 +10,13 @@ import logoTwitter from "src/assets/img/twitter.png";
 
 const AppFooter = () => (
   <footer className="footer">
-    <div className="footer__links">
-      <p>A Pet 4 Life 2022</p>
-      <a href="">Mentions légales et CGU</a>
-      <a href="">Nous contacter</a>
+    <div>
+      <ul className="footer__links">
+        <li><p>A Pet 4 Life 2022</p></li>
+        <li><a href="">Mentions légales et CGU</a></li>
+        <li><Link to='/contact'>Nous contacter</Link></li>
+      </ul>
+
     </div>
     <div className="footer__socials">
       <a href="">

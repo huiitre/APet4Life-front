@@ -1,0 +1,223 @@
+@use 'src/styles/vars';
+
+
+.contact-container {
+  z-index: -2;
+}
+
+.contact-title {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 300;
+  margin-bottom: 1.5rem;
+  background-color: rgba(28, 101, 140, 0.3);
+  padding: 0.2rem 0;
+}
+
+.contact {
+  z-index: 2; // important pour bg du form
+  position: relative; // important pour bg du form
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 1rem -2rem 1rem;
+  justify-content: center;
+
+  
+  // background-image: url(../../assets/img/team-background-2.jpg);
+  // background-size: cover;
+  // background-position: center;
+  // background-repeat: no-repeat;
+  // height: 10rem;
+
+  &__team {
+
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 44rem;
+
+    &-item {
+      text-align: center;
+      margin-bottom: 1rem;
+
+      &-name {
+        font-weight: 300;
+        font-size: 2rem;
+        margin-bottom: 0.2rem;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+      }
+      
+      &-title {
+        color: vars.$color-dark-main;
+        text-decoration: underline vars.$color-dark-main;
+        text-decoration-thickness: 0.2rem;
+      }
+    }
+
+    &-picture {
+      width: 12rem;
+      height: 12rem;
+      background-size: cover;
+      background-position: center;
+      border-radius: 50%;
+      margin: 1em;
+      box-shadow: 2px 2px 15px grey;  
+      transition: transform .2s; 
+    }
+
+    &-picture:hover {
+      transform: scale(1.1);
+    }
+
+    &-picture.picture1 {
+      background-image: url(../../assets/img/team-yanis.png);
+    }
+    &-picture.picture2 {
+      background-image: url(../../assets/img/team-samantha.jpg);
+    }
+    &-picture.picture3 {
+      background-image: url(../../assets/img/team-morgane.jpg);
+    }
+    &-picture.picture4 {
+      background-image: url(../../assets/img/team-audrey.jpg);
+    }
+  }
+
+  &__form {
+    width: 100%;
+    // height: 15rem;
+    // border: solid 1px lightcyan;
+    margin-top: 5rem;
+    margin-bottom: 1rem;
+    background-color: rgba(28, 101, 140, 0.3);
+    border-radius: 30px;
+    padding: 1rem;
+    height: 29rem;
+    justify-content: center;
+
+    &-title {
+      text-align: center;
+      font-size: 2.7rem;
+      font-weight: 300;
+      opacity: 0.7;
+      margin-bottom: 1rem;
+    }
+
+    &-field,
+    &-textarea {
+      width: 12rem;
+    }
+
+    &-field {
+      outline: 0;
+      border-width: 0 0 2px;
+      border-color: vars.$color-dark-main;
+      color: vars.$color-dark-main;
+      background-color: transparent;
+      border-radius: 0;
+    }
+
+    &-field:focus {
+      background-color: rgba(28, 101, 140, 0.2);
+    }
+
+    &-field::placeholder {
+      color: rgba(28, 101, 140, 0.6);
+    }
+
+    &-field:hover::placeholder {
+      color: vars.$color-dark-main;
+    }
+    
+    &-textarea {
+      height: 10rem;
+      background-color: rgba(255, 255, 255, 0.6);
+      border: none;
+      border-radius: 0;
+    }
+
+    &-textarea:focus {
+      background-color: white;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      align-items: center;
+
+      * {
+        margin-top: 0.3rem;
+      }
+    }
+
+  }
+
+
+  //* gestion du background img https://www.digitalocean.com/community/tutorials/how-to-change-a-css-background-images-opacity-fr
+  &__background {
+    position: fixed;
+    top: -10rem;
+    // margin-top: -8em;
+    width: 100rem;
+    height: auto;
+    opacity: 0.2;
+    z-index: -2;
+  }
+
+}
+
+@media screen and (min-width: 768px) {
+
+  .contact-container {
+    margin-top: -2rem;
+  }
+  .contact {
+
+    flex-wrap: nowrap;
+    justify-content: center;   
+
+    &__team {
+      // width: 30%;
+      flex-direction: row;
+      justify-content: center;
+      text-align: center;
+      margin-right: 1rem;
+      
+      &-picture {
+        width: 13rem;
+        height: 13rem;
+      }
+
+      &-item:nth-child(n+3) {
+        margin-bottom: 0;
+      }
+    }
+    &__form {
+      width: 30%;
+      margin-left: 1rem;  
+    }
+
+    &__background {
+      min-width: 120rem;
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .btn--submit-contact-team {
+    width: 15rem;
+  }
+
+  .contact {
+    &__form {
+      &-field,
+      &-textarea {
+      width: 15rem;
+      }
+    }
+  }
+  
+}

@@ -15,6 +15,7 @@ import {
   INSERT_TOKEN_TO_STATE,
   CLEAR_STATE,
   SET_MODAL_SUCCESS,
+  SET_MODAL_ERROR,
   OPEN_MODAL,
   CLEAR_SIGNUP_FORM,
   CLEAR_LOGIN_FORM,
@@ -22,6 +23,7 @@ import {
   SET_CURRENT_USER,
   SET_LOADING_SPINNER_USER,
   SET_ERROR_MESSAGE_ON_SIGNUP_FORM,
+  SET_IS_ERROR,
 } from '../actions/user';
 
 import { SET_LOADING_SPINNER } from '../actions/associations';
@@ -33,6 +35,7 @@ export const initialState = {
   },
   signup: {
     loading: false,
+    isError: false,
     errorMessage: null,
     status: 1,
     regionList: [],
@@ -63,6 +66,7 @@ export const initialState = {
     editionMode: false,
   },
   modalSuccess: false,
+  modalError: false,
   modalDeleteOpen: false,
 };
 
@@ -214,6 +218,12 @@ const reducer = (state = initialState, action = {}) => {
         modalSuccess: action.bool,
       };
     }
+    case SET_MODAL_ERROR: {
+      return {
+        ...state,
+        modalError: action.bool,
+      };
+    }
     case OPEN_MODAL: {
       return {
         ...state,
@@ -265,6 +275,15 @@ const reducer = (state = initialState, action = {}) => {
           errorMessage: action.message,
         }
       };
+    }
+    case SET_IS_ERROR: {
+      return {
+        ...state,
+        signup: {
+          ...state.signup,
+          isError: action.bool,
+        }
+      }
     }
     default:
       return state;

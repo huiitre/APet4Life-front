@@ -2,15 +2,19 @@ import "./style.scss";
 
 //* import composants
 import Page from 'src/components/Page';
-import { Segment, Icon, Image } from 'semantic-ui-react';
+import { Segment, Icon, Image, Message } from 'semantic-ui-react';
 import Button from 'src/components/Button';
-import { useSelector, useDispatch } from "react-redux";
-import { useNavigate } from "react-router";
-
+import Select from 'src/components/Forms/Select';
 import Field from 'src/components/Forms/Field';
 import TextArea from 'src/components/Forms/TextArea';
 import ModalDelete from "./modalDelete";
 // import ModalSuccess from 'src/components/ModalSuccess';
+
+//* imports react
+import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router";
+import { useState } from "react";
+import classNames from "classnames";
 
 //* import actions
 import {
@@ -19,7 +23,7 @@ import {
   updateUserInfos,
   deleteUserInfos,
   openModal,
-  setModalSuccess,
+  // setModalSuccess,
 } from "../../store/actions/user";
 
 
@@ -29,6 +33,11 @@ const ProfilePage = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  //* hook custom qui gère l'affichage d'erreur
+  const [isError, setIsError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
+
+  //* infos depuis le state user de currentUser
   const {
     type,    // Association/Particular
     name,
@@ -48,18 +57,70 @@ const ProfilePage = () => {
   } = useSelector((state) => state.user.currentUser.data);
 
   const { editionMode } = useSelector((state) => state.user.profile);
+
+  //* infos depuis le state associations
+  const {
+    departmentList,
+    regionsList,
+  } = useSelector((state) => state.associations);
+
   
   const handleChangeField = (value, name) => {
     dispatch(setFieldValueProfileForm(value, name));
+  };
+
+  const handleChangeDepartment = (value) => {
+    dispatch(setFieldValueProfileForm(value, "department"));
+  };
+
+  const handleChangeRegion = (value) => {
+    dispatch(setFieldValueProfileForm(value, "region"));
+  };
+
+  const handleChangeZipcode = (value, name) => {
+    dispatch(setFieldValueProfileForm(Number(value), name))
   }
 
   const handleEditionMode = () => {
     dispatch(changeEditionMode());
   }
+
+  //* regex de vérification d'email :
+  //https://fr.w3docs.com/snippets/javascript/comment-valider-un-e-mail-en-utilisant-javascript.html
+  //   Lettres anglaises majuscules (A-Z) et minuscules (a-z)
+  // Chiffres (0-9)
+  // Caractères ! # $ % & ' * + - / = ? ^ _ ` { | } ~
+  // Caractère . ( point) fourni qu'il ne soit le premier ou le dernier caractère et ne va venir l'un après l'autre
+
+  const regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
   
   const handleUpdateInfos = () => {
-    dispatch(changeEditionMode());
-    dispatch(updateUserInfos());
+
+    if (username === "") {
+      setIsError(true);
+      setErrorMessage("Merci de renseigner un email");
+    } else if (!regexEmail.test(username)) {
+      setIsError(true);
+      setErrorMessage("Merci de renseigner un email valide");
+    } else if (
+    name === "" ||
+    firstname === "" ||
+    lastname === "")
+    {
+      setIsError(true);
+      setErrorMessage("Merci de renseigner un nom");
+    } else if (region === "") {
+      setIsError(true);
+      setErrorMessage("Merci de renseigner une région");
+    } else if (department === "") {
+      setIsError(true);
+      setErrorMessage("Merci de renseigner un département");
+    } else {
+      setIsError(false);
+      setErrorMessage('');
+      dispatch(changeEditionMode());
+      dispatch(updateUserInfos());
+    }
   }
   
   const handleDeleteInfos = () => {
@@ -81,6 +142,8 @@ const ProfilePage = () => {
   // };
 
   // const modalText = `Ton compte a bien été supprimé`;
+
+  const classNamesError = classNames("error", { none: !isError });
 
   return (
   <Page>
@@ -131,7 +194,7 @@ const ProfilePage = () => {
             <span className={editionMode ? 'none' : ''}>{firstname}</span>
             <span className={editionMode ? 'none' : ''}>{lastname}</span>
             <Field
-              className={editionMode ? 'field' : 'field none'}
+              className={editionMode ? 'title-field' : 'title-field none'}
               type="text"
               placeholder="prénom"
               name="firstname"
@@ -139,7 +202,7 @@ const ProfilePage = () => {
               onChange={handleChangeField}
             />
             <Field
-              className={editionMode ? 'field' : 'field none'}
+              className={editionMode ? 'title-field' : 'title-field none'}
               type="text"
               placeholder="nom"
               name="lastname"
@@ -154,7 +217,10 @@ const ProfilePage = () => {
             <div className="profile__contact-coord-infos">
             
               <span className="profile__contact-coord-item">
-                <Icon name="mail outline" size="large" />
+                <span className="profile__contact-coord-item-title">
+                  <Icon name="mail outline" size="large" />
+                  <span>E-mail</span>
+                </span>
                 <a className={editionMode ? 'none' : ''} href={`mailto:${username}`}>{username}</a>
                 <Field
                   className={editionMode ? 'field' : 'field none'}
@@ -167,7 +233,10 @@ const ProfilePage = () => {
               </span>
               
               <span className="profile__contact-coord-item">
-                <Icon name="phone" size="large" />
+                <span className="profile__contact-coord-item-title">  
+                  <Icon name="phone" size="large" />
+                  <span>Téléphone</span>
+                </span>
                 <a className={editionMode ? 'none' : ''} href={`tel:${phone_number}`}>{phone_number}</a>
                 <Field
                   className={editionMode ? 'field' : 'field none'}
@@ -182,7 +251,10 @@ const ProfilePage = () => {
               { type === "Association" && (<>
                 {/* website et siret pour associations uniquement */}
               <span className="profile__contact-coord-item">
-                <Icon name="at" size="large" />
+                <span className="profile__contact-coord-item-title"> 
+                  <Icon name="at" size="large" />
+                  <span>Site web</span>
+                </span>
                 <a className={editionMode ? 'none' : ''} href={website}>{website}</a>
                 <Field
                   className={editionMode ? 'field' : 'field none'}
@@ -195,8 +267,10 @@ const ProfilePage = () => {
               </span>
 
               <span className="profile__contact-coord-item">
-                <Icon name="file outline" size="large" />
-                <span className="profile__contact-coord-item-siret">Siret:</span>
+                <span className="profile__contact-coord-item-title">
+                  <Icon name="file outline" size="large" />
+                  <span>Siret</span>
+                </span>
                 <span className={editionMode ? 'none' : ''}>{siret}</span>
                 <Field
                   className={editionMode ? 'field' : 'field none'}
@@ -213,7 +287,10 @@ const ProfilePage = () => {
             <div className="profile__contact-coord-location">
 
               <span className="profile__contact-coord-item">
-                <Icon name="home" size="large" />
+                <span className="profile__contact-coord-item-title">
+                  <Icon name="home" size="large" />
+                  <span>Adresse</span>
+                </span>
                 <p className={editionMode ? 'none' : ''}>{adress}</p> 
                 <Field
                   className={editionMode ? 'field' : 'field none'}
@@ -226,7 +303,10 @@ const ProfilePage = () => {
               </span>
 
               <span className="profile__contact-coord-item">
-                <Icon name="home" size="large" />
+                <span className="profile__contact-coord-item-title">
+                  {/* <Icon name="home" size="large" /> */}
+                  <span>Code postal</span>
+                </span>
                 <p className={editionMode ? 'none' : ''}>{zipcode}</p> 
                 <Field
                   className={editionMode ? 'field' : 'field none'}
@@ -234,12 +314,15 @@ const ProfilePage = () => {
                   placeholder="code postal"
                   name="zipcode"
                   value={zipcode}
-                  onChange={handleChangeField}
+                  onChange={handleChangeZipcode}
                 />         
               </span>
 
               <span className="profile__contact-coord-item">
-                <Icon name="home" size="large" />
+                <span className="profile__contact-coord-item-title">
+                {/* <Icon name="home" size="large" /> */}
+                <span>Ville</span>
+                </span>
                 <p className={editionMode ? 'none' : ''}>{city}</p>
                 <Field
                   className={editionMode ? 'field' : 'field none'}
@@ -252,33 +335,66 @@ const ProfilePage = () => {
               </span>
 
               <span className="profile__contact-coord-item">
-                <Icon name="home" size="large" />
+                <span className="profile__contact-coord-item-title">
+                  {/* <Icon name="home" size="large" /> */}
+                  <span>Département</span>
+                </span>
                 <p className={editionMode ? 'none' : ''}>{department}</p>
-                <Field
+                {/* <Field
                   className={editionMode ? 'field' : 'field none'}
                   type="text"
                   placeholder="département"
                   name="department"
                   value={department}
                   onChange={handleChangeField}
+                /> */}
+
+                <Select
+                  classNames={editionMode ? 'field' : 'select-none'}
+                  onChange={handleChangeDepartment}
+                  array={departmentList}
+                  placeholder="département"
+                  name="department"
+                  value={department}
                 />          
               </span>
 
               <span className="profile__contact-coord-item">
-                <Icon name="home" size="large" />
+                <span className="profile__contact-coord-item-title">
+                  {/* <Icon name="home" size="large" /> */}
+                  <span>Région</span>
+                </span>
                 <p className={editionMode ? 'none' : ''}>{region}</p>
-                <Field
+                {/* <Field
                   className={editionMode ? 'field' : 'field none'} type="text"
                   placeholder="région"
                   name="region"
                   value={region}
                   onChange={handleChangeField}
-                />          
+                /> */}
+
+                <Select
+                  classNames={editionMode ? 'field' : 'select-none'}
+                  onChange={handleChangeRegion}
+                  array={regionsList}
+                  placeholder="région"
+                  name="region"
+                  value={region}
+                /> 
+
               </span>
 
             </div>
           </div>
         </div>
+      </div>
+
+      <div className={classNamesError}>
+        <Message
+          error
+          header={errorMessage}
+          content=""
+        />
       </div>
 
       <div className="profile__buttons">

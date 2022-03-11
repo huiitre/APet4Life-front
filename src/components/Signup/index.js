@@ -25,6 +25,7 @@ import {
   setFieldValueSignupForm,
   setModalSuccess,
   setTypeSignupForm,
+  setIsError
 } from "../../store/actions/user";
 import {
   loadDepartmentsFromApi,
@@ -33,7 +34,8 @@ import {
 
 const Signup = () => {
   //* hook custom qui gère l'affichage d'erreur si un ou plusieurs champs ne sopnt pas rempli
-  const [isError, setIsError] = useState(false);
+  // const [isError, setIsError] = useState(false);
+  const isError = useSelector((state) => state.user.signup.isError);
 
   //* useEffect qui va charger la liste des régions et des depts depuis une api public
   useEffect(() => {
@@ -74,10 +76,10 @@ const Signup = () => {
     evt.preventDefault();
     if (userType === "Particular" || userType === "Association") {
       dispatch(changeFormSignupStatus(2));
-      setIsError(false);
+      dispatch(setIsError(false));
     } else {
       dispatch(setErrorMessageOnSignupForm('Pour continuer, merci de choisir une catégorie'));
-      setIsError(true);
+      dispatch(setIsError(true));
     }
   };
 
@@ -107,7 +109,7 @@ const Signup = () => {
     //* on clean le formulaire
     dispatch(clearSignupForm());
     //* on met l'erreur à false si l'user revient en arrière
-    setIsError(false);
+    dispatch(setIsError(false));
   };
 
   //* fonction qui submit le formulaire
@@ -123,13 +125,13 @@ const Signup = () => {
         department === "" ||
         name === ""
       ) {
-        setIsError(true);
+        dispatch(setIsError(true));
         dispatch(setErrorMessageOnSignupForm('Veuillez remplir tous les champs afin de finaliser votre inscription'));
       } else if (password.length < 5) {
-        setIsError(true);
+        dispatch(setIsError(true));
         dispatch(setErrorMessageOnSignupForm('Votre mot de passe doit contenir au minimum 6 caractères'));
       } else if (password !== passwordConfirm) {
-        setIsError(true);
+        dispatch(setIsError(true));
         dispatch(setErrorMessageOnSignupForm('Les deux mot de passe doivent correspondre !'));
       } else {
         setIsError(false);
@@ -145,16 +147,16 @@ const Signup = () => {
         firstname === "" ||
         lastname === ""
       ) {
-        setIsError(true);
+        dispatch(setIsError(true));
         dispatch(setErrorMessageOnSignupForm('Veuillez remplir tous les champs afin de finaliser votre inscription'));
       } else if (password.length < 5) {
-        setIsError(true);
+        dispatch(setIsError(true));
         dispatch(setErrorMessageOnSignupForm('Votre mot de passe doit contenir au minimum 6 caractères'));
       } else if (password !== passwordConfirm) {
-        setIsError(true);
+        dispatch(setIsError(true));
         dispatch(setErrorMessageOnSignupForm('Les deux mot de passe doivent correspondre !'));
       } else {
-        setIsError(false);
+        dispatch(setIsError(false));
         dispatch(sendSignUp());
       }
     }

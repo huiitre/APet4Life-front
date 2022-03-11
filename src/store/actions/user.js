@@ -105,6 +105,15 @@ export const setModalSuccess = (bool) => ({
   bool,
 });
 
+//* ACTION TYPE SET_MODAL_ERROR
+export const SET_MODAL_ERROR = 'SET_MODAL_ERROR';
+//* ACTION CREATOR setModalError
+export const setModalError = (bool) => ({
+  type: SET_MODAL_ERROR,
+  bool,
+});
+
+
 //* ACTION TYPE CLEAR_SIGNUP_FORM
 export const CLEAR_SIGNUP_FORM = 'CLEAR_SIGNUP_FORM';
 //* ACTION CREATOR clearSignupForm
@@ -122,11 +131,13 @@ export const changeEditionMode = () => ({
 //* ACTION TYPE SET_FIELD_VALUE_PROFILE_FORM
 export const SET_FIELD_VALUE_PROFILE_FORM = 'SET_FIELD_VALUE_PROFILE_FORM';
 //* ACTION CREATOR setFieldValueProfileForm
-export const setFieldValueProfileForm = (value, name) => ({
+export const setFieldValueProfileForm = (value, name) => {
+  console.log(value, name);
+  return ({
   type: SET_FIELD_VALUE_PROFILE_FORM,
   value,
   name,
-});
+})};
 
 //* ACTION TYPE SET_CURRENT_USER
 export const SET_CURRENT_USER = 'SET_CURRENT_USER';
@@ -172,4 +183,12 @@ export const SET_ERROR_MESSAGE_ON_SIGNUP_FORM = 'SET_ERROR_MESSAGE_ON_SIGNUP_FOR
 export const setErrorMessageOnSignupForm = (message) => ({
   type: SET_ERROR_MESSAGE_ON_SIGNUP_FORM,
   message,
+});
+
+//* ACTION TYPE SET_IS_ERROR
+export const SET_IS_ERROR = 'SET_IS_ERROR';
+//* ACTION CREATOR setIsError
+export const setIsError = (bool) => ({
+  type: SET_IS_ERROR,
+  bool,
 });
