@@ -32,6 +32,7 @@ import {
   setAllAssociationsFromApi,
   setLoadingSpinner
 } from '../../store/actions/associations';
+import Adopted from '../Adopted';
 
 
 // == Composant
@@ -126,6 +127,12 @@ const App = () => {
           )}
         />
 
+        <Route
+          path="/adoptes"
+          element={(
+            <Adopted />
+          )}
+        />
         <Route
           path="/contact"
           element={(
