@@ -46,9 +46,41 @@ input[type=number] {
 .form__login-field {
   height: 2rem;
   font-size: 1rem;
+  outline: 0;
+  border-width: 0 0 2px;
+  border-color: vars.$color-dark-main;
+  color: vars.$color-dark-main;
+  font-weight: bold;
+  background-color: transparent;
+  border-radius: 0;
+}
+
+.form__login-field:focus {
+  background-color: rgba(28, 101, 140, 0.2);
+}
+
+.form__login-field::placeholder {
+  color: rgba(28, 101, 140, 0.5);
+  font-weight: 300;
 }
 
 //todo field pour le formulaire de login mobile
 .form__login-page-field {
   margin-bottom: 0.8rem;
+  outline: 0;
+  border-width: 0 0 2px;
+  border-color: vars.$color-dark-main;
+  color: white;
+  font-weight: bold;
+  background-color: transparent;
+  border-radius: 0;
+}
+
+.form__login-page-field:focus {
+  background-color: rgba(165, 191, 206, 0.5);
+}
+
+.form__login-page-field::placeholder {
+  color: rgba(165, 191, 206);
+  font-weight: 300;
 }
