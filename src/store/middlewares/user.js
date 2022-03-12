@@ -14,10 +14,12 @@ import {
   clearLoginForm,
   setModalSuccess,
   setModalError,
+  setModalDelete,
   clearState,
   setLoadingSpinnerUser,
   setErrorMessageOnSignupForm,
   setIsError,
+  changeEditionMode,
 } from '../actions/user';
 
 const userMiddleware = (store) => (next) => (action) => {
@@ -119,6 +121,12 @@ const userMiddleware = (store) => (next) => (action) => {
       //* on vide le state et le localstorage
       store.dispatch(clearState());
       localStorage.clear();
+
+      //* on ferme le modal delete
+      store.dispatch(setModalDelete(false)); 
+      
+      //* on ferme le mode d'édition de la page de profil
+      store.dispatch(changeEditionMode(false));  
     }
       next(action);
       break;
@@ -160,6 +168,12 @@ const userMiddleware = (store) => (next) => (action) => {
           store.dispatch(clearState());
           localStorage.clear();
           // store.dispatch(setModalSuccess(true));
+
+          //* on ferme le modal delete
+          store.dispatch(setModalDelete(false));
+
+          //* on ferme le mode d'édition de la page de profil
+          store.dispatch(changeEditionMode(false)); 
 
         })
         .catch((error) => {

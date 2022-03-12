@@ -16,7 +16,7 @@ import {
   CLEAR_STATE,
   SET_MODAL_SUCCESS,
   SET_MODAL_ERROR,
-  OPEN_MODAL,
+  SET_MODAL_DELETE,
   CLEAR_SIGNUP_FORM,
   CLEAR_LOGIN_FORM,
   CHANGE_EDITION_MODE,
@@ -224,7 +224,7 @@ const reducer = (state = initialState, action = {}) => {
         modalError: action.bool,
       };
     }
-    case OPEN_MODAL: {
+    case SET_MODAL_DELETE: {
       return {
         ...state,
         modalDeleteOpen: action.bool,
@@ -263,7 +263,7 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         profile: {
           ...state.profile,
-          editionMode: !state.profile.editionMode,
+          editionMode: action.bool,
         }
       }
     }

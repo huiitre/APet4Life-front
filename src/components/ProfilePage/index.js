@@ -22,7 +22,7 @@ import {
   setFieldValueProfileForm,
   updateUserInfos,
   deleteUserInfos,
-  openModal,
+  setModalDelete,
   // setModalSuccess,
 } from "../../store/actions/user";
 
@@ -82,7 +82,7 @@ const ProfilePage = () => {
   }
 
   const handleEditionMode = () => {
-    dispatch(changeEditionMode());
+    dispatch(changeEditionMode(true));
   }
 
   //* regex de vérification d'email :
@@ -102,24 +102,35 @@ const ProfilePage = () => {
     } else if (!regexEmail.test(username)) {
       setIsError(true);
       setErrorMessage("Merci de renseigner un email valide");
-    } else if (
-    name === "" ||
-    firstname === "" ||
-    lastname === "")
-    {
-      setIsError(true);
-      setErrorMessage("Merci de renseigner un nom");
     } else if (region === "") {
       setIsError(true);
       setErrorMessage("Merci de renseigner une région");
     } else if (department === "") {
       setIsError(true);
       setErrorMessage("Merci de renseigner un département");
-    } else {
-      setIsError(false);
-      setErrorMessage('');
-      dispatch(changeEditionMode());
-      dispatch(updateUserInfos());
+    }  else if (type === "Association") {
+      if (name === "") {
+        setIsError(true);
+        setErrorMessage("Merci de renseigner un nom");
+      } else {
+        setIsError(false);
+        setErrorMessage('');
+        dispatch(changeEditionMode(false));
+        dispatch(updateUserInfos());
+      }
+    } else if (type === "Particular") {
+      if (firstname === "") {
+        setIsError(true);
+        setErrorMessage("Merci de renseigner un prénom");
+      } else if (lastname === "") {
+        setIsError(true);
+        setErrorMessage("Merci de renseigner un nom");
+      } else {
+        setIsError(false);
+        setErrorMessage('');
+        dispatch(changeEditionMode(false));
+        dispatch(updateUserInfos());
+      }
     }
   }
   
@@ -129,11 +140,11 @@ const ProfilePage = () => {
   }
 
   const closeModalElement = () => {
-    dispatch(openModal(false));
+    dispatch(setModalDelete(false));
   }
 
   const openModalElement = () => {
-    dispatch(openModal(true));
+    dispatch(setModalDelete(true));
   }
 
   // const handleCloseModal = () => {
