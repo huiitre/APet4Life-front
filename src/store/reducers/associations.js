@@ -8,6 +8,8 @@ import {
   INSERT_SEARCH_RESULT_TO_STATE,
   SET_LOADING_SPINNER,
   INSERT_ALL_ASSOCIATIONS_ON_STATE,
+  INSERT_ASSOC_BY_SLUG_ON_STATE,
+  SET_LOADING_SLUG,
 } from '../actions/associations';
 import {
   INSERT_DEPARTMENTS_TO_STATE,
@@ -16,6 +18,8 @@ import {
 
 //* state initial
 export const initialState = {
+  currentAssoc: {},
+  loadingSlug: false,
   //? loading pour le spinner
   loading: false,
   //? liste de toute les associations du site (page /associations)
@@ -117,6 +121,21 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         allAssociations: action.assocList,
         loading: false,
+      }
+    }
+
+    case INSERT_ASSOC_BY_SLUG_ON_STATE: {
+      return {
+        ...state,
+        currentAssoc: action.currentAssoc,
+        loadingSlug: false,
+      }
+    }
+
+    case SET_LOADING_SLUG: {
+      return {
+        ...state,
+        loadingSlug: action.bool,
       }
     }
 

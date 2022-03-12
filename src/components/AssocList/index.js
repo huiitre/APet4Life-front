@@ -8,8 +8,6 @@ import { useDispatch, useSelector } from "react-redux";
 //! faire propType d'assocList
 
 const AssocList = ({ assocList, location }) => {
-  console.log('assocList', assocList);
-  console.log('location preview', location);
   return (
     <Segment>
       <ul className="list">
@@ -23,7 +21,7 @@ const AssocList = ({ assocList, location }) => {
               //* elle doit correspondre à une route */}
               <Link
                 to={`/association/${item.slug}`}
-                state={{prevPath: location, array: assocList}}
+                state={{prevPath: location}}
               >
                 <li className="list__item">
                   <img className="list__item-logo" src={item.picture} alt="" />
