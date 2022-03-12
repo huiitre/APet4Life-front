@@ -124,8 +124,9 @@ export const clearSignupForm = () => ({
 //* ACTION TYPE CHANGE_EDITION_MODE
 export const CHANGE_EDITION_MODE = 'CHANGE_EDITION_MODE';
 //* ACTION CREATOR changeEditionMode
-export const changeEditionMode = () => ({
+export const changeEditionMode = (bool) => ({
   type: CHANGE_EDITION_MODE,
+  bool
 });
 
 //* ACTION TYPE SET_FIELD_VALUE_PROFILE_FORM
@@ -162,11 +163,11 @@ export const deleteUserInfos = () => ({
   type: DELETE_USER_INFOS,
 });
 
-//* ACTION TYPE OPEN_MODAL
-export const OPEN_MODAL = 'OPEN_MODAL';
-//* ACTION CREATOR openModal
-export const openModal = (bool) => ({
-  type: OPEN_MODAL,
+//* ACTION TYPE SET_MODAL_DELETE
+export const SET_MODAL_DELETE = 'SET_MODAL_DELETE';
+//* ACTION CREATOR setModalDelete
+export const setModalDelete = (bool) => ({
+  type: SET_MODAL_DELETE,
   bool,
 });
 
