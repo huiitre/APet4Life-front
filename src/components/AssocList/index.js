@@ -21,7 +21,7 @@ const AssocList = ({ assocList, location }) => {
               //* elle doit correspondre à une route */}
               <Link
                 to={`/association/${item.slug}`}
-                state={{prevPath: location, array: assocList}}
+                state={{prevPath: location}}
               >
                 <li className="list__item">
                   <img className="list__item-logo" src={item.picture} alt="" />

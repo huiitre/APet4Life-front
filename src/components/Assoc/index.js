@@ -16,10 +16,17 @@ import Spinner from "src/components/Spinner";
 const Assoc = () => {
   const location = useLocation();
   const navigate = useNavigate();
+  
+  //? si la précédente localisation existe, on retourne dessus au clic sur le bouton, sinon on retourne à l'accueil
   const handleClickNavigateToPreviousPage = () => {
-    navigate(location.state.prevPath);
+    if (location.state === null) {
+      navigate('/');
+    } else {
+      navigate(location.state.prevPath);
+    }
   };
 
+  //! ancienne version
   //* on récupère l'object qui a été stocké dans le "state" de l'url
   // const array = location.state.array;
 
@@ -50,16 +57,20 @@ const Assoc = () => {
   //* on avait déclaré la route /association/:slug, on vient donc destructurer "slug" pour récupérer ce qu'il contient
   const { slug } = useParams();
 
+  //! ancienne version
   //* on récupère le tableau depuis les props, et on l'insère dans la fonction findAssoc (avec le slug qui provient de useParams() -> paramètres d'url)
   // const assoc = findAssoc(array, slug);
 
-  //* -------------------- TEST v2 --------------------
+  //todo nouvelle version
+  //* on fait un useeffect quand on arrive sur la page pour récupérer l'assoc en cours avec le slug
   useEffect(() => {
     dispatch(loadAssocBySlug(slug));
   }, []);
+  //* on récup l'assoc depuis le store
   const assoc = useSelector((state) => state.associations.currentAssoc);
+  //* on récup le loading depuis le store
   const loadingSlug = useSelector((state) => state.associations.loadingSlug);
-  console.log(assoc);
+  //todo -------------------------
 
   return (
     <Page className="assoc-page">
@@ -121,7 +132,7 @@ const Assoc = () => {
             />
             <Button
               onClick={handleClickNavigateToPreviousPage}
-              name="Retour à la liste"
+              name="Retour"
               className="btn--return"
             />
           </div>
