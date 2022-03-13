@@ -82,9 +82,6 @@ const userMiddleware = (store) => (next) => (action) => {
           mail : loginMail,
           password : loginPassword,
         }} } = store.getState();
-        
-        console.log(loginMail, loginPassword)
-        
         axios.post(`${finalURL}/api/login_check`, {
           "username": loginMail,
           "password": loginPassword,
@@ -140,8 +137,6 @@ const userMiddleware = (store) => (next) => (action) => {
       axios
         .patch(`${finalURL}/api/secure/user/update/${data.id}`, data) 
         .then((response) => {
-          console.log('response', response)
-
           //* on met l'user modifié en localstorage
           const userData = JSON.stringify(data)
           localStorage.setItem('userData', userData);
@@ -162,8 +157,6 @@ const userMiddleware = (store) => (next) => (action) => {
       axios
         .delete(`${finalURL}/api/secure/user/delete/${id}`) 
         .then((response) => {
-          console.log('response', response)
-          
           //* on vide le state et le localstorage
           store.dispatch(clearState());
           localStorage.clear();
