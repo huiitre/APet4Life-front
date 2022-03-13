@@ -17,7 +17,6 @@ const Nav = () => {
   const {
     currentUser: { roleUser },
   } = useSelector((state) => state.user);
-  console.log(roleUser, roleUser === "ROLE_ASSO");
 
   //* fonction inversant l'état d'ouverture du burger menu
   const handleShowLinks = () => {

@@ -87,8 +87,6 @@ const userMiddleware = (store) => (next) => (action) => {
           "password": loginPassword,
         })
           .then((response) => {
-            console.log('success', response.data)
-            
             //* on stocke le token et les data utilisateur dans le localstorage
             localStorage.setItem('TOKEN', response.data.token);
             const userData = JSON.stringify(response.data.data)
