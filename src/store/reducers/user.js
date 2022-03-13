@@ -61,6 +61,7 @@ export const initialState = {
   currentUser: { 
     data: {},
     token: '',
+    roleUser: '',
   },
   profile: {
     editionMode: false,
@@ -169,12 +170,14 @@ const reducer = (state = initialState, action = {}) => {
       }
     }
     case INSERT_TOKEN_TO_STATE: {
+      console.log(action);
       return {
         ...state,
         currentUser: {
           ...state.currentUser,
           token: action.token,
           data: action.data,
+          roleUser: action.data.roles[0],
         },
         loginForm: {
           ...state.loginForm,
