@@ -54,13 +54,11 @@ const App = () => {
       if (userData) {
         const JSuserData = JSON.parse(userData)
         dispatch(setCurrentUser('data', JSuserData));
-        console.log(JSuserData);
       }
       
       const TOKEN = localStorage.getItem('TOKEN');
       if (TOKEN) {
         dispatch(setCurrentUser('token', TOKEN));
-        console.log(TOKEN);
       }
     },
     [],

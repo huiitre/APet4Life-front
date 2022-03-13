@@ -66,8 +66,11 @@ const Assoc = () => {
   useEffect(() => {
     dispatch(loadAssocBySlug(slug));
   }, []);
+
   //* on récup l'assoc depuis le store
-  const assoc = useSelector((state) => state.associations.currentAssoc);
+  const assoc = useSelector((state) => state.associations.currentAssoc.data);
+  const species = useSelector((state) => state.associations.currentAssoc.species);
+
   //* on récup le loading depuis le store
   const loadingSlug = useSelector((state) => state.associations.loadingSlug);
   //todo -------------------------
@@ -83,10 +86,10 @@ const Assoc = () => {
           <div className="assoc__content">
             <div className="assoc__title">{assoc.name}</div>
             <div className="assoc__species">
-              {/* {assoc.species !== [] &&
-                assoc.species.map((item) => (
+              {species !== [] &&
+                species.map((item) => (
                   <div className="assoc__specie">{item.name}</div>
-                ))} */}
+                ))}
             </div>
             <div className="assoc__description">
               <p>{assoc.description}</p>
