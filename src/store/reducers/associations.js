@@ -18,7 +18,10 @@ import {
 
 //* state initial
 export const initialState = {
-  currentAssoc: {},
+  currentAssoc: {
+    data: {},
+    species: [],
+  },
   loadingSlug: false,
   //? loading pour le spinner
   loading: false,
@@ -127,7 +130,11 @@ const reducer = (state = initialState, action = {}) => {
     case INSERT_ASSOC_BY_SLUG_ON_STATE: {
       return {
         ...state,
-        currentAssoc: action.currentAssoc,
+        currentAssoc: {
+          ...state.currentAssoc,
+          data: action.currentAssoc,
+          species: action.currentAssoc.species,
+        },
         loadingSlug: false,
       }
     }
