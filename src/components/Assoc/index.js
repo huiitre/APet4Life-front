@@ -12,6 +12,7 @@ import { findAssoc } from "../../store/selectors/associations";
 import { useEffect } from "react";
 import { loadAssocBySlug } from "../../store/actions/associations";
 import Spinner from "src/components/Spinner";
+import Separator from 'src/components/Separator';
 
 const Assoc = () => {
   const location = useLocation();
@@ -91,9 +92,11 @@ const Assoc = () => {
                   <div className="assoc__specie">{item.name}</div>
                 ))}
             </div>
+            <Separator />
             <div className="assoc__description">
               <p>{assoc.description}</p>
             </div>
+            <Separator />
             <div className="assoc__contact">
               {/* <div className="assoc__contact-coord"> */}
               <span className="coord assoc__contact-coord--mail">
