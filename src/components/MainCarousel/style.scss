@@ -1,20 +1,23 @@
 .swiper {
-  max-height: calc(100vh - 125px);
-  
-  &__img {
-    width: 100%;
-    max-height: calc(100vh - 125px);
-  }
+  // max-height: calc(100vh - 125px);
 
+  &__img {
+    width: 100%;   
+    // max-height: calc(100vh - 125px);
+  }
+  
   &__content {
+   
     display: none;
   }
+  
 
   @media screen and (min-width: 768px) {
-    width: 90%;
+    width: 85%;
     box-shadow: inset;
+
     &__img {
-      max-height: 100%;
+      // max-height: 100%;
     }
   }
 
@@ -33,3 +36,40 @@
     }
   }
 }
+
+//* ci-dessous : essais pour appliquer un filtre foncé sur le swipper
+// .swiper-wrapper {
+//   box-shadow: inset 0 0 0 1000px rgba(0,0,0,.4);
+// }
+
+// .swiper-slide {
+//   box-shadow: inset 0 0 0 1000px rgba(0,0,0,.4);
+// }
+
+// .swiper-slide.swiper-slide-visible.swiper-slide-active {
+//   box-shadow: inset 0 0 0 1000px rgba(0,0,0,.4);
+// }
+
+// .swiper-slide.swiper-slide-next {
+//   box-shadow: inset 0 0 0 1000px rgba(0,0,0,.4);
+// }
+
+// .swiper-slide.swiper-slide-prev {
+//   box-shadow: inset 0 0 0 1000px rgba(0,0,0,.4);
+// }
+
+// .swiper-slide.swiper-slide-duplicate.swiper-slide-duplicate-next {
+//   box-shadow: inset 0 0 0 1000px rgba(0,0,0,.4);
+// }
+
+// .swiper-slide.swiper-slide-duplicate.swiper-slide-duplicate-prev {
+//   box-shadow: inset 0 0 0 1000px rgba(0,0,0,.4);
+// }
+
+// .swiper__img {
+//   box-shadow: inset 0 0 0 1000px rgba(0,0,0,.4);
+// }
+
+// .swiper.swiper-fade.swiper-initialized.swiper-horizontal.swiper-android.mySwipper.swiper-backface-hidden {
+//   box-shadow: inset 0 0 0 1000px rgba(0,0,0,.4);
+// }

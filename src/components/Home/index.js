@@ -10,6 +10,7 @@ import Separator from 'src/components/Separator';
 const Home = () => (
   <Page>
     <section className="home__carousel">
+    <div className="home__carousel-filter"></div>
       <MainCarousel />
     </section>
     <Separator className="home__separator" />
