@@ -12,16 +12,16 @@ import { findAssoc } from "../../store/selectors/associations";
 import { useEffect } from "react";
 import { loadAssocBySlug } from "../../store/actions/associations";
 import Spinner from "src/components/Spinner";
-import Separator from 'src/components/Separator';
+import Separator from "src/components/Separator";
 
 const Assoc = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  
+
   //? si la précédente localisation existe, on retourne dessus au clic sur le bouton, sinon on retourne à l'accueil
   const handleClickNavigateToPreviousPage = () => {
     if (location.state === null) {
-      navigate('/');
+      navigate("/");
     } else {
       navigate(location.state.prevPath);
     }
@@ -70,7 +70,9 @@ const Assoc = () => {
 
   //* on récup l'assoc depuis le store
   const assoc = useSelector((state) => state.associations.currentAssoc.data);
-  const species = useSelector((state) => state.associations.currentAssoc.species);
+  const species = useSelector(
+    (state) => state.associations.currentAssoc.species
+  );
 
   //* on récup le loading depuis le store
   const loadingSlug = useSelector((state) => state.associations.loadingSlug);
@@ -98,34 +100,38 @@ const Assoc = () => {
             </div>
             <Separator />
             <div className="assoc__contact">
-              {/* <div className="assoc__contact-coord"> */}
-              <span className="coord assoc__contact-coord--mail">
-                <Icon name="mail outline" size="large" />
-                <a href={`mailto:${assoc.mail}`}>{assoc.mail}</a>
-              </span>
-              <span className="coord assoc__contact-coord--phone">
-                <Icon name="phone" size="large" />
-                <a href={`tel:${assoc.phone_number}`}>{assoc.phone_number}</a>
-              </span>
-              <span className="coord assoc__contact-coord--website">
-                <Icon name="at" size="large" />
-                <a href={assoc.website}>{assoc.website}</a>
-              </span>
-              <span className="coord assoc__contact-coord--address">
-                <Icon name="home" size="large" />
-                {assoc.adress}
-              </span>
-              <span className="coord assoc__contact-coord--city">
-                <Icon name="home" size="large" />
-                {assoc.zipcode} {assoc.city} | {assoc.department}
-              </span>
-              <span className="coord assoc__contact-coord--region">
-                <Icon name="home" size="large" />
-                {assoc.region}
-              </span>
-              {/* </div> */}
+              <div className="assoc__contact-left">
+                <span className="coord assoc__contact-coord--mail">
+                  <Icon name="mail outline" size="large" />
+                  <a href={`mailto:${assoc.mail}`}>{assoc.mail}</a>
+                </span>
+                <span className="coord assoc__contact-coord--phone">
+                  <Icon name="phone" size="large" />
+                  <a href={`tel:${assoc.phone_number}`}>{assoc.phone_number}</a>
+                </span>
+                <span className="coord assoc__contact-coord--website">
+                  <Icon name="at" size="large" />
+                  <a href={assoc.website}>{assoc.website}</a>
+                </span>
+              </div>
+              <Separator className="assoc__page-separator" />
+              <div className="assoc__contact-right">
+                <span className="coord assoc__contact-coord--address">
+                  <Icon name="home" size="large" />
+                  {assoc.adress}
+                </span>
+                <span className="coord assoc__contact-coord--city">
+                  <Icon name="home" size="large" />
+                  {assoc.zipcode} {assoc.city} | {assoc.department}
+                </span>
+                <span className="coord assoc__contact-coord--region">
+                  <Icon name="home" size="large" />
+                  {assoc.region}
+                </span>
+              </div>
             </div>
           </div>
+          <Separator className="assoc__page-separator" />
           <div className="assoc__contact-button">
             <Button
               onClick={handleIsOpen}
