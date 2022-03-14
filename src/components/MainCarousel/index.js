@@ -2,9 +2,9 @@ import './style.scss';
 
 //* import data temporaire pour les images
 import pictures from 'src/data/pictures';
-import carousel1 from 'src/assets/img/carousel1.jpg';
-import carousel2 from 'src/assets/img/carousel2.jpg';
-import carousel3 from 'src/assets/img/carousel3.jpg';
+import carousel1 from 'src/assets/img/carousel-1.jpg';
+import carousel2 from 'src/assets/img/carousel-2.jpg';
+import carousel3 from 'src/assets/img/carousel-3.jpg';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -37,15 +37,15 @@ const MainCarousel = () => (
       {/* <SwiperSlide><img src="" alt="random" /></SwiperSlide> */}
       <SwiperSlide>
         <img className="swiper__img" src={carousel1} alt="carousel1" />
-        {/* <p className="swiper__content">Le site qui référence les associations animales dans ta région</p> */}
+        <p className="swiper__content">Le site qui référence les associations animales dans votre région</p>
       </SwiperSlide>
       <SwiperSlide>
         <img className="swiper__img" src={carousel2} alt="carousel2" />
-        {/* <p className="swiper__content">Tu cherches à adopter un animal en particulier ?</p> */}
+        <p className="swiper__content">Vous cherchez à adopter un animal en particulier ?</p>
       </SwiperSlide>
       <SwiperSlide>
         <img className="swiper__img" src={carousel3} alt="carousel3" />
-        {/* <p className="swiper__content">Le formulaire de recherche plus bas t'aidera à trouver l'association la plus proche de chez toi</p> */}
+        <p className="swiper__content">Le formulaire de recherche plus bas vous aidera à trouver une association proche de chez vous</p>
       </SwiperSlide>
     </Swiper>
   </div>

@@ -1,35 +1,79 @@
 .swiper {
-  max-height: calc(100vh - 125px);
-  
-  &__img {
-    width: 100%;
-    max-height: calc(100vh - 125px);
-  }
+  // max-height: calc(100vh - 125px);
 
+  &__img {
+    width: 100%;   
+    // max-height: calc(100vh - 125px);
+  }
+  
   &__content {
+   
     display: none;
   }
+  
 
   @media screen and (min-width: 768px) {
-    width: 90%;
+    width: 85%;
     box-shadow: inset;
-    &__img {
-      max-height: 100%;
-    }
-  }
 
-  @media screen and (min-width: 1200px) {
+    &__img {
+      // max-height: 100%;
+    }
+
     &__content {
       display: block;
       position: absolute;
       top: 20px;
       left: 20px;
-      color: #ffffffa4;
-      font-size: 2rem;
+      color: white;
+      font-size: 1.5rem;
       max-width: 60%;
       line-height: 3rem;
       text-shadow: 10px 10px 20px #000000;
       font-style: italic;
     }
   }
+
+  @media screen and (min-width: 1024px) {
+    &__content {
+      font-size: 2rem;
+    }
+  }
 }
+
+//* ci-dessous : essais infructueux pour appliquer un filtre foncé sur le swipper
+// .swiper-wrapper {
+//   box-shadow: inset 0 0 0 1000px rgba(0,0,0,.4);
+// }
+
+// .swiper-slide {
+//   box-shadow: inset 0 0 0 1000px rgba(0,0,0,.4);
+// }
+
+// .swiper-slide.swiper-slide-visible.swiper-slide-active {
+//   box-shadow: inset 0 0 0 1000px rgba(0,0,0,.4);
+// }
+
+// .swiper-slide.swiper-slide-next {
+//   box-shadow: inset 0 0 0 1000px rgba(0,0,0,.4);
+// }
+
+// .swiper-slide.swiper-slide-prev {
+//   box-shadow: inset 0 0 0 1000px rgba(0,0,0,.4);
+// }
+
+// .swiper-slide.swiper-slide-duplicate.swiper-slide-duplicate-next {
+//   box-shadow: inset 0 0 0 1000px rgba(0,0,0,.4);
+// }
+
+// .swiper-slide.swiper-slide-duplicate.swiper-slide-duplicate-prev {
+//   box-shadow: inset 0 0 0 1000px rgba(0,0,0,.4);
+// }
+
+// .swiper__img {
+//   box-shadow: inset 0 0 0 1000px rgba(0,0,0,.4);
+// }
+
+// .swiper.swiper-fade.swiper-initialized.swiper-horizontal.swiper-android.mySwipper.swiper-backface-hidden {
+//   box-shadow: inset 0 0 0 1000px rgba(0,0,0,.4);
+// }
