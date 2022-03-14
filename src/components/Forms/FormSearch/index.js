@@ -86,7 +86,8 @@ const FormSearch = () => {
         onSubmit={handleSubmit}
       >
         <p>Cherchez une association :</p>
-
+        
+        <div className="form__region-department">
         <Select
           onChange={handleChangeRegion}
           array={regionsList}
@@ -95,7 +96,7 @@ const FormSearch = () => {
           classNames="form__select"
           value={region}
         />
-
+        <p className="form__or">ou</p>
         <Select
           onChange={handleChangeDepartment}
           array={departmentList}
@@ -104,11 +105,9 @@ const FormSearch = () => {
           classNames="form__select"
           value={department}
         />
-        <p>
-          ou
-          <br />
-          Entrez votre code postal :
-        </p>
+        </div>
+
+        <p>ou entrez votre code postal :</p>
 
         <Field
           type="number"
