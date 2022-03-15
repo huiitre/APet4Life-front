@@ -14,8 +14,8 @@ const adopted = [
   {
     id: 3,
     name: 'Chanel',
-    picture: 'Chanel_Alex.jpg',
-    owner: 'Alex',
+    picture: 'Chanel_Axel.jpg',
+    owner: 'Axel',
   },
   {
     id: 4,
