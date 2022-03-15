@@ -1,7 +1,8 @@
 import "./style.scss";
-import Page from "src/components/Page";
-// import FormContact from "../Forms/FormContact";
 import backgroundContact from 'src/assets/img/team-background.jpg';
+
+//* import composants
+import Page from "src/components/Page";
 import Field from 'src/components/Forms/Field';
 import TextArea from 'src/components/Forms/TextArea';
 import Button from 'src/components/Button';

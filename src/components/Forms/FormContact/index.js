@@ -16,16 +16,16 @@ const FormContact = ({ className, onSubmit }) => {
       type="email"
       placeholder="Email"
       name="mail"
-      className=""
+      className="contact__form-field"
     />
     <Field
       type="text"
       placeholder="Objet"
       name="object"
-      className=""
+      className="contact__form-field"
     />
     <TextArea
-      className=""
+      className="contact__form-textarea"
       placeholder="Votre message ici ..."
     />
     <Button

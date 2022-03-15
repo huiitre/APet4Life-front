@@ -109,38 +109,7 @@
     &-textarea {
       width: 12rem;
     }
-
-    &-field {
-      outline: 0;
-      border-width: 0 0 2px;
-      border-color: vars.$color-dark-main;
-      color: vars.$color-dark-main;
-      background-color: transparent;
-      border-radius: 0;
-    }
-
-    &-field:focus {
-      background-color: rgba(28, 101, 140, 0.2);
-    }
-
-    &-field::placeholder {
-      color: rgba(28, 101, 140, 0.6);
-    }
-
-    &-field:hover::placeholder {
-      color: vars.$color-dark-main;
-    }
     
-    &-textarea {
-      height: 10rem;
-      background-color: rgba(255, 255, 255, 0.6);
-      border: none;
-      border-radius: 0;
-    }
-
-    &-textarea:focus {
-      background-color: white;
-    }
 
     form {
       display: flex;
@@ -152,9 +121,7 @@
         margin-top: 0.3rem;
       }
     }
-
   }
-
 
   //* gestion du background img https://www.digitalocean.com/community/tutorials/how-to-change-a-css-background-images-opacity-fr
   &__background {
@@ -166,7 +133,6 @@
     opacity: 0.2;
     z-index: -2;
   }
-
 }
 
 @media screen and (min-width: 768px) {

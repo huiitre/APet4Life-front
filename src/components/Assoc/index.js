@@ -1,20 +1,33 @@
 /* eslint-disable max-len */
 import "./style.scss";
+
+//* import composants
 import Page from "src/components/Page";
 import Button from "src/components/Button";
+import Spinner from "src/components/Spinner";
+import Separator from "src/components/Separator";
+import FormContact from "../Forms/FormContact";
+
+//* import semantic
 import { Icon, Image, Segment } from "semantic-ui-react";
+import { useEffect, useState } from "react";
+
+//* import react
 import { useDispatch, useSelector } from "react-redux";
 import classNames from "classnames";
 import { useParams, useNavigate, useLocation } from "react-router-dom";
-import FormContact from "../Forms/FormContact";
-import { formContactIsOpen } from "../../store/actions/user";
-import { findAssoc } from "../../store/selectors/associations";
-import { useEffect, useState } from "react";
-import { loadAssocBySlug } from "../../store/actions/associations";
-import Spinner from "src/components/Spinner";
-import Separator from "src/components/Separator";
 
+//* import actions
+import { formContactIsOpen } from "../../store/actions/user";
+import { loadAssocBySlug } from "../../store/actions/associations";
+
+// import { findAssoc } from "../../store/selectors/associations";
+
+
+//* composant assoc pour la page par association
 const Assoc = () => {
+
+  //* hooks react
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -51,7 +64,12 @@ const Assoc = () => {
   //* sinon, on affiche pendant 1.5s un message d'erreur
   const handleIsOpen = () => {
     if (isLogged) {
-      dispatch(formContactIsOpen());
+      
+      //* ternaire pour ouvrir et fermer formulaire
+      isOpen ?
+      dispatch(formContactIsOpen(false)) :
+      dispatch(formContactIsOpen(true));
+
       setIsLoggedFormContact(true);
     } else {
       setIsLoggedFormContact(false)
@@ -85,6 +103,8 @@ const Assoc = () => {
   //* on fait un useeffect quand on arrive sur la page pour récupérer l'assoc en cours avec le slug
   useEffect(() => {
     dispatch(loadAssocBySlug(slug));
+    dispatch(formContactIsOpen(false));
+
   }, []);
 
   //* on récup l'assoc depuis le store
