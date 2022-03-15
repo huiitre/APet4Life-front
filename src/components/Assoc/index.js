@@ -9,7 +9,7 @@ import { useParams, useNavigate, useLocation } from "react-router-dom";
 import FormContact from "../Forms/FormContact";
 import { formContactIsOpen } from "../../store/actions/user";
 import { findAssoc } from "../../store/selectors/associations";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { loadAssocBySlug } from "../../store/actions/associations";
 import Spinner from "src/components/Spinner";
 import Separator from "src/components/Separator";
@@ -36,10 +36,29 @@ const Assoc = () => {
   //* on récupère la propriété "isOpen" venant du state
   const isOpen = useSelector((state) => state.user.contactAssoc.isOpen);
 
+  //* on vérifie si quelqu'un est connecté, pour afficher ou non le formulaire
+  const isLogged = useSelector((state) => state.user.userLogged);
+  
+  //* hook custom qui gère le message d'erreur pour l'ouverture du formulaire de contact
+  //* si true, le message ne s'affiche pas
+  const [isLoggedFormContact, setIsLoggedFormContact] = useState(true);
+
+  //* si le hook vaut false, on lui applique une class en plus pour le faire apparaitre
+  const isLoggedClassList = classNames('is-logged', {'is-logged--block': !isLoggedFormContact});
+
   //* fonction handleIsOpen renvoie le contraire de l'état actuel du state (true -> false, false -> true)
-  //* si isOpen vaut true, on affiche le formulaire de contact pour les assoc, si il vaut false, le formulaire reste caché
+  //* si isLogged (est-ce qu'un user est connecté ?) vaut true, on affiche le formulaire de contact
+  //* sinon, on affiche pendant 1.5s un message d'erreur
   const handleIsOpen = () => {
-    dispatch(formContactIsOpen());
+    if (isLogged) {
+      dispatch(formContactIsOpen());
+      setIsLoggedFormContact(true);
+    } else {
+      setIsLoggedFormContact(false)
+      setTimeout(() => {
+        setIsLoggedFormContact(true)
+      }, 1500);
+    }
   };
 
   //* fonction onSubmit, pour envoyer un mail à l'assoc via ce formulaire (pas implémenté pour l'instant, juste un event.preventDefault())
@@ -74,8 +93,6 @@ const Assoc = () => {
     (state) => state.associations.currentAssoc.species
   );
   const isEmpty = useSelector((state) => state.associations.currentAssoc.isEmpty);
-  console.log(isEmpty);
-  const isLogged = useSelector((state) => state.user.userLogged);
 
   useEffect(() => {
     if (isEmpty) {
@@ -142,6 +159,7 @@ const Assoc = () => {
           </div>
           <Separator className="assoc__page-separator" />
           <div className="assoc__contact-button">
+            <div className={isLoggedClassList}>Vous devez être connecté</div>
             <Button
               onClick={handleIsOpen}
               name="Nous contacter"
