@@ -41,7 +41,8 @@ const Home = () => {
         <p
           className="home__description-chevron"
           onClick={handleClick}
-        >&#8964;</p>
+        ><FontAwesomeIcon icon="fa-solid fa-angles-down" /></p>
+        {/* &#8964; */}
       </div>
     </section>
     
