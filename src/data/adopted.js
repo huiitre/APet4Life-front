@@ -10,7 +10,7 @@ const adopted = [
     name: 'Cacao',
     picture: 'Cacao_Aude.png',
     owner: 'Aude',
-  },
+  }, 
   {
     id: 3,
     name: 'Chanel',
