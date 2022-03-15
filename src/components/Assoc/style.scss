@@ -2,13 +2,11 @@
 
 .is-logged {
   text-align: center;
-  margin: 1rem 0;
   color: vars.$color-red;
   display: none;
+  position: absolute;
+  top: -25px;
 }
-/* .is-logged--true {
-  display: none;
-} */
 .is-logged--block {
   display: block;
 }
@@ -112,6 +110,7 @@
     &-button {
       order: 10;
       align-self: center;
+      position: relative;
 
       & button {
         margin-bottom: 1rem;

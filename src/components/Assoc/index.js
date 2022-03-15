@@ -57,7 +57,7 @@ const Assoc = () => {
       setIsLoggedFormContact(false)
       setTimeout(() => {
         setIsLoggedFormContact(true)
-      }, 1500);
+      }, 2000);
     }
   };
 
