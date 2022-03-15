@@ -6,32 +6,29 @@
     // max-height: calc(100vh - 125px);
   }
   
-  &__content {
-   
-    display: none;
-  }
+  //* à décommenter pour afficher les commentaires
+  // &__content {
+  //   display: none;
+  // }
   
 
   @media screen and (min-width: 1230px) {
     width: 85%;
     box-shadow: inset;
 
-    &__img {
-      // max-height: 100%;
-    }
-
-    &__content {
-      display: block;
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      color: white;
-      font-size: 1.5rem;
-      max-width: 60%;
-      line-height: 3rem;
-      text-shadow: 10px 10px 20px #000000;
-      font-style: italic;
-    }
+    //* à décommenter pour afficher les commentaires
+    // &__content {
+    //   display: block;
+    //   position: absolute;
+    //   top: 20px;
+    //   left: 20px;
+    //   color: white;
+    //   font-size: 1.5rem;
+    //   max-width: 60%;
+    //   line-height: 3rem;
+    //   text-shadow: 10px 10px 20px #000000;
+    //   font-style: italic;
+    // }
   }
 
   @media screen and (min-width: 1024px) {

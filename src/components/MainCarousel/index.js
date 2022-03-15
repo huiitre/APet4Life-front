@@ -6,6 +6,7 @@ import carousel1 from 'src/assets/img/carousel-1.jpg';
 import carousel2 from 'src/assets/img/carousel-2.jpg';
 import carousel3 from 'src/assets/img/carousel-3.jpg';
 
+//* imports swiper de react
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/bundle';

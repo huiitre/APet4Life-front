@@ -17,7 +17,11 @@ const Home = () => {
 
   //* scroll au formulaire de recherche quand clic sur chevron
   const handleClick = () => {
-    window.scrollTo(0, refSearch.current.offsetTop)
+    window.scrollTo({
+      top:refSearch.current.offsetTop,
+      left: 0,
+      behavior: 'smooth'
+    })
   }
 
   return (
