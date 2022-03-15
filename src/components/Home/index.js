@@ -1,8 +1,5 @@
 import './style.scss';
 
-import { FontAwesomeIcon } from '@fortawesome/fontawesome-free';
-// import { faCoffee } from '@fortawesome/free-solid-svg-icons';
-
 //* import composants
 import Page from 'src/components/Page';
 import MainCarousel from 'src/components/MainCarousel';
