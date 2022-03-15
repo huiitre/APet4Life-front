@@ -60,6 +60,11 @@ const App = () => {
       if (TOKEN) {
         dispatch(setCurrentUser('token', TOKEN));
       }
+
+      const roleUser = localStorage.getItem('roleUser');
+      if (roleUser) {
+        dispatch(setCurrentUser('roleUser', roleUser));
+      }
     },
     [],
   );

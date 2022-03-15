@@ -91,6 +91,7 @@ const userMiddleware = (store) => (next) => (action) => {
             localStorage.setItem('TOKEN', response.data.token);
             const userData = JSON.stringify(response.data.data)
             localStorage.setItem('userData', userData);
+            localStorage.setItem('roleUser', response.data.data.roles[0]);
 
             //* on les stocke également dans le state
             store.dispatch(insertTokenToState(response.data.token, response.data.data));
