@@ -56,7 +56,26 @@
 
   .home {
     &__description {
-      display: none;
+      width: auto;
+      margin: auto;
+
     }
+
+    &__carousel {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+
+    }
+    
+  }
+}
+
+@media screen and (min-width: 1230px) {
+
+  .home {    
+    &__carousel {
+      flex-wrap: nowrap;
+    }    
   }
 }

@@ -1,19 +1,22 @@
 import "./style.scss";
 import logo from "src/assets/img/logo.png";
 
-//*imports react
+//* imports react, react router, redux
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
+
+//* imports actions
 import { logout } from "../../../store/actions/user";
 
 const Nav = () => {
   const dispatch = useDispatch();
-  const { userLogged } = useSelector((state) => state.user);
-
+  
   //* hook d'état gérant l'ouverture et fermeture du burger menu
   const [showLinks, setShowLinks] = useState(false);
-
+  
+  //* récupération d'informations depuis le state
+  const { userLogged } = useSelector((state) => state.user);
   const {
     currentUser: { roleUser },
   } = useSelector((state) => state.user);
@@ -22,6 +25,7 @@ const Nav = () => {
   const handleShowLinks = () => {
     setShowLinks(!showLinks);
   };
+
   const closeBurger = () => {
     setShowLinks(false);
   };
@@ -55,6 +59,7 @@ const Nav = () => {
           </Link>
         </li>
 
+        {/* //* si l'utilisateur n'est pas connecté, on affiche les liens de connection et d'inscription */}
         {!userLogged ? (
           <>
             <li className="navbar__item slideInDown-4">
@@ -76,7 +81,9 @@ const Nav = () => {
               </Link>
             </li>
           </>
-        ) : (
+        ) : 
+        //* sinon, si l'utilisateur est connecté, on affiche les liens de back office (si l'user est ADMIN), déconnexion et profil
+        (
           <>
             {roleUser === "ROLE_ADMIN" && (
               <li className="navbar__item slideInDown-4">

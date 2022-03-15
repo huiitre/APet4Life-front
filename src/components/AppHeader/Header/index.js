@@ -1,6 +1,8 @@
 /* eslint-disable max-len */
 import "./style.scss";
 import logo from "src/assets/img/logo.png";
+
+//* imports react router
 import { useNavigate } from "react-router";
 import { Link } from 'react-router-dom';
 
@@ -31,8 +33,11 @@ const Header = () => {
   const navigate = useNavigate(); 
   const dispatch = useDispatch();
 
+  //* on récupère des informations du state
   const isOpen = useSelector((state) => state.user.loginForm.isOpen);
+  const userLogged = useSelector((state) => state.user.userLogged);
   
+  //* méthodes handle
   const handleNavigateToSignupPage = () => {
     navigate('/inscription');
   };
@@ -50,8 +55,6 @@ const Header = () => {
     navigate('/profil');
   }
 
-  const userLogged = useSelector((state) => state.user.userLogged);
-
   const handleCloseModalSuccess = () => {
     dispatch(setModalSuccess(false));
     navigate('/');
@@ -61,31 +64,34 @@ const Header = () => {
     dispatch(setModalError(false));
   };
 
+  //* textes à afficher en modal
   const modalTextSuccess = `Vous êtes bien connecté`;
   const modalTextError = `Erreur de mail ou de mot de passe`;
 
   return (
     <div className="header">
-    <ModalSuccess
-      closeModal={handleCloseModalSuccess}
-      modalText={modalTextSuccess}
-      modalHeader="Bonjour !"
-    />
-    <ModalError
-      closeModal={handleCloseModalError}
-      modalText={modalTextError}
-      modalHeader="Echec"
-    />
-      <Link
-        to="/"
-      >
+      <ModalSuccess
+        closeModal={handleCloseModalSuccess}
+        modalText={modalTextSuccess}
+        modalHeader="Bonjour !"
+      />
+      <ModalError
+        closeModal={handleCloseModalError}
+        modalText={modalTextError}
+        modalHeader="Echec"
+      />
+      
+      {/* //* logo cliquable qui ramène vers l'accueil */}
+      <Link to="/">
         <img className="header__title" src={logo} alt="title" />
       </Link>
-          
+
+      {/* //* popup de login     */}
       {isOpen && <FormLogin />}
       <div className="header__user">
+
+        {/* //* si l'utilisateur n'est pas connecté, on affiche les boutons de connexion et d'incription */}
         {/* //* on importe le composant Button en lui passant en props (paramètres) des informations pour rendre le bouton "unique" par rapport aux autres */}
-        
         {!userLogged &&
           <>
             <Button
@@ -103,6 +109,7 @@ const Header = () => {
           </>
         }
 
+         {/* //* si l'utilisateur est connecté, on affiche les boutons de profil et de déconnexion */}
         {userLogged &&
           <>
             <Button
