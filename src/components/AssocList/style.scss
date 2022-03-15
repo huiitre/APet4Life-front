@@ -3,6 +3,11 @@
 .list {
   padding: 0 1rem;
 
+  //* on supprime le separator après le dernier élément de la liste
+  div:last-child > .list__separator {
+    display: none;
+  }
+
   &__item {
     margin: 1.5rem 0;
     display: flex;
