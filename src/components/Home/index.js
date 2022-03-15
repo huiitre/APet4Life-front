@@ -1,5 +1,8 @@
 import './style.scss';
 
+import { FontAwesomeIcon } from '@fortawesome/fontawesome-free';
+// import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+
 //* import composants
 import Page from 'src/components/Page';
 import MainCarousel from 'src/components/MainCarousel';
@@ -41,7 +44,7 @@ const Home = () => {
         <p
           className="home__description-chevron"
           onClick={handleClick}
-        ><FontAwesomeIcon icon="fa-solid fa-angles-down" /></p>
+        ><i className="fa-solid fa-angles-down"></i></p>
         {/* &#8964; */}
       </div>
     </section>
