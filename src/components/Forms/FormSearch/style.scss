@@ -7,7 +7,7 @@
   box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24),
     0 17px 50px 0 rgba(0, 0, 0, 0.19);
   color: vars.$color-dark-main;
-  text-shadow: 0px 0px 2px black;
+  text-shadow: 0px 0px 1px black;
   line-height: 2rem;
   padding: 1rem 0;
   max-width: 800px;
@@ -49,13 +49,21 @@
     min-width: 14rem;
   }
 
+  &__error {
+    height: 1rem;
+    width: 20rem;
+    margin: 1rem auto 0;
+    text-align: center;
+    color: red;
+  }
+
 }
 
 @media screen and (max-width: 767px) {
   .form__background {
     display: none;
   }
-  .home__search {
+  .container__search {
     background-color: #a5bfce;
   }
 }

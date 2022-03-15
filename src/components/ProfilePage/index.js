@@ -166,7 +166,7 @@ const ProfilePage = () => {
 
     <Segment className="profile">
       <div className="profile__picture">
-        <Image src="https://placekitten.com/500/600" size="medium" rounded />
+        <Image src={picture} size="medium" rounded />
       </div>
 
       <div className="profile__content">

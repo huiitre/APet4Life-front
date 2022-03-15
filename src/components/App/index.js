@@ -114,6 +114,7 @@ const App = () => {
           )}
         />
 
+        {/* //* route vers la page de profil seulement si user connecté */}
         { userLogged && 
           <Route
             path="/profil"
@@ -123,6 +124,7 @@ const App = () => {
           />
         }
 
+        {/* //* route vers la liste des associations */}
         <Route
           path="/associations"
           element={(
@@ -130,12 +132,15 @@ const App = () => {
           )}
         />
 
+        {/* //* route vers la page des animaux adoptés */}
         <Route
           path="/adoptes"
           element={(
             <Adopted />
           )}
         />
+
+        {/* //* route vers la page de contact */}
         <Route
           path="/contact"
           element={(
@@ -143,6 +148,7 @@ const App = () => {
           )}
         />
 
+        {/* //* route vers la 404 */}
         <Route
           path="*"
           element={(

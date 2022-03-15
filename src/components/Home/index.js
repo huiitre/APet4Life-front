@@ -17,16 +17,19 @@ const Home = () => {
 
   //* scroll au formulaire de recherche quand clic sur chevron
   const handleClick = () => {
-    window.scrollTo(0, refSearch.current.offsetTop)
+    window.scrollTo({
+      top:refSearch.current.offsetTop,
+      left: 0,
+      behavior: 'smooth'
+    })
   }
 
   return (
   <Page>
     <section className="home__carousel">
-    <div className="home__carousel-filter"></div>
+      {/* <div className="home__carousel-filter"></div> */}
       <MainCarousel />
-    </section>
-    <section className="home__description">
+      <div className="home__description">
         <p className="home__description-intro">
         <span>A Pet 4 Life</span> : Le site qui référence les associations animales dans votre région</p><br/>
         <p>
@@ -39,7 +42,9 @@ const Home = () => {
           className="home__description-chevron"
           onClick={handleClick}
         >&#8964;</p>
+      </div>
     </section>
+    
     <Separator className="home__separator" />
     <section className="home__search" ref={refSearch}>
       <FormSearch />
