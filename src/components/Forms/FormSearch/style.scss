@@ -49,13 +49,21 @@
     min-width: 14rem;
   }
 
+  &__error {
+    height: 1rem;
+    width: 20rem;
+    margin: 1rem auto 0;
+    text-align: center;
+    color: red;
+  }
+
 }
 
 @media screen and (max-width: 767px) {
   .form__background {
     display: none;
   }
-  .home__search {
+  .container__search {
     background-color: #a5bfce;
   }
 }

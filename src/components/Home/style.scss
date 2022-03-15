@@ -4,8 +4,8 @@
   scroll-behavior: smooth;
 
   &__carousel {
-  background-color: vars.$color-dark-main;
-  position: relative;
+    background-color: vars.$color-dark-main;
+    position: relative;
 
     &-filter {
       position: absolute;

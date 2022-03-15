@@ -4,6 +4,7 @@ import './style.scss';
 //* appel des dépendances react pouvant gérer des hooks
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 
 import backgroundForm from 'src/assets/img/form-dogs.jpg';
 
@@ -38,6 +39,9 @@ const FormSearch = () => {
   const department = useSelector((state) => state.associations.formAssoc.department);
   const zipcode = useSelector((state) => state.associations.formAssoc.zipcode);
 
+  //* on met en place un hook custom gérant le message d'erreur
+  const [errorMessage, setErrorMessage] = useState('');
+
   //* event qui va charger la liste des départements en fonction de la région sélectionnée
   const handleChangeRegion = (value) => {
     dispatch(setRegion(value));
@@ -61,25 +65,27 @@ const FormSearch = () => {
     //todo si zipcode n'est pas vide, on envoie la requête avec le zipcode
     if (zipcode !== '') {
       dispatch(sendSearchQueryByZipcode(zipcode));
+      navigate('/search');
     }
-
+    
     //todo si departement n'est pas vide
     else if (department !== '') {
       dispatch(sendSearchQueryByDepartment(department));
+      navigate('/search');
     }
-
+    
     //todo si region n'est pas vide
     else if (region !== '') {
       dispatch(sendSearchQueryByRegion(region));
+      navigate('/search');
     }
-
     else {
-    //! mettre un message veuillez sélectionner une localisation
+      setErrorMessage('Veuillez entrer une localisation');
     }
-    navigate('/search');
   };
 
   return (
+    <>
     <div className="container__search">
       <form
         className="form"
@@ -96,7 +102,7 @@ const FormSearch = () => {
           classNames="form__select"
           value={region}
         />
-        <p className="form__or">ou</p>
+        <p className="form__or">et / ou</p>
         <Select
           onChange={handleChangeDepartment}
           array={departmentList}
@@ -107,7 +113,7 @@ const FormSearch = () => {
         />
         </div>
 
-        <p>ou entrez votre code postal :</p>
+        <p>et / ou entrez votre code postal :</p>
 
         <Field
           type="number"
@@ -127,6 +133,8 @@ const FormSearch = () => {
       </form>
       <img className="form__background" src={backgroundForm} alt="test" />
     </div>
+    <div className="form__error">{errorMessage}</div>
+    </>
 
   );
 };
