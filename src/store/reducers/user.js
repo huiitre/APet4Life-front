@@ -80,7 +80,7 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         contactAssoc: {
           ...state.contactAssoc,
-          isOpen: !state.contactAssoc.isOpen,
+          isOpen: action.bool,
         },
       };
     }
