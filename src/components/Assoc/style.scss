@@ -46,6 +46,7 @@
 
     & .ui.medium.rounded.image {
       max-width: 100%;
+      max-height: 340px;
     }
   }
   &__species {
@@ -136,6 +137,7 @@
     flex-wrap: wrap;
     max-width: 1200px;
     margin: 0 auto;
+    height: 90%;
   }
   .assoc {
     &__contact {
@@ -144,6 +146,12 @@
       justify-content: space-between;
       width: 100%;
       flex-wrap: wrap;
+
+      &-button {
+        position: relative;
+        top: -234px;
+        left: 37px;
+      }
     }
 
     &__content {

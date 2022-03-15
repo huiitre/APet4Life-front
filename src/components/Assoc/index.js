@@ -75,6 +75,7 @@ const Assoc = () => {
   );
   const isEmpty = useSelector((state) => state.associations.currentAssoc.isEmpty);
   console.log(isEmpty);
+  const isLogged = useSelector((state) => state.user.userLogged);
 
   useEffect(() => {
     if (isEmpty) {
