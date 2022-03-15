@@ -10,6 +10,7 @@ import {
   INSERT_ALL_ASSOCIATIONS_ON_STATE,
   INSERT_ASSOC_BY_SLUG_ON_STATE,
   SET_LOADING_SLUG,
+  SET_IS_EMPTY,
 } from '../actions/associations';
 import {
   INSERT_DEPARTMENTS_TO_STATE,
@@ -19,6 +20,7 @@ import {
 //* state initial
 export const initialState = {
   currentAssoc: {
+    isEmpty: false,
     data: {},
     species: [],
   },
@@ -143,6 +145,16 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         loadingSlug: action.bool,
+      }
+    }
+
+    case SET_IS_EMPTY: {
+      return {
+        ...state,
+        currentAssoc: {
+          ...state.currentAssoc,
+          isEmpty: action.bool,
+        }
       }
     }
 

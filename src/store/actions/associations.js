@@ -100,3 +100,11 @@ export const setLoadingSlug = (bool) => ({
   type: SET_LOADING_SLUG,
   bool,
 });
+
+//* ACTION TYPE SET_IS_EMPTY
+export const SET_IS_EMPTY = 'SET_IS_EMPTY';
+//* ACTION CREATOR setIsEmpty
+export const setIsEmpty = (bool) => ({
+  type: SET_IS_EMPTY,
+  bool,
+});

@@ -1,5 +1,16 @@
 @use "src/styles/vars";
 
+.is-logged {
+  text-align: center;
+  color: vars.$color-red;
+  display: none;
+  position: absolute;
+  top: -25px;
+}
+.is-logged--block {
+  display: block;
+}
+
 .page.assoc-page {
   margin: 2rem 0 0rem 0;
 }
@@ -46,11 +57,12 @@
 
     & .ui.medium.rounded.image {
       max-width: 100%;
+      max-height: 340px;
     }
   }
   &__species {
-    display: flex;
     align-self: center;
+    display: flex;
   }
   &__specie {
     margin-bottom: 1rem;
@@ -67,6 +79,12 @@
   }
   &__description {
     text-align: justify;
+    min-height: 30px;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
   }
 
   &__contact {
@@ -78,6 +96,12 @@
     max-width: 768px;
     line-height: 2rem;
 
+    &-left,
+    &-right {
+      display: flex;
+      flex-direction: column;
+    }
+
     /* &-coord {
       display: flex;
       flex-direction: column;
@@ -86,6 +110,7 @@
     &-button {
       order: 10;
       align-self: center;
+      position: relative;
 
       & button {
         margin-bottom: 1rem;
@@ -124,6 +149,7 @@
     flex-wrap: wrap;
     max-width: 1200px;
     margin: 0 auto;
+    height: 90%;
   }
   .assoc {
     &__contact {
@@ -132,13 +158,20 @@
       justify-content: space-between;
       width: 100%;
       flex-wrap: wrap;
+
+      &-button {
+        position: relative;
+        top: -234px;
+        left: 37px;
+      }
     }
 
     &__content {
       margin: 3rem;
     }
-  }
-  .coord {
-    width: 50%;
+
+    &__page-separator {
+      display: none;
+    }
   }
 }

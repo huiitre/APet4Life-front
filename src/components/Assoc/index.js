@@ -9,18 +9,19 @@ import { useParams, useNavigate, useLocation } from "react-router-dom";
 import FormContact from "../Forms/FormContact";
 import { formContactIsOpen } from "../../store/actions/user";
 import { findAssoc } from "../../store/selectors/associations";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { loadAssocBySlug } from "../../store/actions/associations";
 import Spinner from "src/components/Spinner";
+import Separator from "src/components/Separator";
 
 const Assoc = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  
+
   //? si la précédente localisation existe, on retourne dessus au clic sur le bouton, sinon on retourne à l'accueil
   const handleClickNavigateToPreviousPage = () => {
     if (location.state === null) {
-      navigate('/');
+      navigate("/");
     } else {
       navigate(location.state.prevPath);
     }
@@ -35,10 +36,29 @@ const Assoc = () => {
   //* on récupère la propriété "isOpen" venant du state
   const isOpen = useSelector((state) => state.user.contactAssoc.isOpen);
 
+  //* on vérifie si quelqu'un est connecté, pour afficher ou non le formulaire
+  const isLogged = useSelector((state) => state.user.userLogged);
+  
+  //* hook custom qui gère le message d'erreur pour l'ouverture du formulaire de contact
+  //* si true, le message ne s'affiche pas
+  const [isLoggedFormContact, setIsLoggedFormContact] = useState(true);
+
+  //* si le hook vaut false, on lui applique une class en plus pour le faire apparaitre
+  const isLoggedClassList = classNames('is-logged', {'is-logged--block': !isLoggedFormContact});
+
   //* fonction handleIsOpen renvoie le contraire de l'état actuel du state (true -> false, false -> true)
-  //* si isOpen vaut true, on affiche le formulaire de contact pour les assoc, si il vaut false, le formulaire reste caché
+  //* si isLogged (est-ce qu'un user est connecté ?) vaut true, on affiche le formulaire de contact
+  //* sinon, on affiche pendant 1.5s un message d'erreur
   const handleIsOpen = () => {
-    dispatch(formContactIsOpen());
+    if (isLogged) {
+      dispatch(formContactIsOpen());
+      setIsLoggedFormContact(true);
+    } else {
+      setIsLoggedFormContact(false)
+      setTimeout(() => {
+        setIsLoggedFormContact(true)
+      }, 2000);
+    }
   };
 
   //* fonction onSubmit, pour envoyer un mail à l'assoc via ce formulaire (pas implémenté pour l'instant, juste un event.preventDefault())
@@ -69,7 +89,16 @@ const Assoc = () => {
 
   //* on récup l'assoc depuis le store
   const assoc = useSelector((state) => state.associations.currentAssoc.data);
-  const species = useSelector((state) => state.associations.currentAssoc.species);
+  const species = useSelector(
+    (state) => state.associations.currentAssoc.species
+  );
+  const isEmpty = useSelector((state) => state.associations.currentAssoc.isEmpty);
+
+  useEffect(() => {
+    if (isEmpty) {
+      navigate('/404');
+    }
+  });
 
   //* on récup le loading depuis le store
   const loadingSlug = useSelector((state) => state.associations.loadingSlug);
@@ -91,39 +120,46 @@ const Assoc = () => {
                   <div className="assoc__specie">{item.name}</div>
                 ))}
             </div>
+            <Separator />
             <div className="assoc__description">
               <p>{assoc.description}</p>
             </div>
+            <Separator />
             <div className="assoc__contact">
-              {/* <div className="assoc__contact-coord"> */}
-              <span className="coord assoc__contact-coord--mail">
-                <Icon name="mail outline" size="large" />
-                <a href={`mailto:${assoc.mail}`}>{assoc.mail}</a>
-              </span>
-              <span className="coord assoc__contact-coord--phone">
-                <Icon name="phone" size="large" />
-                <a href={`tel:${assoc.phone_number}`}>{assoc.phone_number}</a>
-              </span>
-              <span className="coord assoc__contact-coord--website">
-                <Icon name="at" size="large" />
-                <a href={assoc.website}>{assoc.website}</a>
-              </span>
-              <span className="coord assoc__contact-coord--address">
-                <Icon name="home" size="large" />
-                {assoc.adress}
-              </span>
-              <span className="coord assoc__contact-coord--city">
-                <Icon name="home" size="large" />
-                {assoc.zipcode} {assoc.city} | {assoc.department}
-              </span>
-              <span className="coord assoc__contact-coord--region">
-                <Icon name="home" size="large" />
-                {assoc.region}
-              </span>
-              {/* </div> */}
+              <div className="assoc__contact-left">
+                <span className="coord assoc__contact-coord--mail">
+                  <Icon name="mail outline" size="large" />
+                  <a href={`mailto:${assoc.mail}`}>{assoc.mail}</a>
+                </span>
+                <span className="coord assoc__contact-coord--phone">
+                  <Icon name="phone" size="large" />
+                  <a href={`tel:${assoc.phone_number}`}>{assoc.phone_number}</a>
+                </span>
+                <span className="coord assoc__contact-coord--website">
+                  <Icon name="at" size="large" />
+                  <a href={assoc.website}>{assoc.website}</a>
+                </span>
+              </div>
+              <Separator className="assoc__page-separator" />
+              <div className="assoc__contact-right">
+                <span className="coord assoc__contact-coord--address">
+                  <Icon name="home" size="large" />
+                  {assoc.adress}
+                </span>
+                <span className="coord assoc__contact-coord--city">
+                  <Icon name="home" size="large" />
+                  {assoc.zipcode} {assoc.city} | {assoc.department}
+                </span>
+                <span className="coord assoc__contact-coord--region">
+                  <Icon name="home" size="large" />
+                  {assoc.region}
+                </span>
+              </div>
             </div>
           </div>
+          <Separator className="assoc__page-separator" />
           <div className="assoc__contact-button">
+            <div className={isLoggedClassList}>Vous devez être connecté</div>
             <Button
               onClick={handleIsOpen}
               name="Nous contacter"
