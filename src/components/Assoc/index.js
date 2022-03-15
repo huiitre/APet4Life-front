@@ -73,6 +73,14 @@ const Assoc = () => {
   const species = useSelector(
     (state) => state.associations.currentAssoc.species
   );
+  const isEmpty = useSelector((state) => state.associations.currentAssoc.isEmpty);
+  console.log(isEmpty);
+
+  useEffect(() => {
+    if (isEmpty) {
+      navigate('/404');
+    }
+  });
 
   //* on récup le loading depuis le store
   const loadingSlug = useSelector((state) => state.associations.loadingSlug);

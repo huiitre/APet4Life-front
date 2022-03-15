@@ -1,5 +1,6 @@
 /* eslint-disable spaced-comment */
 import axios from 'axios';
+import { Navigate, useNavigate } from 'react-router';
 
 //* import des actions
 import {
@@ -13,6 +14,7 @@ import {
   LOAD_ASSOC_BY_SLUG,
   insertAssocBySlugOnState,
   setLoadingSlug,
+  setIsEmpty,
 } from '../actions/associations';
 
 //* MIDDLEWARE gérant l'envoi de la requête de recherche (par zipcode OU département OU region)
@@ -140,10 +142,17 @@ const associationMiddleware = (store) => (next) => (action) => {
 
       case LOAD_ASSOC_BY_SLUG:
         store.dispatch(setLoadingSlug(true));
+        store.dispatch(setIsEmpty(false));
         axios
           .get(`${finalURL}/api/user/association/${action.slug}`)
           .then((response) => {
-            store.dispatch(insertAssocBySlugOnState(response.data[0]));
+            if (response.data.length === 0) {
+              store.dispatch(setIsEmpty(true));
+            } else {
+              console.log('pas vide');
+              store.dispatch(insertAssocBySlugOnState(response.data[0]));
+              store.dispatch(setIsEmpty(false));
+            }
           });
         next(action);
         break;
