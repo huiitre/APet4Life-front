@@ -21,7 +21,7 @@ const MainCarousel = () => (
       slidesPerView={1}
       spaceBetween={30}
       loop
-      navigation
+      // navigation //* à rajouter pour flèches
       effect="fade"
       autoplay={{
         delay: 3000,
@@ -30,9 +30,11 @@ const MainCarousel = () => (
       // onSlideChange={() => console.log('slide change')}
       // onSwiper={(swiper) => console.log(swiper)}
       pagination={{
-        clickable: true,
+        clickable: false, //* à enlever pour flèches
+        // clickable: true, //* à rajouter pour flèches
       }}
-      modules={[EffectFade, Pagination, Navigation, Autoplay]}
+      modules={[EffectFade, Pagination, Autoplay]} //* à enlever pour flèches
+      // modules={[EffectFade, Pagination, Navigation, Autoplay]} //* à rajouter pour flèches
     >
       {/* <SwiperSlide><img src="" alt="random" /></SwiperSlide> */}
       <SwiperSlide>
