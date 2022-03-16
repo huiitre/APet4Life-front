@@ -11,22 +11,23 @@ const Adopted = () => {
 
   const [isOpen, setIsOpen] = useState(false);
   const [currentPicture, setCurrentPicture] = useState();
-  const [positionX, setPositionX] = useState();
+  const [currentY, setCurrentY] = useState();
   const [positionY, setPositionY] = useState();
 
   const openPicture = (evt) => {
     setIsOpen(true)
     setCurrentPicture(evt.target.src);
-    console.log('ouverture', evt.pageY);
-    setPositionX(evt.pageX);
+    console.log('ouverture', evt.clientY);
     setPositionY(evt.pageY);
+    setCurrentY(evt.clientY);
   };
   const handleClose = (evt) => {
     setIsOpen(false);
     console.log('close', evt);
     console.log('fermeture', evt.pageY);
+    console.log('fermeture', currentY);
     window.scrollTo({
-      top: positionY,
+      top: (positionY - currentY),
       left: 0,
       behavior: 'smooth'
     });
