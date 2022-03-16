@@ -2,7 +2,7 @@ import "./style.scss";
 import Page from "src/components/Page";
 import AssocList from "src/components/AssocList";
 import { useDispatch, useSelector } from "react-redux";
-import { useState } from "react";
+import { useEffect } from "react";
 import { setAllAssociationsFromApi } from "../../store/actions/associations";
 import { useLocation } from "react-router";
 import Spinner from 'src/components/Spinner';
@@ -10,7 +10,7 @@ import Spinner from 'src/components/Spinner';
 const Associations = () => {
   //! on le fait ici, c'est mieux que de l'appeler une seule fois depuis app/
   const dispatch = useDispatch();
-  useState(
+  useEffect(
     () => {
       console.log('appel de toute les associations');
       dispatch(setAllAssociationsFromApi());
