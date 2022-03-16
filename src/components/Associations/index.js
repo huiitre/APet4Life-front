@@ -8,6 +8,16 @@ import { useLocation } from "react-router";
 import Spinner from 'src/components/Spinner';
 
 const Associations = () => {
+  //! on le fait ici, c'est mieux que de l'appeler une seule fois depuis app/
+  const dispatch = useDispatch();
+  useState(
+    () => {
+      console.log('appel de toute les associations');
+      dispatch(setAllAssociationsFromApi());
+    },
+    [],
+  );
+
   //* récupère la localisation actuelle de la page
   const location = useLocation();
 
@@ -20,17 +30,8 @@ const Associations = () => {
   //* on génère le message de résultat
   const countMessage = `${count} association${count >= 2 ? "s" : ""} au total`;
   
-  //! possiblement inutile car le dispatch est déjà fait dans App
-  /* const dispatch = useDispatch();
-  useState(
-    () => {
-      console.log('appel de toute les associations');
-      dispatch(setAllAssociationsFromApi());
-    },
-    [],
-  ); */
-
   const loading = useSelector((state) => state.associations.loading);
+
   return (
     <Page>
       {loading && <Spinner />}
