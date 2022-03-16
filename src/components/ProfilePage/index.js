@@ -1,5 +1,8 @@
 import "./style.scss";
 
+//* import semantic
+import { Checkbox } from 'semantic-ui-react'
+
 //* import composants
 import Page from 'src/components/Page';
 import { Segment, Icon, Image, Message } from 'semantic-ui-react';
@@ -56,6 +59,8 @@ const ProfilePage = () => {
     website,
   } = useSelector((state) => state.user.currentUser.data);
 
+  const { species } = useSelector((state) => state.user.currentUser);
+
   const { editionMode } = useSelector((state) => state.user.profile);
 
   //* infos depuis le state associations
@@ -83,6 +88,7 @@ const ProfilePage = () => {
 
   const handleEditionMode = () => {
     dispatch(changeEditionMode(true));
+    console.log(species);
   }
 
   //* regex de vérification d'email :
@@ -395,6 +401,13 @@ const ProfilePage = () => {
 
               </span>
 
+            </div>
+
+            <div className="profile__contact-coord-species">
+            <p className="profile__contact-coord-species-title">Espèces</p>
+              <Checkbox label='Cheval' defaultChecked/>
+              <Checkbox label='Lapin' defaultChecked/>
+              <Checkbox label='Chat' />
             </div>
           </div>
         </div>

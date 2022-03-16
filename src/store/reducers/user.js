@@ -60,6 +60,11 @@ export const initialState = {
   spinner: false,
   currentUser: { 
     data: {},
+    species: [
+      {name: "Lapin"},
+      {name: "Cheval"
+      }
+    ],
     token: '',
     roleUser: '',
   },

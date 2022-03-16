@@ -10,7 +10,9 @@ import {
   insertSearchResultToState,
   setLoadingSpinner,
   SET_ALL_ASSOCIATIONS_FROM_API,
+  SET_ALL_SPECIES_FROM_API,
   insertAllAssociationsOnState,
+  insertAllSpeciesOnState,
   LOAD_ASSOC_BY_SLUG,
   insertAssocBySlugOnState,
   setLoadingSlug,
@@ -136,6 +138,16 @@ const associationMiddleware = (store) => (next) => (action) => {
           .get(`${finalURL}/api/user/associations`)
           .then((response) => {
             store.dispatch(insertAllAssociationsOnState(response.data));
+          });
+        next(action);
+        break;
+      
+      case SET_ALL_SPECIES_FROM_API:
+        store.dispatch(setLoadingSpinner());
+        axios
+          .get(`${finalURL}/api/species`)
+          .then((response) => {
+            store.dispatch(insertAllSpeciesOnState(response.data));
           });
         next(action);
         break;

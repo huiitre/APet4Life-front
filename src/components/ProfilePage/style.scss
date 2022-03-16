@@ -119,6 +119,21 @@
         top: -44px;
         // width: 0;
       }
+
+      &-species {
+        display: flex;
+        flex-direction: column;
+        margin-top: 1rem;
+        
+        &-title {
+          color: black;
+        }
+        
+        * {
+          margin-top: 1rem;
+        }
+
+      }
       
       &-item {
         display: flex;
@@ -204,7 +219,9 @@
       display: flex;
       &-coord {
         align-self: center;
-        &-infos {
+        flex-wrap: nowrap;
+        &-infos,
+        &-location {
           margin-right: 2rem;
         }
       }
@@ -230,10 +247,14 @@
   }
   .profile {
     position: relative;
+
+    &__content {
+      width: 900px;
+    }
     &__contact {
-      align-self: baseline;
+      // align-self: baseline;
       &-coord {
-        align-self: baseline;
+        // align-self: baseline;
       }
     }
 
@@ -254,7 +275,7 @@
     }
 
     &__content {
-      margin: 3rem;
+      margin: 3rem 1rem;
       margin-left: 20rem;
     }
   }

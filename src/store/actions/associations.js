@@ -62,6 +62,7 @@ export const setLoadingSpinner = () => ({
   type: SET_LOADING_SPINNER,
 });
 
+//! LISTE ASSOCIATIONS
 //* ACTION TYPE SET_ALL_ASSOCIATIONS_FROM_API
 export const SET_ALL_ASSOCIATIONS_FROM_API = 'SET_ALL_ASSOCIATIONS_FROM_API';
 //* ACTION CREATOR setAllAssociationsFromApi
@@ -76,6 +77,24 @@ export const insertAllAssociationsOnState = (assocList) => ({
   type: INSERT_ALL_ASSOCIATIONS_ON_STATE,
   assocList,
 });
+
+//! LISTE ESPECES
+//* ACTION TYPE SET_ALL_SPECIES_FROM_API
+export const SET_ALL_SPECIES_FROM_API = 'SET_ALL_SPECIES_FROM_API';
+//* ACTION CREATOR setAllSpeciesFromApi
+export const setAllSpeciesFromApi = () => ({
+  type: SET_ALL_SPECIES_FROM_API,
+});
+
+//* ACTION TYPE INSERT_ALL_SPECIES_ON_STATE
+export const INSERT_ALL_SPECIES_ON_STATE = 'INSERT_ALL_SPECIES_ON_STATE';
+//* ACTION CREATOR insertAllSpeciesOnState
+export const insertAllSpeciesOnState = (speciesList) => ({
+  type: INSERT_ALL_SPECIES_ON_STATE,
+  speciesList,
+});
+
+
 
 //* ACTION TYPE LOAD_ASSOC_BY_SLUG
 export const LOAD_ASSOC_BY_SLUG = 'LOAD_ASSOC_BY_SLUG';

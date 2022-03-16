@@ -29,6 +29,8 @@ export const initialState = {
   loading: false,
   //? liste de toute les associations du site (page /associations)
   allAssociations: [],
+  //? liste de toute les espèces du site
+  allSpecies: [],
   //? résultat de recherche des assocs
   assocList: [],
   //? liste des régions depuis api.gouv
