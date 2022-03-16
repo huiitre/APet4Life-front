@@ -8,6 +8,7 @@ import {
   INSERT_SEARCH_RESULT_TO_STATE,
   SET_LOADING_SPINNER,
   INSERT_ALL_ASSOCIATIONS_ON_STATE,
+  INSERT_ALL_SPECIES_ON_STATE,
   INSERT_ASSOC_BY_SLUG_ON_STATE,
   SET_LOADING_SLUG,
   SET_IS_EMPTY,
@@ -127,6 +128,14 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         allAssociations: action.assocList,
+        loading: false,
+      }
+    }
+
+    case INSERT_ALL_SPECIES_ON_STATE: {
+      return {
+        ...state,
+        allSpecies: action.speciesList,
         loading: false,
       }
     }

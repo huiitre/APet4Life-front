@@ -16,7 +16,7 @@ import ModalDelete from "./modalDelete";
 //* imports react
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import classNames from "classnames";
 
 //* import actions
@@ -29,12 +29,24 @@ import {
   // setModalSuccess,
 } from "../../store/actions/user";
 
+import {
+  setAllSpeciesFromApi
+} from "../../store/actions/associations"
+
 
 //* composant ProfilePage : page de profil
 const ProfilePage = () => {
-
+  
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  useEffect(
+    () => {
+      console.log('appel de toute les espèces');
+      dispatch(setAllSpeciesFromApi());
+    },
+    [],
+  );
 
   //* hook custom qui gère l'affichage d'erreur
   const [isError, setIsError] = useState(false);
@@ -60,6 +72,7 @@ const ProfilePage = () => {
   } = useSelector((state) => state.user.currentUser.data);
 
   const { species } = useSelector((state) => state.user.currentUser);
+  const assocSpecies = species.map((item) => item.name);
 
   const { editionMode } = useSelector((state) => state.user.profile);
 
@@ -67,6 +80,7 @@ const ProfilePage = () => {
   const {
     departmentList,
     regionsList,
+    allSpecies,
   } = useSelector((state) => state.associations);
 
   
@@ -89,6 +103,8 @@ const ProfilePage = () => {
   const handleEditionMode = () => {
     dispatch(changeEditionMode(true));
     console.log(species);
+    console.log(assocSpecies);
+    console.log(allSpecies);
   }
 
   //* regex de vérification d'email :
@@ -405,9 +421,37 @@ const ProfilePage = () => {
 
             <div className="profile__contact-coord-species">
             <p className="profile__contact-coord-species-title">Espèces</p>
-              <Checkbox label='Cheval' defaultChecked/>
-              <Checkbox label='Lapin' defaultChecked/>
-              <Checkbox label='Chat' />
+
+            {!editionMode &&
+              species.map((item) => (
+                <p>{item.name}</p>
+              ))
+            }
+
+            {editionMode &&
+              //* on map sur le tableau des espèces de l'assoc pour les mettre en CHECKED
+              
+              species.map((item) => (
+                <Checkbox
+                  label={item.name}
+                  defaultChecked
+                />
+              ))}
+
+              {editionMode &&
+              //* on map sur le tableau de toutes les espèces
+              //* en les filtrant pour enlever les espèces de l'association
+              //* pour qu'elles ne soient pas checked
+              allSpecies
+                .filter((item) => !assocSpecies.includes(item.name))
+                .map((item) => (
+                  <Checkbox
+                    label={item.name}
+                  />
+                ))
+              }
+              
+
             </div>
           </div>
         </div>
