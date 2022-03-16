@@ -7,7 +7,6 @@ import "react-image-lightbox/style.css"; // This only needs to be imported once 
 import React, { useRef, useState } from "react";
 
 const Adopted = () => {
-  const refPicture = useRef([React.createRef(), React.createRef()]);
 
   const [isOpen, setIsOpen] = useState(false);
   const [currentPicture, setCurrentPicture] = useState();
@@ -47,7 +46,6 @@ const Adopted = () => {
                     <img
                       src={require(`../../assets/img/adopted/${item.picture}`)}
                       onClick={openPicture}
-                      ref={refPicture}
                     />
                   </div>
                   <div className="element__name">
