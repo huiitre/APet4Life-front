@@ -23,9 +23,6 @@ const Adopted = () => {
   };
   const handleClose = (evt) => {
     setIsOpen(false);
-    console.log('close', evt);
-    console.log('fermeture', evt.pageY);
-    console.log('fermeture', currentY);
     window.scrollTo({
       top: (positionY - currentY),
       left: 0,
