@@ -8,7 +8,7 @@ import { useLocation } from "react-router";
 import Spinner from 'src/components/Spinner';
 
 const Associations = () => {
-  //! possiblement inutile car le dispatch est déjà fait dans App
+  //! on le fait ici, c'est mieux que de l'appeler une seule fois depuis app/
   const dispatch = useDispatch();
   useState(
     () => {
