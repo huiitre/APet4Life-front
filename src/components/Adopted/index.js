@@ -26,7 +26,7 @@ const Adopted = () => {
     window.scrollTo({
       top: (positionY - currentY),
       left: 0,
-      behavior: 'smooth'
+      behavior: 'auto'
     });
   }
   return (
