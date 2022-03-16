@@ -423,9 +423,11 @@ const ProfilePage = () => {
             <p className="profile__contact-coord-species-title">Espèces</p>
 
             {!editionMode &&
-              species.map((item) => (
-                <p>{item.name}</p>
-              ))
+            <ol>
+              {species.map((item) => (
+                <li className="profile__contact-coord-species-item">{item.name}</li>
+              ))}
+            </ol>
             }
 
             {editionMode &&
