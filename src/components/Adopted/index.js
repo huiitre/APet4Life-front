@@ -4,25 +4,37 @@ import adopted from "../../data/adopted";
 import Separator from "src/components/Separator";
 import Lightbox from "react-image-lightbox";
 import "react-image-lightbox/style.css"; // This only needs to be imported once in your app
-import { useState } from "react";
+import React, { useRef, useState } from "react";
 
 const Adopted = () => {
+  const refPicture = useRef([React.createRef(), React.createRef()]);
+
   const [isOpen, setIsOpen] = useState(false);
   const [currentPicture, setCurrentPicture] = useState();
+  const [currentY, setCurrentY] = useState();
+  const [positionY, setPositionY] = useState();
 
   const openPicture = (evt) => {
-    console.log("open picture", evt.target.src);
     setIsOpen(true)
     setCurrentPicture(evt.target.src);
-    
+    console.log('ouverture', evt.clientY);
+    setPositionY(evt.pageY);
+    setCurrentY(evt.clientY);
   };
-  console.log(currentPicture);
+  const handleClose = (evt) => {
+    setIsOpen(false);
+    window.scrollTo({
+      top: (positionY - currentY),
+      left: 0,
+      behavior: 'smooth'
+    });
+  }
   return (
     <Page className="adopted-page">
       {isOpen && (
         <Lightbox
           mainSrc={currentPicture}
-          onCloseRequest={() => setIsOpen(false)}
+          onCloseRequest={handleClose}
         />
       )}
       {!isOpen && (
@@ -35,6 +47,7 @@ const Adopted = () => {
                     <img
                       src={require(`../../assets/img/adopted/${item.picture}`)}
                       onClick={openPicture}
+                      ref={refPicture}
                     />
                   </div>
                   <div className="element__name">
