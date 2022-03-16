@@ -46,7 +46,9 @@ const App = () => {
       //* on effectue l'action grâce à la méthode associée (load...()) qui est dans le dossier store/actions/...
       dispatch(loadRegionsFromApi());
       dispatch(loadDepartmentsFromApi());
-      dispatch(setAllAssociationsFromApi());
+
+      //! en commentaire car on préfère faire l'appel directement depuis la page /associations
+      // dispatch(setAllAssociationsFromApi());
 
       // const { data: stateData, token: stateToken } = useSelector((state) => state.user.currentUser);
 
