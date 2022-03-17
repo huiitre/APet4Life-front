@@ -140,7 +140,7 @@ const Signup = () => {
         scrollToTopWhenError();
       } else if (password !== passwordConfirm) {
         dispatch(setIsError(true));
-        dispatch(setErrorMessageOnSignupForm('Les deux mot de passe doivent correspondre !'));
+        dispatch(setErrorMessageOnSignupForm('Les deux mots de passe doivent correspondre !'));
         scrollToTopWhenError();
       } else {
         setIsError(false);
@@ -165,7 +165,7 @@ const Signup = () => {
         scrollToTopWhenError();
       } else if (password !== passwordConfirm) {
         dispatch(setIsError(true));
-        dispatch(setErrorMessageOnSignupForm('Les deux mot de passe doivent correspondre !'));
+        dispatch(setErrorMessageOnSignupForm('Les deux mots de passe doivent correspondre !'));
         scrollToTopWhenError();
       } else {
         dispatch(setIsError(false));
