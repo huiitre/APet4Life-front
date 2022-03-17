@@ -47,6 +47,7 @@ const Signup = () => {
   useEffect(() => {
     dispatch(loadRegionsFromApi());
     dispatch(loadDepartmentsFromApi());
+    dispatch(clearSignupForm());
   }, []);
 
   //* on récupère useDispatch()

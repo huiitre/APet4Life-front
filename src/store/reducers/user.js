@@ -247,6 +247,8 @@ const reducer = (state = initialState, action = {}) => {
           name: '',
           firstname: '',
           lastname: '',
+          isError: false,
+          errorMessage: null,
         },
       };
     }
