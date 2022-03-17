@@ -33,6 +33,12 @@ import {
 } from "../../store/actions/location";
 
 const Signup = () => {
+  const scrollToTopWhenError = () => {
+    window.scrollTo({
+      top: 0,
+    });
+  }
+
   //* hook custom qui gère l'affichage d'erreur si un ou plusieurs champs ne sopnt pas rempli
   // const [isError, setIsError] = useState(false);
   const isError = useSelector((state) => state.user.signup.isError);
@@ -127,12 +133,15 @@ const Signup = () => {
       ) {
         dispatch(setIsError(true));
         dispatch(setErrorMessageOnSignupForm('Veuillez remplir tous les champs afin de finaliser votre inscription'));
+        scrollToTopWhenError();
       } else if (password.length < 5) {
         dispatch(setIsError(true));
         dispatch(setErrorMessageOnSignupForm('Votre mot de passe doit contenir au minimum 6 caractères'));
+        scrollToTopWhenError();
       } else if (password !== passwordConfirm) {
         dispatch(setIsError(true));
         dispatch(setErrorMessageOnSignupForm('Les deux mot de passe doivent correspondre !'));
+        scrollToTopWhenError();
       } else {
         setIsError(false);
         dispatch(sendSignUp());
@@ -149,12 +158,15 @@ const Signup = () => {
       ) {
         dispatch(setIsError(true));
         dispatch(setErrorMessageOnSignupForm('Veuillez remplir tous les champs afin de finaliser votre inscription'));
+        scrollToTopWhenError();
       } else if (password.length < 5) {
         dispatch(setIsError(true));
         dispatch(setErrorMessageOnSignupForm('Votre mot de passe doit contenir au minimum 6 caractères'));
+        scrollToTopWhenError();
       } else if (password !== passwordConfirm) {
         dispatch(setIsError(true));
         dispatch(setErrorMessageOnSignupForm('Les deux mot de passe doivent correspondre !'));
+        scrollToTopWhenError();
       } else {
         dispatch(setIsError(false));
         dispatch(sendSignUp());
@@ -213,6 +225,13 @@ const Signup = () => {
                   : "Vous êtes une association"}
               </div>
               <form className="signup__form" onSubmit={handleSubmit}>
+                <div className={classNamesError}>
+                  <Message
+                    error
+                    header={errorMessage}
+                    content=""
+                  />
+                </div>
                 <div className="form__container form__mail">
                   <label className="signup__label form__mail-label">
                     Adresse mail
@@ -340,13 +359,7 @@ const Signup = () => {
                     onClick={handleShowPreviousForm}
                   />
                 </div>
-                <div className={classNamesError}>
-                  <Message
-                    error
-                    header={errorMessage}
-                    content=""
-                  />
-                </div>
+                
               </form>
             </>
           )}
