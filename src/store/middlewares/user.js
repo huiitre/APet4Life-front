@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios, { Axios } from 'axios';
 // import { useDispatch } from 'react-redux';
 import { setLoadingSpinner } from '../actions/associations';
 
@@ -95,6 +95,11 @@ const userMiddleware = (store) => (next) => (action) => {
 
             //* on les stocke également dans le state
             store.dispatch(insertTokenToState(response.data.token, response.data.data));
+
+            // à la connexion, on définit une header par défaut
+            // sur notre instance d'axios.
+            // => conséquence : ce header sera automatiquement envoyé dans le futures requeêtes
+            axios.defaults.headers.common.Authorization = `Bearer ${response.data.token}`;
 
             // on affiche le modal success
             store.dispatch(setModalSuccess(true));
