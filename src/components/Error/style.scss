@@ -120,6 +120,10 @@ div.box {
   background-image: url(src/assets/img/benji-head.png);
   animation: 2s linear 3s infinite alternate upAndDown;
 }
+.romain {
+  background-image: url(src/assets/img/romain-head.png);
+  animation: 2s linear 1.5s infinite alternate upAndDown;
+}
 
 //! GESTION DES POSITIONS
 .anim__jb {
@@ -141,6 +145,10 @@ div.box {
 .anim__benji {
   right: 5%;
   top: -27%;
+}
+.anim__romain {
+  left: 43%;
+  top: 230px;
 }
 
 @keyframes upAndDown {
