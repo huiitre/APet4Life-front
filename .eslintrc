@@ -5,6 +5,10 @@
     "browser": true
   },
   "rules": {
+    //? permet de ne pas avoir à faire un ctrl + S pour retirer les erreurs rouge des fichiers au lancement de VSCODE (problème rencontré uniquement sous windows)
+    //? "'error" avant changement le 05/03 à 01:30
+    "linebreak-style": "error", "process.platform" === "win32" ? "windows" : "unix"],
+
     "brace-style": ["error", "stroustrup"],
     "no-param-reassign": [
       "error",

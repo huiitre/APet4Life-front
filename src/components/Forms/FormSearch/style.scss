@@ -1,0 +1,80 @@
+@use "src/styles/vars";
+
+.container__search {
+  border-radius: 10px;
+  text-align: center;
+  // background-color: vars.$color-light-main;
+  box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24),
+    0 17px 50px 0 rgba(0, 0, 0, 0.19);
+  color: vars.$color-dark-main;
+  text-shadow: 0px 0px 1px black;
+  line-height: 2rem;
+  padding: 1rem 0;
+  max-width: 800px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative; // important pour background du form
+  overflow: hidden; // important pour background du form
+
+  p {
+    margin: 1rem 0;
+  }
+}
+
+.form {
+  padding-bottom: 1.2rem;
+  align-items: center;
+  position: relative; // important pour bg du form
+  z-index: 2; // important pour bg du form
+  
+  &__region-department {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  //* gestion du background img https://www.digitalocean.com/community/tutorials/how-to-change-a-css-background-images-opacity-fr
+  &__background {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: auto;
+    opacity: 0.3;
+    margin-top: -8em;
+  }
+  & .btn {
+    min-width: 14rem;
+  }
+
+  &__error {
+    height: 1rem;
+    width: 20rem;
+    margin: 1rem auto 0;
+    text-align: center;
+    color: red;
+  }
+
+}
+
+@media screen and (max-width: 767px) {
+  .form__background {
+    display: none;
+  }
+  .container__search {
+    background-color: #a5bfce;
+  }
+}
+
+@media screen and (min-width: 768px) {
+
+  .form {
+    
+    &__region-department {
+      flex-direction: row;
+      flex-wrap: nowrap;
+    }
+  }
+}

@@ -1,0 +1,261 @@
+@use "src/styles/vars";
+
+.ui.segment.profile {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
+.ui.page.modals {
+  margin-top: 0;
+}
+.none {
+  display: none;
+}
+//? cible l'input DANS le composant semantic-ui
+.ui.input.select-none input {
+  display: none;
+}
+.profile {
+
+  &__picture,
+  &__title,
+  &__description,
+  &__contact,
+  &__contact-coord {
+    margin-bottom: 1.5rem;
+  }
+
+  &__picture {
+    display: flex;
+    justify-content: center;
+
+    & .ui.medium.rounded.image {
+      max-width: 100%;
+      margin-top: 6rem;;
+    }
+  }
+  &__title {
+    font-size: 2rem;
+    text-align: center;
+
+    span:first-child {
+      margin-right: 0.5rem;
+    }
+  }
+  &__description {
+    text-align: justify;
+  }
+
+  &__buttons {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn__edit {
+    margin: 1rem;
+  }
+
+  &__contact {
+    display: flex;
+    flex-direction: column;
+    // align-items: center;
+    justify-content: center;
+    align-self: center;
+    max-width: 768px;
+    line-height: 2rem;
+    width: 100%;
+
+    &-coord {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      width: 100%;
+      // flex-direction: column;
+      color: white;
+      
+      &-infos {
+        background: linear-gradient(vars.$color-light-main, vars.$color-dark-main);
+        display: inline-block;
+        height: 24rem;
+        margin-top: 55px;
+        padding: 1rem;
+        position: relative;
+        width: 17.8rem;
+        box-shadow: 10px 5px 5px black;
+      }
+
+      &-infos:before {
+        border-bottom: 44px solid vars.$color-light-main;
+        border-left: 142px solid transparent;
+        border-right: 142px solid transparent;
+        content: "";
+        left: 0;
+        position: absolute;
+        top: -44px;
+      }
+      
+      &-location {
+        background:linear-gradient(vars.$color-light-main, vars.$color-dark-main);
+        display: inline-block;
+        height: 24rem;
+        margin-top: 55px;
+        padding: 1rem;
+        position: relative;
+        width: 17.8rem;
+        box-shadow: 10px 5px 5px black;
+
+      }
+
+      &-location:before {
+        border-bottom: 44px solid vars.$color-light-main;
+        border-left: 142px solid transparent;
+        border-right: 142px solid transparent;
+        content: "";
+        // height: 0;
+        left: 0;
+        position: absolute;
+        top: -44px;
+        // width: 0;
+      }
+      
+      &-item {
+        display: flex;
+        flex-direction: column;
+
+        a:hover {
+          color: #D4E3EB;
+        }
+
+        &-title {
+          margin-right: 0.3rem;
+          margin-top: 0.4rem;
+
+          span {
+            text-decoration: underline vars.$color-dark-blue;
+            text-decoration-thickness: 0.2rem;
+            background-color: vars.$color-dark-main;
+          }
+
+        }
+      }
+    }
+  }
+}
+
+.field {
+  height: 1.8rem;
+  margin-bottom: 0.2rem;
+  max-width: 12rem;
+}
+
+//? cible le composant semantic-ui utilisé pour les select
+.ui.input.field {
+  margin: 0 auto;
+
+  input {
+    border-radius: 10px;
+    border: solid 2px lightgray
+  }
+
+  input:hover {
+    background-color: #D4E3EB;
+  }
+
+
+}
+
+.description-field {
+  height: 8rem;
+  max-width: 20rem;
+}
+
+.title-field {
+  height: 3rem;
+  max-width: 50rem;
+}
+
+@media screen and (max-width: 400px) {
+  .profile {
+    &__contact-coord {
+      &--mail,
+      &--phone,
+      &--website {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .profile {
+    &__content {
+      display: flex;
+      flex-direction: column;
+    }
+    &__description {
+      max-width: 768px;
+      align-self: center;
+    }
+    &__contact {
+      display: flex;
+      &-coord {
+        align-self: center;
+        &-infos {
+          margin-right: 2rem;
+        }
+      }
+      
+    }
+  }
+
+  .description-field {
+    width: 20rem;
+  }
+  
+  .title-field {
+    width: 20rem;
+  }
+}
+
+@media screen and (min-width: 1300px) {
+  .ui.segment.profile {
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .profile {
+    position: relative;
+    &__contact {
+      align-self: baseline;
+      &-coord {
+        align-self: baseline;
+      }
+    }
+
+    &__buttons {
+      // position: absolute;
+      display: flex;
+      width: 100%;
+      justify-content: center;
+    }
+
+    .btn__edit {
+      margin: 1rem;
+    }
+
+    &__picture {
+      position: absolute;
+      margin-top: 5rem;
+    }
+
+    &__content {
+      margin: 3rem;
+      margin-left: 20rem;
+    }
+  }
+}

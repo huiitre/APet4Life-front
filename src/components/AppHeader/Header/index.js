@@ -1,16 +1,135 @@
-import './style.scss';
-import logo from 'src/assets/img/logo-pet.jpg';
-import Button from 'src/components/Button';
+/* eslint-disable max-len */
+import "./style.scss";
+import logo from "src/assets/img/logo.png";
 
-const Header = () => (
-  <div className="header">
-    <img className="header__logo" src={logo} alt="logo" />
-    <h1 className="header__title">A Pet 4 Life</h1>
-    <div className="header__user">
-      <Button name="CONNEXION" className="header__user-button button--connexion" />
-      <Button name="INSCRIPTION" className="header__user-button button--subscribe" />
+//* imports react router
+import { useNavigate } from "react-router";
+import { Link } from 'react-router-dom';
+
+//* import composants
+import FormLogin from 'src/components/Forms/FormLogin';
+import Button from "src/components/Button";
+import ModalSuccess from "src/components/ModalSuccess";
+import ModalError from "src/components/ModalError";
+
+//* import action
+import {
+  changeLoginFormDisplay,
+  logout,
+  setModalSuccess,
+  setModalError,
+} from "../../../store/actions/user";
+
+//* import gestion des hooks react
+import { useDispatch, useSelector } from "react-redux";
+
+
+const Header = () => {
+
+  // version avec hook d'état :
+  // const [isOpen, setIsOpen] = useState(false);
+  // setIsOpen(!isOpen);
+
+  const navigate = useNavigate(); 
+  const dispatch = useDispatch();
+
+  //* on récupère des informations du state
+  const isOpen = useSelector((state) => state.user.loginForm.isOpen);
+  const userLogged = useSelector((state) => state.user.userLogged);
+  
+  //* méthodes handle
+  const handleNavigateToSignupPage = () => {
+    navigate('/inscription');
+  };
+
+  const handleConnexionClick = () => {
+    dispatch(changeLoginFormDisplay());
+  }
+
+  const handleLogoutClick = () => {
+    dispatch(logout());
+    navigate('/');
+  }
+
+  const handleNavigateToProfilePage =() => {
+    navigate('/profil');
+  }
+
+  const handleCloseModalSuccess = () => {
+    dispatch(setModalSuccess(false));
+    navigate('/');
+  };
+
+  const handleCloseModalError = () => {
+    dispatch(setModalError(false));
+  };
+
+  //* textes à afficher en modal
+  const modalTextSuccess = `Vous êtes bien connecté`;
+  const modalTextError = `Erreur de mail ou de mot de passe`;
+
+  return (
+    <div className="header">
+      <ModalSuccess
+        closeModal={handleCloseModalSuccess}
+        modalText={modalTextSuccess}
+        modalHeader="Bonjour !"
+      />
+      <ModalError
+        closeModal={handleCloseModalError}
+        modalText={modalTextError}
+        modalHeader="Echec"
+      />
+      
+      {/* //* logo cliquable qui ramène vers l'accueil */}
+      <Link to="/">
+        <img className="header__title" src={logo} alt="title" />
+      </Link>
+
+      {/* //* popup de login     */}
+      {isOpen && <FormLogin />}
+      <div className="header__user">
+
+        {/* //* si l'utilisateur n'est pas connecté, on affiche les boutons de connexion et d'incription */}
+        {/* //* on importe le composant Button en lui passant en props (paramètres) des informations pour rendre le bouton "unique" par rapport aux autres */}
+        {!userLogged &&
+          <>
+            <Button
+              onClick={handleConnexionClick}
+              type=""
+              name="Connexion"
+              className="btn--signin"
+            /> 
+            <Button
+              onClick={handleNavigateToSignupPage}
+              type=""
+              name="Inscription"
+              className="btn--signup"
+            />
+          </>
+        }
+
+         {/* //* si l'utilisateur est connecté, on affiche les boutons de profil et de déconnexion */}
+        {userLogged &&
+          <>
+            <Button
+              onClick={handleNavigateToProfilePage}
+              type=""
+              name="Profil"
+              className="btn--signup"
+            />
+            <Button
+              onClick={handleLogoutClick}
+              type=""
+              name="Déconnexion"
+              className="btn--signin"
+            />
+          </>
+        }
+
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default Header;

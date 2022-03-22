@@ -1,0 +1,43 @@
+@use "src/styles/vars";
+
+.textarea {
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  padding: 10px 15px;
+  margin: 0 1rem;
+  // width: 14rem;
+  display: block;
+  margin: 0 auto;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+//todo textarea pour le formulaire de contact page assoc
+.form__contact--assoc > .contact__form-textarea {
+  height: 10rem;
+  background-color: rgba(28, 101, 140, 0.1);
+  border: none;
+  border-radius: 0;
+  width: 14rem;
+}
+
+.form__contact--assoc > .contact__form-textarea:focus {
+  background-color: rgba(28, 101, 140, 0.2);
+  //* couleur bordure quand curseur dans le textarea
+  outline-color: vars.$color-dark-main;
+}
+
+//todo textarea pour le formulaire de contact page contact/team
+.form-contact-team > .contact__form-textarea {
+  height: 10rem;
+  background-color: rgba(255, 255, 255, 0.6);
+  border: none;
+  border-radius: 0;
+}
+
+.form-contact-team > .contact__form-textarea:focus {
+  background-color: white;
+  outline-color: vars.$color-dark-main;
+}

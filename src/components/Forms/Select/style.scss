@@ -1,0 +1,21 @@
+@use "src/styles/vars";
+
+.ui.input.form__select {
+
+  justify-content: center;
+  & input {
+    color: vars.$color-text;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    padding: 10px 15px;
+    background-color: vars.$color-dark-main;
+    margin: 0 1rem;
+    // width: 14rem;
+    max-width: 14rem;
+    margin-top: 0.5rem;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}

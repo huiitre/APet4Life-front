@@ -1,0 +1,18 @@
+@use "src/styles/vars";
+
+.separator {
+  content: '';
+  background-color: vars.$color-light-main;
+  margin: 3rem auto;
+  height: 2px;
+  border-radius: 10px;
+  width: 50%;
+}
+
+.home__separator {
+ // style CSS particulier au home
+}
+
+.list__separator {
+  // style CSS particulier au list
+}

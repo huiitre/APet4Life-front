@@ -1,0 +1,18 @@
+@use "src/styles/vars";
+
+.result-number {
+  font-size: 1.4rem;
+  text-align: center;
+  color: vars.$color-dark-main
+}
+
+@media screen and (min-width: 768px) {
+
+  .search__list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+

@@ -1,0 +1,132 @@
+@use "src/styles/vars";
+
+
+//todo style générique au field
+.form__input {
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  padding: 10px 15px;
+  margin: 0 1rem;
+  width: 14rem;
+  display: block;
+  margin: 0 auto;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+
+  &::placeholder {
+    color: vars.$color-light-gray;
+  }
+}
+/* Chrome, Safari, Edge, Opera */
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+//todo field pour le formulaire de recherche
+.form__search {
+  background-color: vars.$color-dark-main;
+  color: vars.$color-text;
+  
+  &::placeholder {
+    color: vars.$color-light-main;
+  }
+}
+
+//todo field pour le formulaire de login
+.form__login-field {
+  height: 2rem;
+  font-size: 1rem;
+  outline: 0;
+  border-width: 0 0 2px;
+  border-color: vars.$color-dark-main;
+  color: vars.$color-dark-main;
+  font-weight: bold;
+  background-color: transparent;
+  border-radius: 0;
+}
+
+.form__login-field:focus {
+  background-color: rgba(28, 101, 140, 0.2);
+}
+
+.form__login-field::placeholder {
+  color: rgba(28, 101, 140, 0.5);
+  font-weight: 300;
+}
+
+//todo field pour le formulaire de login mobile
+.form__login-page-field {
+  margin-bottom: 0.8rem;
+  outline: 0;
+  border-width: 0 0 2px;
+  border-color: vars.$color-dark-main;
+  color: white;
+  font-weight: bold;
+  background-color: transparent;
+  border-radius: 0;
+}
+
+.form__login-page-field:focus {
+  background-color: rgba(165, 191, 206, 0.5);
+}
+
+.form__login-page-field::placeholder {
+  color: rgba(165, 191, 206);
+  font-weight: 300;
+}
+
+//todo field pour le formulaire de contact page assoc
+.form__contact--assoc > .contact__form-field {
+  outline: 0;
+  border-width: 0 0 2px;
+  border-color: vars.$color-dark-main;
+  color: vars.$color-dark-main;
+  background-color: transparent;
+  border-radius: 0;
+  width: 14rem;
+}
+
+.form__contact--assoc > .contact__form-field:focus {
+  background-color: rgba(28, 101, 140, 0.2);
+}
+
+.form__contact--assoc > .contact__form-field::placeholder {
+  color: rgba(28, 101, 140, 0.6);
+}
+
+.form__contact--assoc > .contact__form-field:hover::placeholder {
+  color: vars.$color-dark-main;
+}
+
+
+//todo field pour le formulaire de contact page contact/team
+.form-contact-team > .contact__form-field {
+  outline: 0;
+  border-width: 0 0 2px;
+  border-color: vars.$color-dark-main;
+  color: vars.$color-dark-main;
+  background-color: transparent;
+  border-radius: 0;
+}
+
+.form-contact-team > .contact__form-field:focus {
+  background-color: rgba(28, 101, 140, 0.2);
+}
+
+.form-contact-team > .contact__form-field::placeholder {
+  color: rgba(28, 101, 140, 0.6);
+}
+
+.form-contact-team > .contact__form-field:hover::placeholder {
+  color: vars.$color-dark-main;
+}

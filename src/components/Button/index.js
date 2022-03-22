@@ -1,15 +1,27 @@
 import './style.scss';
 import PropTypes from 'prop-types';
-import { Button as ButtonSem } from 'semantic-ui-react';
 
-const Button = ({ name, className }) => (
-  <button type="button" className={className}><span>{name}</span></button>
-  // <ButtonSem className={className} color="">{name}</ButtonSem>
-);
-
+//* composant button réutilisable, en lui passant diverses informations en props
+const Button = ({
+  type, name, className, onClick,
+}) =>
+  // const preventDefault = (evt) => {
+  //   evt.preventDefault();
+  // };
+  (
+    <button onClick={onClick} type={type} className={`btn ${className}`}><span>{name}</span></button>
+  );
 Button.propTypes = {
+  type: PropTypes.string,
   name: PropTypes.string.isRequired,
-  className: PropTypes.string.isRequired,
+  className: PropTypes.string,
+  onClick: PropTypes.func,
+};
+
+Button.defaultProps = {
+  type: '',
+  className: '',
+  onClick: null,
 };
 
 export default Button;

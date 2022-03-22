@@ -2,36 +2,48 @@
 
 /* ANIMATION BURGER */
 .navbar {
-  position: fixed;
   display:flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem;
+  padding: 0.5rem 1rem;
   width: 100%;
   min-height: 35px;
-  background: linear-gradient(vars.$color-dark-green, vars.$color-darker-green);
-  color: #FFF;
-  z-index: 1000;
-  // background: linear-gradient(#e66465, #9198e5);
+  background: linear-gradient(vars.$color-light-main, vars.$color-dark-main);
+  border-bottom: 2px solid vars.$color-dark-main;
+  color: vars.$color-text;
+  z-index: 9;
 
-  &__logo { 
+  &__logo {
     width: 40px;
-    height: 40px;  
+    height: 40px;
   }
 
   &__title { 
-    font-size: 1.2rem;  
+    
   }
   
   &__links { 
-    display: flex;   
+    display: flex;  
   }
-
+  
   &__link {
-    padding: 0 0.3rem;
+    padding: 0 2rem;
     color:inherit;
     text-decoration: none;
+  }
+
+  &__link:hover {
+    color: vars.$color-hover;
+  }
+
+  &__item {
+    transition-duration: 350ms;
+  }
+
+  &__item:hover {
+    transform: scale(1.2);
+    transition-duration: 350ms;
   }
 
   &__burger {
@@ -46,10 +58,10 @@
 @media screen and (max-width:767px) {
   .navbar {
     top: 0px;
+    background: vars.$color-light-yellow;
 
     &__title {
-      position: fixed;
-      left: calc(50% - 40px);
+      max-height: 60px;
     }
 
   }
@@ -62,9 +74,9 @@
     width: 0;
     height: 100vh;
     padding: 2rem;
-    background: vars.$color-darker-green;
+    background: vars.$color-dark-main;
     visibility: hidden;
-    transition: all .8s ease-out;    
+    transition: all .8s ease-out;
   }
   
   .show-nav .navbar__links {    
@@ -120,6 +132,16 @@
     position: absolute;
     left: 0;
   }
+  .hide-nav .burger-bar,
+  .hide-nav .burger-bar::after,
+  .hide-nav .burger-bar::before {
+    background: vars.$color-dark-main;
+  }
+  .show-nav .burger-bar,
+  .show-nav .burger-bar::after,
+  .show-nav .burger-bar::before {
+    background: #FFF;
+  }
   .burger-bar::before {
     transform: translateY(-12px)
   }
@@ -160,12 +182,15 @@
   .show-nav .slideInDown-5 {
     transition: all 1.4s ease-out;
   }
+  .show-nav .slideInDown-6 {
+    transition: all 1.5s ease-out;
+  }
 }
 
 @media screen and (min-width: 768px) {
   .navbar {
     justify-content: center;
-    top: 55px;
+    top: 65px;
 
     &__logo {
       display: none;
@@ -176,7 +201,7 @@
     }
 
     &__title { 
-      display: none;  
+      display: none;
     }
   }
 }

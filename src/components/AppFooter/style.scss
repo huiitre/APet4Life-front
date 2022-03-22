@@ -2,27 +2,39 @@
 
 // taille mobile : 
 .footer {
-  background: linear-gradient(vars.$color-dark-green, vars.$color-darker-green);
+  background: linear-gradient(vars.$color-light-main, vars.$color-dark-main);
   bottom: 0;
   width: 100%;
   display: flex;
   justify-content: center;
   flex-direction: column;
+  z-index: 3;
 
   &__links {
     display: flex;
     padding: 1rem 1rem;
-    color: #fff;
+    color: vars.$color-text;
     text-align: center;
     justify-content: center;
     flex-direction: column;
+
+    a, p, li {
+      margin-top: 0.5rem;
+    }
+
+    a, li {
+      transition-duration: 350ms;
+    }
+
+    a:hover,
+    li:nth-child(n+2):hover {
+      color: vars.$color-hover;
+      cursor: pointer;
+      transform: scale(1.1);
+      transition-duration: 350ms;
+    }
   }
 
-  &__links > a,
-  &__links > p {
-    margin-top: 0.5rem;
-    
-  }
   
   &__socials {
     
@@ -32,6 +44,11 @@
     &-item {
       width: 3rem;
       margin: 0 1rem;
+      // transition: all .2s ease-in-out //! ne fonctionne pas
+    }
+
+    &-item:hover {
+      cursor: pointer;
     }
   }
 
@@ -40,12 +57,12 @@
     &__links {
       flex-direction: row;
       align-items: center;
+
+      p, a {
+        margin: 0 1rem;
+      }
     }
-    &__links > a,
-    &__links > p {
-      margin: 0 1rem;
-      // align-self: center; remplace le align-items: center; du parent (&__links)
-    }
+
   }
 
   @media screen and (min-width: 768px) {

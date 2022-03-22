@@ -1,0 +1,11 @@
+@use 'src/styles/vars';
+
+.associations .ui.segment {
+  margin: 0 auto;
+}
+.result-message {
+  font-size: 2rem;
+  text-align: center;
+  color: vars.$color-dark-main;
+  margin-bottom: 2rem;
+}
