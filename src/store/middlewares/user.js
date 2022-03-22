@@ -42,7 +42,7 @@ const userMiddleware = (store) => (next) => (action) => {
       if (token && userId) {
         axiosInstance.defaults.headers.common.Authorization = `Bearer ${token}`;
         axiosInstance
-          .get(`/api/secure/user/profile/${userId}`)
+          .get(`/api/secure/user/profile`)
           .then((response) => {
             if (response.status === 200) {
               console.log(response.status);
@@ -53,13 +53,20 @@ const userMiddleware = (store) => (next) => (action) => {
                 insertTokenToState(response.data.token, {...response.data})
               );
             } else {
+              //! redondance avec le .catch()
               console.log(response.status);
               axiosInstance.defaults.headers.common.Authorization = null;
               store.dispatch(clearState());
               localStorage.clear();
             }
+          })
+          .catch((error) => {
+            axiosInstance.defaults.headers.common.Authorization = null;
+            store.dispatch(clearState());
+            localStorage.clear();
           });
       } else {
+        //! redondance avec le .catch()
         axiosInstance.defaults.headers.common.Authorization = null;
         store.dispatch(clearState());
         localStorage.clear();
