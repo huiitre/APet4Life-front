@@ -44,7 +44,7 @@ const ProfilePage = () => {
     firstname,
     lastname,
     siret,
-    username,    // email
+    mail,    // email
     adress,
     zipcode,
     city,
@@ -96,10 +96,10 @@ const ProfilePage = () => {
   
   const handleUpdateInfos = () => {
 
-    if (username === "") {
+    if (mail === "") {
       setIsError(true);
       setErrorMessage("Merci de renseigner un email");
-    } else if (!regexEmail.test(username)) {
+    } else if (!regexEmail.test(mail)) {
       setIsError(true);
       setErrorMessage("Merci de renseigner un email valide");
     } else if (region === "") {
@@ -232,13 +232,13 @@ const ProfilePage = () => {
                   <Icon name="mail outline" size="large" />
                   <span>E-mail</span>
                 </span>
-                <a className={editionMode ? 'none' : ''} href={`mailto:${username}`}>{username}</a>
+                <a className={editionMode ? 'none' : ''} href={`mailto:${mail}`}>{mail}</a>
                 <Field
                   className={editionMode ? 'field' : 'field none'}
                   type="email"
                   placeholder="nom"
                   name="username"
-                  value={username}
+                  value={mail}
                   onChange={handleChangeField}
                 />
               </span>

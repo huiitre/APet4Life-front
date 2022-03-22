@@ -170,6 +170,7 @@ const reducer = (state = initialState, action = {}) => {
       }
     }
     case INSERT_TOKEN_TO_STATE: {
+      console.log(action.data);
       return {
         ...state,
         currentUser: {
@@ -192,6 +193,7 @@ const reducer = (state = initialState, action = {}) => {
           ...state.currentUser,
           token: "",
           data: {},
+          roleUser: "",
         },
         userLogged: false,
       }
