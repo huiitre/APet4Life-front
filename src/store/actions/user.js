@@ -194,3 +194,10 @@ export const setIsError = (bool) => ({
   type: SET_IS_ERROR,
   bool,
 });
+
+//* ACTION TYPE LOAD_USER_INFOS
+export const LOAD_USER_INFOS = 'LOAD_USER_INFOS';
+//* ACTION CREATOR loadUserInfos
+export const loadUserInfos = () => ({
+  type: LOAD_USER_INFOS,
+});
