@@ -213,17 +213,19 @@ const userMiddleware = (store) => (next) => (action) => {
     case DELETE_USER_INFOS:
       {
         //* on récupère l'ID du current user du state
-        const {
+        //! on a plus besoin de l'id
+        /* const {
           user: {
             currentUser: {
               data: { id },
             },
           },
-        } = store.getState();
+        } = store.getState(); */
 
         //* on fait la requête DELETE API
-        axios
-          .delete(`${finalURL}/api/secure/user/delete/${id}`)
+        //? ajout de axiosInstance pour insérer le token dans le bearer de la requête
+        axiosInstance
+          .delete(`/api/secure/user/delete`)
           .then((response) => {
             //* on vide le state et le localstorage
             store.dispatch(clearState());
