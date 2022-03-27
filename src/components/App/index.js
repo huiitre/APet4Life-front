@@ -14,6 +14,7 @@ import Signup from "src/components/Signup";
 import Signin from "src/components/Signin";
 import Associations from "src/components/Associations";
 import ContactUs from "src/components/ContactUs";
+import Adopted from "../Adopted";
 
 //* import react reduc
 import { Route, Routes } from "react-router-dom";
@@ -30,7 +31,6 @@ import {
   setAllAssociationsFromApi,
   setLoadingSpinner,
 } from "../../store/actions/associations";
-import Adopted from "../Adopted";
 
 // == Composant
 const App = () => {
