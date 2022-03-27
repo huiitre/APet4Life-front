@@ -45,8 +45,6 @@ const userMiddleware = (store) => (next) => (action) => {
           .get(`/api/secure/user/profile`)
           .then((response) => {
             if (response.status === 200) {
-              console.log(response.status);
-              console.log(response.data);
 
               //* on les stocke également dans le state
               store.dispatch(
@@ -54,7 +52,6 @@ const userMiddleware = (store) => (next) => (action) => {
               );
             } else {
               //! redondance avec le .catch()
-              console.log(response.status);
               axiosInstance.defaults.headers.common.Authorization = null;
               store.dispatch(clearState());
               localStorage.clear();
