@@ -201,3 +201,10 @@ export const LOAD_USER_INFOS = 'LOAD_USER_INFOS';
 export const loadUserInfos = () => ({
   type: LOAD_USER_INFOS,
 });
+
+//* ACTION TYPE SET_LOADING_SPINNER_LOGIN
+export const SET_LOADING_SPINNER_LOGIN = 'SET_LOADING_SPINNER_LOGIN';
+//* ACTION CREATOR setLoadingSpinnerLogin
+export const setLoadingSpinnerLogin = () => ({
+  type: SET_LOADING_SPINNER_LOGIN,
+});

@@ -21,6 +21,7 @@ import {
   setIsError,
   changeEditionMode,
   LOAD_USER_INFOS,
+  setLoadingSpinnerLogin,
 } from "../actions/user";
 
 const devURL = "http://localhost:3000";
@@ -127,7 +128,7 @@ const userMiddleware = (store) => (next) => (action) => {
     //* envoi des infos de login et récupération + sauvegarde du token
     case LOGIN:
       {
-        console.log("login dans middleware");
+        store.dispatch(setLoadingSpinnerLogin());
         const {
           user: {
             loginForm: { mail: loginMail, password: loginPassword },
@@ -146,13 +147,13 @@ const userMiddleware = (store) => (next) => (action) => {
             localStorage.setItem("roleUser", response.data.data.roles[0]);
             localStorage.setItem("id_user", response.data.data.id);
 
+            // on affiche le modal success
+            store.dispatch(setModalSuccess(true));
+
             //* on les stocke également dans le state
             store.dispatch(
               insertTokenToState(response.data.token, response.data.data)
             );
-
-            // on affiche le modal success
-            store.dispatch(setModalSuccess(true));
 
             //* on clear le formulaire de signup
             store.dispatch(clearLoginForm());

@@ -24,6 +24,7 @@ import {
   SET_LOADING_SPINNER_USER,
   SET_ERROR_MESSAGE_ON_SIGNUP_FORM,
   SET_IS_ERROR,
+  SET_LOADING_SPINNER_LOGIN,
 } from '../actions/user';
 
 import { SET_LOADING_SPINNER } from '../actions/associations';
@@ -52,13 +53,14 @@ export const initialState = {
     picture: 'https://placekitten.com/500/600',
   },
   loginForm: {
+    loading: false,
     isOpen: false,
     mail: '',
     password: '',
   },
   userLogged: false,
   spinner: false,
-  currentUser: { 
+  currentUser: {
     data: {},
     token: '',
     roleUser: '',
@@ -182,6 +184,7 @@ const reducer = (state = initialState, action = {}) => {
         loginForm: {
           ...state.loginForm,
           isOpen: false,
+          loading: !state.loginForm.loading,
         },
         userLogged: true,
       }
@@ -286,6 +289,15 @@ const reducer = (state = initialState, action = {}) => {
         signup: {
           ...state.signup,
           isError: action.bool,
+        }
+      }
+    }
+    case SET_LOADING_SPINNER_LOGIN: {
+      return {
+        ...state,
+        loginForm: {
+          ...state.loginForm,
+          loading: !state.loginForm.loading,
         }
       }
     }
