@@ -22,6 +22,7 @@ import {
   changeEditionMode,
   LOAD_USER_INFOS,
   setLoadingSpinnerLogin,
+  spinnerLoadUser,
 } from "../actions/user";
 
 const devURL = "http://localhost:3000";
@@ -34,13 +35,12 @@ const axiosInstance = axios.create({
 });
 
 const token = localStorage.getItem("TOKEN");
-const userId = localStorage.getItem("id_user");
-const roleUser = localStorage.getItem('roleUser');
 
 const userMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case LOAD_USER_INFOS:
-      if (token && userId) {
+      store.dispatch(spinnerLoadUser(true));
+      if (token) {
         axiosInstance.defaults.headers.common.Authorization = `Bearer ${token}`;
         axiosInstance
           .get(`/api/secure/user/profile`)
@@ -51,23 +51,21 @@ const userMiddleware = (store) => (next) => (action) => {
               store.dispatch(
                 insertTokenToState(response.data.token, {...response.data})
               );
+              store.dispatch(spinnerLoadUser(false));
             } else {
               //! redondance avec le .catch()
               axiosInstance.defaults.headers.common.Authorization = null;
               store.dispatch(clearState());
               localStorage.clear();
+              store.dispatch(spinnerLoadUser(false));
             }
-          })
-          .catch((error) => {
-            axiosInstance.defaults.headers.common.Authorization = null;
-            store.dispatch(clearState());
-            localStorage.clear();
           });
       } else {
         //! redondance avec le .catch()
         axiosInstance.defaults.headers.common.Authorization = null;
         store.dispatch(clearState());
         localStorage.clear();
+        store.dispatch(spinnerLoadUser(false));
       }
 
       next(action);
@@ -128,7 +126,7 @@ const userMiddleware = (store) => (next) => (action) => {
     //* envoi des infos de login et récupération + sauvegarde du token
     case LOGIN:
       {
-        store.dispatch(setLoadingSpinnerLogin());
+        store.dispatch(setLoadingSpinnerLogin(true));
         const {
           user: {
             loginForm: { mail: loginMail, password: loginPassword },
@@ -140,12 +138,9 @@ const userMiddleware = (store) => (next) => (action) => {
             password: loginPassword,
           })
           .then((response) => {
-            console.log(response.data);
             axiosInstance.defaults.headers.common.Authorization = `Bearer ${response.data.token}`;
             //* on stocke le token et les data utilisateur dans le localstorage
             localStorage.setItem("TOKEN", response.data.token);
-            localStorage.setItem("roleUser", response.data.data.roles[0]);
-            localStorage.setItem("id_user", response.data.data.id);
 
             // on affiche le modal success
             store.dispatch(setModalSuccess(true));
@@ -197,7 +192,7 @@ const userMiddleware = (store) => (next) => (action) => {
 
         //* on fait la requête PATCH API
         axiosInstance
-          .patch(`/api/secure/user/update/${userId}`, data)
+          .patch(`/api/secure/user/update`, data)
           .then((response) => {
             //? manque de contenu UX quand la modification est réussie, pareil quand il y a une erreur
           })

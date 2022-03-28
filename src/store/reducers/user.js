@@ -25,6 +25,7 @@ import {
   SET_ERROR_MESSAGE_ON_SIGNUP_FORM,
   SET_IS_ERROR,
   SET_LOADING_SPINNER_LOGIN,
+  SPINNER_LOAD_USER,
 } from '../actions/user';
 
 import { SET_LOADING_SPINNER } from '../actions/associations';
@@ -59,11 +60,13 @@ export const initialState = {
     password: '',
   },
   userLogged: false,
-  spinner: false,
+  //? ????
+  // spinner: false,
   currentUser: {
     data: {},
     token: '',
     roleUser: '',
+    spinnerLoadUser: false,
   },
   profile: {
     editionMode: false,
@@ -172,7 +175,6 @@ const reducer = (state = initialState, action = {}) => {
       }
     }
     case INSERT_TOKEN_TO_STATE: {
-      console.log(action.data);
       return {
         ...state,
         currentUser: {
@@ -184,7 +186,7 @@ const reducer = (state = initialState, action = {}) => {
         loginForm: {
           ...state.loginForm,
           isOpen: false,
-          loading: !state.loginForm.loading,
+          loading: false,
         },
         userLogged: true,
       }
@@ -297,7 +299,16 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         loginForm: {
           ...state.loginForm,
-          loading: !state.loginForm.loading,
+          loading: action.bool,
+        }
+      }
+    }
+    case SPINNER_LOAD_USER: {
+      return {
+        ...state,
+        currentUser: {
+          ...state.currentUser,
+          spinnerLoadUser: action.bool,
         }
       }
     }

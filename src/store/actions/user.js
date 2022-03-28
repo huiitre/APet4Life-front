@@ -205,6 +205,15 @@ export const loadUserInfos = () => ({
 //* ACTION TYPE SET_LOADING_SPINNER_LOGIN
 export const SET_LOADING_SPINNER_LOGIN = 'SET_LOADING_SPINNER_LOGIN';
 //* ACTION CREATOR setLoadingSpinnerLogin
-export const setLoadingSpinnerLogin = () => ({
+export const setLoadingSpinnerLogin = (bool) => ({
   type: SET_LOADING_SPINNER_LOGIN,
+  bool,
+});
+
+//* ACTION TYPE SPINNER_LOAD_USER
+export const SPINNER_LOAD_USER = 'SPINNER_LOAD_USER';
+//* ACTION CREATOR spinnerLoadUser
+export const spinnerLoadUser = (bool) => ({
+  type: SPINNER_LOAD_USER,
+  bool,
 });
