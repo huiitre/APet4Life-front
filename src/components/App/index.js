@@ -69,7 +69,8 @@ const App = () => {
   return (
     <div className="app">
       {/* //* tant que loadUser n'est pas chargé, on affiche le spinner */}
-      {spinnerLoadUser && <Spinner />}
+      {/* //* ou alors on affiche rien, c'est aussi bien */}
+      {spinnerLoadUser && ''}
       {!spinnerLoadUser && (
         <>
           {/* //* on affiche en premier le composant Appheader */}
