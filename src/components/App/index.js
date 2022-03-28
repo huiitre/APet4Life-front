@@ -15,6 +15,7 @@ import Signin from "src/components/Signin";
 import Associations from "src/components/Associations";
 import ContactUs from "src/components/ContactUs";
 import Adopted from "../Adopted";
+import Spinner from "src/components/Spinner";
 
 //* import react reduc
 import { Route, Routes } from "react-router-dom";
@@ -26,7 +27,11 @@ import {
   loadDepartmentsFromApi,
   loadRegionsFromApi,
 } from "../../store/actions/location";
-import { setCurrentUser, loadUserInfos, clearState } from "../../store/actions/user";
+import {
+  setCurrentUser,
+  loadUserInfos,
+  clearState,
+} from "../../store/actions/user";
 import {
   setAllAssociationsFromApi,
   setLoadingSpinner,
@@ -36,6 +41,10 @@ import {
 const App = () => {
   //* on récupère useDispatch() de react-redux
   const dispatch = useDispatch();
+
+  const spinnerLoadUser = useSelector(
+    (state) => state.user.currentUser.spinnerLoadUser
+  );
 
   //* au tout premier rendu de la page, on charge les api des régions et des départements
   useEffect(() => {
@@ -59,45 +68,51 @@ const App = () => {
   const { userLogged } = useSelector((state) => state.user);
   return (
     <div className="app">
-      {/* //* on affiche en premier le composant Appheader */}
-      <AppHeader />
-      {/* //* on déclare nos routes */}
-      <Routes>
-        {/* //* route accueil (url: /) */}
-        <Route path="/" element={<Home />} />
-        {/* //* route résultat de recherches (url: /search) */}
-        <Route path="/search" element={<SearchResult />} />
-        //* route vers la page de l'association (par son slug)
-        <Route path="/association/:slug" element={<Assoc />} />
-        {/* //* route vers le formulaire d'inscription */}
-        <Route
-          path="/inscription"
-          element={
-            <Signup />
-            // <ModalSuccess />
-          }
-        />
-        {/* //* route vers la page de connexion (mobile only) */}
-        <Route
-          path="/connexion"
-          element={
-            <Signin />
-            // <ModalSuccess />
-          }
-        />
-        {/* //* route vers la page de profil seulement si user connecté */}
-        {userLogged && <Route path="/profil" element={<ProfilePage />} />}
-        {/* //* route vers la liste des associations */}
-        <Route path="/associations" element={<Associations />} />
-        {/* //* route vers la page des animaux adoptés */}
-        <Route path="/adoptes" element={<Adopted />} />
-        {/* //* route vers la page de contact */}
-        <Route path="/contact" element={<ContactUs />} />
-        {/* //* route vers la 404 */}
-        <Route path="*" element={<Error />} />
-      </Routes>
-      {/* //* on affiche le composant AppFooter à la toute fin */}
-      <AppFooter />
+      {/* //* tant que loadUser n'est pas chargé, on affiche le spinner */}
+      {spinnerLoadUser && <Spinner />}
+      {!spinnerLoadUser && (
+        <>
+          {/* //* on affiche en premier le composant Appheader */}
+          <AppHeader />
+          {/* //* on déclare nos routes */}
+          <Routes>
+            {/* //* route accueil (url: /) */}
+            <Route path="/" element={<Home />} />
+            {/* //* route résultat de recherches (url: /search) */}
+            <Route path="/search" element={<SearchResult />} />
+            //* route vers la page de l'association (par son slug)
+            <Route path="/association/:slug" element={<Assoc />} />
+            {/* //* route vers le formulaire d'inscription */}
+            <Route
+              path="/inscription"
+              element={
+                <Signup />
+                // <ModalSuccess />
+              }
+            />
+            {/* //* route vers la page de connexion (mobile only) */}
+            <Route
+              path="/connexion"
+              element={
+                <Signin />
+                // <ModalSuccess />
+              }
+            />
+            {/* //* route vers la page de profil seulement si user connecté */}
+            {userLogged && <Route path="/profil" element={<ProfilePage />} />}
+            {/* //* route vers la liste des associations */}
+            <Route path="/associations" element={<Associations />} />
+            {/* //* route vers la page des animaux adoptés */}
+            <Route path="/adoptes" element={<Adopted />} />
+            {/* //* route vers la page de contact */}
+            <Route path="/contact" element={<ContactUs />} />
+            {/* //* route vers la 404 */}
+            <Route path="*" element={<Error />} />
+          </Routes>
+          {/* //* on affiche le composant AppFooter à la toute fin */}
+          <AppFooter />
+        </>
+      )}
     </div>
   );
 };

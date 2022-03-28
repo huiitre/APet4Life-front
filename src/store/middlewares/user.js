@@ -39,7 +39,7 @@ const token = localStorage.getItem("TOKEN");
 const userMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case LOAD_USER_INFOS:
-      // store.dispatch(spinnerLoadUser(true));
+      store.dispatch(spinnerLoadUser(true));
       if (token) {
         axiosInstance.defaults.headers.common.Authorization = `Bearer ${token}`;
         axiosInstance
@@ -51,13 +51,13 @@ const userMiddleware = (store) => (next) => (action) => {
               store.dispatch(
                 insertTokenToState(response.data.token, {...response.data})
               );
-              // store.dispatch(spinnerLoadUser(false));
+              store.dispatch(spinnerLoadUser(false));
             } else {
               //! redondance avec le .catch()
               axiosInstance.defaults.headers.common.Authorization = null;
               store.dispatch(clearState());
               localStorage.clear();
-              // store.dispatch(spinnerLoadUser(false));
+              store.dispatch(spinnerLoadUser(false));
             }
           });
       } else {
@@ -65,7 +65,7 @@ const userMiddleware = (store) => (next) => (action) => {
         axiosInstance.defaults.headers.common.Authorization = null;
         store.dispatch(clearState());
         localStorage.clear();
-        // store.dispatch(spinnerLoadUser(false));
+        store.dispatch(spinnerLoadUser(false));
       }
 
       next(action);
