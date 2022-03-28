@@ -11,10 +11,10 @@ import { logout } from "../../../store/actions/user";
 
 const Nav = () => {
   const dispatch = useDispatch();
-  
+
   //* hook d'état gérant l'ouverture et fermeture du burger menu
   const [showLinks, setShowLinks] = useState(false);
-  
+
   //* récupération d'informations depuis le state
   const { userLogged } = useSelector((state) => state.user);
   const {
@@ -81,31 +81,52 @@ const Nav = () => {
               </Link>
             </li>
           </>
-        ) : 
-        //* sinon, si l'utilisateur est connecté, on affiche les liens de back office (si l'user est ADMIN), déconnexion et profil
-        (
+        ) : (
+          //* sinon, si l'utilisateur est connecté, on affiche les liens de back office (si l'user est ADMIN), déconnexion et profil
           <>
-            {roleUser === "ROLE_ADMIN" && (
-              <li className="navbar__item slideInDown-4">
-                <a
-                  href="http://localhost:3000/back"
-                  className="navbar__link"
-                  onClick={closeBurger}
-                >
-                  Backoffice
-                </a>
-              </li>
+            {roleUser === "ROLE_ADMIN" ? (
+              <>
+                <li className="navbar__item slideInDown-4">
+                  <a
+                    href="http://localhost:3000/back"
+                    className="navbar__link"
+                    onClick={closeBurger}
+                  >
+                    Backoffice
+                  </a>
+                </li>
+                <li className="navbar__item slideInDown-5">
+                  <Link
+                    to="/"
+                    className="navbar__link"
+                    onClick={closeBurgerLogout}
+                  >
+                    Déconnexion
+                  </Link>
+                </li>
+              </>
+            ) : (
+              <>
+                <li className="navbar__item slideInDown-6">
+                  <Link
+                    to="/profil"
+                    className="navbar__link"
+                    onClick={closeBurger}
+                  >
+                    Mon profil
+                  </Link>
+                </li>
+                <li className="navbar__item slideInDown-5">
+                  <Link
+                    to="/"
+                    className="navbar__link"
+                    onClick={closeBurgerLogout}
+                  >
+                    Déconnexion
+                  </Link>
+                </li>
+              </>
             )}
-            <li className="navbar__item slideInDown-5">
-              <Link to="/" className="navbar__link" onClick={closeBurgerLogout}>
-                Déconnexion
-              </Link>
-            </li>
-            <li className="navbar__item slideInDown-6">
-              <Link to="/profil" className="navbar__link" onClick={closeBurger}>
-                Mon profil
-              </Link>
-            </li>
           </>
         )}
       </ul>
