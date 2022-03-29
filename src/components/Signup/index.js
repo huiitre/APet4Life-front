@@ -44,9 +44,10 @@ const Signup = () => {
   const isError = useSelector((state) => state.user.signup.isError);
 
   //* useEffect qui va charger la liste des régions et des depts depuis une api public
+  //! redondance avec appels dans app/
   useEffect(() => {
-    dispatch(loadRegionsFromApi());
-    dispatch(loadDepartmentsFromApi());
+    /* dispatch(loadRegionsFromApi());
+    dispatch(loadDepartmentsFromApi()); */
   }, []);
 
   //* on récupère useDispatch()
