@@ -71,6 +71,7 @@ const App = () => {
       {/* //* tant que loadUser n'est pas chargé, on affiche le spinner */}
       {/* //* ou alors on affiche rien, c'est aussi bien */}
       {spinnerLoadUser && ''}
+      {/* //* quand loadUser est terminé, on affiche le reste de la page */}
       {!spinnerLoadUser && (
         <>
           {/* //* on affiche en premier le composant Appheader */}
