@@ -155,6 +155,7 @@ const userMiddleware = (store) => (next) => (action) => {
           })
           .catch((error) => {
             console.log("error", error);
+            store.dispatch(setLoadingSpinnerLogin(false));
 
             // on affiche le modal error
             store.dispatch(setModalError(true));
