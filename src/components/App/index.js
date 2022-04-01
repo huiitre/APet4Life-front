@@ -16,6 +16,7 @@ import Associations from "src/components/Associations";
 import ContactUs from "src/components/ContactUs";
 import Adopted from "../Adopted";
 import Spinner from "src/components/Spinner";
+import CGU from "../CGU";
 
 //* import react reduc
 import { Route, Routes } from "react-router-dom";
@@ -108,6 +109,8 @@ const App = () => {
             <Route path="/adoptes" element={<Adopted />} />
             {/* //* route vers la page de contact */}
             <Route path="/contact" element={<ContactUs />} />
+            {/* //* route vers la page CGU et mentions légales */}
+            <Route path="/mentions-legales" element={<CGU />} />
             {/* //* route vers la 404 */}
             <Route path="*" element={<Error />} />
           </Routes>
