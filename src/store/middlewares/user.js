@@ -40,27 +40,35 @@ const userMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case LOAD_USER_INFOS:
       store.dispatch(spinnerLoadUser(true));
-      if (token) {
+      // console.log(token === null);
+      //? est-ce qu'un token existe en LS ?
+      if (token != null) {
+        //? Si oui, on lance la requête avec le token
+        // console.log('token n\'est pas null');
         axiosInstance.defaults.headers.common.Authorization = `Bearer ${token}`;
         axiosInstance
           .get(`/api/secure/user/profile`)
           .then((response) => {
-            if (response.status === 200) {
-
-              //* on les stocke également dans le state
-              store.dispatch(
-                insertTokenToState(response.data.token, {...response.data})
-              );
-              store.dispatch(spinnerLoadUser(false));
-            } else {
-              //! redondance avec le .catch()
-              axiosInstance.defaults.headers.common.Authorization = null;
-              store.dispatch(clearState());
-              localStorage.clear();
-              store.dispatch(spinnerLoadUser(false));
-            }
+            //? Si le token est toujours valide, on connecte l'user
+            console.log('reponse 200');
+            //* on les stocke également dans le state
+            store.dispatch(
+              insertTokenToState(response.data.token, {...response.data})
+            );
+            store.dispatch(spinnerLoadUser(false));
+          })
+          .catch((error) => {
+            //? Sinon, si le token n'est plus valide, on supprime le token
+            // console.log('token mais non valide');
+            //! redondance avec le .catch()
+            axiosInstance.defaults.headers.common.Authorization = null;
+            store.dispatch(clearState());
+            localStorage.clear();
+            store.dispatch(spinnerLoadUser(false));
           });
       } else {
+        //? il n'y a pas de token en LS, personne n'est connecté
+        // console.log('pas d\'appel');
         //! redondance avec le .catch()
         axiosInstance.defaults.headers.common.Authorization = null;
         store.dispatch(clearState());
