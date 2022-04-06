@@ -110,9 +110,12 @@ const userMiddleware = (store) => (next) => (action) => {
         picture,
       };
 
+      console.log('Données envoyées : ', newUser);
+
       axios
         .post(`${finalURL}/api/user/create`, newUser)
         .then((response) => {
+          console.log('Données reçues : ', response.data);
           //* on coupe le spinner
           store.dispatch(setLoadingSpinnerUser());
           //* on lance le modal
