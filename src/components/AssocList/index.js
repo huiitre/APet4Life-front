@@ -12,7 +12,7 @@ const AssocList = ({ assocList, location }) => {
     <Segment>
       <ul className="list">
         {
-          //* on "boucle" sur le tableau assocList pour générer des éléments JSX pour chaque item parcouru
+          //* on "boucle" sur le tableau assocList pour générer des éléments JSX pour chaques items parcouru
           assocList.map((item) => (
             <div key={item.id}>
               {/* //* composant Link vient de la dépendance react-router-dom
