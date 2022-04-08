@@ -81,7 +81,7 @@ div.box {
   position: absolute; //! obligatoire pour le composant
 }
 .buisson {
-  background-image: url(src/assets/img/bush_1.png);
+  background-image: url("/src/assets/img/bush_1.png");
   background-repeat: no-repeat;
   background-size: contain;
   height: 100%;
@@ -101,27 +101,27 @@ div.box {
 
 //! on ajoute les profs
 .jb {
-  background-image: url(src/assets/img/jb-head.png);
+  background-image: url("/src/assets/img/jb-head.png");
   animation: 2s linear 2.5s infinite alternate upAndDown;
 }
 .steph {
-  background-image: url(src/assets/img/steph-head.png);
+  background-image: url("/src/assets/img/steph-head.png");
   animation: 2s linear 1s infinite alternate upAndDown;
 }
 .baptiste {
-  background-image: url(src/assets/img/baptiste-head.png);
+  background-image: url("/src/assets/img/baptiste-head.png");
   animation: 2s linear 2s infinite alternate upAndDown;
 }
 .pauline {
-  background-image: url(src/assets/img/pauline-head2.png);
+  background-image: url("/src/assets/img/pauline-head2.png");
   animation: 2s linear 3s infinite alternate upAndDown;
 }
 .benji {
-  background-image: url(src/assets/img/benji-head.png);
+  background-image: url("/src/assets/img/benji-head.png");
   animation: 2s linear 3s infinite alternate upAndDown;
 }
 .romain {
-  background-image: url(src/assets/img/romain-head.png);
+  background-image: url("/src/assets/img/romain-head.png");
   animation: 2s linear 1.5s infinite alternate upAndDown;
 }
 
@@ -209,7 +209,7 @@ div.box {
     height: 50%; //50
     background-size: 200%; //200
     background-repeat: no-repeat;
-    background-image: url("src/assets/img/spinner.png");
+    background-image: url("/src/assets/img/spinner.png");
   }
 }
 
