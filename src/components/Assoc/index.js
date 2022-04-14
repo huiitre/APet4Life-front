@@ -114,6 +114,8 @@ const Assoc = () => {
   );
   const isEmpty = useSelector((state) => state.associations.currentAssoc.isEmpty);
 
+  //? possible redondance en déclarant 2 useEffect (à tester) 
+  //? possible de mettre la var isEmpty entre crochets [isEmpty], en paramètre de useEffect à la fin, à tester également
   useEffect(() => {
     if (isEmpty) {
       navigate('/404');

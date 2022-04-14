@@ -12,6 +12,7 @@ import {
   setFieldValueLoginForm,
   login,
 } from "../../../store/actions/user";
+import { Loader } from 'semantic-ui-react';
 
 
 //* composant FormLogin: élément HTML *form* pour gérer la connexion des utilisateurs
@@ -21,8 +22,7 @@ const FormLogin = () => {
   const dispatch = useDispatch();
 
   //* on récupère l'email et le password du state
-  const mail = useSelector((state) => state.user.loginForm.mail);
-  const password = useSelector((state) => state.user.loginForm.password);
+  const {mail, password, loading} = useSelector((state) => state.user.loginForm);
 
   //* submit
   const onSubmit = (event) => {
@@ -60,6 +60,10 @@ const FormLogin = () => {
           name="Go"
           className="form__login-button"
         />
+        {
+          loading && <Loader active />
+        }
+        
       </form>
     </div>
   );

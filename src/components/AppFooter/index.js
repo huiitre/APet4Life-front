@@ -15,7 +15,7 @@ const AppFooter = () => (
     <div>
       <ul className="footer__links">
         <li><p>A Pet 4 Life 2022</p></li>
-        <li><a href="">Mentions légales et CGU</a></li>
+        <li><Link to='/mentions-legales'>Mentions légales et CGU</Link></li>
         <li><Link to='/contact'>Nous contacter</Link></li>
       </ul>
     </div>

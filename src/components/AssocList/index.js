@@ -12,13 +12,14 @@ const AssocList = ({ assocList, location }) => {
     <Segment>
       <ul className="list">
         {
-          //* on "boucle" sur le tableau assocList pour générer des éléments JSX pour chaque item parcouru
+          //* on "boucle" sur le tableau assocList pour générer des éléments JSX pour chaques items parcouru
           assocList.map((item) => (
             <div key={item.id}>
               {/* //* composant Link vient de la dépendance react-router-dom
               //* c'est en gros un lien < href=""> qui communique avec les Routes que nous avons déclarés dans le composant App
               //* dans l'attribut "to", on peut l'url sur laquelle on veut atterir
               //* elle doit correspondre à une route */}
+              
               <Link
                 to={`/association/${item.slug}`}
                 state={{prevPath: location}}
