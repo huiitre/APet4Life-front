@@ -26,7 +26,13 @@ import {
 } from "../actions/user";
 
 //* venir changer ici, si url de dev ou url de prod
-const finalURL = process.env.REACT_APP_API_URL;
+// const finalURL = process.env.REACT_APP_API_URL;
+let finalURL = "";
+if (process.env.NODE_ENV === "development") {
+  finalURL = "http://localhost:3000";
+} else {
+  finalURL = "http://huiitre.fr";
+}
 
 const axiosInstance = axios.create({
   baseURL: finalURL,
@@ -48,10 +54,10 @@ const userMiddleware = (store) => (next) => (action) => {
           .get(`/api/secure/user/profile`)
           .then((response) => {
             //? Si le token est toujours valide, on connecte l'user
-            console.log('reponse 200');
+            console.log("reponse 200");
             //* on les stocke également dans le state
             store.dispatch(
-              insertTokenToState(response.data.token, {...response.data})
+              insertTokenToState(response.data.token, { ...response.data })
             );
             store.dispatch(spinnerLoadUser(false));
           })
@@ -108,12 +114,12 @@ const userMiddleware = (store) => (next) => (action) => {
         picture,
       };
 
-      console.log('Données envoyées : ', newUser);
+      console.log("Données envoyées : ", newUser);
 
       axios
         .post(`${finalURL}/api/user/create`, newUser)
         .then((response) => {
-          console.log('Données reçues : ', response.data);
+          console.log("Données reçues : ", response.data);
           //* on coupe le spinner
           store.dispatch(setLoadingSpinnerUser());
           //* on lance le modal
