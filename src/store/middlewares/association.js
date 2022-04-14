@@ -1,6 +1,5 @@
 /* eslint-disable spaced-comment */
 import axios from 'axios';
-import { Navigate, useNavigate } from 'react-router';
 
 //* import des actions
 import {
