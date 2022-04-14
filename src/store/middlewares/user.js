@@ -25,8 +25,6 @@ import {
   spinnerLoadUser,
 } from "../actions/user";
 
-const devURL = "http://localhost:3000";
-const prodURL = "http://morgane-rabiller-server.eddi.cloud";
 //* venir changer ici, si url de dev ou url de prod
 const finalURL = process.env.REACT_APP_API_URL;
 
