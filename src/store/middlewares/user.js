@@ -23,7 +23,7 @@ import {
   spinnerLoadUser,
 } from "../actions/user";
 
-//* venir changer ici, si url de dev ou url de prod
+//* a venir changer ici, si url de dev ou url de prod
 // const finalURL = process.env.REACT_APP_API_URL;
 let finalURL = "";
 if (process.env.NODE_ENV === "development") {
