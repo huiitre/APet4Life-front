@@ -29,7 +29,8 @@ const associationMiddleware = (store) => (next) => (action) => {
     finalURL = 'http://backoffice.apet4life.huiitre.fr';
   }
 
-  console.log(finalURL);
+  console.log('finalURL', finalURL);
+  console.log('api_url_env', process.env.REACT_APP_API_URL);
 
   switch (action.type) {
     //todo recherche assoc par code postal
