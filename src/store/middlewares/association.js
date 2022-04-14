@@ -19,12 +19,18 @@ import {
 
 //* MIDDLEWARE gérant l'envoi de la requête de recherche (par zipcode OU département OU region)
 const associationMiddleware = (store) => (next) => (action) => {
-  const devURL = 'http://localhost:3000';
-  const prodURL = 'http://morgane-rabiller-server.eddi.cloud';
   //* venir changer ici, si url de dev ou url de prod
-  const finalURL = process.env.REACT_APP_API_URL;
   console.log('environnement : ', process.env.NODE_ENV);
-  console.log('api_url : ', process.env.REACT_APP_API_URL);
+  // console.log('api_url : ', process.env.REACT_APP_API_URL);
+  // const finalURL = process.env.REACT_APP_API_URL;
+  let finalURL = '';
+  if (process.env.NODE_ENV === "development") {
+    finalURL = 'http://localhost:3000';
+  } else {
+    finalURL = 'http://huiitre.fr';
+  }
+
+  console.log(finalURL);
 
   switch (action.type) {
     //todo recherche assoc par code postal
