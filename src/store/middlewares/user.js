@@ -29,7 +29,7 @@ let finalURL = "";
 if (process.env.NODE_ENV === "development") {
   finalURL = "http://localhost:3000";
 } else {
-  finalURL = "http://backoffice.apet4life.huiitre.fr";
+  finalURL = "http://api.apet4life.huiitre.fr";
 }
 
 const axiosInstance = axios.create({
