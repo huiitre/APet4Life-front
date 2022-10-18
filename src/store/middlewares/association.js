@@ -26,7 +26,7 @@ const associationMiddleware = (store) => (next) => (action) => {
   if (process.env.NODE_ENV === "development") {
     finalURL = 'http://localhost:3000';
   } else {
-    finalURL = 'http://api.apet4life.huiitre.fr';
+    finalURL = 'https://api.apet4life.huiitre.fr';
   }
 
   console.log('finalURL', finalURL);
